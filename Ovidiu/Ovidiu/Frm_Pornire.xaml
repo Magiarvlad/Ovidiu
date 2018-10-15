@@ -1,0 +1,23 @@
+﻿<Window x:Class="Ovidiu.Frm_Pornire"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ovidiu"
+        mc:Ignorable="d"
+        Title="Frm_Pornire" Height="279.538" Width="432.615" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid Margin="0,0,2,39" HorizontalAlignment="Right" Width="401">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Left" Width="346" Source="Imagini/Background_.jpg" Margin="22,0,0,14.808">
+            <Image.ContextMenu>
+                <ContextMenu/>
+            </Image.ContextMenu>
+        </Image>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="-28,22,0,-45" TextWrapping="Wrap" Text="   Se incarca aplicatia...." VerticalAlignment="Top" Width="255" Grid.Row="1" Background="#FF1E076A" Foreground="#FFFBFBFB" FontSize="20" IsReadOnly="True"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="218,22,-3,-45" TextWrapping="Wrap" Text="www.e-intrastat.ro" VerticalAlignment="Top" Width="186" Grid.Row="1" Background="#FF1E076A" Foreground="#FFFBFBFB" FontSize="13" FontWeight="Bold" TextDecorations="Underline" TextAlignment="Right" IsReadOnly="True"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,14 @@
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\bin\Debug\Ovidiu.exe.config
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\bin\Debug\Ovidiu.exe
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\bin\Debug\Ovidiu.pdb
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\obj\Debug\App.g.cs
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\obj\Debug\Ovidiu_MarkupCompile.cache
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\obj\Debug\Ovidiu_MarkupCompile.lref
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\obj\Debug\Ovidiu.g.resources
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\obj\Debug\Ovidiu.Properties.Resources.resources
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\obj\Debug\Ovidiu.csproj.GenerateResource.cache
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\obj\Debug\Ovidiu.csproj.CoreCompileInputs.cache
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\obj\Debug\Ovidiu.exe
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\obj\Debug\Ovidiu.pdb
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\obj\Debug\Frm_Pornire.g.cs
+C:\Users\Vlad\source\repos\Ovidiu\Ovidiu\obj\Debug\Frm_Pornire.baml
