@@ -18,15 +18,9 @@ namespace Ovidiu.Miscellaneous
             Process[] processes = Process.GetProcessesByName(procName);
 
             if (processes.Length > 1)
-            {
-               
                 return true;
-            }
             else
-            {
                 return false;
-                // Application.Run(...);
-            }
         }
 
 
