@@ -19,7 +19,7 @@ namespace Ovidiu.Miscellaneous
 
             if (processes.Length > 1)
             {
-               
+                
                 return true;
             }
             else
