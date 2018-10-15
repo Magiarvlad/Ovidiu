@@ -69,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Miscellaneous\ClasaSuport.cs" />
+    <Compile Include="Modules\XML_Operatii.cs" />
+    <Compile Include="Modules\XML_Setari_Default.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -100,8 +102,6 @@
   <ItemGroup>
     <Resource Include="Imagini\Background_.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modules\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

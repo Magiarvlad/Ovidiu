@@ -1,4 +1,5 @@
 ﻿using Ovidiu.Miscellaneous;
+using Ovidiu.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,11 @@ namespace Ovidiu
             if( ClasaSuport.ProgramIsAlreadyRunning() )
             {
                 MessageBox.Show( "Aplicatia ruleaza deja", "Eroare", MessageBoxButton.OK);
+
+                Application.Current.Shutdown();
             }
+
+            XML_Setari_Default.Setari_Default_XML();
         }
     }
 }
