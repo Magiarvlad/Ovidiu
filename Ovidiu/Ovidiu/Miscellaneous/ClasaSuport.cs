@@ -14,25 +14,10 @@ namespace Ovidiu.Miscellaneous
         {
             string procName = Process.GetCurrentProcess().ProcessName;
             Process[] processes = Process.GetProcessesByName(procName);
-
-            if (processes.Length > 1)
-            {
-               
+            if (processes.Length > 1)  
                 return true;
             else
                 return false;
         }
-
-
-
-
-
-
-
-
-
-
     }
-
-    
 }
