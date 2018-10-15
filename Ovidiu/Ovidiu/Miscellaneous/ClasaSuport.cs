@@ -12,7 +12,7 @@ namespace Ovidiu.Miscellaneous
 
         public static bool ProgramIsAlreadyRunning()
         {
-            bool result = false;
+            bool result = false; // true If is running
             string procName = Process.GetCurrentProcess().ProcessName;
             Process[] processes = Process.GetProcessesByName(procName);
             if (processes.Length > 1)  
