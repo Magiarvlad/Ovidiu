@@ -12,12 +12,12 @@ namespace Ovidiu.Miscellaneous
 
         public static bool ProgramIsAlreadyRunning()
         {
+            bool result = false;
             string procName = Process.GetCurrentProcess().ProcessName;
             Process[] processes = Process.GetProcessesByName(procName);
             if (processes.Length > 1)  
-                return true;
-            else
-                return false;
+                result = true;
+            return result
         }
     }
 }
