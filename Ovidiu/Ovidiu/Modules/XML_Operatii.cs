@@ -104,12 +104,12 @@ namespace Ovidiu.Modules
             node_p.AppendChild(new_node);
 
             XmlNode childBankNode1 = node_p.OwnerDocument.CreateTextNode("ChildBlank1");
-            //if ( nrTab == 0 || nrTab == null)
+            if ( nrTab == 0 || nrTab == null)
 
-            // childBankNode1.Value = vbCrLf + " ";
+             childBankNode1.Value = Environment.NewLine+ " ";
 
-            //  else
-            // childBankNode1.Value = vbCrLf + " " + string(nrTab,;
+              else
+             childBankNode1.Value = Environment.NewLine + " " + nrTab +'\t';
 
             node_p.AppendChild(childBankNode1);
         }
