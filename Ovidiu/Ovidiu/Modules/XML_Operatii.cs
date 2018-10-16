@@ -12,50 +12,21 @@ namespace Ovidiu.Modules
     public static class XML_Operatii
     {
 
-        public static bool Creaza_XML(string XML_file, string Nodul, string Elementul, int Valoare, bool OverWrite)
+
+
+        public static XmlNode Citeste_XML( string XML_file, string Nodul, string Element)
         {
-            long NrTab;
-
-            if (Nodul.Substring(Nodul.Length - 1, 1) == "/")
+            if(Nodul.Substring(Nodul.Length - 1, 1) != "/")
             {
-                Nodul = Nodul.Substring(0, Nodul.Length-1);
-                if (Nodul.Split('/').Count() <= 1)
-                    NrTab = 0;
-                else
-                    NrTab = Nodul.Split('/').Count() - 1;
-
-                XmlDocument doc = new XmlDocument();
-                bool success;
-                using (FileStream s = new FileStream("C:\\ProgramData\\E_Intrastat\\Settings.xml", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-                {
-                    XmlNode node_p = doc.SelectSingleNode(Nodul + "/" + Elementul);
-
-
-                    if (node_p.Value==null)
-                    {
-                        //MessageBox.Show("Se poate crea", "Info", MessageBoxButton.OK);
-                        node_p = doc.SelectSingleNode(Nodul);
-                        CreateNode(node_p, Elementul, Valoare, NrTab);
-                        doc.Save("C:\\ProgramData\\E_Intrastat\\Settings.xml");
-                        return true;
-                    }
-                    else
-                        if( OverWrite == true)
-                    {
-                        Actualizare_XML(XML_file, Nodul, Elementul, Valoare, false);
-                        return true;
-                    }
-
-                }
-
-                //LoadData.Document = doc;
-
-                return true;
+                Nodul = Nodul + "/";
             }
-            else
-                return false;
-
+            XmlDocument doc = new XmlDocument();
+            XmlNode node_p = doc.SelectSingleNode(Nodul + Element);
+            return node_p;
         }
+
+
+       
 
         private static void Actualizare_XML(string xML_file, string nodul, string elementul, int valoare, bool v)
         {
@@ -81,6 +52,51 @@ namespace Ovidiu.Modules
 
         }
 
+        public static bool Creaza_XML(string XML_file, string Nodul, string Elementul, int Valoare, bool OverWrite)
+        {
+            long NrTab;
+
+            if (Nodul.Substring(Nodul.Length - 1, 1) == "/")
+            {
+                Nodul = Nodul.Substring(0, Nodul.Length - 1);
+                if (Nodul.Split('/').Count() <= 1)
+                    NrTab = 0;
+                else
+                    NrTab = Nodul.Split('/').Count() - 1;
+
+                XmlDocument doc = new XmlDocument();
+                bool success;
+                using (FileStream s = new FileStream("C:\\ProgramData\\E_Intrastat\\Settings.xml", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                {
+                    XmlNode node_p = doc.SelectSingleNode(Nodul + "/" + Elementul);
+
+
+                    if (node_p.Value == null)
+                    {
+                        //MessageBox.Show("Se poate crea", "Info", MessageBoxButton.OK);
+                        node_p = doc.SelectSingleNode(Nodul);
+                        CreateNode(node_p, Elementul, Valoare, NrTab);
+                        doc.Save("C:\\ProgramData\\E_Intrastat\\Settings.xml");
+                        return true;
+                    }
+                    else
+                        if (OverWrite == true)
+                    {
+                        Actualizare_XML(XML_file, Nodul, Elementul, Valoare, false);
+                        return true;
+                    }
+
+                }
+
+                //LoadData.Document = doc;
+
+                return true;
+            }
+            else
+                return false;
+
+        }
+
         private static void CreateNode(XmlNode node_p, string elementul, int valoare, long nrTab)
         {
             XmlNode new_node = node_p.OwnerDocument.CreateElement(elementul);
@@ -96,6 +112,17 @@ namespace Ovidiu.Modules
             // childBankNode1.Value = vbCrLf + " " + string(nrTab,;
 
             node_p.AppendChild(childBankNode1);
+        }
+
+
+        private static bool Sterge_XML(string XML_file, string Nodul, string Elementul)
+        {
+
+            XmlDocument doc = new XmlDocument();
+            XmlNode node_p = doc.SelectSingleNode(Nodul + Elementul);
+            node_p.ParentNode.RemoveChild(node_p);
+            doc.Save("C:\\ProgramData\\E_Intrastat\\Settings.xml");
+            return true;
         }
     }
 }
