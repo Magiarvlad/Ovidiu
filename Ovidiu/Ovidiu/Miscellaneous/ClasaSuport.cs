@@ -19,5 +19,14 @@ namespace Ovidiu.Miscellaneous
                 result = true;
             return result;
         }
+
+        public static void StartProgramByFileName(string fileName, bool asAdministrator = false)
+        {
+            Process proc = new Process();
+            proc.StartInfo.FileName = fileName;
+            if (asAdministrator = true)
+                proc.StartInfo.Verb = "runas";
+            proc.Start();
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="Frm_Pornire" Height="279.538" Width="432.615" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="Frm_Pornire" Height="279.538" Width="432.615" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowStyle="None" Loaded="Frm_Pornire_Loaded">
     <Grid Margin="0,0,2,39" HorizontalAlignment="Right" Width="401">
         <Grid.RowDefinitions>
             <RowDefinition Height="55*"/>

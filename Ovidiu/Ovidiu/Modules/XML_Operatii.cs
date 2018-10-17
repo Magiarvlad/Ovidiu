@@ -124,5 +124,12 @@ namespace Ovidiu.Modules
             doc.Save("C:\\ProgramData\\E_Intrastat\\Settings.xml");
             return true;
         }
+
+        public static bool Verifica_Fisier(string filePath)
+        {
+            bool result = false;
+            // here check if the file is correct
+            return result;
+        }
     }
 }

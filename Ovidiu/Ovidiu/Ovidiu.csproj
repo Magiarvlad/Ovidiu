@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -69,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Miscellaneous\ClasaSuport.cs" />
+    <Compile Include="Modules\UpdatesHelper.cs" />
     <Compile Include="Modules\XML_Operatii.cs" />
     <Compile Include="Modules\XML_Setari_Default.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
