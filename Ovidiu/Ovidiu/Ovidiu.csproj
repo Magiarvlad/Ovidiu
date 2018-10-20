@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EU\EUConst.cs" />
     <Compile Include="Frm_Pornire.xaml.cs">
       <DependentUpon>Frm_Pornire.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -70,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Miscellaneous\ClasaSuport.cs" />
+    <Compile Include="Modules\CONSTANTE.cs" />
     <Compile Include="Modules\UpdatesHelper.cs" />
     <Compile Include="Modules\XML_Operatii.cs" />
     <Compile Include="Modules\XML_Setari_Default.cs" />

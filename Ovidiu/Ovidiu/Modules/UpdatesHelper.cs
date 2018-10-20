@@ -10,7 +10,7 @@ namespace Ovidiu.Modules
     {
         public static string Verifica_Update_Versiune(string appVersion, bool smthElse)
         {
-            return "0" // 0  IF does not exist
+            return "0";// 0  IF does not exist
         }
     }
 }

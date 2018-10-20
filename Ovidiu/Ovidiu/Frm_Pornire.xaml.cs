@@ -45,8 +45,10 @@ namespace Ovidiu
             string numeFisierVers = string.Empty;
             try
             {
-                // Determin locatia unde este fisierul Settings.XML
-                Settings_XML_File = Environment.CurrentDirectory + @"\E_Intrastat'Settings.xml";
+                // Determin locatia unde este fisierul Settings.XML      
+               string path= Environment.GetFolderPath(Environment.SpecialFolder.System, Environment.SpecialFolderOption.None);
+                // Settings_XML_File = Environment.CurrentDirectory + @"\E_Intrastat'Settings.xml";
+                Settings_XML_File = path + @"\E_Intrastat'Settings.xml";
                 if (!XML_Operatii.Verifica_Fisier(Settings_XML_File))
                 {
                     MessageBox.Show("EROARE identificare fisier setari: " + Settings_XML_File + " nu exista");

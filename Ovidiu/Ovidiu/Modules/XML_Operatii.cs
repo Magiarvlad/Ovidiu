@@ -28,7 +28,7 @@ namespace Ovidiu.Modules
 
        
 
-        private static void Actualizare_XML(string xML_file, string nodul, string elementul, int valoare, bool v)
+        private static void Actualizare_XML(string xML_file, string nodul, string elementul, string valoare, bool v)
         {
             if (nodul.Substring(nodul.Length-1, 1) != "/")
                 nodul = nodul + "/";
@@ -52,7 +52,7 @@ namespace Ovidiu.Modules
 
         }
 
-        public static bool Creaza_XML(string XML_file, string Nodul, string Elementul, int Valoare, bool OverWrite)
+        public static bool Creaza_XML(string XML_file, string Nodul, string Elementul, string Valoare, bool OverWrite)
         {
             long NrTab;
 
@@ -97,7 +97,7 @@ namespace Ovidiu.Modules
 
         }
 
-        private static void CreateNode(XmlNode node_p, string elementul, int valoare, long nrTab)
+        private static void CreateNode(XmlNode node_p, string elementul, string valoare, long nrTab)
         {
             XmlNode new_node = node_p.OwnerDocument.CreateElement(elementul);
             new_node.Value = valoare.ToString();
