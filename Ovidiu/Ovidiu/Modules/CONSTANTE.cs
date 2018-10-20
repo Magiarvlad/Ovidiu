@@ -11,5 +11,6 @@ namespace Ovidiu.Modules
     {
         public static string Setting_XML_file="";
         public static EUConst eu = new EUConst();
+        public static bool UseFormat=false;
     }
 }

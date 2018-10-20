@@ -67,6 +67,11 @@ namespace Ovidiu
                     Call Citeste_FileLocation
                     Call Citeste_Diverse
                 */
+
+                EU_Registrii_Operatii.EU_Registrii();
+                XML_Public_Citeste.Citeste_CUlori();
+                XML_Public_Citeste.Citeste_Zecimale();
+
                 if ( true ) // here should be DIV.VerificaUpdate? where the F is DIV?
                 {
                     numeFisierVers = UpdatesHelper.Verifica_Update_Versiune(ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(), false);

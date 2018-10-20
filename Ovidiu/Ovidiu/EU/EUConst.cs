@@ -19,7 +19,7 @@ namespace Ovidiu.EU
         private static string codFiscal;
         private static string regComert;
         private static string banca;
-        private static string cOntBanca;
+        private static string contBanca;
         private static string wWW;
         private static string valLicLocal;
 
@@ -33,7 +33,7 @@ namespace Ovidiu.EU
         public string CodFiscal { get => codFiscal; set => codFiscal = value; }
         public string RegComert { get => regComert; set => regComert = value; }
         public string Banca { get => banca; set => banca = value; }
-        public string COntBanca { get => cOntBanca; set => cOntBanca = value; }
+        public string ContBanca { get => contBanca; set => contBanca = value; }
         public string WWW { get => wWW; set => wWW = value; }
         public string ValLicLocal { get => valLicLocal; set => valLicLocal = value; }
         public string Moneda { get => moneda; set => moneda = value; }

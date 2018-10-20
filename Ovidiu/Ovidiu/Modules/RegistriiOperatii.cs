@@ -77,7 +77,7 @@ namespace Ovidiu.Modules
             long lrc;
             long lType=0;
             long lValue=0;
-            string sValue;
+            string sValue="";
             long _QueryValueEx = 0;
             lrc = RegQueryValueExNULL(lhKey, szValueName, '0', lType, '0', cch);
 
@@ -85,9 +85,10 @@ namespace Ovidiu.Modules
             {
                 case 1:
                     {
-                        sValue = cch.ToString();
+                        //sValue =  cch.ToString();
                         lrc = RegQueryValueExString(lhKey, szValueName,'0', lType, sValue, cch);
-                        vValue = sValue.Substring(0, Convert.ToInt32(cch - 1));
+                        vValue = sValue;
+                        //vValue = sValue.Substring(0, Convert.ToInt32(cch - 1));
                         break;
                     }
 
