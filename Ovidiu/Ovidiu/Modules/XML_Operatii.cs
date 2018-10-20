@@ -21,7 +21,7 @@ namespace Ovidiu.Modules
                 Nodul = Nodul + "/";
             }
             XmlDocument doc = new XmlDocument();
-            doc.LoadXml(XML_file);
+            doc.Load(XML_file);
             XmlNode node_p = doc.SelectSingleNode(Nodul + Element);
             return node_p;
         }

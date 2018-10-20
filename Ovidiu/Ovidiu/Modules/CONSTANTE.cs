@@ -10,6 +10,6 @@ namespace Ovidiu.Modules
     public static class CONSTANTE
     {
         public static string Setting_XML_file="";
-        public static EUConst eu;
+        public static EUConst eu = new EUConst();
     }
 }

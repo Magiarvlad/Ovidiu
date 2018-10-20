@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows;
+using System.Xml;
 
 namespace Ovidiu.Modules
 {
@@ -22,8 +23,17 @@ namespace Ovidiu.Modules
             //create_XML Settings _XML file
 
 
-            CONSTANTE.eu.ValLicLocal = XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat", "ValoareLocal").ToString();
-            CONSTANTE.eu.Moneda = XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat", "Moneda").ToString();
+            try
+            {
+                XmlNode asd = XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat", "ValoareLocal");
+                string ast = asd.InnerText.ToString();
+                CONSTANTE.eu.ValLicLocal = ast;
+                CONSTANTE.eu.Moneda = XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat", "Moneda").InnerText.ToString();
+            }
+            catch(Exception exp)
+            {
+                MessageBox.Show("Frm_Pornire_Loaded Error: " + exp.Message);
+            }
 
 
             //setari culori
