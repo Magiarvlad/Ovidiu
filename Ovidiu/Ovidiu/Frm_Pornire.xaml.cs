@@ -57,6 +57,7 @@ namespace Ovidiu
                 XML_Setari_Default.Setari_Default_XML();
                 /* 
                     '**************************
+                
                     Call EU_Registrii
                     '**************************
 
