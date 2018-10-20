@@ -25,5 +25,41 @@ namespace Ovidiu.Modules
             Rot.NrZecTaxare = Convert.ToByte((XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Zecimale", "NrZecTaxare").InnerText.ToString()));
            CONSTANTE.UseFormat = Convert.ToBoolean(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Zecimale", "UseFormat").InnerText.ToString());
     }
+
+        public static void Citeste_FileLocation()
+        {
+            FileLocation.DataBase = XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "DataBase").InnerText.ToString();
+            FileLocation.System = XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "System").InnerText.ToString();
+            FileLocation.ReportDefinitionPath = XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "ReportDefinitionPath").InnerText.ToString();
+            FileLocation.DirectorSalvare = XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "DirectorSalvare").InnerText.ToString();
+
+            if(FileLocation.DataBase.Substring(FileLocation.DataBase.Length-1,1)!="\\")
+             {
+                FileLocation.DataBase = FileLocation.DataBase + "\\";
+            }
+            if (FileLocation.System.Substring(FileLocation.System.Length - 1, 1) != "\\")
+            {
+                FileLocation.System = FileLocation.System + "\\";
+            }
+
+            if (FileLocation.ReportDefinitionPath.Substring(FileLocation.ReportDefinitionPath.Length - 1, 1) != "\\")
+            {
+                FileLocation.ReportDefinitionPath = FileLocation.ReportDefinitionPath + "\\";
+            }
+
+            if (FileLocation.DirectorSalvare.Substring(FileLocation.DirectorSalvare.Length - 1, 1) != "\\")
+            {
+                FileLocation.DirectorSalvare = FileLocation.DirectorSalvare + "\\";
+            }
+        }
+
+        public static void Citeste_Diverse()
+        {
+            Diverse.UpdateCurs = System.Convert.ToBoolean(Verifica_Null.VER(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "UpdateCurs").InnerText.ToString(), "0"));
+            Diverse.VerificaNet = System.Convert.ToBoolean(Verifica_Null.VER(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "VerificaNet").InnerText.ToString(), "0"));
+
+            Diverse.VerificaUpdate = System.Convert.ToBoolean(Verifica_Null.VER(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "VerificaUpdate").InnerText.ToString(), "0"));
+            CONSTANTE.wwwRadacina = Verifica_Null.VER(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "www").InnerText.ToString(), "http://www.e-intrastat.ro");
+        }
     }
 }

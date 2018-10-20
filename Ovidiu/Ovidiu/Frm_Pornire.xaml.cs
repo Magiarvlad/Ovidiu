@@ -71,7 +71,8 @@ namespace Ovidiu
                 EU_Registrii_Operatii.EU_Registrii();
                 XML_Public_Citeste.Citeste_CUlori();
                 XML_Public_Citeste.Citeste_Zecimale();
-
+                XML_Public_Citeste.Citeste_FileLocation();
+                XML_Public_Citeste.Citeste_Diverse();
                 if ( true ) // here should be DIV.VerificaUpdate? where the F is DIV?
                 {
                     numeFisierVers = UpdatesHelper.Verifica_Update_Versiune(ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(), false);

@@ -63,8 +63,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EU\Diverse.cs" />
     <Compile Include="EU\EUConst.cs" />
     <Compile Include="EU\EuCulori.cs" />
+    <Compile Include="EU\FileLocation.cs" />
     <Compile Include="EU\Rot.cs" />
     <Compile Include="Frm_Pornire.xaml.cs">
       <DependentUpon>Frm_Pornire.xaml</DependentUpon>
@@ -77,6 +79,7 @@
     <Compile Include="Modules\EU_Registrii_Operatii.cs" />
     <Compile Include="Modules\RegistriiOperatii.cs" />
     <Compile Include="Modules\UpdatesHelper.cs" />
+    <Compile Include="Modules\Verifica_Null.cs" />
     <Compile Include="Modules\XML_Operatii.cs" />
     <Compile Include="Modules\XML_Public_Citeste.cs" />
     <Compile Include="Modules\XML_Setari_Default.cs" />
