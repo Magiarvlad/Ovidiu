@@ -21,6 +21,7 @@ namespace Ovidiu.Modules
                 Nodul = Nodul + "/";
             }
             XmlDocument doc = new XmlDocument();
+            doc.LoadXml(XML_file);
             XmlNode node_p = doc.SelectSingleNode(Nodul + Element);
             return node_p;
         }
@@ -125,11 +126,11 @@ namespace Ovidiu.Modules
             return true;
         }
 
-        public static bool Verifica_Fisier(string filePath)
+       /* public static bool Verifica_Fisier(string filePath)
         {
             bool result = false;
             // here check if the file is correct
             return result;
-        }
+        }*/
     }
 }

@@ -19,3 +19,11 @@ C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu_MarkupCompi
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu_MarkupCompile.lref
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.exe
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.pdb
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\bin\Debug\Ovidiu.exe.config
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\bin\Debug\Ovidiu.exe
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\bin\Debug\Ovidiu.pdb
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Pornire.baml
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.g.resources
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.Properties.Resources.resources
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.csproj.GenerateResource.cache
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.csproj.CoreCompileInputs.cache

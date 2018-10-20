@@ -40,20 +40,20 @@ namespace Ovidiu
         {
             string formatNrScurt = "##,##0";
             string formatNrLung = "##,##0.00";
-            string Settings_XML_File = string.Empty;
+           // string Settings_XML_File = string.Empty;
             string sPath = string.Empty;
             string numeFisierVers = string.Empty;
             try
             {
                 // Determin locatia unde este fisierul Settings.XML      
-               string path= Environment.GetFolderPath(Environment.SpecialFolder.System, Environment.SpecialFolderOption.None);
+               string path= Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
                 // Settings_XML_File = Environment.CurrentDirectory + @"\E_Intrastat'Settings.xml";
-                Settings_XML_File = path + @"\E_Intrastat'Settings.xml";
-                if (!XML_Operatii.Verifica_Fisier(Settings_XML_File))
-                {
-                    MessageBox.Show("EROARE identificare fisier setari: " + Settings_XML_File + " nu exista");
-                    return;
-                }
+                CONSTANTE.Setting_XML_file = path + @"\E_Intrastat\Settings.xml";
+               // if (!XML_Operatii.Verifica_Fisier(Settings_XML_File))
+              //  {
+                //    MessageBox.Show("EROARE identificare fisier setari: " + Settings_XML_File + " nu exista");
+                //    return;
+              //  }
                 XML_Setari_Default.Setari_Default_XML();
                 /* 
                     '**************************
