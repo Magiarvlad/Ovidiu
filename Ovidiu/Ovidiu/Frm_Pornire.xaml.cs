@@ -75,7 +75,7 @@ namespace Ovidiu
                 XML_Public_Citeste.Citeste_FileLocation();
                 XML_Public_Citeste.Citeste_Diverse();
 
-                if ( true ) // here should be DIV.VerificaUpdate? where the F is DIV?
+                if (Diverse.VerificaUpdate == true) 
                 {
                     numeFisierVers = UpdatesHelper.Verifica_Update_Versiune(Assembly.GetExecutingAssembly().GetName().Version.ToString());
                     if (numeFisierVers != "0")
