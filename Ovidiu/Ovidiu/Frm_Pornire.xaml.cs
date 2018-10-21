@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Deployment.Application;
-
+using Ovidiu.EU;
 namespace Ovidiu
 {
     /// <summary>
@@ -73,7 +73,7 @@ namespace Ovidiu
                 XML_Public_Citeste.Citeste_Zecimale();
                 XML_Public_Citeste.Citeste_FileLocation();
                 XML_Public_Citeste.Citeste_Diverse();
-                if ( true ) // here should be DIV.VerificaUpdate? where the F is DIV?
+                if ( Diverse.VerificaUpdate == true ) 
                 {
                     numeFisierVers = UpdatesHelper.Verifica_Update_Versiune(ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(), false);
                     if (numeFisierVers != "0")
