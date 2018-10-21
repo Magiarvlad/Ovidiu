@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Ovidiu.Modules
 {
@@ -110,18 +112,34 @@ namespace Ovidiu.Modules
             return _QueryValueEx;
         }
 
-            public static string CitesteValoareREG(long LngHKEYPredefinit, string sKeyName, string sValueName)
+        public static string CitesteValoareREG(long LngHKEYPredefinit, string sKeyName, string sValueName)
         {
             long lRetVal;         // result of the API functions
-            long hKey =0 ;         // handle of opened key
-            string vValue ="";      // setting of queried value
+            long hKey = 0;         // handle of opened key
+            string vValue = "";      // setting of queried value
 
-            lRetVal = RegOpenKeyEx(LngHKEYPredefinit, sKeyName, 0, KEY_QUERY_VALUE, hKey);
-            lRetVal = QueryValueEx(hKey, sValueName, vValue);
+            try
+            {
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(sKeyName))
+                {
+                    if (key != null)
+                    {
+                        Object o = key.GetValue(sValueName);
+                        if (o != null)
+                        {
+                            vValue = o.ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show("Eroare accesare registru: " + sKeyName + Environment.NewLine + exp.Message);
+            }
 
-            
-            RegCloseKey(hKey);
-
+            //lRetVal = RegOpenKeyEx(LngHKEYPredefinit, sKeyName, 0, KEY_QUERY_VALUE, hKey);
+            //lRetVal = QueryValueEx(hKey, sValueName, vValue);
+            //RegCloseKey(hKey);
             return vValue;
         }
     }

@@ -27,3 +27,17 @@ C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.g.resources
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.Properties.Resources.resources
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.csproj.GenerateResource.cache
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.csproj.CoreCompileInputs.cache
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\bin\Debug\Ovidiu.exe.config
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\bin\Debug\Ovidiu.exe
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\bin\Debug\Ovidiu.pdb
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Ovidiu.csprojResolveAssemblyReference.cache
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Pornire.g.cs
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\App.g.cs
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Ovidiu_MarkupCompile.cache
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Ovidiu_MarkupCompile.lref
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Pornire.baml
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Ovidiu.g.resources
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Ovidiu.Properties.Resources.resources
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Ovidiu.csproj.GenerateResource.Cache
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Ovidiu.exe
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Ovidiu.pdb
