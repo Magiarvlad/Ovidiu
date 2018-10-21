@@ -9,20 +9,37 @@ namespace Ovidiu.Modules
    public class Verifica_Null
     {
 
-        public static string VER(string Expresie, string ValReturnata)
+        public static bool VER(string Expresie, string ValReturnata)
         {
-            string exp="0";
+            bool exp=false;
             try
             {
-                if(Expresie != "")
-                exp = Expresie;
+                if (Expresie != "")
+                    if (Expresie == "1")
+                        exp = true;
+                    else
+                        exp = false;
             }
             catch
             {
-                exp = ValReturnata;
+                exp = false;
             }
             return exp;
         }
 
+        internal static string VERs(string v1, string v2)
+        {
+            string exp="";
+            try
+            {
+                if (v1 != "")
+                        exp = v1;
+            }
+            catch
+            {
+                exp = v2;
+            }
+            return exp;
+        }
     }
 }

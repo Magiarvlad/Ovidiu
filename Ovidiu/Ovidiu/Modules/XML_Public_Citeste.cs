@@ -23,7 +23,11 @@ namespace Ovidiu.Modules
             Rot.NrZecValuta = Convert.ToByte((XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Zecimale", "ZecRotValuta").InnerText.ToString()));
             Rot.NrZecCalcule = Convert.ToByte((XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Zecimale", "ZecRotCalcule").InnerText.ToString()));
             Rot.NrZecTaxare = Convert.ToByte((XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Zecimale", "NrZecTaxare").InnerText.ToString()));
-           CONSTANTE.UseFormat = Convert.ToBoolean(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Zecimale", "UseFormat").InnerText.ToString());
+            bool result = false;
+            if (XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Zecimale", "UseFormat").InnerText.ToString() == "1")
+                result = true;
+
+           CONSTANTE.UseFormat = result;
     }
 
         public static void Citeste_FileLocation()
@@ -55,11 +59,12 @@ namespace Ovidiu.Modules
 
         public static void Citeste_Diverse()
         {
-            Diverse.UpdateCurs = System.Convert.ToBoolean(Verifica_Null.VER(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "UpdateCurs").InnerText.ToString(), "0"));
-            Diverse.VerificaNet = System.Convert.ToBoolean(Verifica_Null.VER(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "VerificaNet").InnerText.ToString(), "0"));
+            
+            Diverse.UpdateCurs =Verifica_Null.VER(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "UpdateCurs").InnerText.ToString(), "0");
+            Diverse.VerificaNet = Verifica_Null.VER(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "VerificaNet").InnerText.ToString(), "0");
 
-            Diverse.VerificaUpdate = System.Convert.ToBoolean(Verifica_Null.VER(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "VerificaUpdate").InnerText.ToString(), "0"));
-            CONSTANTE.wwwRadacina = Verifica_Null.VER(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "www").InnerText.ToString(), "http://www.e-intrastat.ro");
+            Diverse.VerificaUpdate = Verifica_Null.VER(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "VerificaUpdate").InnerText.ToString(), "0");
+            CONSTANTE.wwwRadacina = Verifica_Null.VERs(XML_Operatii.Citeste_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "www").InnerText.ToString(), "http://www.e-intrastat.ro");
         }
     }
 }
