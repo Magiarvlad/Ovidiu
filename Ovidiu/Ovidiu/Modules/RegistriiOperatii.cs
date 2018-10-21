@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,15 +39,23 @@ namespace Ovidiu.Modules
         static extern long RegSetValueExString(long hKey, string lpValueName, long Reserved, long dwType, string lpValue, long cbData);
         [System.Runtime.InteropServices.DllImport("advapi32.dll")]
         static extern long RegSetValueExLong(long hKey, string lpValueName, long Reserved, long dwType, long lpValue, long cbData);
-        [System.Runtime.InteropServices.DllImport("advapi32.dll")]
-        static extern long RegOpenKeyEx(long hKey, string lpSubKey, long ulOptions, long samDesired, long phkResult);
+      //  [System.Runtime.InteropServices.DllImport("advapi32.dll")]
+       // static extern long RegOpenKeyEx(long hKey, string lpSubKey, long ulOptions, long samDesired, long phkResult);
+       // 
+
+       // [DllImport("advapi32.dll", CharSet = CharSet.Auto)]
+       // public static extern int RegOpenKeyEx(long hkey, string lpSubKey, uint ulOptions, uint samDesired, out long phkResult);
+        [DllImport("Advapi32.dll", EntryPoint = "RegOpenKeyExW", CharSet = CharSet.Unicode)]
+        static extern int RegOpenKeyEx(IntPtr hKey, [In] string lpSubKey, int ulOptions, int samDesired, out IntPtr phkResult);
+
+
         [System.Runtime.InteropServices.DllImport("advapi32.dll")]
         static extern long RegQueryValueExNULL(long hKey, string lpValueName, long lpReserved, long lpType, long lpData, long lpcbData);
-        [System.Runtime.InteropServices.DllImport("advapi32.dll")]
+      [System.Runtime.InteropServices.DllImport("advapi32.dll")]
         static extern long RegCloseKey(long hKey);
-        [System.Runtime.InteropServices.DllImport("advapi32.dll")]
+     [System.Runtime.InteropServices.DllImport("advapi32.dll")]
         static extern long RegQueryValueExString(long hKey, string lpValueName, long lpReserved, long lpType, string lpData, long lpcbData);
-        [System.Runtime.InteropServices.DllImport("advapi32.dll")]
+       [System.Runtime.InteropServices.DllImport("advapi32.dll")]
         static extern long RegQueryValueExLong(long hKey, string lpValueName, long lpReserved, long lpType, long lpData, long lpcbData);
 
         public static long SetValueEx(long hKey, string sValueName, long lType, long vValue)
@@ -110,13 +120,27 @@ namespace Ovidiu.Modules
             return _QueryValueEx;
         }
 
-            public static string CitesteValoareREG(long LngHKEYPredefinit, string sKeyName, string sValueName)
+        public const int KEY_READ = 0x20019;
+        public const int KEY_WRITE = 0x20006;
+        
+        public const int KEY_WOW64_64KEY = 0x0100;
+        public const int KEY_WOW64_32KEY = 0x0200;
+        static public readonly IntPtr HKEY_CURRENT_USER1 = new IntPtr(-2147483644);
+        public static string CitesteValoareREG(long LngHKEYPredefinit, string sKeyName, string sValueName)
         {
             long lRetVal;         // result of the API functions
-            long hKey =0 ;         // handle of opened key
+            long hKey =0;         // handle of opened key
             string vValue ="";      // setting of queried value
 
-            lRetVal = RegOpenKeyEx(LngHKEYPredefinit, sKeyName, 0, KEY_QUERY_VALUE, hKey);
+            IntPtr key;
+            int error;
+            
+            //if ((error = RegOpenKeyEx(HKEY_CURRENT_USER1, @"Software\Test", 0, KEY_READ | KEY_WOW64_32KEY, out key)) != 0)
+              //  throw new Win32Exception(error);
+           
+            IntPtr hKey1;
+            IntPtr LngHKEYPredefinit1 = new IntPtr(LngHKEYPredefinit);
+            lRetVal = RegOpenKeyEx(LngHKEYPredefinit1, sKeyName,0, KEY_QUERY_VALUE,out hKey1);
             lRetVal = QueryValueEx(hKey, sValueName, vValue);
 
             
