@@ -17,6 +17,8 @@ using System.Windows.Shapes;
 using System.Deployment.Application;
 using System.Reflection;
 using Ovidiu.EU;
+using System.IO;
+
 namespace Ovidiu
 {
     /// <summary>
@@ -56,18 +58,7 @@ namespace Ovidiu
                 //    return;
               //  }
                 XML_Setari_Default.Setari_Default_XML();
-                /* 
-                    '**************************
-                
-                    Call EU_Registrii
-                    '**************************
-
-
-                    Call Citeste_Culori
-                    Call Citeste_Zecimale
-                    Call Citeste_FileLocation
-                    Call Citeste_Diverse
-                */
+               
 
                 EU_Registrii_Operatii.EU_Registrii();
                 XML_Public_Citeste.Citeste_CUlori();
@@ -90,6 +81,22 @@ namespace Ovidiu
                         }
                     }
                 }
+
+                string comunpath = "C:\\E_Intrastat\\System\\DataBase\\Comun.mdb";
+                if (!Verifica_Exista_Fisier.Verifica_Fisier(comunpath))
+                    foreach (var drive in DriveInfo.GetDrives())
+                    {
+                        if (Verifica_Exista_Fisier.Verifica_Fisier(drive + "E_Intrastat\\System\\DataBase\\Comun.mdb"));
+                        // MessageBox.Show("FIșierul a fost gasit!");
+                        {
+                            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "DataBase", drive + "E_Intrastat\\System\\DataBase\\", true);
+                            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "RaportDefinitionPath", drive + "E_Intrastat\\System\\RaportDefinition", true);
+                            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "System", drive + "E_Intrastat\\System\\", true);
+                            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "DirectorSalvare", drive + "E_Intrastat\\System\\DeclaratiiXML\\", true);
+
+                        }
+                    }
+                        MessageBox.Show("Baza de date NU a fost gasita!");
             }
             catch (Exception exp)
             {

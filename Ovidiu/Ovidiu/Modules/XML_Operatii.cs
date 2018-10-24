@@ -29,7 +29,7 @@ namespace Ovidiu.Modules
 
        
 
-        private static void Actualizare_XML(string xML_file, string nodul, string elementul, string valoare, bool v)
+        public static void Actualizare_XML(string xML_file, string nodul, string elementul, string valoare, bool v)
         {
             if (nodul.Substring(nodul.Length-1, 1) != "/")
                 nodul = nodul + "/";

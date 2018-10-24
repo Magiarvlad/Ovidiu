@@ -79,6 +79,7 @@
     <Compile Include="Modules\EU_Registrii_Operatii.cs" />
     <Compile Include="Modules\RegistriiOperatii.cs" />
     <Compile Include="Modules\UpdatesHelper.cs" />
+    <Compile Include="Modules\Verifica_Exista_Fisier.cs" />
     <Compile Include="Modules\Verifica_Null.cs" />
     <Compile Include="Modules\XML_Operatii.cs" />
     <Compile Include="Modules\XML_Public_Citeste.cs" />
