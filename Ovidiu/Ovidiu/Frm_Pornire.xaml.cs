@@ -83,6 +83,7 @@ namespace Ovidiu
                 }
 
                 string comunpath = "C:\\E_Intrastat\\System\\DataBase\\Comun.mdb";
+                bool flag = false;
                 if (!Verifica_Exista_Fisier.Verifica_Fisier(comunpath))
                     foreach (var drive in DriveInfo.GetDrives())
                     {
@@ -93,10 +94,22 @@ namespace Ovidiu
                             XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "RaportDefinitionPath", drive + "E_Intrastat\\System\\RaportDefinition", true);
                             XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "System", drive + "E_Intrastat\\System\\", true);
                             XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "DirectorSalvare", drive + "E_Intrastat\\System\\DeclaratiiXML\\", true);
-
+                            flag = true;   
                         }
                     }
-                        MessageBox.Show("Baza de date NU a fost gasita!");
+                else
+                {
+                    flag = true;
+                }
+                if (flag == false)
+                {
+                    MessageBox.Show("Baza de date NU a fost gasita!");
+                    Application.Current.Shutdown();
+                }
+                else
+                {
+
+                }
             }
             catch (Exception exp)
             {
