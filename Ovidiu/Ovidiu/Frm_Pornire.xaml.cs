@@ -19,6 +19,7 @@ using System.Reflection;
 using Ovidiu.EU;
 using System.IO;
 using System.Net;
+using System.Data.OleDb;
 
 namespace Ovidiu
 {
@@ -109,24 +110,9 @@ namespace Ovidiu
                 }
                 else
                 {
-                    DateTime cursBNR_time = File.GetLastWriteTime(FileLocation.System + "CursBNR\\curs.txt");
-                    
-                    if(DateTime.Now.DayOfYear > cursBNR_time.DayOfYear)
-                    {
-                        File.Replace(FileLocation.System + "CursBNR\\curs.txt", FileLocation.System + "CursBNR\\curs_old.txt", FileLocation.System + "CursBNR\\backup.txt");
-                        string pathURL = "https://www.soviaserv.ro/curs_bnr/curs.txt";
-                        try
-                        {
-                            WebClient client = new WebClient();
-                            client.DownloadFile(pathURL, FileLocation.System + "CursBNR\\curs.txt");
-                            
-                        }
-                        catch (Exception exp)
-                        {
-                            MessageBox.Show("Eroare accesare Curs Valutar!" + exp) ;
-                        }
-                        
-                    }
+                    Update_Curs();
+                    Open_Conection_Common();
+
                 }
             }
             catch (Exception exp)
@@ -134,6 +120,66 @@ namespace Ovidiu
                 MessageBox.Show("Frm_Pornire_Loaded Error: " + exp.Message);
             }
             
+        }
+
+        private void Open_Conection_Common()
+        {
+            OleDbConnection conn = new
+        OleDbConnection
+            {
+                // TODO: Modify the connection string and include any
+                // additional required properties for your database.
+                ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;" +
+                @"Data source=" + FileLocation.DataBase + "Comun.mdb"
+            };
+            try
+            {
+                conn.Open();
+                OleDbCommand Command = new OleDbCommand("SELECT Cod_Fiscal,Nume_Firma,DataBaseFile,Nr_Inregistrare,Key_Inregistrare from Firme", conn);
+                OleDbDataReader DB_Reader = Command.ExecuteReader();
+                if (DB_Reader.HasRows)
+                {
+                    DB_Reader.Read();
+                    Firma.CodFiscal = DB_Reader[0].ToString();
+                    Firma.NumeFirma = DB_Reader[1].ToString();
+                    if(DB_Reader.Read())
+                    {
+                        this.Hide();
+
+                    }
+                    // textbox1.Text = DB_Reader.GetString("your_column_name");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to connect to data source");
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private static void Update_Curs()
+        {
+            DateTime cursBNR_time = File.GetLastWriteTime(FileLocation.System + "CursBNR\\curs.txt");
+
+            if (DateTime.Now.DayOfYear > cursBNR_time.DayOfYear)
+            {
+                File.Replace(FileLocation.System + "CursBNR\\curs.txt", FileLocation.System + "CursBNR\\curs_old.txt", FileLocation.System + "CursBNR\\backup.txt");
+                string pathURL = "https://www.soviaserv.ro/curs_bnr/curs.txt";
+                try
+                {
+                    WebClient client = new WebClient();
+                    client.DownloadFile(pathURL, FileLocation.System + "CursBNR\\curs.txt");
+
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show("Eroare accesare Curs Valutar!" + exp);
+                }
+
+            }
         }
     }
 }

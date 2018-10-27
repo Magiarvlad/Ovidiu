@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Frm_Selectie_Firma.xaml.cs">
+      <DependentUpon>Frm_Selectie_Firma.xaml</DependentUpon>
+    </Compile>
     <Page Include="Frm_Pornire.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,11 +70,16 @@
     <Compile Include="EU\EUConst.cs" />
     <Compile Include="EU\EuCulori.cs" />
     <Compile Include="EU\FileLocation.cs" />
+    <Compile Include="EU\Firma.cs" />
     <Compile Include="EU\Rot.cs" />
     <Compile Include="Frm_Pornire.xaml.cs">
       <DependentUpon>Frm_Pornire.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Frm_Selectie_Firma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Miscellaneous\ClasaSuport.cs" />
