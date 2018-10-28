@@ -17,11 +17,19 @@ namespace Ovidiu
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Frm_Selectie_Firma : Window
     {
-        public Window1()
+        public Frm_Selectie_Firma(string[,] vs)
         {
+
             InitializeComponent();
+            int i = 0;
+            while (vs[i,1] != null)
+            {
+                ComboBoxSelectFirma.Items.Add(vs[i,1]);
+                i++;
+            }
+
         }
 
         private void Ok_Btn_Click(object sender, RoutedEventArgs e)

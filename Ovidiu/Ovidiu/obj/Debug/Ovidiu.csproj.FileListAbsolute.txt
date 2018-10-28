@@ -41,3 +41,5 @@ F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Ovidiu.Properties.Resources.reso
 F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Ovidiu.csproj.GenerateResource.Cache
 F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Ovidiu.exe
 F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Ovidiu.pdb
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Selectie_Firma.g.cs
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Selectie_Firma.baml

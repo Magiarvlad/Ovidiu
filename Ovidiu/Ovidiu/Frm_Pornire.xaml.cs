@@ -121,9 +121,10 @@ namespace Ovidiu
             }
             
         }
-
+         
         private void Open_Conection_Common()
         {
+            
             OleDbConnection conn = new
         OleDbConnection
             {
@@ -134,6 +135,9 @@ namespace Ovidiu
             };
             try
             {
+                bool flag = false;
+                string[,] vs = new string[10,2];
+                int i = 0;
                 conn.Open();
                 OleDbCommand Command = new OleDbCommand("SELECT Cod_Fiscal,Nume_Firma,DataBaseFile,Nr_Inregistrare,Key_Inregistrare from Firme", conn);
                 OleDbDataReader DB_Reader = Command.ExecuteReader();
@@ -142,10 +146,20 @@ namespace Ovidiu
                     DB_Reader.Read();
                     Firma.CodFiscal = DB_Reader[0].ToString();
                     Firma.NumeFirma = DB_Reader[1].ToString();
-                    if(DB_Reader.Read())
+                    vs[i,0] = DB_Reader[0].ToString();
+                    vs[i,1] = DB_Reader[1].ToString();
+                    while (DB_Reader.Read())
+                    {
+                        flag = true;
+                        i++;
+                        vs[i,0] = DB_Reader[0].ToString();
+                        vs[i,1] = DB_Reader[1].ToString();
+                    }
+                    if(flag==true)
                     {
                         this.Hide();
-
+                        Frm_Selectie_Firma frm_Selectie_Firma = new Frm_Selectie_Firma(vs);
+                        frm_Selectie_Firma.Show();
                     }
                     // textbox1.Text = DB_Reader.GetString("your_column_name");
                 }
