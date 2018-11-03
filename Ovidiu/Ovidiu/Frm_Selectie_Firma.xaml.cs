@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ovidiu.EU;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,15 @@ namespace Ovidiu
     /// </summary>
     public partial class Frm_Selectie_Firma : Window
     {
+        string[,] v;
         public Frm_Selectie_Firma(string[,] vs)
         {
-
+            v = vs;
             InitializeComponent();
             int i = 0;
             while (vs[i,1] != null)
             {
-                ComboBoxSelectFirma.Items.Add(vs[i,1]);
+                ComboBoxSelectFirma.Items.Add(vs[i,1] + " " + v[i,0]);
                 i++;
             }
 
@@ -34,7 +36,17 @@ namespace Ovidiu
 
         private void Ok_Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            string[] aux = ComboBoxSelectFirma.SelectedItem.ToString().Split(' ');
+            for (int i=0;i< v.Length/2;i++)
+            {
+              if(v[i,0]!=null)
+                if(aux[aux.Length-1]==v[i,0] )
+                {
+                    Firma.CodFiscal = v[i, 0].ToString();
+                    Firma.NumeFirma = v[i, 1].ToString();
+                }
+            }
+           
         }
     }
 }

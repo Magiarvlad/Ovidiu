@@ -85,6 +85,7 @@
     <Compile Include="Miscellaneous\ClasaSuport.cs" />
     <Compile Include="Modules\CONSTANTE.cs" />
     <Compile Include="Modules\EU_Registrii_Operatii.cs" />
+    <Compile Include="Modules\Inregistrare.cs" />
     <Compile Include="Modules\RegistriiOperatii.cs" />
     <Compile Include="Modules\UpdatesHelper.cs" />
     <Compile Include="Modules\Verifica_Exista_Fisier.cs" />
