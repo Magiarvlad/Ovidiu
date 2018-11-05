@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagini/background_.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagini/logo_mic.gif")]
 
 

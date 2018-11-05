@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="e - Instrastat :  Selectare Firma" Height="303.368" Width="589.842" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
+        Title="e - Instrastat :  Selectare Firma" Height="303.368" Width="589.842" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" Closing="Window_Closing">
     <Grid Background="#FF104F8D">
         <Label Content="Selectati Firma:" HorizontalAlignment="Left" Margin="54,132,0,0" VerticalAlignment="Top" Height="25" Width="93"/>
         <ComboBox x:Name="ComboBoxSelectFirma" HorizontalAlignment="Left" Margin="174,135,0,0" VerticalAlignment="Top" Width="332"/>

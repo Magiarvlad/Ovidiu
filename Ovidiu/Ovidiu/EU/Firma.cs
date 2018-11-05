@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ovidiu.EU
 {
-   public class Firma
+   public static class Firma
     {
         private static string codFiscal;
         private static string numeFirma;

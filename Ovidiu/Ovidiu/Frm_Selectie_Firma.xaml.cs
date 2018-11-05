@@ -1,4 +1,5 @@
 ﻿using Ovidiu.EU;
+using Ovidiu.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +47,14 @@ namespace Ovidiu
                     Firma.NumeFirma = v[i, 1].ToString();
                 }
             }
-           
+             CONSTANTE.Meniu.LabelFirma.Text += Firma.NumeFirma;
+            CONSTANTE.Meniu.Show();
+            this.Hide();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

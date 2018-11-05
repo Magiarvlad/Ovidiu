@@ -55,9 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FRM_Meniu_Principal.xaml.cs">
+      <DependentUpon>FRM_Meniu_Principal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Selectie_Firma.xaml.cs">
       <DependentUpon>Frm_Selectie_Firma.xaml</DependentUpon>
     </Compile>
+    <Page Include="FRM_Meniu_Principal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frm_Pornire.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -125,6 +132,14 @@
   <ItemGroup>
     <Resource Include="Imagini\Background_.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Imagini\e_intrastat.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagini\Intrastat1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagini\Logo_mic.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
