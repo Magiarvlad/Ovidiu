@@ -48,6 +48,7 @@ namespace Ovidiu
                 }
             }
              CONSTANTE.Meniu.LabelFirma.Text += Firma.NumeFirma;
+            CONSTANTE.Meniu.LabelFirma.Width += Firma.NumeFirma.Length*7;
             CONSTANTE.Meniu.Show();
             this.Hide();
         }

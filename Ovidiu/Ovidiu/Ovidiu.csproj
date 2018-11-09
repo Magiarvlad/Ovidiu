@@ -141,5 +141,14 @@
   <ItemGroup>
     <Resource Include="Imagini\Logo_mic.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagini\DeclaratiiText.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagini\ExcelText.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagini\CursText.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

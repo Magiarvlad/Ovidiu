@@ -5,34 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="e_Intrastat" Height="690" Width="1313.158" Icon="Imagini/e_intrastat.ico" BorderBrush="White" WindowState="Maximized" Closing="Window_Closing"  >
+        Title="e_Intrastat" Height="690" Width="1337.825" Icon="Imagini/e_intrastat.ico" BorderBrush="White" WindowState="Maximized" Closing="Window_Closing" SizeToContent="WidthAndHeight" ResizeMode="CanResizeWithGrip"  >
 
-    <Viewbox> 
-    <Grid>
-        <Rectangle HorizontalAlignment="Left" Stroke="Black" Width="1305" Margin="0,0,0,580" Height="79" VerticalAlignment="Bottom">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="1"/>
-                    <GradientStop Color="#FFF9FDFF" Offset="0.269"/>
-                    <GradientStop Color="#FF59C3FF" Offset="0.965"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <GridSplitter Margin="0,-107,650,-538" Width="5" RenderTransformOrigin="0.5,0.5" Foreground="Black" OpacityMask="Black" BorderBrush="Black" Background="Black" Height="1304" VerticalAlignment="Bottom">
-            <GridSplitter.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-90.178"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </GridSplitter.RenderTransform>
-        </GridSplitter>
-        <GridSplitter HorizontalAlignment="Left" Margin="990,0,0,118" Width="5" Height="462" VerticalAlignment="Bottom" Background="#FF270303"/>
-        <Rectangle HorizontalAlignment="Left" Height="110" Margin="0,549,0,0" Stroke="Black" VerticalAlignment="Top" Width="1305" Fill="#FF78B8F7"/>
-        <TextBlock HorizontalAlignment="Left" Margin="990,559,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="224" Foreground="#FF171780"><Run Text="Copyright 2000-2019, SOVIA SERV SRL"/><LineBreak/><Run Text="Telefon: 0731.630.322"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="990,594,0,0" TextWrapping="Wrap" Text="Email: office@soviaserv.ro" VerticalAlignment="Top" Foreground="#FF1D278B" TextDecorations="Underline"/>
-        <TextBlock x:Name="LabelFirma" HorizontalAlignment="Left" Margin="10,581,0,0" TextWrapping="Wrap" Text="  Firma: " VerticalAlignment="Top" Background="#FFE1F13B" Width="45"/>
-    </Grid>
+    <Viewbox Stretch="Fill">
+        <Grid>
+            <Rectangle HorizontalAlignment="Left" Stroke="Black" Width="1305" Margin="0,0,0,616" Height="43" VerticalAlignment="Bottom">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="#FFF9FDFF" Offset="0.269"/>
+                        <GradientStop Color="#FF59C3FF" Offset="0.965"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <GridSplitter Margin="0,-105,650,-540" Width="5" RenderTransformOrigin="0.5,0.5" Foreground="Black" OpacityMask="Black" BorderBrush="Black" Background="Black" Height="1304" VerticalAlignment="Bottom">
+                <GridSplitter.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90.0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </GridSplitter.RenderTransform>
+            </GridSplitter>
+            <GridSplitter HorizontalAlignment="Left" Margin="971,0,0,115" Width="5" Height="501" VerticalAlignment="Bottom" Background="#FF270303"/>
+            <Rectangle HorizontalAlignment="Left" Margin="0,549,0,0" Stroke="Black" Width="1305" Fill="#FF78B8F7" Height="110" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="990,559,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="224" Foreground="#FF171780"><Run Text="Copyright 2000-2019, SOVIA SERV SRL"/><LineBreak/><Run Text="Telefon: 0731.630.322"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="990,594,0,0" TextWrapping="Wrap" Text="Email: office@soviaserv.ro" VerticalAlignment="Top" Foreground="#FF1D278B" TextDecorations="Underline"/>
+            <TextBlock x:Name="LabelFirma" HorizontalAlignment="Left" Margin="10,581,0,0" Text="  Firma: " VerticalAlignment="Top" Background="#FFD4E61E" Width="45"/>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="41" Margin="0,2,0,0" ClickMode="Hover" BorderBrush="#FF707070" Opacity=".90">
+                <Button.Background>
+                    <ImageBrush ImageSource="Imagini/DeclaratiiText.jpg"/>
+                </Button.Background>
+                <Button.Content>
+                    <Image x:Name="___No_Name_" Source="Imagini/DeclaratiiText.jpg" Width="161"/>
+                </Button.Content>
+                <Button.Foreground>
+                    <ImageBrush ImageSource="Imagini/DeclaratiiText.jpg"/>
+                </Button.Foreground>
+            </Button>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="41" Margin="244,2,0,0" ClickMode="Hover" BorderBrush="#FF707070" Opacity=".90" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Imagini/CursText.jpg"/>
+                </Button.Background>
+                <Image x:Name="___No_Name_1" Source="Imagini/CursText.jpg" Width="99"/>
+            </Button>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Height="41" Margin="161,2,0,0" ClickMode="Hover" BorderBrush="#FF707070" Opacity=".90">
+                <Button.Background>
+                    <ImageBrush ImageSource="Imagini/ExcelText.jpg"/>
+                </Button.Background>
+                
+                <Image x:Name="___No_Name_2" Source="Imagini/ExcelText.jpg" Width="83"/>
+            </Button>
+        </Grid>
     </Viewbox>
 </Window>
