@@ -54,7 +54,6 @@
                 <Button.Background>
                     <ImageBrush ImageSource="Imagini/ExcelText.jpg"/>
                 </Button.Background>
-                
                 <Image x:Name="___No_Name_2" Source="Imagini/ExcelText.jpg" Width="83"/>
             </Button>
         </Grid>
