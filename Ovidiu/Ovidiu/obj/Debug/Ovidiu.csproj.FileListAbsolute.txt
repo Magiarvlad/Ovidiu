@@ -45,3 +45,7 @@ C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.csproj.Gene
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.csproj.CoreCompileInputs.cache
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.exe
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.pdb
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\FRM_Meniu_Principal.g.cs
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Selectie_Firma.g.cs
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\FRM_Meniu_Principal.baml
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Selectie_Firma.baml

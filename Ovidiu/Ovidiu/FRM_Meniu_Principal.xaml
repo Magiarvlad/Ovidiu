@@ -8,54 +8,186 @@
         Title="e_Intrastat" Height="690" Width="1337.825" Icon="Imagini/e_intrastat.ico" BorderBrush="White" WindowState="Maximized" Closing="Window_Closing" SizeToContent="WidthAndHeight" ResizeMode="CanResizeWithGrip"  >
 
     <Viewbox Stretch="Fill">
-        <Grid>
-            <Rectangle HorizontalAlignment="Left" Stroke="Black" Width="1305" Margin="0,0,0,616" Height="43" VerticalAlignment="Bottom">
-                <Rectangle.Fill>
-                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="1"/>
-                        <GradientStop Color="#FFF9FDFF" Offset="0.269"/>
-                        <GradientStop Color="#FF59C3FF" Offset="0.965"/>
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
-            <GridSplitter Margin="0,-105,650,-540" Width="5" RenderTransformOrigin="0.5,0.5" Foreground="Black" OpacityMask="Black" BorderBrush="Black" Background="Black" Height="1304" VerticalAlignment="Bottom">
-                <GridSplitter.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-90.0"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </GridSplitter.RenderTransform>
-            </GridSplitter>
-            <GridSplitter HorizontalAlignment="Left" Margin="971,0,0,115" Width="5" Height="501" VerticalAlignment="Bottom" Background="#FF270303"/>
-            <Rectangle HorizontalAlignment="Left" Margin="0,549,0,0" Stroke="Black" Width="1305" Fill="#FF78B8F7" Height="110" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="990,559,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="224" Foreground="#FF171780"><Run Text="Copyright 2000-2019, SOVIA SERV SRL"/><LineBreak/><Run Text="Telefon: 0731.630.322"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="990,594,0,0" TextWrapping="Wrap" Text="Email: office@soviaserv.ro" VerticalAlignment="Top" Foreground="#FF1D278B" TextDecorations="Underline"/>
-            <TextBlock x:Name="LabelFirma" HorizontalAlignment="Left" Margin="10,581,0,0" Text="  Firma: " VerticalAlignment="Top" Background="#FFD4E61E" Width="45"/>
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="41" Margin="0,2,0,0" ClickMode="Hover" BorderBrush="#FF707070" Opacity=".90">
-                <Button.Background>
-                    <ImageBrush ImageSource="Imagini/DeclaratiiText.jpg"/>
-                </Button.Background>
-                <Button.Content>
-                    <Image x:Name="___No_Name_" Source="Imagini/DeclaratiiText.jpg" Width="161"/>
-                </Button.Content>
-                <Button.Foreground>
-                    <ImageBrush ImageSource="Imagini/DeclaratiiText.jpg"/>
-                </Button.Foreground>
-            </Button>
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="41" Margin="244,2,0,0" ClickMode="Hover" BorderBrush="#FF707070" Opacity=".90" Foreground="{x:Null}">
-                <Button.Background>
-                    <ImageBrush ImageSource="Imagini/CursText.jpg"/>
-                </Button.Background>
-                <Image x:Name="___No_Name_1" Source="Imagini/CursText.jpg" Width="99"/>
-            </Button>
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Height="41" Margin="161,2,0,0" ClickMode="Hover" BorderBrush="#FF707070" Opacity=".90">
-                <Button.Background>
-                    <ImageBrush ImageSource="Imagini/ExcelText.jpg"/>
-                </Button.Background>
-                <Image x:Name="___No_Name_2" Source="Imagini/ExcelText.jpg" Width="83"/>
-            </Button>
+        <Grid Name="grdMain">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0">
+                <Menu DockPanel.Dock="Top">
+                    <MenuItem Header="Declaratii Intrastat">
+                        <MenuItem.Icon>
+                            <Image Source="/Imagini/Menu/Intrastat_32.ico"/>
+                        </MenuItem.Icon>
+
+                    </MenuItem>
+                    <MenuItem Header="Excel">
+                        <MenuItem.Icon>
+                            <Image Source="/Imagini/Menu/Excel_32.ico"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="_Machete Preluare">
+                            <MenuItem Header="_Adauga Macheta"/>
+                            <MenuItem Header="_Modificare Macheta"/>
+                            <MenuItem Header="_Sterge Macheta"/>
+                        </MenuItem>
+                        <MenuItem Header="_Preluare fisier excel"/>
+                    </MenuItem>
+                    <MenuItem Header="_Curs valuar">
+                        <MenuItem.Icon>
+                            <Image Source="/Imagini/Menu/money_32.ico"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="_Actualizare automata">
+                            <MenuItem.Icon>
+                                <Image Source="/Imagini/Menu/internet_32.ico"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="_Introducere manuala"/>
+                    </MenuItem>
+                    <MenuItem Header="_Tarif Vamal">
+                        <MenuItem.Icon>
+                            <Image Source="/Imagini/Menu/tasktar_32.ico"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="_Sectiuni"/>
+                        <MenuItem Header="_Capitole"/>
+                        <MenuItem Header="_Grupe (4)"/>
+                        <MenuItem Header="_HS (5)"/>
+                        <MenuItem Header="_Cod vamal (8+4)"/>
+                    </MenuItem>
+                    <MenuItem Header="_Tabele referinta">
+                        <MenuItem.Icon>
+                            <Image Source="/Imagini/Menu/table_32_1.ico"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="_Tari"/>
+                        <MenuItem Header="_Tari UE">
+                            <MenuItem.Icon>
+                                <Image Source="/Imagini/Menu/EU_32.ico"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="_Monezi"/>
+                        <MenuItem Header="_Conditii Livrare"/>
+                        <MenuItem Header="_Natura Tranzactiei"/>
+                        <MenuItem Header="_UM Suplimentare"/>
+                    </MenuItem>
+                    <MenuItem Header="_Firme Meniu">
+                        <MenuItem.Icon>
+                            <Image Source="/Imagini/Menu/built_32.ico"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="_Selectare Firma"/>
+                        <Separator/>
+                        <MenuItem Header="_Creare Firma"/>
+                        <MenuItem Header="_Introducere KEY">
+                            <MenuItem.Icon>
+                                <Image Source="/Imagini/Menu/password.ico"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <Separator/>
+                        <MenuItem Header="_Date Firma"/>
+                    </MenuItem>
+                    <MenuItem Header="_Setari">
+                        <MenuItem.Icon>
+                            <Image Source="/Imagini/Menu/Setari_32.ico"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="_Date Firma"/>
+                        <MenuItem Header="_Setari Implicite"/>
+                        <MenuItem Header="_Setari Generale"/>
+                        <MenuItem Header="_Actualizare Program"/>
+                    </MenuItem>
+                    <MenuItem Header="_Ajutor">
+                        <MenuItem.Icon>
+                            <Image Source="/Imagini/Menu/help_32_1.ico"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="_Ajutor"/>
+                        <Separator/>
+                        <MenuItem Header="_Despre Program"/>
+                        <MenuItem Header="_Introducere KEY">
+                            <MenuItem.Icon>
+                                <Image Source="/Imagini/Menu/password.ico"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
+
+
+            <Grid Name="grdTwoColsInMainGrid" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="550"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <Grid Name="grdLeftMainGrid" Grid.Column="0">
+
+                </Grid>
+                <Grid Name="grdRightButtons" Grid.Column="1">
+                    <!-- AICI SUNT BUTOANELE creaza decl noua, administrare decl...-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Creaza declaratie noua >>>" Foreground="Blue"/>
+                    <Button Grid.Row="0" Grid.Column="1" Name="btnCreazaDeclaratieNoua">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Imagini/Other/Intrastat1.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Administrare declaratii >>>" Foreground="Blue"/>
+                    <Button Grid.Row="1" Grid.Column="1" Name="btnAdministrareDeclaratii">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Imagini/Other/Intrastat_Lista.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Setari program >>>" Foreground="Blue"/>
+                    <Button Grid.Row="2" Grid.Column="1" Name="btnSetariProgram">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Imagini/Menu/run.ico"/>
+                        </Button.Background>
+                    </Button>
+                    <Label Grid.Row="3" Grid.Column="0" Content="Cautare Avansate >>>" Foreground="Blue"/>
+                    <Button Grid.Row="3" Grid.Column="1" Name="btnCautareAvansata">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Imagini/Other/Cautare_Buton.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Label Grid.Row="4" Grid.Column="0" Content="Ajutor [explicatii] >>>" Foreground="Blue"/>
+                    <Button Grid.Row="4" Grid.Column="1" Name="btnAjutor">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Imagini/Menu/Help_32_1.ico"/>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <Grid Name="grdBottom" Grid.Row="2" Background="#FFC9B6F1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="180"></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Name="gridLblFirma" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="1" Name="LabelFirma" Content="Firma: " HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" FontFamily="Segoe UI Black" FontSize="10" Background="Yellow" />
+                </Grid>
+                <Label Grid.Column="2">
+                    <TextBlock FontFamily="Arial" FontSize="9">
+                        Copyright 2000-2019 SOVIA SERV SRL <LineBreak/>
+                        Telefon 0731.630.322 <LineBreak/>
+                        Email: office@soviaserv.ro
+                    </TextBlock>
+                </Label>
+                <Image Grid.Column="3" Source="/Imagini/Menu/Logo.png" HorizontalAlignment="Center" />
+            </Grid>
         </Grid>
     </Viewbox>
 </Window>
