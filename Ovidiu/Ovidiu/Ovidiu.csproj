@@ -55,12 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Frm_Creare_Firma.xaml.cs">
+      <DependentUpon>Frm_Creare_Firma.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FRM_Meniu_Principal.xaml.cs">
       <DependentUpon>FRM_Meniu_Principal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frm_Selectie_Firma.xaml.cs">
       <DependentUpon>Frm_Selectie_Firma.xaml</DependentUpon>
     </Compile>
+    <Page Include="Frm_Creare_Firma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FRM_Meniu_Principal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -87,8 +94,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Frm_Setari_Implicite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Frm_Setari_Implicite.xaml.cs">
+      <DependentUpon>Frm_Setari_Implicite.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Miscellaneous\ClasaSuport.cs" />
     <Compile Include="Modules\CONSTANTE.cs" />
     <Compile Include="Modules\EU_Registrii_Operatii.cs" />

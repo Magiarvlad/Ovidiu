@@ -37,6 +37,8 @@ namespace Ovidiu
 
         private void Ok_Btn_Click(object sender, RoutedEventArgs e)
         {
+            if(ComboBoxSelectFirma.SelectedValue!=null)
+            {
             string[] aux = ComboBoxSelectFirma.SelectedItem.ToString().Split(' ');
             for (int i=0;i< v.Length/2;i++)
             {
@@ -51,6 +53,7 @@ namespace Ovidiu
             CONSTANTE.Meniu.LabelFirma.Width += Firma.NumeFirma.Length*7;
             CONSTANTE.Meniu.Show();
             this.Hide();
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

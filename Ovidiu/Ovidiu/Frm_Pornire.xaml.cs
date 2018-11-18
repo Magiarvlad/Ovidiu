@@ -112,7 +112,7 @@ namespace Ovidiu
                 {
                     Update_Curs();
                     Open_Conection_Common();
-
+                    this.Hide();
                 }
             }
             catch (Exception exp)
@@ -122,7 +122,7 @@ namespace Ovidiu
             
         }
          
-        private void Open_Conection_Common()
+        public static void Open_Conection_Common()
         {
             
             OleDbConnection conn = new
@@ -136,7 +136,7 @@ namespace Ovidiu
             try
             {
                 bool flag = false;
-                string[,] vs = new string[10,2];
+              
                 int i = 0;
                 conn.Open();
                 OleDbCommand Command = new OleDbCommand("SELECT Cod_Fiscal,Nume_Firma,DataBaseFile,Nr_Inregistrare,Key_Inregistrare from Firme", conn);
@@ -146,19 +146,19 @@ namespace Ovidiu
                     DB_Reader.Read();
                     Firma.CodFiscal = DB_Reader[0].ToString();
                     Firma.NumeFirma = DB_Reader[1].ToString();
-                    vs[i,0] = DB_Reader[0].ToString();
-                    vs[i,1] = DB_Reader[1].ToString();
+                    CONSTANTE.vs[i,0] = DB_Reader[0].ToString();
+                    CONSTANTE.vs[i,1] = DB_Reader[1].ToString();
                     while (DB_Reader.Read())
                     {
                         flag = true;
                         i++;
-                        vs[i,0] = DB_Reader[0].ToString();
-                        vs[i,1] = DB_Reader[1].ToString();
+                        CONSTANTE.vs[i,0] = DB_Reader[0].ToString();
+                        CONSTANTE.vs[i,1] = DB_Reader[1].ToString();
                     }
                     if(flag==true)
                     {
-                        this.Hide();
-                        Frm_Selectie_Firma frm_Selectie_Firma = new Frm_Selectie_Firma(vs);
+                        
+                        Frm_Selectie_Firma frm_Selectie_Firma = new Frm_Selectie_Firma(CONSTANTE.vs);
                         frm_Selectie_Firma.Show();
                     }
                     // textbox1.Text = DB_Reader.GetString("your_column_name");
@@ -174,7 +174,7 @@ namespace Ovidiu
             }
         }
 
-        private static void Update_Curs()
+        public static void Update_Curs()
         {
             DateTime cursBNR_time = File.GetLastWriteTime(FileLocation.System + "CursBNR\\curs.txt");
 

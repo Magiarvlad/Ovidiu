@@ -1,4 +1,5 @@
 ﻿using Ovidiu.EU;
+using Ovidiu.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,23 @@ namespace Ovidiu
         {
             Application.Current.Shutdown();
         }
+
+        private void SelectareFirma_Click(object sender, RoutedEventArgs e)
+        {
+            
+            Frm_Selectie_Firma _Selectie_Firma = new Frm_Selectie_Firma(CONSTANTE.vs);
+
+            _Selectie_Firma.Show();
+
+        }
+
+        private void Creare_Firma_Click(object sender, RoutedEventArgs e)
+        {
+            Frm_Creare_Firma frm_Creare_Firma = new Frm_Creare_Firma();
+            frm_Creare_Firma.Show();
+        }
+
+
 
         // private void Window_Activated(object sender, EventArgs e)
 

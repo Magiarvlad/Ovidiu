@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\
 Ovidiu
 none
 false
 DEBUG;TRACE
-F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\App.xaml
-3801817119
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\App.xaml
+51147102706
 
-241552330050
+26-836259211
 141990505334
-FRM_Meniu_Principal.xaml;Frm_Pornire.xaml;Frm_Selectie_Firma.xaml;
+Frm_Creare_Firma.xaml;FRM_Meniu_Principal.xaml;Frm_Pornire.xaml;Frm_Selectie_Firma.xaml;Frm_Setari_Implicite.xaml;
 
 False
 

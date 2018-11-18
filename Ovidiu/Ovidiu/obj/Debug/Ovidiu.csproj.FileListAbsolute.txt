@@ -49,3 +49,7 @@ F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\FRM_Meniu_Principal.g.cs
 F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Selectie_Firma.g.cs
 F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\FRM_Meniu_Principal.baml
 F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Selectie_Firma.baml
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Creare_Firma.g.cs
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Creare_Firma.baml
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Setari_Implicite.g.cs
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Setari_Implicite.baml
