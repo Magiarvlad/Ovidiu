@@ -1,8 +1,10 @@
 ﻿using Ovidiu.EU;
+using Ovidiu.Miscellaneous;
 using Ovidiu.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -45,6 +47,29 @@ namespace Ovidiu
         {
             Frm_Creare_Firma frm_Creare_Firma = new Frm_Creare_Firma();
             frm_Creare_Firma.Show();
+        }
+
+        private void _ActualizareProgram_Click(object sender, RoutedEventArgs e)
+        {
+            string numeFisierVers = string.Empty;
+            string sPath = string.Empty;
+            numeFisierVers = UpdatesHelper.Verifica_Update_Versiune(Assembly.GetExecutingAssembly().GetName().Version.ToString());
+                if (numeFisierVers != "0")
+                {
+                    if (MessageBoxResult.Yes ==
+                        MessageBox.Show("Exista o versiune noua pentru descarcare\nDoriti descarcarea si instalarea noii versiuni?", "Info", MessageBoxButton.YesNo))
+                    {
+                        sPath = Environment.CurrentDirectory + @"UpdateWEB\UpdateWEB.exe";
+                        ClasaSuport.StartProgramByFileName(sPath, true);
+                        Application.Current.Shutdown();
+                        return;
+                    }
+                }
+                else
+                 {
+                    MessageBox.Show("Nu este necesara actualizarea programului", "Info", MessageBoxButton.OK);
+                 }
+            
         }
 
 

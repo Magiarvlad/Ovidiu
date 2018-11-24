@@ -21,31 +21,7 @@
         <Label Content="Cond de livrare" HorizontalAlignment="Left" Margin="430,291,0,0" VerticalAlignment="Top"/>
         <Label Content="Nat Trazactiei" HorizontalAlignment="Left" Margin="430,322,0,0" VerticalAlignment="Top"/>
         <Label Content="Mod Transport" HorizontalAlignment="Left" Margin="430,353,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left"  ItemsSource="{Binding}" Margin="270,264,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Margin="2" Text="{Binding State}"/>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-            <ComboBox.ItemContainerStyle>
-                <Style TargetType="{x:Type ComboBoxItem}">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate>
-                                <Grid>
-                                    <DataGrid>
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="First Name" Binding="{Binding Name}"></DataGridTextColumn>
-                                            <DataGridTextColumn Header="Last Name" Binding="{Binding State}"></DataGridTextColumn>
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </Grid>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </ComboBox.ItemContainerStyle>
-        </ComboBox>
+
 
     </Grid>
 </Window>

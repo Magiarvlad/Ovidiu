@@ -58,6 +58,7 @@ namespace Ovidiu
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            if(FRM_Meniu_Principal.IsActiveProperty.ToString()=="false")
             Application.Current.Shutdown();
         }
     }

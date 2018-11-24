@@ -31,20 +31,20 @@ namespace Ovidiu
             string[,] sv = new string[1, 2];
             sv[0, 0] = "RO";
             sv[0, 1] = "Romania";
-            tara.Add(new Tara() { Name = "RO", State = "Romania" });
-            tara.Add(new Tara() { Name = "Bg", State = "Bulgaria" });
-            tara.Add(new Tara() { Name = "RO", State = "Romania" });
-            tara.Add(new Tara() { Name = "RO", State = "Romania" });
-
-
-            DataContext = tara;
+            tara.Add(new Tara() { Cod = "RO", Tar = "Romania" });
+            tara.Add(new Tara() { Cod = "Bg", Tar = "Bulgaria" });
+            //tara.Add(new Tara() { Name = "RO", State = "Romania" });
+            //tara.Add(new Tara() { Name = "RO", State = "Romania" });
+            //cb.ItemsSource = tara;
+           // cb.Items.Add(new Tara() { Cod = "RO", Tar = "Romania" });
+           // DataContext = tara;
         }
-        private class Tara
+        public class Tara
         {
-            public string State
+            public string Cod
             { get; set; }
 
-            public string Name
+            public string Tar
             { get; set; }
         }
     }
