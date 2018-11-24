@@ -72,6 +72,12 @@ namespace Ovidiu
             
         }
 
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Frm_Setari_Implicite frmSetImplicite = new Frm_Setari_Implicite(true);
+            frmSetImplicite.Show();
+        }
+
 
 
         // private void Window_Activated(object sender, EventArgs e)

@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Clase\SetariImpliciteCmbBox.cs" />
+    <Compile Include="Clase\DateSetariImplicite.cs" />
     <Compile Include="Frm_Creare_Firma.xaml.cs">
       <DependentUpon>Frm_Creare_Firma.xaml</DependentUpon>
     </Compile>

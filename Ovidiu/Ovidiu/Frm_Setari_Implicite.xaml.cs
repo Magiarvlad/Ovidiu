@@ -22,14 +22,14 @@ namespace Ovidiu
     /// </summary>
     public partial class Frm_Setari_Implicite : Window
     {
-        private ObservableCollection<SetariImpliciteCmbBox> _cmbAchizitiiTaraExpediere = new ObservableCollection<SetariImpliciteCmbBox>();
-        private ObservableCollection<SetariImpliciteCmbBox> _cmbAchizitiiCondLivrare = new ObservableCollection<SetariImpliciteCmbBox>();
-        private ObservableCollection<SetariImpliciteCmbBox> _cmbAchizitiiNatTranzactiei = new ObservableCollection<SetariImpliciteCmbBox>();
-        private ObservableCollection<SetariImpliciteCmbBox> _cmbAchizitiiModTransport = new ObservableCollection<SetariImpliciteCmbBox>();
-        private ObservableCollection<SetariImpliciteCmbBox> _cmbLivrariTaraExpediere = new ObservableCollection<SetariImpliciteCmbBox>();
-        private ObservableCollection<SetariImpliciteCmbBox> _cmbLivrariCondLivrare = new ObservableCollection<SetariImpliciteCmbBox>();
-        private ObservableCollection<SetariImpliciteCmbBox> _cmbLivrariNatTranzactiei = new ObservableCollection<SetariImpliciteCmbBox>();
-        private ObservableCollection<SetariImpliciteCmbBox> _cmbLivrariModTransport = new ObservableCollection<SetariImpliciteCmbBox>();
+        private ObservableCollection<DateSetariImplicite> _cmbAchizitiiTaraExpediere = new ObservableCollection<DateSetariImplicite>();
+        private ObservableCollection<DateSetariImplicite> _cmbAchizitiiCondLivrare = new ObservableCollection<DateSetariImplicite>();
+        private ObservableCollection<DateSetariImplicite> _cmbAchizitiiNatTranzactiei = new ObservableCollection<DateSetariImplicite>();
+        private ObservableCollection<DateSetariImplicite> _cmbAchizitiiModTransport = new ObservableCollection<DateSetariImplicite>();
+        private ObservableCollection<DateSetariImplicite> _cmbLivrariTaraExpediere = new ObservableCollection<DateSetariImplicite>();
+        private ObservableCollection<DateSetariImplicite> _cmbLivrariCondLivrare = new ObservableCollection<DateSetariImplicite>();
+        private ObservableCollection<DateSetariImplicite> _cmbLivrariNatTranzactiei = new ObservableCollection<DateSetariImplicite>();
+        private ObservableCollection<DateSetariImplicite> _cmbLivrariModTransport = new ObservableCollection<DateSetariImplicite>();
 
         public static int lastSelectedIndexAchizitiiTaraExpediere = 1;
         public static int lastSelectedIndexAchizitiiCondLivrare = 1;
@@ -40,7 +40,7 @@ namespace Ovidiu
         public static int lastSelectedIndexLivrariNatTranzactiei = 1;
         public static int lastSelectedIndexLivrariModTransport = 1;
 
-        public Frm_Setari_Implicite()
+        public Frm_Setari_Implicite(bool isCalledFromMainToolbar)
         {
             InitializeComponent();
             InitializeHeaders();
@@ -52,10 +52,6 @@ namespace Ovidiu
         #region Events
 
         #region ComboBox
-        private void cmbTaraExpediere_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
         private void cmbAchizitiiTaraExpediere_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -66,6 +62,45 @@ namespace Ovidiu
             lastSelectedIndexAchizitiiTaraExpediere = cmbArchizitiiTaraExpediere.SelectedIndex;
         }
 
+        private void cmbAchizitiiCondLivrare_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbAchizitiiCondLivrare.SelectedIndex == 0)
+            {
+                cmbAchizitiiCondLivrare.SelectedIndex = lastSelectedIndexAchizitiiCondLivrare;
+            }
+            lastSelectedIndexAchizitiiCondLivrare = cmbAchizitiiCondLivrare.SelectedIndex;
+        }
+
+        private void cmbAchizitiiModTransport_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cmbAchizitiiNatTranzactiei_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cmbLivrariTaraDestinatie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cmbLivrariCondLivrare_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cmbLivrariNatTranzactiei_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cmbLivrariModTransport_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
         #endregion
 
         #endregion
@@ -74,16 +109,18 @@ namespace Ovidiu
 
         private void InitializeHeaders()
         {
-            _cmbAchizitiiTaraExpediere.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
-            _cmbAchizitiiCondLivrare.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
-            _cmbAchizitiiNatTranzactiei.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
-            _cmbAchizitiiModTransport.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
+            _cmbAchizitiiTaraExpediere.Add(new DateSetariImplicite { Cod = "Cod", Denumire = "Denumire" });
+            _cmbAchizitiiCondLivrare.Add(new DateSetariImplicite { Cod = "Cod", Denumire = "Denumire" });
+            _cmbAchizitiiNatTranzactiei.Add(new DateSetariImplicite { Cod = "Cod", Denumire = "Denumire" });
+            _cmbAchizitiiModTransport.Add(new DateSetariImplicite { Cod = "Cod", Denumire = "Denumire" });
 
-            _cmbLivrariTaraExpediere.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
-            _cmbLivrariCondLivrare.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
-            _cmbLivrariNatTranzactiei.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
-            _cmbLivrariModTransport.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
+            _cmbLivrariTaraExpediere.Add(new DateSetariImplicite { Cod = "Cod", Denumire = "Denumire" });
+            _cmbLivrariCondLivrare.Add(new DateSetariImplicite { Cod = "Cod", Denumire = "Denumire" });
+            _cmbLivrariNatTranzactiei.Add(new DateSetariImplicite { Cod = "Cod", Denumire = "Denumire" });
+            _cmbLivrariModTransport.Add(new DateSetariImplicite { Cod = "Cod", Denumire = "Denumire" });
         }
-        #endregion  
+        #endregion
+
+     
     }
 }

@@ -69,7 +69,7 @@
                 </Style>
             </ComboBox.ItemContainerStyle>
         </ComboBox>
-        <ComboBox x:Name ="cmbAchizitiiCondLivrare" Margin="230,268,401,263" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+        <ComboBox x:Name ="cmbAchizitiiCondLivrare" Margin="230,268,401,263" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbAchizitiiCondLivrare_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Margin="2" Text="{Binding Name}"/>
@@ -112,7 +112,7 @@
                 </Style>
             </ComboBox.ItemContainerStyle>
         </ComboBox>
-        <ComboBox x:Name ="cmbAchizitiiModTransport" Margin="230,361,401,170" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+        <ComboBox x:Name ="cmbAchizitiiModTransport" Margin="230,361,401,170" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbAchizitiiModTransport_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Margin="2" Text="{Binding Name}"/>
@@ -155,7 +155,7 @@
                 </Style>
             </ComboBox.ItemContainerStyle>
         </ComboBox>
-        <ComboBox x:Name ="cmbAchizitiiNatTranzactiei" Margin="230,313,401,218" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+        <ComboBox x:Name ="cmbAchizitiiNatTranzactiei" Margin="230,313,401,218" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbAchizitiiNatTranzactiei_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Margin="2" Text="{Binding Name}"/>
@@ -198,7 +198,7 @@
                 </Style>
             </ComboBox.ItemContainerStyle>
         </ComboBox>
-        <ComboBox x:Name ="cmbLivrariTaraDestinatie" Margin="571,224,60,307" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+        <ComboBox x:Name ="cmbLivrariTaraDestinatie" Margin="571,224,60,307" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbLivrariTaraDestinatie_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Margin="2" Text="{Binding Name}"/>
@@ -241,7 +241,7 @@
                 </Style>
             </ComboBox.ItemContainerStyle>
         </ComboBox>
-        <ComboBox x:Name ="cmbLivrariCondLivrare" Margin="571,268,60,263" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+        <ComboBox x:Name ="cmbLivrariCondLivrare" Margin="571,268,60,263" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbLivrariCondLivrare_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Margin="2" Text="{Binding Name}"/>
@@ -284,7 +284,7 @@
                 </Style>
             </ComboBox.ItemContainerStyle>
         </ComboBox>
-        <ComboBox x:Name ="cmbLivrariNatTranzactiei" Margin="571,313,60,218" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+        <ComboBox x:Name ="cmbLivrariNatTranzactiei" Margin="571,313,60,218" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbLivrariNatTranzactiei_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Margin="2" Text="{Binding Name}"/>
@@ -327,7 +327,7 @@
                 </Style>
             </ComboBox.ItemContainerStyle>
         </ComboBox>
-        <ComboBox x:Name ="cmbLivrariModTransport" Margin="571,361,60,170" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+        <ComboBox x:Name ="cmbLivrariModTransport" Margin="571,361,60,170" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbLivrariModTransport_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Margin="2" Text="{Binding Name}"/>
