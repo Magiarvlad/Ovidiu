@@ -188,13 +188,13 @@ namespace Ovidiu
                 dbCommand = new OleDbCommand(dbQuery, dbConn);
                 if ((int)dbCommand.ExecuteScalar() < 1)
                 {
-                    dbQuery = "INSERT INTO Intrastat_Default (Cod_Fiscal) VALUES ('" + Firma.CodFiscal + "'";
+                    dbQuery = "INSERT INTO Intrastat_Default (Cod_Fiscal) VALUES ('" + Firma.CodFiscal + "')";
                     dbCommand = new OleDbCommand(dbQuery, dbConn);
                     dbCommand.ExecuteNonQuery();
                 }
 
                 // cmbAchizitiiTaraExpediere
-                dbQuery = "SELECT COD_TARA, Tara_DESC, FROM UE_Tari ORDER BY COD_TARA";
+                dbQuery = "SELECT COD_TARA, Tara_DESC FROM UE_Tari ORDER BY COD_TARA";
                 dbCommand = new OleDbCommand(dbQuery, dbConn);
                 dbReader = dbCommand.ExecuteReader();
                 if (dbReader.HasRows)
@@ -207,7 +207,7 @@ namespace Ovidiu
                 }
 
                 // cmbAchizitiiCondLivrare
-                dbQuery = "SELECT Incoterms_COD, Incoterms_DESC, FROM Incoterms ORDER BY Incoterms_COD";
+                dbQuery = "SELECT Incoterms_COD, Incoterms_DESC FROM Incoterms ORDER BY Incoterms_COD";
                 dbCommand = new OleDbCommand(dbQuery, dbConn);
                 dbReader = dbCommand.ExecuteReader();
                 if (dbReader.HasRows)
@@ -215,7 +215,7 @@ namespace Ovidiu
                     while (dbReader.Read())
                     {
                         _cmbAchizitiiCondLivrare.Add(new DateSetariImplicite { Cod = dbReader["Incoterms_COD"].ToString(), Denumire = dbReader["Incoterms_DESC"].ToString() });
-                        _cmbLivrariCondLivrare.Add(new DateSetariImplicite { Cod = dbReader["COD_TARA"].ToString(), Denumire = dbReader["Tara_DESC"].ToString() });
+                        _cmbLivrariCondLivrare.Add(new DateSetariImplicite { Cod = dbReader["Incoterms_COD"].ToString(), Denumire = dbReader["Incoterms_DESC"].ToString() });
                     }
                 }
 
@@ -241,7 +241,7 @@ namespace Ovidiu
                     while (dbReader.Read())
                     {
                         _cmbAchizitiiModTransport.Add(new DateSetariImplicite { Cod = dbReader["COD_MOD_TRANS"].ToString(), Denumire = dbReader["DESC_MOD_TRANS"].ToString() });
-                        _cmbLivrariNatTranzactiei.Add(new DateSetariImplicite { Cod = dbReader["COD_Tranz"].ToString(), Denumire = dbReader["TR_DESC"].ToString() });
+                        _cmbLivrariModTransport.Add(new DateSetariImplicite { Cod = dbReader["COD_MOD_TRANS"].ToString(), Denumire = dbReader["DESC_MOD_TRANS"].ToString() });
                     }
                 }
             }
