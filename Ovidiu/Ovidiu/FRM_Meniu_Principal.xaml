@@ -36,7 +36,7 @@
                         <MenuItem.Icon>
                             <Image Source="/Imagini/Menu/money_32.ico"/>
                         </MenuItem.Icon>
-                        <MenuItem Header="_Actualizare automata">
+                        <MenuItem Name="ActualizareAutomataCurs" Header="_Actualizare automata" Click="ActualizareAutomataCurs_Click">
                             <MenuItem.Icon>
                                 <Image Source="/Imagini/Menu/internet_32.ico"/>
                             </MenuItem.Icon>
@@ -114,9 +114,44 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="990"/>
             </Grid.ColumnDefinitions>
-            <Grid Name="grdLeftMainGrid" Grid.Column="0" Margin="0,54,360,0"/>
+            <Grid Name="grdLeftMainGrid" Grid.Column="0" Margin="0,4,130,0">
+                <TextBlock HorizontalAlignment="Left" Margin="603,15,0,0" TextWrapping="Wrap" Text="IMPORTANT 2015. Incepand cu anul 2015 pentru flux de epxedieri trebuie declarate urmatoarele informatii: COD TARA ORIGINE si codul de indentificare fiscala a tarii destinatarului" VerticalAlignment="Top" Height="87" Width="249" Foreground="Red" FontWeight="SemiBold"/>
+                <Grid HorizontalAlignment="Left" Height="160" Margin="20,308,0,0" VerticalAlignment="Top" Width="212">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" MinHeight="30"/>
+                        <RowDefinition Height="Auto" MinHeight="30"/>
+                        <RowDefinition Height="Auto" MinHeight="30"/>
+                        <RowDefinition Height="Auto" MinHeight="30"/>
+                        <RowDefinition Height="Auto" MinHeight="30"/>
+                    </Grid.RowDefinitions>
+                    <Button Name="CSIP" Content="Cum se inregistreaza programul" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="209" Height="30" Background="White" Grid.Row="0" Click="CSIP_Click" />
+                    <Button Name="CMILI" Content="Cum ma inregistrez la INS" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="209" Height="30" Background="White" Grid.Row="1" Click="CMILI_Click"/>
+                    <Button Name="TPOD" Content="Transmit prima oara declaratia" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="209" Height="30" Background="White" Grid.Row="2" Click="TPOD_Click"/>
+                    <Button Name="CSTDO" Content="Cum se transmite declaratia online" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="209" Height="30" Background="White" Grid.Row="3" Click="CSTDO_Click"/>
+                    <Button Name="CSTD" Content="Cum se tipareste declaratia" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="209" Height="30" Background="White" Grid.Row="4" Click="CSTD_Click"/>
+                </Grid>
+                <TextBox HorizontalAlignment="Left" Height="26" Margin="22,19,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215"/>
+                <Button Content="Cauta" HorizontalAlignment="Left" Margin="266,20,0,0" VerticalAlignment="Top" Width="74"/>
+                <Image HorizontalAlignment="Left" Height="133" Margin="340,117,0,0" VerticalAlignment="Top" Width="260" Source="Imagini/Background.jpg">
+
+                </Image>
+                <TextBlock HorizontalAlignment="Left" Margin="246,260,0,0" TextWrapping="Wrap" Text="Pentru a beneficia de toate facilitatile programului e-Intrastat va rugam sa inregistrati online firma selectata. Aceasta opreatiune este GRATUITA" VerticalAlignment="Top" Height="66" Width="200" Foreground="#FF0B39D6"/>
+                <TextBlock HorizontalAlignment="Left" Margin="496,260,0,0" TextWrapping="Wrap" Text="Aici se introduc cheile de inregistrare pe care le-ati primit pe email dupa inregistrarea online" VerticalAlignment="Top" Height="36" Width="254"/>
+                <Menu HorizontalAlignment="Left" Height="32" Margin="240,335,0,0" VerticalAlignment="Top" Width="543" Background="{x:Null}">
+                    <MenuItem Name="Inregistrea_Firma_Btn" Header="Inregistreaza Firma" FontSize="18" Width="194" Height="33" Background="#FFA8BCFF" Click="Inregistrea_Firma_Btn_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Imagini/Menu/Internet_32.ico"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Introducere chei de inregistrare" FontSize="18" Width="283" Height="33" Background="#FFCEFDDB" HorizontalAlignment="Right" Margin="55,0,0,0">
+                        <MenuItem.Icon>
+                            <Image Source="Imagini/Menu/key_32_2.ico" Margin="0,-4,-7,-10"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </Menu>
+            </Grid>
             <StackPanel HorizontalAlignment="Left" Height="392" Margin="892,54,-142,0" VerticalAlignment="Top" Width="240">
-                <Grid Name="grdRightButtons" Grid.Column="1" Height="392" Margin="0,0,10,0">
+                <Grid Name="grdRightButtons" Grid.Column="1" Height="392" Margin="0,0,20,0">
                     <!-- AICI SUNT BUTOANELE creaza decl noua, administrare decl...-->
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -143,11 +178,17 @@
                         </Button.Background>
                     </Button>
                     <Label Grid.Row="2" Grid.Column="0" Content="Setari program >>>" Foreground="Blue"/>
-                    <Button Grid.Row="2" Grid.Column="1" Name="btnSetariProgram" Margin="0,0,-20,0">
-                        <Button.Background>
-                            <ImageBrush ImageSource="Imagini/Menu/run.ico"/>
-                        </Button.Background>
-                    </Button>
+                    <Menu Margin="1,0,-22,0" Grid.Row="2" Grid.Column="1">
+                        <MenuItem x:Name="btnSetariProgram" Height="81" Width="60">
+                            <MenuItem.Background>
+                                <ImageBrush ImageSource="Imagini/Menu/run.ico"/>
+                            </MenuItem.Background>
+                            <MenuItem Header="_Date Firma"/>
+                            <MenuItem Header="_Setari Implicite"/>
+                            <MenuItem Header="_Setari Generale"/>
+                            <MenuItem x:Name="Actualizare_Prog" Header="_Actualizare Program" Click="_ActualizareProgram_Click"/>
+                        </MenuItem>
+                    </Menu>
                     <Label Grid.Row="3" Grid.Column="0" Content="Cautare Avansate >>>" Foreground="Blue"/>
                     <Button Grid.Row="3" Grid.Column="1" Name="btnCautareAvansata" Margin="0,0,-20,0">
                         <Button.Background>

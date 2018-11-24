@@ -61,7 +61,7 @@ namespace Ovidiu
 
         private void CreazaFirma_Click(object sender, RoutedEventArgs e)
         {
-            Frm_Setari_Implicite frm_Setari_Implicite = new Frm_Setari_Implicite();
+            Frm_Setari_Implicite frm_Setari_Implicite = new Frm_Setari_Implicite(false);
             frm_Setari_Implicite.Show();
             this.Hide();
         }

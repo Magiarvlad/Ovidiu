@@ -78,6 +78,41 @@ namespace Ovidiu
             frmSetImplicite.Show();
         }
 
+        private void CSIP_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.e-intrastat.ro");
+        }
+
+        private void CMILI_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.e-intrastat.ro");
+        }
+
+        private void TPOD_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.e-intrastat.ro");
+        }
+
+        private void CSTDO_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.e-intrastat.ro");
+        }
+
+        private void CSTD_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.e-intrastat.ro");
+        }
+
+        private void Inregistrea_Firma_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.e-intrastat.ro/inregistrare.php");
+        }
+
+        private void ActualizareAutomataCurs_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
 
         // private void Window_Activated(object sender, EventArgs e)
