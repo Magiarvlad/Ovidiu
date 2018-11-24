@@ -22,8 +22,15 @@ namespace Ovidiu
     /// </summary>
     public partial class Frm_Setari_Implicite : Window
     {
+        private ObservableCollection<SetariImpliciteCmbBox> _cmbAchizitiiTaraExpediere = new ObservableCollection<SetariImpliciteCmbBox>();
+        private ObservableCollection<SetariImpliciteCmbBox> _cmbAchizitiiCondLivrare = new ObservableCollection<SetariImpliciteCmbBox>();
+        private ObservableCollection<SetariImpliciteCmbBox> _cmbAchizitiiNatTranzactiei = new ObservableCollection<SetariImpliciteCmbBox>();
+        private ObservableCollection<SetariImpliciteCmbBox> _cmbAchizitiiModTransport = new ObservableCollection<SetariImpliciteCmbBox>();
+        private ObservableCollection<SetariImpliciteCmbBox> _cmbLivrariTaraExpediere = new ObservableCollection<SetariImpliciteCmbBox>();
+        private ObservableCollection<SetariImpliciteCmbBox> _cmbLivrariCondLivrare = new ObservableCollection<SetariImpliciteCmbBox>();
+        private ObservableCollection<SetariImpliciteCmbBox> _cmbLivrariNatTranzactiei = new ObservableCollection<SetariImpliciteCmbBox>();
+        private ObservableCollection<SetariImpliciteCmbBox> _cmbLivrariModTransport = new ObservableCollection<SetariImpliciteCmbBox>();
 
-        private ObservableCollection<SetariImpliciteCmbBox> _cmbItems = new ObservableCollection<SetariImpliciteCmbBox>();
         public static int lastSelectedIndexAchizitiiTaraExpediere = 1;
         public static int lastSelectedIndexAchizitiiCondLivrare = 1;
         public static int lastSelectedIndexAchizitiiNatTranzactiei = 1;
@@ -36,9 +43,9 @@ namespace Ovidiu
         public Frm_Setari_Implicite()
         {
             InitializeComponent();
-
-            _cmbItems.Add(new SetariImpliciteCmbBox { Cod = "Name", Denumire = "State" });
-            DataContext = _cmbItems;
+            InitializeHeaders();
+            
+         //   DataContext = _cmbAchizitiiCondLivrare;
 
         }
 
@@ -62,5 +69,21 @@ namespace Ovidiu
         #endregion
 
         #endregion
+
+        #region Methods
+
+        private void InitializeHeaders()
+        {
+            _cmbAchizitiiTaraExpediere.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
+            _cmbAchizitiiCondLivrare.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
+            _cmbAchizitiiNatTranzactiei.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
+            _cmbAchizitiiModTransport.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
+
+            _cmbLivrariTaraExpediere.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
+            _cmbLivrariCondLivrare.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
+            _cmbLivrariNatTranzactiei.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
+            _cmbLivrariModTransport.Add(new SetariImpliciteCmbBox { Cod = "Cod", Denumire = "Denumire" });
+        }
+        #endregion  
     }
 }
