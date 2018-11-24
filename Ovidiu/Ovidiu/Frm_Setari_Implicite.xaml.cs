@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Ovidiu.Clase;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,32 +22,45 @@ namespace Ovidiu
     /// </summary>
     public partial class Frm_Setari_Implicite : Window
     {
-        
 
-        private ObservableCollection<Tara> tara = new ObservableCollection<Tara>();
+        private ObservableCollection<SetariImpliciteCmbBox> _cmbItems = new ObservableCollection<SetariImpliciteCmbBox>();
+        public static int lastSelectedIndexAchizitiiTaraExpediere = 1;
+        public static int lastSelectedIndexAchizitiiCondLivrare = 1;
+        public static int lastSelectedIndexAchizitiiNatTranzactiei = 1;
+        public static int lastSelectedIndexAchizitiiModTransport = 1;
+        public static int lastSelectedIndexLivrariTaraExpediere = 1;
+        public static int lastSelectedIndexLivrariCondLivrare = 1;
+        public static int lastSelectedIndexLivrariNatTranzactiei = 1;
+        public static int lastSelectedIndexLivrariModTransport = 1;
+
         public Frm_Setari_Implicite()
         {
             InitializeComponent();
 
+            _cmbItems.Add(new SetariImpliciteCmbBox { Cod = "Name", Denumire = "State" });
+            DataContext = _cmbItems;
 
-            string[,] sv = new string[1, 2];
-            sv[0, 0] = "RO";
-            sv[0, 1] = "Romania";
-            tara.Add(new Tara() { Cod = "RO", Tar = "Romania" });
-            tara.Add(new Tara() { Cod = "Bg", Tar = "Bulgaria" });
-            //tara.Add(new Tara() { Name = "RO", State = "Romania" });
-            //tara.Add(new Tara() { Name = "RO", State = "Romania" });
-            //cb.ItemsSource = tara;
-           // cb.Items.Add(new Tara() { Cod = "RO", Tar = "Romania" });
-           // DataContext = tara;
         }
-        public class Tara
+
+        #region Events
+
+        #region ComboBox
+        private void cmbTaraExpediere_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            public string Cod
-            { get; set; }
 
-            public string Tar
-            { get; set; }
         }
+
+        private void cmbAchizitiiTaraExpediere_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbArchizitiiTaraExpediere.SelectedIndex == 0)
+            {
+                cmbArchizitiiTaraExpediere.SelectedIndex = lastSelectedIndexAchizitiiTaraExpediere;
+            }
+            lastSelectedIndexAchizitiiTaraExpediere = cmbArchizitiiTaraExpediere.SelectedIndex;
+        }
+
+        #endregion
+
+        #endregion
     }
 }

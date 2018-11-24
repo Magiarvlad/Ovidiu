@@ -7,21 +7,368 @@
         mc:Ignorable="d"
         Title="Frm_Setari_Implicite" Height="588" Width="804.5">
     <Grid Margin="0,0,2,0">
-        <Button Content="Retine datele &gt;&gt;&gt; " HorizontalAlignment="Left" Margin="306,468,0,0" VerticalAlignment="Top" Width="124" Height="28"/>
-        <Label Content="  Pasul 2 - Setari Implicite" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Height="139" Width="794" FontSize="34" Background="#FF4258B9" Foreground="White" FontFamily="Nirmala UI"/>
+        <Button Content="OK - Retine datele" HorizontalAlignment="Left" Margin="337,491,0,0" VerticalAlignment="Top" Width="174" Height="39" Background="Black" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        <Label Content="   Setari Implicite" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Height="139" Width="794" FontSize="34" Background="#FF4258B9" Foreground="White" FontFamily="Nirmala UI"/>
         <Label Content="Valori implicite care vor fi folosite la creerea unui declaratii" HorizontalAlignment="Left" Margin="32,59,0,0" VerticalAlignment="Top" Height="27" Width="382" Foreground="White" FontSize="14"/>
         <Label Content="Aceste valori pot fi modificate la momentul introducerii datelor" HorizontalAlignment="Left" Margin="32,86,0,0" VerticalAlignment="Top" Height="27" Width="426" Foreground="White" FontSize="14"/>
-        <Label Content="Achizitii ( Import)" HorizontalAlignment="Left" Margin="179,219,0,0" VerticalAlignment="Top"/>
-        <Label Content="Livrari (Exporturi)" HorizontalAlignment="Left" Margin="430,219,0,0" VerticalAlignment="Top"/>
-        <Label Content="Tara de expediere" HorizontalAlignment="Left" Margin="162,260,0,0" VerticalAlignment="Top"/>
-        <Label Content="Cond de livrare" HorizontalAlignment="Left" Margin="162,291,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nat Tranzactiei" HorizontalAlignment="Left" Margin="162,322,0,0" VerticalAlignment="Top"/>
-        <Label Content="Mod Transport" HorizontalAlignment="Left" Margin="162,353,0,0" VerticalAlignment="Top"/>
-        <Label Content="Tara de destinatie" HorizontalAlignment="Left" Margin="430,260,0,0" VerticalAlignment="Top"/>
-        <Label Content="Cond de livrare" HorizontalAlignment="Left" Margin="430,291,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nat Trazactiei" HorizontalAlignment="Left" Margin="430,322,0,0" VerticalAlignment="Top"/>
-        <Label Content="Mod Transport" HorizontalAlignment="Left" Margin="430,353,0,0" VerticalAlignment="Top"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="303" Margin="63,167,0,0" VerticalAlignment="Top" Width="686">
+            <Border BorderBrush="Black" BorderThickness="1"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="303" Margin="63,167,0,0" VerticalAlignment="Top" Width="362"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="52" Margin="63,167,0,0" VerticalAlignment="Top" Width="686"/>
+        <Label Content="Achizitii ( Import)" HorizontalAlignment="Left" Margin="63,167,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.475,12.192" Height="52" Width="362" FontSize="26"/>
+        <Label Content="Livrari (Exporturi)" HorizontalAlignment="Left" Margin="430,167,0,0" VerticalAlignment="Top" Height="52" Width="319" FontSize="26"/>
+        <Label Content="Tara de expediere" HorizontalAlignment="Left" Margin="72,224,0,0" VerticalAlignment="Top"/>
+        <Label Content="Cond de livrare" HorizontalAlignment="Left" Margin="72,268,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nat Tranzactiei" HorizontalAlignment="Left" Margin="75,313,0,0" VerticalAlignment="Top"/>
+        <Label Content="Mod Transport" HorizontalAlignment="Left" Margin="72,361,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tara de destinatie" HorizontalAlignment="Left" Margin="430,224,0,0" VerticalAlignment="Top"/>
+        <Label Content="Cond de livrare" HorizontalAlignment="Left" Margin="430,268,0,0" VerticalAlignment="Top"/>
+        <Label Content="Mod Transport" HorizontalAlignment="Left" Margin="433,361,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nat Trazactiei" HorizontalAlignment="Left" Margin="430,313,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name ="cmbArchizitiiTaraExpediere" Margin="230,224,401,307" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbAchizitiiTaraExpediere_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Margin="2" Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Margin="5" Grid.Column="0" Text="{Binding Cod}"/>
+                                    <TextBlock Margin="5" Grid.Column="1" Text="{Binding Denumire}"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Gray"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Blue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
 
+                                    <!--IsHighlighted and IsMouseOver is showing same effect but IsHighlighted is used for showing logical focus( for understanding check using tab key)-->
 
+                                    <Trigger Property="ComboBoxItem.IsHighlighted" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="DodgerBlue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="Black"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+        <ComboBox x:Name ="cmbAchizitiiCondLivrare" Margin="230,268,401,263" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Margin="2" Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Margin="5" Grid.Column="0" Text="{Binding Cod}"/>
+                                    <TextBlock Margin="5" Grid.Column="1" Text="{Binding Denumire}"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Gray"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Blue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+
+                                    <!--IsHighlighted and IsMouseOver is showing same effect but IsHighlighted is used for showing logical focus( for understanding check using tab key)-->
+
+                                    <Trigger Property="ComboBoxItem.IsHighlighted" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="DodgerBlue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="Black"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+        <ComboBox x:Name ="cmbAchizitiiModTransport" Margin="230,361,401,170" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Margin="2" Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Margin="5" Grid.Column="0" Text="{Binding Cod}"/>
+                                    <TextBlock Margin="5" Grid.Column="1" Text="{Binding Denumire}"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Gray"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Blue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+
+                                    <!--IsHighlighted and IsMouseOver is showing same effect but IsHighlighted is used for showing logical focus( for understanding check using tab key)-->
+
+                                    <Trigger Property="ComboBoxItem.IsHighlighted" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="DodgerBlue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="Black"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+        <ComboBox x:Name ="cmbAchizitiiNatTranzactiei" Margin="230,313,401,218" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Margin="2" Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Margin="5" Grid.Column="0" Text="{Binding Cod}"/>
+                                    <TextBlock Margin="5" Grid.Column="1" Text="{Binding Denumire}"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Gray"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Blue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+
+                                    <!--IsHighlighted and IsMouseOver is showing same effect but IsHighlighted is used for showing logical focus( for understanding check using tab key)-->
+
+                                    <Trigger Property="ComboBoxItem.IsHighlighted" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="DodgerBlue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="Black"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+        <ComboBox x:Name ="cmbLivrariTaraDestinatie" Margin="571,224,60,307" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Margin="2" Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Margin="5" Grid.Column="0" Text="{Binding Cod}"/>
+                                    <TextBlock Margin="5" Grid.Column="1" Text="{Binding Denumire}"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Gray"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Blue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+
+                                    <!--IsHighlighted and IsMouseOver is showing same effect but IsHighlighted is used for showing logical focus( for understanding check using tab key)-->
+
+                                    <Trigger Property="ComboBoxItem.IsHighlighted" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="DodgerBlue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="Black"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+        <ComboBox x:Name ="cmbLivrariCondLivrare" Margin="571,268,60,263" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Margin="2" Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Margin="5" Grid.Column="0" Text="{Binding Cod}"/>
+                                    <TextBlock Margin="5" Grid.Column="1" Text="{Binding Denumire}"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Gray"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Blue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+
+                                    <!--IsHighlighted and IsMouseOver is showing same effect but IsHighlighted is used for showing logical focus( for understanding check using tab key)-->
+
+                                    <Trigger Property="ComboBoxItem.IsHighlighted" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="DodgerBlue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="Black"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+        <ComboBox x:Name ="cmbLivrariNatTranzactiei" Margin="571,313,60,218" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Margin="2" Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Margin="5" Grid.Column="0" Text="{Binding Cod}"/>
+                                    <TextBlock Margin="5" Grid.Column="1" Text="{Binding Denumire}"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Gray"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Blue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+
+                                    <!--IsHighlighted and IsMouseOver is showing same effect but IsHighlighted is used for showing logical focus( for understanding check using tab key)-->
+
+                                    <Trigger Property="ComboBoxItem.IsHighlighted" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="DodgerBlue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="Black"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+        <ComboBox x:Name ="cmbLivrariModTransport" Margin="571,361,60,170" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbTaraExpediere_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Margin="2" Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Margin="5" Grid.Column="0" Text="{Binding Cod}"/>
+                                    <TextBlock Margin="5" Grid.Column="1" Text="{Binding Denumire}"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Gray"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="Blue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                    </Trigger>
+
+                                    <!--IsHighlighted and IsMouseOver is showing same effect but IsHighlighted is used for showing logical focus( for understanding check using tab key)-->
+
+                                    <Trigger Property="ComboBoxItem.IsHighlighted" Value="True">
+                                        <Setter TargetName="gd"  Property="Background" Value="DodgerBlue"/>
+                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="Black"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
     </Grid>
 </Window>
