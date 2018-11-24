@@ -88,7 +88,7 @@
                             <Image Source="/Imagini/Menu/Setari_32.ico"/>
                         </MenuItem.Icon>
                         <MenuItem Header="_Date Firma"/>
-                        <MenuItem Header="_Setari Implicite"/>
+                        <MenuItem Header="_Setari Implicite" Click="MenuItem_Click"/>
                         <MenuItem Header="_Setari Generale"/>
                         <MenuItem x:Name="_Actualizare_Prog" Header="_Actualizare Program" Click="_ActualizareProgram_Click"/>
                     </MenuItem>
