@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ovidiu.Clase
 {
-    public class SetariImpliciteCmbBox
+    public class DateSetariImplicite
     {
         public string Cod { get; set; }
         public string Denumire { get; set; }
