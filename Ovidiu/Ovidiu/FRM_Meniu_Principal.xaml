@@ -89,7 +89,7 @@
                         </MenuItem.Icon>
                         <MenuItem Name="_DateFirma_Btn" Header="_Date Firma" Click="_DateFirma_Btn_Click"/>
                         <MenuItem Header="_Setari Implicite" Click="MenuItem_Click"/>
-                        <MenuItem Header="_Setari Generale"/>
+                        <MenuItem Header="_Setari Generale" Click="_SetariGenerale_Click"/>
                         <MenuItem x:Name="_Actualizare_Prog" Header="_Actualizare Program" Click="_ActualizareProgram_Click"/>
                     </MenuItem>
                     <MenuItem Header="_Ajutor" FontSize="18" Width="102" Height="37">

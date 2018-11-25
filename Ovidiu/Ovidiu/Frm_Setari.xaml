@@ -1,0 +1,68 @@
+﻿<Window x:Class="Ovidiu.Frm_Setari"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ovidiu"
+        mc:Ignorable="d"
+        Title="Frm_Setari"  Height="588" Width="804.5">
+    <Grid>
+        <Button Content="OK - Retine datele" HorizontalAlignment="Left" Margin="343,508,0,0" VerticalAlignment="Top" Width="174" Height="39" Background="Black" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        <Label Name="lblSetariImplicite" Content="   Setari Diverse" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Height="113" Width="794" FontSize="34" Background="#FF4258B9" Foreground="White" FontFamily="Nirmala UI"/>
+        <Label Content="In mod normal aceste date nu trebuie modificate" HorizontalAlignment="Left" Margin="32,59,0,0" VerticalAlignment="Top" Height="27" Width="382" Foreground="White" FontSize="14"/>
+        <TabControl HorizontalAlignment="Left" Height="341" Margin="10,138,0,0" VerticalAlignment="Top" Width="776">
+            <TabItem Header="Locatie Fisiere">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Locatie director (folder) baza de date" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Width="750" Height="28" Foreground="Blue"/>
+                    <TextBox x:Name="txtLocatieDirectorBazaDate" HorizontalAlignment="Left" Height="25" Margin="10,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="750" RenderTransformOrigin="0.492,-0.261"/>
+                    <Label Content="Locatie director System al aplicatiei Excel - Intrastat" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.219,-1.09" Width="750" Foreground="Blue"/>
+                    <TextBox x:Name="txtLocatieDirectorSistemExcel" HorizontalAlignment="Left" Height="23" Margin="10,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="750"/>
+                    <Label Content="Locatie definitie rapoarte"  HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="750"/>
+                    <TextBox x:Name="txtLocatieDefinitieRapoarte" HorizontalAlignment="Left" Height="23" Margin="10,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="750"/>
+                    <Label Content="Locatie salvare declaratii INTRASTAT (fisiere XML)" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top" Width="750"/>
+                    <TextBox x:Name="txtLocatieSalvareDeclaratiiXML" HorizontalAlignment="Left" Height="23" Margin="10,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="750"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Zecimale">
+                <Grid Background="#FFE5E5E5" Margin="0,8,0,-21">
+                    <Label Content="Zecimale rotunjire calcule" HorizontalAlignment="Left" Margin="27,46,0,0" VerticalAlignment="Top" Width="194"/>
+                    <Label Content="Calcul valori in valuta nr. zecimale" HorizontalAlignment="Left" Margin="27,89,0,0" VerticalAlignment="Top" Width="194"/>
+                    <Label Content="Calcul valori LEI nr. zecimale" HorizontalAlignment="Left" Margin="27,135,0,0" VerticalAlignment="Top" Width="194"/>
+                    <Label Content="Calcul taxare nr. zecimale" HorizontalAlignment="Left" Margin="27,184,0,0" VerticalAlignment="Top" Width="194"/>
+                    <TextBox x:Name="txtZecimaleRotunjireCalcule" HorizontalAlignment="Left" Height="23" Margin="226,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43"/>
+                    <TextBox x:Name="txtZecimaleCalculValuta" HorizontalAlignment="Left" Height="23" Margin="226,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43"/>
+                    <TextBox x:Name="txtZecimaleCalculLei" HorizontalAlignment="Left" Height="23" Margin="226,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43"/>
+                    <TextBox x:Name="txtZecimaleCalculTaxare" HorizontalAlignment="Left" Height="23" Margin="226,184,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43" RenderTransformOrigin="3.558,0.391"/>
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="2" Margin="27,224,0,0" VerticalAlignment="Top" Width="268"/>
+                    <Label Content="Maxim 6 zecimale" HorizontalAlignment="Left" Margin="27,231,0,0" VerticalAlignment="Top" Width="194"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Culori">
+                <Grid Background="#FFE5E5E5" Margin="0,8,0,-21">
+                    <Label Content="Culoare Bara Meniu" HorizontalAlignment="Left" Margin="30,29,0,0" VerticalAlignment="Top" Width="199"/>
+                    <Label Content="Culoare 1 alternativa tabele" HorizontalAlignment="Left" Margin="30,70,0,0" VerticalAlignment="Top" Width="199"/>
+                    <Label Content="Culoare 2 alternativa tabele" HorizontalAlignment="Left" Margin="30,112,0,0" VerticalAlignment="Top" Width="199"/>
+                    <Label Content="Fundal linie selectata tabele" HorizontalAlignment="Left" Margin="30,155,0,0" VerticalAlignment="Top" Width="199"/>
+                    <Label Content="Culoare linie pt selectie tabele" HorizontalAlignment="Left" Margin="30,195,0,0" VerticalAlignment="Top" Width="199"/>
+                    <Label x:Name="lblCuloareBaraMeniu" Content="" HorizontalAlignment="Left" Margin="234,29,0,0" VerticalAlignment="Top" Width="101" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="#FF8F8F8F" BorderThickness="2"/>
+                    <Label x:Name="lblCuloareTabelaAlternativa1" Content="" HorizontalAlignment="Left" Margin="234,66,0,0" VerticalAlignment="Top" Width="101" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="#FF8F8F8F" BorderThickness="2"/>
+                    <Label x:Name="lblCuloareTabelaAlternativa2" Content="" HorizontalAlignment="Left" Margin="234,108,0,0" VerticalAlignment="Top" Width="101" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="#FF8F8F8F" BorderThickness="2"/>
+                    <Label x:Name="lblCuloareFundalLinieSelectata" Content="" HorizontalAlignment="Left" Margin="234,151,0,0" VerticalAlignment="Top" Width="101" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="#FF8F8F8F" BorderThickness="2"/>
+                    <Label x:Name="lblCuloareLinieSelectata" Content="" HorizontalAlignment="Left" Margin="234,191,0,0" VerticalAlignment="Top" Width="101" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="#FF8F8F8F" BorderThickness="2"/>
+                    <Button x:Name="btnCuloareBaraMeniu" Content=">>>" HorizontalAlignment="Left" Margin="358,29,0,0" VerticalAlignment="Top" Width="80" Height="30"/>
+                    <Button x:Name="btnCuloareTabelaAlternativa1" Content="&gt;&gt;&gt;" HorizontalAlignment="Left" Margin="358,66,0,0" VerticalAlignment="Top" Width="80" Height="30"/>
+                    <Button x:Name="btnCuloareTabelaAlternativa2" Content="&gt;&gt;&gt;" HorizontalAlignment="Left" Margin="358,108,0,0" VerticalAlignment="Top" Width="80" Height="30"/>
+                    <Button x:Name="btnCuloareFundalLinieSelectata" Content="&gt;&gt;&gt;" HorizontalAlignment="Left" Margin="358,151,0,0" VerticalAlignment="Top" Width="80" Height="30"/>
+                    <Button x:Name="btnCuloareLinieSelectata" Content="&gt;&gt;&gt;" HorizontalAlignment="Left" Margin="358,191,0,0" VerticalAlignment="Top" Width="80" Height="30"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Diverse">
+                <Grid Background="#FFE5E5E5" Margin="0,8,0,-21">
+                    <CheckBox x:Name="chkActualizareAutomataCursValutar" Content="Actualizare automata a cursului valutar la pornirea aplicatiei e-Intrastat" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Width="439" Height="22"/>
+                    <CheckBox x:Name="chkActualizareAutomataProgram" Content="Actualizare automata a programului la pornirea aplicatiei" HorizontalAlignment="Left" Margin="39,70,0,0" VerticalAlignment="Top" Width="395"/>
+                    <CheckBox x:Name="chkVerificareaGreutatiiNete" Content="Verificarea greutatii Nete ( Atentie, greutatile nete sub 0.5 se vor considera 0 si sunt ERORI)" HorizontalAlignment="Left" Margin="39,168,0,0" VerticalAlignment="Top" Width="535"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

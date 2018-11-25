@@ -164,6 +164,12 @@ namespace Ovidiu
 
         }
 
+        private void _SetariGenerale_Click(object sender, RoutedEventArgs e)
+        {
+            Frm_Setari frm_Setari = new Frm_Setari(true);
+            frm_Setari.Show();
+        }
+
 
 
         // private void Window_Activated(object sender, EventArgs e)
