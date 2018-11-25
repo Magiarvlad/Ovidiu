@@ -53,4 +53,11 @@ C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Creare_Firma.g
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Creare_Firma.baml
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Setari_Implicite.g.cs
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Setari_Implicite.baml
-C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_HS.g.cs
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Creare_Firma.g.cs
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_HS.g.cs
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Setari.g.cs
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Setari_Implicite.g.cs
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Creare_Firma.baml
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_HS.baml
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Setari.baml
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Setari_Implicite.baml
