@@ -26,6 +26,21 @@ namespace Ovidiu.Modules
             return node_p;
         }
 
+        public static string CitesteValoareNodXML(string XMLFile, string caleNod)
+        {
+            try
+            {
+                XmlDocument xDoc = new XmlDocument();
+                xDoc.Load(XMLFile);
+                XmlNode xmlNode = xDoc.SelectSingleNode(caleNod);
+                return xmlNode.InnerText;
+            } 
+            catch(Exception exp)
+            {
+                throw new Exception("Eroare la citirea valorilor din xml pentru nodul: " + caleNod + Environment.NewLine + exp.Message);
+            }
+        }
+
 
        
 
