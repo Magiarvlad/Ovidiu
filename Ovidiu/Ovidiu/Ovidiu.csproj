@@ -59,6 +59,9 @@
     <Compile Include="Frm_Creare_Firma.xaml.cs">
       <DependentUpon>Frm_Creare_Firma.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frm_HS.xaml.cs">
+      <DependentUpon>Frm_HS.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FRM_Meniu_Principal.xaml.cs">
       <DependentUpon>FRM_Meniu_Principal.xaml</DependentUpon>
     </Compile>
@@ -66,6 +69,10 @@
       <DependentUpon>Frm_Selectie_Firma.xaml</DependentUpon>
     </Compile>
     <Page Include="Frm_Creare_Firma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frm_HS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,6 +113,7 @@
     </Compile>
     <Compile Include="Miscellaneous\ClasaSuport.cs" />
     <Compile Include="Modules\CONSTANTE.cs" />
+    <Compile Include="Modules\CursSchimb_Actualizare.cs" />
     <Compile Include="Modules\EU_Registrii_Operatii.cs" />
     <Compile Include="Modules\Inregistrare.cs" />
     <Compile Include="Modules\RegistriiOperatii.cs" />

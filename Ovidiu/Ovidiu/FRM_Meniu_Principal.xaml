@@ -57,7 +57,7 @@
                         <MenuItem.Icon>
                             <Image Source="/Imagini/Menu/table_32_1.ico"/>
                         </MenuItem.Icon>
-                        <MenuItem Header="_Tari"/>
+                        <MenuItem Name="_Tari_Btn" Header="_Tari" Click="_Tari_Btn_Click"/>
                         <MenuItem Header="_Tari UE">
                             <MenuItem.Icon>
                                 <Image Source="/Imagini/Menu/EU_32.ico"/>
@@ -87,7 +87,7 @@
                         <MenuItem.Icon>
                             <Image Source="/Imagini/Menu/Setari_32.ico"/>
                         </MenuItem.Icon>
-                        <MenuItem Header="_Date Firma"/>
+                        <MenuItem Name="_DateFirma_Btn" Header="_Date Firma" Click="_DateFirma_Btn_Click"/>
                         <MenuItem Header="_Setari Implicite" Click="MenuItem_Click"/>
                         <MenuItem Header="_Setari Generale"/>
                         <MenuItem x:Name="_Actualizare_Prog" Header="_Actualizare Program" Click="_ActualizareProgram_Click"/>
@@ -96,7 +96,7 @@
                         <MenuItem.Icon>
                             <Image Source="/Imagini/Menu/help_32_1.ico"/>
                         </MenuItem.Icon>
-                        <MenuItem Header="_Ajutor"/>
+                        <MenuItem x:Name="_Ajutor_Btn" Header="_Ajutor" Click="_Ajutor_Btn_Click"/>
                         <Separator/>
                         <MenuItem Header="_Despre Program"/>
                         <MenuItem Header="_Introducere KEY">
@@ -196,7 +196,7 @@
                         </Button.Background>
                     </Button>
                     <Label Grid.Row="4" Grid.Column="0" Content="Ajutor [explicatii] >>>" Foreground="Blue"/>
-                    <Button Grid.Row="4" Grid.Column="1" Name="btnAjutor" Margin="0,0,-20,0">
+                    <Button Grid.Row="4" Grid.Column="1" Name="btnAjutor" Margin="0,0,-20,0" Click="btnAjutor_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Imagini/Menu/Help_32_1.ico"/>
                         </Button.Background>
@@ -218,7 +218,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="10"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="1" Name="LabelFirma" Content="Firma: " HorizontalContentAlignment="Left" FontFamily="Segoe UI Black" FontSize="10" Background="Yellow" />
+                <Label Grid.Row="1" Name="LabelFirma" Content="Firma: " HorizontalContentAlignment="Left" FontFamily="Segoe UI Black" FontSize="10" Background="Yellow" Margin="0,0,0,27" />
             </Grid>
             <Label Grid.Column="2">
                 <TextBlock FontFamily="Arial" FontSize="9">

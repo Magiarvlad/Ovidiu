@@ -19,9 +19,18 @@ namespace Ovidiu
     /// </summary>
     public partial class Frm_Creare_Firma : Window
     {
-        public Frm_Creare_Firma()
+        public Frm_Creare_Firma(bool isCalledFromMainToolbar)
         {
             InitializeComponent();
+            SetLabels(isCalledFromMainToolbar);
+        }
+        private void SetLabels(bool isCalledFromMainToolbar)
+        {
+            if (!isCalledFromMainToolbar)
+            {
+                //this.lblDateFirma.Content = "   Pasul 1 " + this.lblDateFirma.Content.ToString().Trim();
+            }
+            this.Title = "Modificare date firma";
         }
 
         private void InfoBttn_Click(object sender, RoutedEventArgs e)

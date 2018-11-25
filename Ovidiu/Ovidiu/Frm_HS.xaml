@@ -1,0 +1,46 @@
+﻿<Window x:Class="Ovidiu.Frm_HS"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ovidiu"
+        mc:Ignorable="d"
+        Title="Frm_HS" Height="1326" Width="1896">
+    <Grid Margin="0,0,27,20">
+        <DataGrid AlternatingRowBackground="Gainsboro"  AlternationCount="2" Name="Grid_HS" HorizontalAlignment="Left" Height="964" Margin="50,77,0,0" VerticalAlignment="Top" Width="1474" Background="#FFC5BDD3">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Cod" Width="40" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Margin="5" Grid.Column="0" Text="{Binding Cod}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Denumire" Width="500" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Margin="5" Grid.Column="0" Text="{Binding Denumire}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+           
+        </DataGrid>
+        <Label Content="Pentru cautare tastati inceputul de cuvand pe care doriti sa-l gasiti" HorizontalAlignment="Left" Margin="987,31,0,0" VerticalAlignment="Top" Height="36" Width="542" FontSize="18" Foreground="#FF243BA4"/>
+        <Menu FontSize="18"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Height="51" Width="247" Margin="1284,1090,0,133">
+            <MenuItem Name="Tipareste_Btn" Header="         Tipareste" FontSize="18" Width="246" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Height="51" Background="#FFBAD4FF" Click="Tipareste_Btn_Click" >
+                <MenuItem.Icon>
+                    <Image Source="Imagini/Other/PRINT8.ICO" Margin="0,-8,-34,-13"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+        <Menu FontSize="18"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Height="51" Width="247" Margin="1016,1090,0,133">
+            <MenuItem Name="Export_Excel_Btn" Header="        Exporta Excel" FontSize="18" Width="246" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Height="51" Background="#FFBDD5FF" Click="Export_Excel_Btn_Click" >
+                <MenuItem.Icon>
+                    <Image Source="Imagini/Menu/Excel_32.ico" Margin="0,-8,-34,-13"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</Window>

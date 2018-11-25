@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Introducere date firma noua" Height="535.684" Width="1073.053" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#FFD4DCFF">
-        <Label Content="  Pasul 1 - Introducere date firma" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Height="65" Width="1064" FontSize="34" Background="#FF4258B9" Foreground="White" FontFamily="Nirmala UI"/>
+        <Label Name="lblDateFirma" Content="  Pasul 1 - Introducere date firma" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Height="65" Width="1064" FontSize="34" Background="#FF4258B9" Foreground="White" FontFamily="Nirmala UI"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="341" Margin="10,71,0,0" VerticalAlignment="Top" Width="516">
             
         </Border>

@@ -3,7 +3,10 @@ using Ovidiu.Miscellaneous;
 using Ovidiu.Modules;
 using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +29,6 @@ namespace Ovidiu
         public FRM_Meniu_Principal()
         {
             InitializeComponent();
-           
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -45,7 +47,7 @@ namespace Ovidiu
 
         private void Creare_Firma_Click(object sender, RoutedEventArgs e)
         {
-            Frm_Creare_Firma frm_Creare_Firma = new Frm_Creare_Firma();
+            Frm_Creare_Firma frm_Creare_Firma = new Frm_Creare_Firma(false);
             frm_Creare_Firma.Show();
         }
 
@@ -110,6 +112,55 @@ namespace Ovidiu
 
         private void ActualizareAutomataCurs_Click(object sender, RoutedEventArgs e)
         {
+            CursSchimb_Actualizare.Actualiza_curs();
+
+        } 
+
+        private void _Ajutor_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(FileLocation.System + "Help\\Manual.html");
+        }
+
+        private void _DateFirma_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Frm_Creare_Firma frm_Creare_Firma = new Frm_Creare_Firma(true);
+            frm_Creare_Firma.Show();
+        }
+
+        private void btnAjutor_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(FileLocation.System + "Help\\Manual.html");
+        }
+
+        string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "Comun.mdb";
+        private void _Tari_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
+            Frm_HS frm_HS = new Frm_HS("Tari- Total Inregistrari: " );
+        }
+
+        private void _Asd()
+        {
+            OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbCommand dbCommand = null;
+           // OleDbDataReader dbReader = null;
+            string dbQuery = string.Empty;
+            try
+            {
+                dbConn.Open();
+                dbQuery = "SELECT COUNT(*) FROM Tari WHERE Cod_Fiscal='" + Firma.CodFiscal + "'";
+                dbCommand = new OleDbCommand(dbQuery, dbConn);
+                if ((int)dbCommand.ExecuteScalar() < 1)
+                {
+                    dbQuery = "INSERT INTO Intrastat_Default (Cod_Fiscal) VALUES ('" + Firma.CodFiscal + "')";
+                    dbCommand = new OleDbCommand(dbQuery, dbConn);
+                    dbCommand.ExecuteNonQuery();
+                }
+            }
+            catch
+            {
+
+            }
 
         }
 

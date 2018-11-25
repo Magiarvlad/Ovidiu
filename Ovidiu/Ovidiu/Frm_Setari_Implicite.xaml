@@ -26,7 +26,7 @@
         <Label Content="Cond de livrare" HorizontalAlignment="Left" Margin="430,268,0,0" VerticalAlignment="Top"/>
         <Label Content="Mod Transport" HorizontalAlignment="Left" Margin="433,361,0,0" VerticalAlignment="Top"/>
         <Label Content="Nat Trazactiei" HorizontalAlignment="Left" Margin="430,313,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name ="cmbArchizitiiTaraExpediere" Margin="230,224,401,298" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbAchizitiiTaraExpediere_SelectionChanged">
+        <ComboBox x:Name ="cmbArchizitiiTaraExpediere" Margin="230,224,398,307" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbAchizitiiTaraExpediere_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Margin="2" Text="{Binding Name}"/>
