@@ -168,6 +168,7 @@ namespace Ovidiu
         {
             Frm_Setari frm_Setari = new Frm_Setari(true);
             frm_Setari.Show();
+
         }
 
 
