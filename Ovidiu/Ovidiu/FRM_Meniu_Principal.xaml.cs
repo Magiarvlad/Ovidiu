@@ -135,8 +135,75 @@ namespace Ovidiu
         string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "Comun.mdb";
         private void _Tari_Btn_Click(object sender, RoutedEventArgs e)
         {
+            int _numarInregistrari = getCount("Tari");
+            Frm_HS frm_HS = new Frm_HS("Tari- Total Inregistrari: " + _numarInregistrari,"Tari");
+        }
 
-            Frm_HS frm_HS = new Frm_HS("Tari- Total Inregistrari: " );
+        private void _Tari_UE_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            int _numarInregistrari = getCount("TARI_UE");
+            Frm_HS frm_HS = new Frm_HS("Tari UE- Total Inregistrari: " + _numarInregistrari, "TARI_UE");
+        }
+        private void _Monezi_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            int _numarInregistrari = getCount("Monezi");
+            Frm_HS frm_HS = new Frm_HS("Monezi- Total Inregistrari: " + _numarInregistrari, "Monezi");
+        }
+
+        private int getCount(string NumeTabela)
+        {
+            _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "Comun.mdb";
+            OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbCommand dbCommand = null;
+           
+            string dbQuery = string.Empty;
+            
+            try
+            {
+                dbConn.Open();
+                dbQuery = "SELECT COUNT(*) FROM "+NumeTabela;
+                dbCommand = new OleDbCommand(dbQuery, dbConn);
+                
+                int a= (int)dbCommand.ExecuteScalar();
+                dbConn.Close();
+                return a;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                dbConn.Close();
+                return 0;
+                
+            }
+           
+        }
+
+        private int getCount_HS(string NumeTabela)
+        {
+            _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "CN\\" + "CN_" + System.DateTime.Today.Year + ".mdb";
+            OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbCommand dbCommand = null;
+
+            string dbQuery = string.Empty;
+
+            try
+            {
+                dbConn.Open();
+                dbQuery = "SELECT COUNT(*) FROM " + NumeTabela;
+                dbCommand = new OleDbCommand(dbQuery, dbConn);
+
+                int a = (int)dbCommand.ExecuteScalar();
+                dbConn.Close();
+                return a;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                dbConn.Close();
+                return 0;
+
+            }
+
         }
 
         private void _Asd()
@@ -169,6 +236,55 @@ namespace Ovidiu
             Frm_Setari frm_Setari = new Frm_Setari(true);
             frm_Setari.Show();
 
+        }
+
+        private void Incoterms_Click(object sender, RoutedEventArgs e)
+        {
+            int _numarInregistrari = getCount("Incoterms");
+            Frm_HS frm_HS = new Frm_HS("Incoterms- Total Inregistrari: " + _numarInregistrari, "Incoterms");
+
+        }
+
+        private void _NaturaTranzactie_Click(object sender, RoutedEventArgs e)
+        {
+            int _numarInregistrari = getCount("Tranzactii");
+            Frm_HS frm_HS = new Frm_HS("Natura Tranzactiei- Total Inregistrari: " + _numarInregistrari, "Tranzactii");
+        }
+
+        private void _UM_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            int _numarInregistrari = getCount("UM");
+            Frm_HS frm_HS = new Frm_HS("UM suplimnentare- Total Inregistrari: " + _numarInregistrari, "UM");
+        }
+
+        private void _Sectiuni_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            int _numarInregistrari = getCount_HS("HS_1");
+            Frm_HS frm_HS = new Frm_HS("Sectiuni- Total Inregistrari: " + _numarInregistrari, "HS_1");
+        }
+
+        private void _Capitole_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            int _numarInregistrari = getCount_HS("HS_2");
+            Frm_HS frm_HS = new Frm_HS("Capitole- Total Inregistrari: " + _numarInregistrari, "HS_2");
+        }
+
+        private void _Grupe_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            int _numarInregistrari = getCount_HS("HS_4");
+            Frm_HS frm_HS = new Frm_HS("Grupe- Total Inregistrari: " + _numarInregistrari, "HS_4");
+        }
+
+        private void _HS_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            int _numarInregistrari = getCount_HS("HS_6");
+            Frm_HS frm_HS = new Frm_HS("HS6- Total Inregistrari: " + _numarInregistrari, "HS_6");
+        }
+
+        private void _Cod_Vamal_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            int _numarInregistrari = getCount_HS("HS_8");
+            Frm_HS frm_HS = new Frm_HS("Cod Vamal- Total Inregistrari: " + _numarInregistrari, "HS_8");
         }
 
 

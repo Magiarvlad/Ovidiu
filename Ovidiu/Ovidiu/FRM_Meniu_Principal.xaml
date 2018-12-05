@@ -47,26 +47,26 @@
                         <MenuItem.Icon>
                             <Image Source="/Imagini/Menu/tasktar_32.ico"/>
                         </MenuItem.Icon>
-                        <MenuItem Header="_Sectiuni"/>
-                        <MenuItem Header="_Capitole"/>
-                        <MenuItem Header="_Grupe (4)"/>
-                        <MenuItem Header="_HS (5)"/>
-                        <MenuItem Header="_Cod vamal (8+4)"/>
+                        <MenuItem x:Name="_Sectiuni_Btn" Header="_Sectiuni" Click="_Sectiuni_Btn_Click"/>
+                        <MenuItem x:Name="_Capitole_Btn" Header="_Capitole" Click="_Capitole_Btn_Click"/>
+                        <MenuItem x:Name="_Grupe_Btn" Header="_Grupe (4)" Click="_Grupe_Btn_Click"/>
+                        <MenuItem x:Name="_HS_Btn" Header="_HS (6)" Click="_HS_Btn_Click"/>
+                        <MenuItem x:Name="_Cod_Vamal_Btn" Header="_Cod vamal (8+4)" Click="_Cod_Vamal_Btn_Click"/>
                     </MenuItem>
                     <MenuItem Header="_Tabele referinta" FontSize="18" Width="157" Height="32">
                         <MenuItem.Icon>
                             <Image Source="/Imagini/Menu/table_32_1.ico"/>
                         </MenuItem.Icon>
                         <MenuItem Name="_Tari_Btn" Header="_Tari" Click="_Tari_Btn_Click"/>
-                        <MenuItem Header="_Tari UE">
+                        <MenuItem Name="_Tari_UE_Btn"  Header="_Tari UE" Click="_Tari_UE_Btn_Click">
                             <MenuItem.Icon>
                                 <Image Source="/Imagini/Menu/EU_32.ico"/>
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="_Monezi"/>
-                        <MenuItem Header="_Conditii Livrare"/>
-                        <MenuItem Header="_Natura Tranzactiei"/>
-                        <MenuItem Header="_UM Suplimentare"/>
+                        <MenuItem Name="Monezi" Header="_Monezi" Click="_Monezi_Btn_Click"/>
+                        <MenuItem x:Name="Incoterms" Header="_Conditii Livrare" Click="Incoterms_Click"/>
+                        <MenuItem x:Name="_NaturaTranzactie" Header="_Natura Tranzactiei" Click="_NaturaTranzactie_Click"/>
+                        <MenuItem x:Name="_UM_Btn" Header="_UM Suplimentare" Click="_UM_Btn_Click"/>
                     </MenuItem>
                     <MenuItem Header="Firme Meniu" FontSize="18" Width="139" Height="44">
                         <MenuItem.Icon>

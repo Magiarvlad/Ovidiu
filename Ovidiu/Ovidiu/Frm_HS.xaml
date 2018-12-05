@@ -5,39 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="Frm_HS" Height="1326" Width="1896">
-    <Grid Margin="0,0,27,20">
-        <DataGrid AlternatingRowBackground="Gainsboro"  AlternationCount="2" Name="Grid_HS" HorizontalAlignment="Left" Height="964" Margin="50,77,0,0" VerticalAlignment="Top" Width="1474" Background="#FFC5BDD3">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Cod" Width="40" IsReadOnly="True">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Margin="5" Grid.Column="0" Text="{Binding Cod}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Denumire" Width="500" IsReadOnly="True">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Margin="5" Grid.Column="0" Text="{Binding Denumire}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-           
+        Title="Frm_HS" Height="968.5" Width="1439.5">
+    <Grid Margin="0,0,42,61">
+        <DataGrid AlternatingRowBackground="Gainsboro"  AlternationCount="2" Name="Grid_HS" HorizontalAlignment="Left" Height="712" Margin="50,77,0,0" VerticalAlignment="Top" Width="1296" Background="#FFC5BDD3">
+
+
         </DataGrid>
-        <Label Content="Pentru cautare tastati inceputul de cuvand pe care doriti sa-l gasiti" HorizontalAlignment="Left" Margin="987,31,0,0" VerticalAlignment="Top" Height="36" Width="542" FontSize="18" Foreground="#FF243BA4"/>
-        <Menu FontSize="18"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Height="51" Width="247" Margin="1284,1090,0,133">
-            <MenuItem Name="Tipareste_Btn" Header="         Tipareste" FontSize="18" Width="246" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Height="51" Background="#FFBAD4FF" Click="Tipareste_Btn_Click" >
+        <Label x:Name="InfoCautareLabel" Content="Pentru cautare tastati inceputul de cuvand pe care doriti sa-l gasiti" HorizontalAlignment="Left" Margin="728,26,0,0" VerticalAlignment="Top" Height="36" Width="542" FontSize="18" Foreground="#FF243BA4"/>
+        <Menu FontSize="18"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Width="190" Margin="1074,828,0,2">
+            <MenuItem x:Name="Tipareste_Btn" Header="         Tipareste" FontSize="16" Width="189" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Height="46" Background="#FFBAD4FF" Click="Tipareste_Btn_Click" >
                 <MenuItem.Icon>
                     <Image Source="Imagini/Other/PRINT8.ICO" Margin="0,-8,-34,-13"/>
                 </MenuItem.Icon>
             </MenuItem>
         </Menu>
-        <Menu FontSize="18"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Height="51" Width="247" Margin="1016,1090,0,133">
-            <MenuItem Name="Export_Excel_Btn" Header="        Exporta Excel" FontSize="18" Width="246" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Height="51" Background="#FFBDD5FF" Click="Export_Excel_Btn_Click" >
+        <Menu FontSize="18"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Width="170" Margin="879,827,0,1">
+            <MenuItem x:Name="Export_Excel_Btn" Header="        Exporta Excel" FontSize="16" Width="171" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Height="47" Background="#FFBDD5FF" Click="Export_Excel_Btn_Click" >
                 <MenuItem.Icon>
                     <Image Source="Imagini/Menu/Excel_32.ico" Margin="0,-8,-34,-13"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+        <Menu x:Name="m4" FontSize="18"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Width="187" Margin="651,825,0,0">
+            <MenuItem x:Name="Legatura_Capitole_Btn" Header="     Legatura Capitole" FontSize="16" Width="195" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Height="50" Background="#FFBDD5FF" Click="Export_Excel_Btn_Click" >
+                <MenuItem.Icon>
+                    <Image Source="Imagini/Menu/Package_32.ico" Margin="0,-8,-34,-13"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+        <Menu x:Name="m2" FontSize="18"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Width="154" Margin="261,827,0,1">
+            <MenuItem x:Name="Cautare_Btn" Header="      Cautare" FontSize="16" Width="154" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Height="48" Background="#FFBDD5FF" Click="Export_Excel_Btn_Click" >
+                <MenuItem.Icon>
+                    <Image Source="Imagini/Other/search.gif" Margin="0,-8,-34,-13"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+        <Menu x:Name="m3" FontSize="12"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Width="188" Margin="435,825,0,0">
+            <MenuItem x:Name="Cautare_Avansata_Btn" Header="    Cautare Avansata" FontSize="16" Width="188" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Height="49" Background="#FFBDD5FF" Click="Export_Excel_Btn_Click" >
+                <MenuItem.Icon>
+                    <Image Source="Imagini/Other/search.gif" Margin="0,-8,-34,-13"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+        <Menu x:Name="m1" FontSize="12"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Width="189" Margin="58,827,0,1">
+            <MenuItem x:Name="ToateInreg_Btn" Header="    Toate Inregistrarile" FontSize="16" Width="198" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Height="51" Background="#FFBDD5FF" Click="ToateInreg_Btn_Click" >
+                <MenuItem.Icon>
+                    <Image Source="Imagini/Menu/Info_32.ico" Margin="0,-8,-34,-13"/>
                 </MenuItem.Icon>
             </MenuItem>
         </Menu>
