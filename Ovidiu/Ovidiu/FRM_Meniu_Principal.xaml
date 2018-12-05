@@ -26,7 +26,7 @@
                             <Image Source="/Imagini/Menu/Excel_32.ico" Margin="0,0,0,0"/>
                         </MenuItem.Icon>
                         <MenuItem Header="_Machete Preluare">
-                            <MenuItem Header="_Adauga Macheta"/>
+                            <MenuItem x:Name="_Adauga_Macheta_Btn" Header="_Adauga Macheta" Click="_Adauga_Macheta_Btn_Click"/>
                             <MenuItem Header="_Modificare Macheta"/>
                             <MenuItem Header="_Sterge Macheta"/>
                         </MenuItem>
