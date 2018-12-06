@@ -68,3 +68,8 @@ C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Setari.baml
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Ovidiu.csproj.ResolveComReference.cache
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Structura_Fisiere.g.cs
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Structura_Fisiere.baml
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Ovidiu.csproj.ResolveComReference.cache
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Intrastat.g.cs
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Structura_Fisiere.g.cs
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Intrastat.baml
+F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Structura_Fisiere.baml

@@ -62,6 +62,9 @@
     <Compile Include="Frm_HS.xaml.cs">
       <DependentUpon>Frm_HS.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Intrastat.xaml.cs">
+      <DependentUpon>Frm_Intrastat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FRM_Meniu_Principal.xaml.cs">
       <DependentUpon>FRM_Meniu_Principal.xaml</DependentUpon>
     </Compile>
@@ -73,6 +76,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frm_HS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frm_Intrastat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -172,7 +172,7 @@
                         </Button.Background>
                     </Button>
                     <Label Grid.Row="1" Grid.Column="0" Content="Administrare declaratii >>>" Foreground="Blue"/>
-                    <Button Grid.Row="1" Grid.Column="1" Name="btnAdministrareDeclaratii" Margin="0,0,-20,0">
+                    <Button Grid.Row="1" Grid.Column="1" Name="btnAdministrareDeclaratii" Margin="0,0,-20,0" Click="btnAdministrareDeclaratii_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Imagini/Other/Intrastat_Lista.png"/>
                         </Button.Background>
