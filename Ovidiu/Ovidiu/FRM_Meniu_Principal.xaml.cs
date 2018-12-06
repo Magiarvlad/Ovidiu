@@ -287,17 +287,6 @@ namespace Ovidiu
             Frm_HS frm_HS = new Frm_HS("Cod Vamal- Total Inregistrari: " + _numarInregistrari, "HS_8");
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void btnAdministrareDeclaratii_Click(object sender, RoutedEventArgs e)
-        {
-            Frm_Intrastat frmIntrastat = new Frm_Intrastat();
-            frmIntrastat.Show();
-        }
-
 
 
         // private void Window_Activated(object sender, EventArgs e)
