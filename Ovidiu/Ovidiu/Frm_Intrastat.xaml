@@ -5,75 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="Frm_Intrastat" Height="455.258" Width="735.476">
+        Title="Frm_Intrastat" Height="1080" Width="1920">
     <Grid>
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="206"/>
-                <RowDefinition Height="191"/>
-                <RowDefinition Height="27"/>
+                <RowDefinition Height="328"/>
+                <RowDefinition Height="652"/>
+                <RowDefinition Height="0"/>
             </Grid.RowDefinitions>
-            <Grid HorizontalAlignment="Left" Height="206" VerticalAlignment="Top" Width="727">
+            <Grid HorizontalAlignment="Left" Height="329" VerticalAlignment="Top" Width="1902">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="546*"/>
-                    <ColumnDefinition Width="181*"/>
+                    <ColumnDefinition Width="1145*"/>
+                    <ColumnDefinition Width="757*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="btnGenereazaFisierIntrastat" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="0,10,0,0" Height="27" Background="Yellow">
+                <Button x:Name="btnGenereazaFisierIntrastat" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="0,10,0,0" Height="44" Background="Yellow">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagini/Menu/Intrastat_32.ico"  Stretch="Uniform" Width="40" Margin="0,0,0,8" Height="23" />
-                        <TextBlock FontSize="9" FontWeight="Bold" Width="71"><Run Text="Genereaza fisier &#10;   INTRASTAT"/></TextBlock>
+                        <Image Source="/Imagini/Menu/Intrastat_32.ico"  Stretch="Uniform" Width="65" Margin="0,0,0,8" Height="42" />
+                        <TextBlock FontWeight="Bold" Width="126" Height="42"><Run Text="Genereaza fisier &#10;   INTRASTAT"/></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="btnCalculValStatistca" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="0,42,0,0" Height="27">
+                <Button x:Name="btnCalculValStatistca" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="0,59,0,0" Height="47">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagini/Menu/money_32.ico"  Stretch="Uniform" Width="40" Margin="0,0,0,8" Height="23" />
-                        <TextBlock FontSize="9" FontWeight="Bold" Width="71"><Run Text="Calcul valoare &#10;    Statistica"/></TextBlock>
+                        <Image Source="/Imagini/Menu/money_32.ico"  Stretch="Uniform" Width="62" Margin="0,0,0,8" Height="32" />
+                        <TextBlock FontWeight="Bold" Width="125" Height="42"><Run Text="Calcul valoare &#10;    Statistica"/></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="btnRedistrGreutateNeta" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="0,74,0,0" Height="27">
+                <Button x:Name="btnRedistrGreutateNeta" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="0,111,0,0" Height="45">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagini/Menu/firme_16.ico"  Stretch="None" Width="40" Margin="0,0,0,8" Height="23" />
-                        <TextBlock FontSize="9" FontWeight="Bold" Width="71"><Run Text="Redistribuire &#10;Greutate Netă"/></TextBlock>
+                        <Image Source="/Imagini/Menu/firme_16.ico"  Stretch="Uniform" Width="55" Margin="0,0,0,8" Height="38" />
+                        <TextBlock FontWeight="Bold" Width="127" Height="39"><Run Text="Redistribuire &#10;Greutate Netă"/></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="btnExportaExcel" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="0,114,0,0" Height="26">
+                <Button x:Name="btnExportaExcel" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="0,173,0,0" Height="40">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagini/Menu/excel_16.ico"  Stretch="None" Width="40" Margin="0,0,0,8" Height="23" />
-                        <TextBlock FontSize="9" Width="71"><Run Text="Exportă Excel"/></TextBlock>
+                        <Image Source="/Imagini/Menu/excel_16.ico"  Stretch="Uniform" Width="57" Margin="0,0,0,8" Height="33" />
+                        <TextBlock Width="130" Height="38"><Run Text="Exportă Excel"/></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="btnTipareste" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="0,145,0,0" Height="26">
+                <Button x:Name="btnTipareste" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="0,218,0,0" Height="44">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagini/Other/print.ico"  Stretch="None" Width="40" Margin="0,0,0,8" Height="23" />
-                        <TextBlock FontSize="9" Width="71"><Run Text="Tipărește"/></TextBlock>
+                        <Image Source="/Imagini/Other/print.ico"  Stretch="Uniform" Width="63" Margin="0,0,0,8" Height="32" />
+                        <TextBlock Width="125" Height="39"><Run Text="     Tipărește"/></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="btnReafisare" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="0,176,0,0" Height="26">
+                <Button x:Name="btnReafisare" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="0,267,0,0" Height="52">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagini/Menu/tasktar_16.ico"  Stretch="None" Width="40" Margin="0,0,0,8" Height="23" />
-                        <TextBlock FontSize="8" Width="71"><Run Text="Reafisare - Afisează &#10; toate înregistrările"/></TextBlock>
+                        <Image Source="/Imagini/Menu/tasktar_16.ico"  Stretch="Uniform" Width="55" Margin="0,0,0,8" Height="48" />
+                        <TextBlock Width="123" Height="45"><Run Text="Reafisare - Afisează &#10; toate înregistrările"/></TextBlock>
                     </StackPanel>
                 </Button>
-                <TabControl x:Name="tabctrlMain" HorizontalAlignment="Left" Height="196" Margin="0,10,0,0" VerticalAlignment="Top" Width="541">
+                <TabControl x:Name="tabctrlMain" HorizontalAlignment="Left" Height="309" Margin="0,10,0,0" VerticalAlignment="Top" Width="1140">
                     <TabItem Header="Date Generale">
                         <Grid Background="#FFE5E5E5">
-                            <Label Content="Tip - Anul - Luna" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="20" Width="73" FontSize="8" FontWeight="Bold"/>
-                            <TextBox x:Name="txtTip" HorizontalAlignment="Left" Height="20" Margin="83,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="19" FontSize="8"/>
-                            <TextBox x:Name="txtAn" HorizontalAlignment="Left" Height="20" Margin="107,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="38" FontSize="8"/>
-                            <TextBox x:Name="txtLuna" HorizontalAlignment="Left" Height="20" Margin="150,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="20" FontSize="8" RenderTransformOrigin="1.263,0.5"/>
-                            <Label Content="Fel declaratie" HorizontalAlignment="Left" Margin="186,10,0,0" VerticalAlignment="Top" Height="20" Width="73" FontSize="8" FontWeight="Bold"/>
-                            <ComboBox x:Name="cmbTipDeclaratie" HorizontalAlignment="Left" Margin="259,10,0,0" VerticalAlignment="Top" Width="99" Height="20" FontSize="8" Background="Yellow"/>
-                            <DockPanel HorizontalAlignment="Left" Height="168" LastChildFill="False" Margin="369,0,0,0" VerticalAlignment="Top" Width="166" Background="White">
-                                <Grid Height="168" VerticalAlignment="Top" Width="165">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="55*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Tip - Anul - Luna" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="122" FontWeight="Bold"/>
+                            <TextBox x:Name="txtTip" HorizontalAlignment="Left" Height="26" Margin="137,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="38" FontSize="8" Grid.ColumnSpan="2"/>
+                            <TextBox x:Name="txtAn" HorizontalAlignment="Left" Height="26" Margin="36,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59" FontSize="8" Grid.Column="1"/>
+                            <TextBox x:Name="txtLuna" HorizontalAlignment="Left" Height="26" Margin="100,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35" RenderTransformOrigin="1.263,0.5" Grid.Column="1"/>
+                            <Label Content="Fel declaratie" HorizontalAlignment="Left" Margin="223,10,0,0" VerticalAlignment="Top" Height="26" Width="121" FontWeight="Bold" Grid.Column="1"/>
+                            <ComboBox x:Name="cmbTipDeclaratie" HorizontalAlignment="Left" Margin="319,10,0,0" VerticalAlignment="Top" Width="163" Height="26" Background="Yellow" Grid.Column="1"/>
+                            <DockPanel HorizontalAlignment="Right" Height="281" LastChildFill="False" VerticalAlignment="Top" Width="338" Background="White" Grid.Column="1">
+                                <Grid Height="281" VerticalAlignment="Top" Width="417">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="37*"/>
                                         <ColumnDefinition Width="104*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="/Imagini/Menu/close_32.ico" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="43"/>
-                                    <TextBlock TextWrapping="WrapWithOverflow" Grid.Column="1" Margin="0,0,0,28" FontSize="9" Background="White" Foreground="Red">
+                                    <Image Source="/Imagini/Menu/close_32.ico" HorizontalAlignment="Left" Height="67" VerticalAlignment="Top" Width="79"/>
+                                    <TextBlock TextWrapping="WrapWithOverflow" Margin="69,0,73,28" Background="White" Foreground="Red" Grid.ColumnSpan="2">
                                         <TextBlock.Inlines>
                                             <Run Text="- Pentru ștergerea înregistrării curente [cea în curs de editare] se apasă tasta ESC [escape] &#10;"></Run>
                                             <Run Text="- Ștergerea unei înregistrări deja introduse se face prin selectarea din partea stângă a înregistrării și apăsarea tastei DELETE &#10;"/>
@@ -81,85 +85,107 @@
                                         </TextBlock.Inlines>
                                     </TextBlock>
 
-                                    <Button x:Name="btnUltimeleErori" Content="Ultimele Erori" Grid.Column="1" HorizontalAlignment="Left" Margin="47,145,0,0" VerticalAlignment="Top" Width="75" Height="18" FontSize="8" Background="#FFEE2424"/>
+                                    <Button x:Name="btnUltimeleErori" Content="Ultimele Erori" Grid.Column="1" HorizontalAlignment="Left" Margin="56,241,0,0" VerticalAlignment="Top" Width="179" Height="30" Background="#FFEE2424"/>
                                 </Grid>
                             </DockPanel>
-                            <Label Content="CUI / VAT ID" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="20" Width="60" FontSize="8" FontWeight="Bold"/>
-                            <Label Content="Poz. Comp." HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Height="20" Width="60" FontSize="8" FontWeight="Bold"/>
-                            <Label Content="Telefon-Fax-Email" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="20" Width="80" FontSize="8" FontWeight="Bold"/>
-                            <Label Content="Nume-Prenume" HorizontalAlignment="Left" Margin="137,73,0,0" VerticalAlignment="Top" Height="20" Width="73" FontSize="8" FontWeight="Bold"/>
-                            <TextBox x:Name="txtCUI" HorizontalAlignment="Left" Height="20" Margin="63,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="69" FontSize="8"/>
-                            <TextBox x:Name="txtVATID" HorizontalAlignment="Left" Height="20" Margin="150,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208" FontSize="8"/>
-                            <TextBox x:Name="txtPozComp" HorizontalAlignment="Left" Height="20" Margin="63,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="69" FontSize="8"/>
-                            <TextBox x:Name="txtNume" HorizontalAlignment="Left" Height="20" Margin="210,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="69" FontSize="8"/>
-                            <TextBox x:Name="txtPrenume" HorizontalAlignment="Left" Height="20" Margin="289,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="69" FontSize="8"/>
-                            <TextBox x:Name="txtTelefon" HorizontalAlignment="Left" Height="20" Margin="90,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="69" FontSize="8"/>
-                            <TextBox x:Name="txtFax" HorizontalAlignment="Left" Height="20" Margin="171,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="69" FontSize="8"/>
-                            <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="20" Margin="253,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="105" FontSize="8"/>
-                            <CheckBox x:Name="chkDeclValStatica" Content="Declarare Valoare Statistică" HorizontalAlignment="Left" Margin="12,137,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold" Foreground="Red" Width="158"/>
-                            <CheckBox x:Name="chkGenXML" Content="Generare fișier XML [intrastat] detaliat" HorizontalAlignment="Left" Margin="162,137,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold" Foreground="Blue" Width="171" Background="White"/>
-                            <Button x:Name="btnHelp" Content="?" HorizontalAlignment="Left" Margin="338,132,0,0" VerticalAlignment="Top" Width="20" Background="#FF00FFDC" FontSize="8" Height="20" FontWeight="Bold"/>
+                            <Label Content="CUI / VAT ID" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="27" Width="100" FontWeight="Bold"/>
+                            <Label Content="Poz. Comp." HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Height="26" Width="100" FontWeight="Bold"/>
+                            <Label Content="Telefon-Fax-Email" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top" Height="33" Width="134" FontWeight="Bold"/>
+                            <Label Content="Nume-Prenume" HorizontalAlignment="Left" Margin="168,98,0,0" VerticalAlignment="Top" Height="33" Width="137" FontWeight="Bold" Grid.Column="1"/>
+                            <TextBox x:Name="txtCUI" HorizontalAlignment="Left" Height="26" Margin="137,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="142" Grid.ColumnSpan="2"/>
+                            <TextBox x:Name="txtVATID" HorizontalAlignment="Left" Height="24" Margin="167,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="412" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+                                <TextBox.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="0.268"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </TextBox.RenderTransform>
+                            </TextBox>
+                            <TextBox x:Name="txtPozComp" HorizontalAlignment="Left" Height="26" Margin="137,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="142" FontSize="8" Grid.ColumnSpan="2"/>
+                            <TextBox x:Name="txtNume" HorizontalAlignment="Left" Height="27" Margin="275,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" RenderTransformOrigin="2.116,1.2" Grid.Column="1"/>
+                            <TextBox x:Name="txtPrenume" HorizontalAlignment="Left" Height="26" Margin="430,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151" Grid.Column="1"/>
+                            <TextBox x:Name="txtTelefon" HorizontalAlignment="Left" Height="26" Margin="137,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="142" Grid.ColumnSpan="2"/>
+                            <TextBox x:Name="txtFax" HorizontalAlignment="Left" Height="26" Margin="168,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" Grid.Column="1"/>
+                            <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="26" Margin="378,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="203" Grid.Column="1"/>
+                            <CheckBox x:Name="chkDeclValStatica" Content="Declarare Valoare Statistică" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="Red" Width="230" Grid.ColumnSpan="2"/>
+                            <CheckBox x:Name="chkGenXML" Content="Generare fișier XML [intrastat] detaliat" HorizontalAlignment="Left" Margin="66,221,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="Blue" Width="264" Background="White" Grid.Column="1"/>
+                            <Button x:Name="btnHelp" Content="?" HorizontalAlignment="Left" Margin="538,210,0,0" VerticalAlignment="Top" Width="43" Background="#FF00FFDC" Height="26" FontWeight="Bold" Grid.Column="1"/>
 
 
                         </Grid>
                     </TabItem>
                     <TabItem Header="Declarant Tert">
                         <Grid Background="#FFE5E5E5">
-                            <CheckBox x:Name="chkFolosireDeclTert" Content="Folosire Declarant Tert" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold" Foreground="Blue" Width="171" Background="White"/>
-                            <Label Content="CIF" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="20" Width="73" FontSize="8"/>
-                            <TextBox x:Name="txtCIF" HorizontalAlignment="Left" Height="20" Margin="10,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136" FontSize="8"/>
-                            <TextBox x:Name="txtNumeSocietate" HorizontalAlignment="Left" Height="20" Margin="158,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="267" FontSize="8"/>
-                            <Label Content="Nume Societate Comercială" HorizontalAlignment="Left" Margin="158,30,0,0" VerticalAlignment="Top" Height="20" Width="117" FontSize="8"/>
-                            <Label Content="Strada" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Height="20" Width="73" FontSize="8"/>
-                            <TextBox x:Name="txtStrada" HorizontalAlignment="Left" Height="20" Margin="10,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136" FontSize="8"/>
-                            <Label Content="Nr" HorizontalAlignment="Left" Margin="158,75,0,0" VerticalAlignment="Top" Height="20" Width="23" FontSize="8"/>
-                            <Label Content="BL" HorizontalAlignment="Left" Margin="215,75,0,0" VerticalAlignment="Top" Height="20" Width="23" FontSize="8"/>
-                            <Label Content="Sc" HorizontalAlignment="Left" Margin="243,75,0,0" VerticalAlignment="Top" Height="20" Width="23" FontSize="8"/>
-                            <Label Content="Ap" HorizontalAlignment="Left" Margin="266,75,0,0" VerticalAlignment="Top" Height="20" Width="23" FontSize="8"/>
-                            <Label Content="Sect" HorizontalAlignment="Left" Margin="294,75,0,0" VerticalAlignment="Top" Height="20" Width="30" FontSize="8"/>
-                            <TextBox x:Name="txtNr" HorizontalAlignment="Left" Height="20" Margin="158,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="23" FontSize="8"/>
-                            <TextBox x:Name="txtBloc" HorizontalAlignment="Left" Height="20" Margin="215,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="23" FontSize="8"/>
-                            <TextBox x:Name="txtScara" HorizontalAlignment="Left" Height="20" Margin="243,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="23" FontSize="8"/>
-                            <TextBox x:Name="txtApartament" HorizontalAlignment="Left" Height="20" Margin="271,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="23" FontSize="8"/>
-                            <TextBox x:Name="txtSector" HorizontalAlignment="Left" Height="20" Margin="299,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="23" FontSize="8" RenderTransformOrigin="1.739,0.583"/>
-                            <Label Content="Cod Postal" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Height="20" Width="73" FontSize="8"/>
-                            <Label Content="Județ" HorizontalAlignment="Left" Margin="120,120,0,0" VerticalAlignment="Top" Height="20" Width="73" FontSize="8"/>
-                            <Label Content="Oras" HorizontalAlignment="Left" Margin="279,118,0,0" VerticalAlignment="Top" Height="20" Width="73" FontSize="8"/>
-                            <TextBox x:Name="txtCodPostal" HorizontalAlignment="Left" Height="20" Margin="10,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90" FontSize="8"/>
-                            <ComboBox x:Name="cmbJudet" HorizontalAlignment="Left" Margin="120,140,0,0" VerticalAlignment="Top" Width="146" Height="20" FontSize="8"/>
-                            <ComboBox x:Name="cmbOras" HorizontalAlignment="Left" Margin="279,138,0,0" VerticalAlignment="Top" Width="146" Height="20" FontSize="8"/>
+                            <CheckBox x:Name="chkFolosireDeclTert" Content="Folosire Declarant Tert" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="Blue" Width="171" Background="White"/>
+                            <Label Content="CIF" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="30" Width="110"/>
+                            <TextBox x:Name="txtCIF" HorizontalAlignment="Left" Height="29" Margin="10,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="183"/>
+                            <TextBox x:Name="txtNumeSocietate" HorizontalAlignment="Left" Height="29" Margin="231,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
+                            <Label Content="Nume Societate Comercială" HorizontalAlignment="Left" Margin="231,27,0,0" VerticalAlignment="Top" Height="33" Width="195"/>
+                            <Label Content="Strada" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Height="24" Width="110"/>
+                            <TextBox x:Name="txtStrada" HorizontalAlignment="Left" Height="29" Margin="10,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="215"/>
+                            <Label Content="Nr" HorizontalAlignment="Left" Margin="231,91,0,0" VerticalAlignment="Top" Height="24" Width="35"/>
+                            <Label Content="BL" HorizontalAlignment="Left" Margin="299,91,0,0" VerticalAlignment="Top" Height="24" Width="33"/>
+                            <Label Content="Sc" HorizontalAlignment="Left" Margin="357,91,0,0" VerticalAlignment="Top" Height="29" Width="39"/>
+                            <Label Content="Ap" HorizontalAlignment="Left" Margin="417,91,0,0" VerticalAlignment="Top" Height="34" Width="40"/>
+                            <Label Content="Sect" HorizontalAlignment="Left" Margin="474,91,0,0" VerticalAlignment="Top" Height="24" Width="47"/>
+                            <TextBox x:Name="txtNr" HorizontalAlignment="Left" Height="27" Margin="236,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.5,0.5">
+                                <TextBox.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleY="-1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </TextBox.RenderTransform>
+                            </TextBox>
+                            <TextBox x:Name="txtBloc" HorizontalAlignment="Left" Height="29" Margin="299,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.043,2.1"/>
+                            <TextBox x:Name="txtScara" HorizontalAlignment="Left" Height="29" Margin="357,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="39"/>
+                            <TextBox x:Name="txtApartament" HorizontalAlignment="Left" Height="30" Margin="417,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="42" RenderTransformOrigin="1.261,2.75"/>
+                            <TextBox x:Name="txtSector" HorizontalAlignment="Left" Height="29" Margin="474,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47" RenderTransformOrigin="1.739,0.583"/>
+                            <Label Content="Cod Postal" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Height="27" Width="105"/>
+                            <Label Content="Județ" HorizontalAlignment="Left" Margin="185,162,0,0" VerticalAlignment="Top" Height="25" Width="94"/>
+                            <Label Content="Oras" HorizontalAlignment="Left" Margin="357,162,0,0" VerticalAlignment="Top" Height="25" Width="88"/>
+                            <TextBox x:Name="txtCodPostal" HorizontalAlignment="Left" Height="27" Margin="10,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="154"/>
+                            <ComboBox x:Name="cmbJudet" HorizontalAlignment="Left" Margin="185,187,0,0" VerticalAlignment="Top" Width="157" Height="29"/>
+                            <ComboBox x:Name="cmbOras" HorizontalAlignment="Left" Margin="357,187,0,0" VerticalAlignment="Top" Width="164" Height="29"/>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Modificări - Ajustări">
                         <Grid Background="#FFE5E5E5">
-                            <GroupBox x:Name="grpConditie" Header="Condiție [Selectare]" HorizontalAlignment="Left" Height="67" Margin="10,10,0,0" VerticalAlignment="Top" Width="435" FontSize="9" Foreground="Blue" RenderTransformOrigin="0.499,0.537">
-                                <Grid HorizontalAlignment="Left" Height="57" Margin="0,0,-2,-8" VerticalAlignment="Top" Width="425">
-                                    <Label Content="Coloana" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
-                                    <Label Content="Semn" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="109,0,0,0"/>
-                                    <Label Content="Valoare" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="220,0,0,0"/>
-                                    <ComboBox x:Name="cmbColoanaCond" HorizontalAlignment="Left" Margin="0,22,0,0" VerticalAlignment="Top" Width="91" Height="20" FontSize="8"/>
-                                    <ComboBox x:Name="cmbSemn" HorizontalAlignment="Left" Margin="109,22,0,0" VerticalAlignment="Top" Width="91" Height="20" FontSize="8"/>
-                                    <ComboBox x:Name="cmbValoare" HorizontalAlignment="Left" Margin="220,22,0,0" VerticalAlignment="Top" Width="91" Height="20" FontSize="8"/>
-                                    <Button x:Name="btnVizualizareSelectie" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="316,15,0,0" Height="27">
+                            <GroupBox x:Name="grpConditie" Header="Condiție [Selectare]" HorizontalAlignment="Left" Height="119" Margin="10,10,0,0" VerticalAlignment="Top" Width="767" FontSize="9" Foreground="Blue" RenderTransformOrigin="0.499,0.537">
+                                <Grid HorizontalAlignment="Left" Height="119" Margin="0,0,-12,-18" VerticalAlignment="Top" Width="767">
+                                    <Label Content="Coloana" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="12" Margin="10,4,0,0"/>
+                                    <Label Content="Semn" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="189,4,0,0" FontSize="12"/>
+                                    <Label Content="Valoare" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="371,4,0,0" FontSize="12"/>
+                                    <ComboBox x:Name="cmbColoanaCond" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Width="146" Height="29" FontSize="8"/>
+                                    <ComboBox x:Name="cmbSemn" HorizontalAlignment="Left" Margin="189,29,0,0" VerticalAlignment="Top" Width="146" Height="29" FontSize="12"/>
+                                    <ComboBox x:Name="cmbValoare" HorizontalAlignment="Left" Margin="371,29,0,0" VerticalAlignment="Top" Width="146" Height="29" FontSize="12"/>
+                                    <Button x:Name="btnVizualizareSelectie" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="598,22,0,0" Height="36">
                                         <StackPanel Orientation="Horizontal">
-                                            <Image Source="/Imagini/Other/search.gif"  Stretch="None" Width="40" Margin="0,0,0,8" Height="23" />
-                                            <TextBlock FontSize="9" Width="71"><Run Text="Vizualizare &#10;selecție"/></TextBlock>
+                                            <Image Source="/Imagini/Other/search.gif"  Stretch="Uniform" Width="54" Margin="0,0,0,8" Height="28" />
+                                            <TextBlock FontSize="12" Width="96" Height="34"><Run Text="Vizualizare &#10;selecție"/></TextBlock>
                                         </StackPanel>
                                     </Button>
                                 </Grid>
 
                             </GroupBox>
-                            <GroupBox Header="Actualizare" HorizontalAlignment="Left" Height="67" Margin="10,82,0,0" VerticalAlignment="Top" Width="435" FontSize="9" Foreground="Blue">
-                                <Grid HorizontalAlignment="Left" Height="57" Margin="0,0,-2,-8" VerticalAlignment="Top" Width="425">
-                                    <Label Content="Coloana" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
-                                    <ComboBox x:Name="cmbColoanaAct" HorizontalAlignment="Left" Margin="0,22,0,0" VerticalAlignment="Top" Width="91" Height="20" FontSize="8"/>
-                                    <Label Content="=" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="96,20,0,0" FontSize="12" Height="22" Width="21" Foreground="Blue" FontFamily="Arial Black"/>
-                                    <Label Content="Semn" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="117,0,0,0"/>
-                                    <TextBox x:Name="txtSemn" HorizontalAlignment="Left" Height="20" Margin="122,22,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136" FontSize="8"/>
-                                    <Button x:Name="btnActualizareValori" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="316,15,0,0" Height="27">
+                            <GroupBox Header="Actualizare" HorizontalAlignment="Left" Height="119" Margin="10,134,0,0" VerticalAlignment="Top" Width="767" FontSize="9" Foreground="Blue">
+                                <Grid HorizontalAlignment="Left" Height="109" Margin="0,0,-2,-8" VerticalAlignment="Top" Width="757">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32*"/>
+                                        <ColumnDefinition Width="725*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Coloana" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="12" Margin="10,4,0,0"/>
+                                    <ComboBox x:Name="cmbColoanaAct" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Width="145" Height="28" FontSize="12" Grid.ColumnSpan="2"/>
+                                    <Label Content="=" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="133,28,0,0" FontSize="18" Height="27" Width="31" Foreground="Blue" FontFamily="Arial Black" Grid.Column="1"/>
+                                    <Label Content="Semn" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="169,4,0,0" Grid.Column="1" FontSize="12"/>
+                                    <TextBox x:Name="txtSemn" HorizontalAlignment="Left" Height="27" Margin="169,28,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146" FontSize="8" Grid.Column="1"/>
+                                    <Button x:Name="btnActualizareValori" HorizontalAlignment="Left" VerticalAlignment="Top" Width="141" Margin="566,20,0,0" Height="35" Grid.Column="1">
                                         <StackPanel Orientation="Horizontal">
-                                            <Image Source="/Imagini/Menu/table_32_1.ico"  Stretch="Uniform" Width="40" Margin="0,0,0,8" Height="23" />
-                                            <TextBlock FontSize="9" Width="71"><Run Text="Actualizează &#10;valorile"/></TextBlock>
+                                            <Image Source="/Imagini/Menu/table_32_1.ico"  Stretch="Uniform" Width="55" Margin="0,0,0,8" Height="29" />
+                                            <TextBlock FontSize="12" Width="101"><Run Text="Actualizează &#10;valorile"/></TextBlock>
                                         </StackPanel>
                                     </Button>
                                 </Grid>
@@ -169,17 +195,17 @@
                     </TabItem>
                     <TabItem Header="XML - Generare Declarație">
                         <Grid Background="#FFE5E5E5">
-                            <Label Content="Locația [calea unde va fi salvat fișierul XML care trebuie transmis la INTRASTAT - INS Bucuresti]" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="10,41,0,0" FontSize="10" Height="24" Width="462" Foreground="Blue"/>
-                            <TextBox x:Name="txtCaleSalvareFisierXML" HorizontalAlignment="Left" Height="20" Margin="10,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="452" FontSize="8"/>
-                            <Image HorizontalAlignment="Left" Height="18" Margin="467,0,0,0" VerticalAlignment="Top" Width="68" Source="/Imagini/Arrow/arrow.png"/>
+                            <Label Content="Locația [calea unde va fi salvat fișierul XML care trebuie transmis la INTRASTAT - INS Bucuresti]" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="10,41,0,0" FontSize="13" Height="24" Width="638" Foreground="Blue"/>
+                            <TextBox x:Name="txtCaleSalvareFisierXML" HorizontalAlignment="Left" Height="34" Margin="10,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="587"/>
+                            <Image HorizontalAlignment="Left" Height="18" Margin="1056,10,0,0" VerticalAlignment="Top" Width="68" Source="/Imagini/Arrow/arrow.png"/>
                         </Grid>
                     </TabItem>
                 </TabControl>
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="27" Grid.Row="2" VerticalAlignment="Top" Width="727" Background="#FF06ECF7">
-                <Label x:Name="lblMesaj" Foreground="Blue" Content="---" FontSize="10" />
+            <Grid HorizontalAlignment="Left" Height="27" Grid.Row="2" VerticalAlignment="Top" Width="727" Background="#FF06ECF7" Margin="0,0,0,-26">
+                <Label x:Name="lblMesaj" Foreground="Blue" Content="---" FontSize="10" Margin="0,0,-1191,-48" />
             </Grid>
-            <DataGrid x:Name="gridIntrastat" HorizontalAlignment="Left" Height="191" Grid.Row="1" VerticalAlignment="Top" Width="727"/>
+            <DataGrid x:Name="gridIntrastat" HorizontalAlignment="Left" Height="653" Grid.Row="1" VerticalAlignment="Top" Width="1912"/>
         </Grid>
 
     </Grid>
