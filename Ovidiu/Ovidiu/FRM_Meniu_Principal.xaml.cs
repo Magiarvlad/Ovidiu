@@ -287,6 +287,12 @@ namespace Ovidiu
             Frm_HS frm_HS = new Frm_HS("Cod Vamal- Total Inregistrari: " + _numarInregistrari, "HS_8");
         }
 
+        private void _Adauga_Macheta_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Frm_Structura_Fisiere frm_Structura_Fisiere = new Frm_Structura_Fisiere();
+            frm_Structura_Fisiere.Show();
+        }
+
 
 
         // private void Window_Activated(object sender, EventArgs e)

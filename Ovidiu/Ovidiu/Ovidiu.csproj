@@ -110,6 +110,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Frm_Structura_Fisiere.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Frm_Setari.xaml.cs">
@@ -117,6 +121,9 @@
     </Compile>
     <Compile Include="Frm_Setari_Implicite.xaml.cs">
       <DependentUpon>Frm_Setari_Implicite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Structura_Fisiere.xaml.cs">
+      <DependentUpon>Frm_Structura_Fisiere.xaml</DependentUpon>
     </Compile>
     <Compile Include="Miscellaneous\ClasaSuport.cs" />
     <Compile Include="Modules\CONSTANTE.cs" />
