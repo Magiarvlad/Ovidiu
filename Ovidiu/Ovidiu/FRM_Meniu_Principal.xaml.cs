@@ -293,6 +293,13 @@ namespace Ovidiu
             frm_Structura_Fisiere.Show();
         }
 
+        private void btnAdministrareDeclaratii_Click(object sender, RoutedEventArgs e)
+        {
+            Frm_Intrastat frmIntrastat = new Frm_Intrastat();
+            frmIntrastat.Show();
+
+        }
+
 
 
         // private void Window_Activated(object sender, EventArgs e)
