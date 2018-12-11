@@ -81,7 +81,7 @@
                             </MenuItem.Icon>
                         </MenuItem>
                         <Separator/>
-                        <MenuItem Header="_Date Firma"/>
+                        <MenuItem x:Name="_DateFirma_Btn1" Header="_Date Firma" Click="_DateFirma_Btn1_Click"/>
                     </MenuItem>
                     <MenuItem Header="_Setari" FontSize="18" Width="99" Height="37">
                         <MenuItem.Icon>

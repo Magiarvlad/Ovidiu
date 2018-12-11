@@ -300,6 +300,12 @@ namespace Ovidiu
 
         }
 
+        private void _DateFirma_Btn1_Click(object sender, RoutedEventArgs e)
+        {
+            Frm_Creare_Firma frm_Creare_Firma = new Frm_Creare_Firma(true);
+            frm_Creare_Firma.Show();
+        }
+
 
 
         // private void Window_Activated(object sender, EventArgs e)
