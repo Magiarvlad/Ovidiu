@@ -69,7 +69,10 @@
                             <TextBox x:Name="txtAn" HorizontalAlignment="Left" Height="26" Margin="36,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59" FontSize="8" Grid.Column="1"/>
                             <TextBox x:Name="txtLuna" HorizontalAlignment="Left" Height="26" Margin="100,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35" RenderTransformOrigin="1.263,0.5" Grid.Column="1"/>
                             <Label Content="Fel declaratie" HorizontalAlignment="Left" Margin="223,10,0,0" VerticalAlignment="Top" Height="26" Width="121" FontWeight="Bold" Grid.Column="1"/>
-                            <ComboBox x:Name="cmbTipDeclaratie" HorizontalAlignment="Left" Margin="319,10,0,0" VerticalAlignment="Top" Width="163" Height="26" Background="Yellow" Grid.Column="1"/>
+                            <ComboBox x:Name="cmbTipDeclaratie" HorizontalAlignment="Left" Margin="319,10,0,0" VerticalAlignment="Top" Width="163" Height="26" Background="Yellow" Grid.Column="1">
+                                <ComboBoxItem Content="N-Noua" HorizontalAlignment="Left" Width="161"/>
+                                <ComboBoxItem Content="C-Corectie" HorizontalAlignment="Left" Width="161"/>
+                            </ComboBox>
                             <DockPanel HorizontalAlignment="Right" Height="281" LastChildFill="False" VerticalAlignment="Top" Width="338" Background="White" Grid.Column="1">
                                 <Grid Height="281" VerticalAlignment="Top" Width="417">
                                     <Grid.ColumnDefinitions>

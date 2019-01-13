@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Ovidiu.EU;
+using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +33,44 @@ namespace Ovidiu
                 //this.lblDateFirma.Content = "   Pasul 1 " + this.lblDateFirma.Content.ToString().Trim();
             }
             this.Title = "Modificare date firma";
+            CreazaFirma.Content = "OK - Retine datele";
+
+            IncarcareDateFirma();
+        }
+
+        private void IncarcareDateFirma()
+        {
+            string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "Comun.mdb";
+            OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbCommand dbCommand = null;
+            OleDbDataReader dbReader = null;
+            string dbQuery = string.Empty;
+            dbConn.Open();
+            dbQuery = "SELECT * FROM Firme where Cod_Fiscal='"+ Firma.CodFiscal + "'" ;
+            dbCommand = new OleDbCommand(dbQuery, dbConn);
+            dbReader = dbCommand.ExecuteReader();
+            if (dbReader.HasRows)
+            {
+                while (dbReader.Read())
+                {
+                    // content_Tari.Add(new Tari(dbReader[0].ToString(), dbReader[1].ToString()));
+                    NumeFirma.Text = dbReader[1].ToString();
+                    Cif.Text = dbReader[0].ToString();
+                    RegComert.Text = dbReader[7].ToString();
+                    AdresaFirma.Text= dbReader[2].ToString();
+                    Oras.Text = dbReader[4].ToString();
+                    Judet.Text = dbReader[3].ToString();
+                    CodPostal.Text = dbReader[5].ToString();
+                    Tara.Text = dbReader[6].ToString();
+                    Nume.Text = dbReader[8].ToString();
+                    Functie.Text = dbReader[9].ToString();
+                    Telefon.Text = dbReader[10].ToString();
+                    Fax.Text = dbReader[11].ToString();
+                    Email.Text = dbReader[12].ToString();
+                }
+            }
+           
+            dbConn.Close();
         }
 
         private void InfoBttn_Click(object sender, RoutedEventArgs e)

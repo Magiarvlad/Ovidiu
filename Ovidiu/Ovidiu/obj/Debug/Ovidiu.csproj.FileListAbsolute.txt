@@ -75,5 +75,7 @@ F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Intrastat.baml
 F:\program_VB\Ovidiu_CS\Ovidiu\Ovidiu\obj\Debug\Frm_Structura_Fisiere.baml
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Intrastat.g.cs
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Intrastat.baml
-C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\test.g.cs
-C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\test.baml
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Lista_Declaratii.g.cs
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Lista_Declaratii.baml
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Intrastat_Add.g.cs
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Intrastat_Add.baml

@@ -295,8 +295,7 @@ namespace Ovidiu
 
         private void btnAdministrareDeclaratii_Click(object sender, RoutedEventArgs e)
         {
-            Frm_Intrastat frmIntrastat = new Frm_Intrastat();
-            frmIntrastat.Show();
+           
 
         }
 
@@ -304,6 +303,12 @@ namespace Ovidiu
         {
             Frm_Creare_Firma frm_Creare_Firma = new Frm_Creare_Firma(true);
             frm_Creare_Firma.Show();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            Frm_Lista_Declaratii frm_Lista_Declaratii = new Frm_Lista_Declaratii();
+            frm_Lista_Declaratii.Show();
         }
 
 

@@ -15,7 +15,7 @@
             <StackPanel HorizontalAlignment="Left" Height="46" Margin="0,0,0,0" VerticalAlignment="Top" Width="1125" Grid.Column="0">
                 <Menu DockPanel.Dock="Top" Background="#FFB0C1EE" Height="61" Margin="0,0,-375,0">
 
-                    <MenuItem Header="Declaratii Intrastat" Background="#FFB0C1EE" FontSize="18" Height="28" Width="184" >
+                    <MenuItem Header="Declaratii Intrastat" Background="#FFB0C1EE" FontSize="18" Height="28" Width="184" Click="MenuItem_Click_1" >
                         <MenuItem.Icon>
                             <Image Source="/Imagini/Menu/Intrastat_32.ico"/>
                         </MenuItem.Icon>

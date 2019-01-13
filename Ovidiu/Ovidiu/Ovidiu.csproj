@@ -65,6 +65,12 @@
     <Compile Include="Frm_Intrastat.xaml.cs">
       <DependentUpon>Frm_Intrastat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Intrastat_Add.xaml.cs">
+      <DependentUpon>Frm_Intrastat_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Lista_Declaratii.xaml.cs">
+      <DependentUpon>Frm_Lista_Declaratii.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FRM_Meniu_Principal.xaml.cs">
       <DependentUpon>FRM_Meniu_Principal.xaml</DependentUpon>
     </Compile>
@@ -80,6 +86,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frm_Intrastat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frm_Intrastat_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frm_Lista_Declaratii.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -352,6 +366,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagini\Buttons\check.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

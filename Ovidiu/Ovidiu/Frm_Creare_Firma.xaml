@@ -49,14 +49,14 @@
         <Label Content="Cod Postal" HorizontalAlignment="Left" Margin="21,330,0,0" VerticalAlignment="Top"/>
         <Label Content="Judet" HorizontalAlignment="Left" Margin="21,299,0,0" VerticalAlignment="Top"/>
         <Label Content="Nume Firma" HorizontalAlignment="Left" Margin="21,125,0,0" VerticalAlignment="Top" Width="74"/>
-        <TextBox x:Name="RegComertLabel" TextWrapping="Wrap" Margin="100,191,749,279" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31" MouseEnter="RegComertLabel_MouseEnter"/>
-        <TextBox x:Name="LabelCif" TextWrapping="Wrap" Margin="100,160,749,316" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31" MouseDown="LabelCif_MouseDown" MouseLeftButtonDown="LabelCif_MouseLeftButtonDown" MouseEnter="LabelCif_MouseEnter"/>
-        <TextBox x:Name="NumeFirmaLabel" Margin="100,125,572,351" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" MinLines="2" Height="31" MouseEnter="NumeFirmaLabel_MouseEnter"/>
-        <TextBox x:Name="AdresaFirmaLabel" TextWrapping="Wrap" Margin="100,233,572,240" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31" MouseEnter="AdresaFirmaLabel_MouseEnter"/>
-        <TextBox TextWrapping="Wrap" Margin="100,267,749,209" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
-        <TextBox TextWrapping="Wrap" Margin="100,303,749,173" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
-        <TextBox TextWrapping="Wrap" Margin="100,334,749,142" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
-        <TextBox Margin="100,365,749,114" Text="ROMANIA" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
+        <TextBox x:Name="RegComert" TextWrapping="Wrap" Margin="100,191,749,279" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31" MouseEnter="RegComertLabel_MouseEnter"/>
+        <TextBox x:Name="Cif" TextWrapping="Wrap" Margin="100,160,749,316" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31" MouseDown="LabelCif_MouseDown" MouseLeftButtonDown="LabelCif_MouseLeftButtonDown" MouseEnter="LabelCif_MouseEnter"/>
+        <TextBox x:Name="NumeFirma" Margin="100,125,572,351" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" MinLines="2" Height="31" MouseEnter="NumeFirmaLabel_MouseEnter"/>
+        <TextBox x:Name="AdresaFirma" TextWrapping="Wrap" Margin="100,233,572,240" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31" MouseEnter="AdresaFirmaLabel_MouseEnter"/>
+        <TextBox x:Name="Oras" TextWrapping="Wrap" Margin="100,267,749,209" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
+        <TextBox x:Name="Judet" TextWrapping="Wrap" Margin="100,303,749,173" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
+        <TextBox x:Name="CodPostal" TextWrapping="Wrap" Margin="100,334,749,142" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
+        <TextBox x:Name="Tara" Margin="100,365,749,114" Text="ROMANIA" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
         <Label Content="fara spatii" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="319,156,0,0" Foreground="#FFD82828" RenderTransformOrigin="0.452,0.538"/>
         <Label Content="Nume" HorizontalAlignment="Left" Margin="541,125,0,0" VerticalAlignment="Top" Width="74"/>
         <Label Content="Functie" HorizontalAlignment="Left" Margin="541,176,0,0" VerticalAlignment="Top" Width="74"/>
@@ -64,10 +64,10 @@
         <Label Content="Fax" HorizontalAlignment="Left" Margin="541,261,0,0" VerticalAlignment="Top" Width="74"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="541,307,0,0" VerticalAlignment="Top" Width="74"/>
         <Button x:Name="InfoBttn" Content="?" HorizontalAlignment="Left" Margin="973,384,0,0" VerticalAlignment="Top" Width="32" Height="25" Background="#FF88E0D8" ToolTip="Daca se bifeaza aceasta optiune programul NU va mai cumula pozitii care au acelasi cod valmal; tara origine; conditii de livrare. In Acest caz declaratia Intrastat va contine toate liniile necumulate." Click="InfoBttn_Click"/>
-        <TextBox TextWrapping="Wrap" Margin="620,120,43,356" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
-        <TextBox TextWrapping="Wrap" Margin="620,173,43,303" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
-        <TextBox TextWrapping="Wrap" Margin="620,219,159,257" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
-        <TextBox TextWrapping="Wrap" Margin="620,303,43,173" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
-        <TextBox TextWrapping="Wrap" Margin="620,263,159,213" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
+        <TextBox x:Name="Nume" TextWrapping="Wrap" Margin="620,120,43,356" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
+        <TextBox x:Name="Functie" TextWrapping="Wrap" Margin="620,173,43,303" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
+        <TextBox x:Name="Telefon" TextWrapping="Wrap" Margin="620,219,159,257" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
+        <TextBox x:Name="Email" TextWrapping="Wrap" Margin="620,303,43,173" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
+        <TextBox x:Name="Fax" TextWrapping="Wrap" Margin="620,263,159,213" BorderThickness="2,2,1,1" BorderBrush="#FF797E81" Height="31"/>
     </Grid>
 </Window>

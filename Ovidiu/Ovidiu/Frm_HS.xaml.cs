@@ -250,7 +250,14 @@ namespace Ovidiu
                 {
                     TextBlock b = Grid_HS.Columns[i].GetCellContent(Grid_HS.Items[j]) as TextBlock;
                     Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[j + 2, i + 1];
-                    myRange.Value2 = b.Text;
+                    try
+                    {
+                        myRange.Value2 = b.Text;
+                    }
+                    catch
+                    {
+
+                    }   
                 }
             }
         }
