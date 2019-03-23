@@ -79,3 +79,9 @@ C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Lista_Declarat
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Lista_Declaratii.baml
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Intrastat_Add.g.cs
 C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_Intrastat_Add.baml
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_WEB.g.cs
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_WEB.baml
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_IntroduceKEY.g.cs
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_VizualizareKEY.g.cs
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_IntroduceKEY.baml
+C:\Users\Vlad\Documents\GitHub\Ovidiu\Ovidiu\Ovidiu\obj\Debug\Frm_VizualizareKEY.baml

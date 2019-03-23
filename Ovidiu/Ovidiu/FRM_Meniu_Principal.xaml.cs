@@ -107,7 +107,9 @@ namespace Ovidiu
 
         private void Inregistrea_Firma_Btn_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.e-intrastat.ro/inregistrare.php");
+            Frm_WEB frm_WEB = new Frm_WEB();
+            frm_WEB.Show();
+         //   System.Diagnostics.Process.Start("https://www.e-intrastat.ro/inregistrare.php");
         }
 
         private void ActualizareAutomataCurs_Click(object sender, RoutedEventArgs e)
@@ -309,6 +311,12 @@ namespace Ovidiu
         {
             Frm_Lista_Declaratii frm_Lista_Declaratii = new Frm_Lista_Declaratii();
             frm_Lista_Declaratii.Show();
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            Frm_IntroduceKEY frm_IntroduceKEY = new Frm_IntroduceKEY();
+            frm_IntroduceKEY.Show();
         }
 
 
