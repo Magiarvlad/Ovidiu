@@ -9,7 +9,7 @@
     <Grid Margin="0,0,3,0">
         <TextBlock Margin="1,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="100" HorizontalAlignment="Left" Width="899" Background="#FF4D4DE4" Foreground="#FFECEC89" FontSize="22"><Run FontWeight="Bold" Text=""/><LineBreak/><Run FontWeight="Bold" Text=" Introducere chei de inregistrare program &quot;e-Intrastat&quot;."/></TextBlock>
         <Label Content="Cod Fiscal (ROXXXXXXXX)" HorizontalAlignment="Left" Margin="48,126,0,0" VerticalAlignment="Top" Height="40" Width="288" FontSize="22" Foreground="#FF2969D8" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="35" Margin="351,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="473" RenderTransformOrigin="0.5,0.5" FontSize="20">
+        <TextBox x:Name="CodFiscal" HorizontalAlignment="Left" Height="35" Margin="351,133,0,0" TextWrapping="Wrap" Text="RO" VerticalAlignment="Top" Width="473" RenderTransformOrigin="0.5,0.5" FontSize="20">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -19,9 +19,8 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBlock HorizontalAlignment="Left" Margin="353,190,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="334" Width="471" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="56,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="227" Width="264" FontSize="20" FontWeight="Bold"><Run Text="Chei de inregistrare:"/><LineBreak/><Run Text="Introduceti cheia sau cheile"/><LineBreak/><Run Text="de inregistrare primite pe"/><LineBreak/><Run Text="email"/></TextBlock>
-        <Button x:Name="btnValidare" HorizontalAlignment="Left" VerticalAlignment="Top" Width="246" Margin="313,546,0,0" Height="55">
+        <Button x:Name="btnValidare" HorizontalAlignment="Left" VerticalAlignment="Top" Width="246" Margin="313,546,0,0" Height="55" Click="BtnValidare_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Imagini/Menu/key_32_2.ico"  Stretch="Uniform" Width="62" Margin="0,0,0,8" Height="41" />
                 <TextBlock FontWeight="Bold" Width="163" Height="27" FontSize="22"><Run Text="Valideaza Chei"/></TextBlock>
@@ -40,5 +39,15 @@
             </StackPanel>
         </Button>
         <Label Content="Inregistrarea este GRATUITA,  mai multe detalii pe www.e-intrastat.ro" HorizontalAlignment="Left" Margin="36,717,0,0" VerticalAlignment="Top" Height="37" Width="808" FontSize="22" Foreground="#FF2969D8" FontWeight="Bold"/>
+        <TextBox x:Name="TxtKey" HorizontalAlignment="Left" Height="336" Margin="352,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="481" RenderTransformOrigin="0.5,0.5" FontSize="20" AcceptsReturn="True" VerticalScrollBarVisibility="Visible">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.628"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
     </Grid>
 </Window>
