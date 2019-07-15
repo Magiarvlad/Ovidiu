@@ -21,11 +21,16 @@
                 <Image Source="Imagini/Other/PRINT8.ICO" Margin="0,-8,-34,-13"/>
             </MenuItem.Icon>
         </MenuItem>
+
+
+
         <MenuItem x:Name="Export_Excel_Btn" Header="        Excel" FontSize="16" Width="172" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Background="#FFBDD5FF" Click="Export_Excel_Btn_Click" Margin="0,770,40,135" >
             <MenuItem.Icon>
                 <Image Source="Imagini/Menu/Excel_32.ico" Margin="0,-8,-34,-13"/>
             </MenuItem.Icon>
         </MenuItem>
 
+
+      
     </Grid>
 </Window>

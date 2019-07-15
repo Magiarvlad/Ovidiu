@@ -23,8 +23,8 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="219,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" FontSize="16" Text="Sheet1"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="219,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="627" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="29,229,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Height="41" Width="492" FontSize="14" Text="Dupa completarea datelor de mai sus apasati butonul &quot;Retine modificari&quot; si apoi completati coloanele de mai jos (doar cele cu fundal alb)" Foreground="#FFFF210B"/>
-        <Button Content="Retine Modificari" HorizontalAlignment="Left" Margin="530,251,0,0" VerticalAlignment="Top" Width="154" RenderTransformOrigin="-0.453,0" Height="25" Background="#FFA9FDFD" FontSize="16" FontWeight="SemiBold"/>
-        <DataGrid HorizontalAlignment="Left" Height="576" Margin="28,354,0,0" VerticalAlignment="Top" Width="1069"/>
+        <Button x:Name="retineModificari" Content="Retine Modificari" HorizontalAlignment="Left" Margin="530,251,0,0" VerticalAlignment="Top" Width="154" RenderTransformOrigin="-0.453,0" Height="25" Background="#FFA9FDFD" FontSize="16" FontWeight="SemiBold" Click="RetineModificari_Click"/>
+        <DataGrid x:Name="gridIntrastat" HorizontalAlignment="Left" Height="576" Margin="28,354,0,0" VerticalAlignment="Top" Width="913"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="25,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="686" FontSize="16" Background="#FFFFFA99"/>
         <Button HorizontalAlignment="Left" Margin="916,288,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="-0.453,0" Height="34" Background="#FFA9FDFD" FontSize="16" FontWeight="SemiBold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center">
             <TextBlock Height="38" Width="119" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" >  Citeste coloane<LineBreak/>din fisierul excel</TextBlock>
@@ -42,6 +42,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
+        <DataGrid HorizontalAlignment="Left" Height="575" Margin="963,353,0,0" VerticalAlignment="Top" Width="396"/>
 
     </Grid>
 </Window>
