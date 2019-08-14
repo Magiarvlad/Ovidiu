@@ -7,7 +7,13 @@
         mc:Ignorable="d"
        Title="Lista Declaratiilor Intrastat" Height="1080" Width="1920">
     <Grid>
-        <DataGrid x:Name="gridIntrastat" HorizontalAlignment="Left" Height="847" VerticalAlignment="Top" Width="1618" Margin="24,59,0,0"/>
+        <DataGrid x:Name="gridIntrastat" IsReadOnly="True" HorizontalAlignment="Left" Height="847" VerticalAlignment="Top" Width="1618" Margin="24,59,0,0" >
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
         <Button x:Name="btnTipareste" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="1689,266,0,0" Height="44">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Imagini/Other/print.ico"  Stretch="Uniform" Width="63" Margin="0,0,0,8" Height="32" />

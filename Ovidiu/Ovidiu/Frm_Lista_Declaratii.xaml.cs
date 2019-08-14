@@ -204,6 +204,16 @@ namespace Ovidiu
                 }
             }
         }
+
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            
+            int dataIndexNo = gridIntrastat.SelectedIndex;
+    
+              Frm_Intrastat frmIntrastat = new Frm_Intrastat(lista[dataIndexNo].Sens1, lista[dataIndexNo].Luna1, lista[dataIndexNo].Anul1);
+                  frmIntrastat.Show();
+          
+        }
     }
 
     class Declaratii

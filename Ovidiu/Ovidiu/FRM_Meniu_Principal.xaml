@@ -99,7 +99,7 @@
                         <MenuItem x:Name="_Ajutor_Btn" Header="_Ajutor" Click="_Ajutor_Btn_Click"/>
                         <Separator/>
                         <MenuItem Header="_Despre Program"/>
-                        <MenuItem Header="_Introducere KEY">
+                        <MenuItem x:Name="_Introducere_KEY" Header="_Introducere KEY" Click="_Introducere_KEY_Click">
                             <MenuItem.Icon>
                                 <Image Source="/Imagini/Menu/password.ico"/>
                             </MenuItem.Icon>

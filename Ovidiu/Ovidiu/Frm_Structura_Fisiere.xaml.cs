@@ -21,7 +21,7 @@ namespace Ovidiu
     /// </summary>
     public partial class Frm_Structura_Fisiere : Window
     {
-        List<Declaratii> lista = new List<Declaratii>();
+        List<Macheta> lista = new List<Macheta>();
 
 
         public Frm_Structura_Fisiere()
@@ -31,19 +31,19 @@ namespace Ovidiu
 
         private void RetineModificari_Click(object sender, RoutedEventArgs e)
         {
-            //IncarcaGrid("");
+            IncarcaGrid("StructuraFisiereContinut");
         }
 
         private void IncarcaGrid(string tableName)
         {
 
-            string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + Firma.CodFiscal + ".mdb";
+            string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "Goala.mdb";  //+ Firma.CodFiscal 
             OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
             OleDbCommand dbCommand = null;
             OleDbDataReader dbReader = null;
             string dbQuery = string.Empty;
             dbConn.Open();
-            dbQuery = "SELECT * FROM " + tableName;
+            dbQuery = "SELECT DISTINCT Dest_ColumnDescription,Exista_Coloana,Numar_Coloana,Valoare_Implicita,Marime_Maxima,Format, Sort_Order FROM " + tableName + " order by Sort_Order";
             dbCommand = new OleDbCommand(dbQuery, dbConn);
             dbReader = dbCommand.ExecuteReader();
             if (dbReader.HasRows)
@@ -52,7 +52,7 @@ namespace Ovidiu
                 {
                     //dbReader.Read();
                     if (dbReader[0].ToString() != string.Empty)
-                        lista.Add(new Declaratii(dbReader[0].ToString(), dbReader[1].ToString(), dbReader[2].ToString(), dbReader[3].ToString(), dbReader[4].ToString(), dbReader[5].ToString(), dbReader[6].ToString(), dbReader[7].ToString()));
+                        lista.Add(new Macheta(dbReader[0].ToString(), false, dbReader[2].ToString(), dbReader[3].ToString(), dbReader[4].ToString(), dbReader[5].ToString()));
                     //lista.Add(new Declaratii(dbReader[0].ToString()));
 
                 }
@@ -62,36 +62,26 @@ namespace Ovidiu
             dbConn.Close();
         }
 
-        class Declaratii
+        class Macheta
         {
-            string Sens, Tip_Declaratie, Anul, Luna, Valoare_Valuta, Valoare_Ron, Greutate_Neta_KG, Pozitii;
-
-            public Declaratii(string sens, string tip_Declaratie, string anul, string luna, string valoare_Valuta, string valoare_Ron, string greutate_Neta_KG, string pozitii)
+            string informatie_Necesara, numar_Coloana_Fisier_Excel, valoare_Implicita,caractere_Maxime,formatul_Datelor;
+            bool exista_In_Fisierul_Excel;
+            public Macheta(string informatie_Necesara1, bool exista_In_Fisierul_Excel1, string numar_Coloana_Fisier_Excel1, string valoare_Implicita1, string caractere_Maxime1, string formatul_Datelor1)
             {
-                Sens1 = sens;
-                Tip_Declaratie1 = tip_Declaratie;
-                Anul1 = anul;
-                Luna1 = luna;
-                Valoare_Valuta1 = valoare_Valuta;
-                Valoare_Ron1 = valoare_Ron;
-                Greutate_Neta_KG1 = greutate_Neta_KG;
-                Pozitii1 = pozitii;
+                Informatie_Necesara = informatie_Necesara1;
+                Exista_In_Fisierul_Excel = exista_In_Fisierul_Excel1;
+                Numar_Coloana_Fisier_Excel = "";
+                Valoare_Implicita = valoare_Implicita1;
+                Caractere_Maxime = caractere_Maxime1;
+                Formatul_Datelor = formatul_Datelor1;
             }
-            public Declaratii(string sens)
-            {
-                Sens1 = sens;
-
-            }
-
-
-            public string Sens1 { get => Sens; set => Sens = value; }
-            public string Tip_Declaratie1 { get => Tip_Declaratie; set => Tip_Declaratie = value; }
-            public string Anul1 { get => Anul; set => Anul = value; }
-            public string Luna1 { get => Luna; set => Luna = value; }
-            public string Valoare_Valuta1 { get => Valoare_Valuta; set => Valoare_Valuta = value; }
-            public string Valoare_Ron1 { get => Valoare_Ron; set => Valoare_Ron = value; }
-            public string Greutate_Neta_KG1 { get => Greutate_Neta_KG; set => Greutate_Neta_KG = value; }
-            public string Pozitii1 { get => Pozitii; set => Pozitii = value; }
+          
+            public string Informatie_Necesara { get => informatie_Necesara; set => informatie_Necesara = value; }
+            public bool Exista_In_Fisierul_Excel { get => exista_In_Fisierul_Excel; set => exista_In_Fisierul_Excel = value; }
+            public string Numar_Coloana_Fisier_Excel { get => numar_Coloana_Fisier_Excel; set => numar_Coloana_Fisier_Excel = value; }
+            public string Valoare_Implicita { get => valoare_Implicita; set => valoare_Implicita = value; }
+            public string Caractere_Maxime { get => caractere_Maxime; set => caractere_Maxime = value; }
+            public string Formatul_Datelor { get => formatul_Datelor; set => formatul_Datelor = value; }
         }
     }
 }

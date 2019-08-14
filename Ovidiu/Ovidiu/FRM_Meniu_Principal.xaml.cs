@@ -319,6 +319,12 @@ namespace Ovidiu
             frm_IntroduceKEY.Show();
         }
 
+        private void _Introducere_KEY_Click(object sender, RoutedEventArgs e)
+        {
+            Frm_IntroduceKEY frm_IntroduceKEY = new Frm_IntroduceKEY();
+            frm_IntroduceKEY.Show();
+        }
+
 
 
         // private void Window_Activated(object sender, EventArgs e)
