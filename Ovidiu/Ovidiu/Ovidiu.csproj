@@ -92,6 +92,9 @@
     <Compile Include="FRM_Meniu_Principal.xaml.cs">
       <DependentUpon>FRM_Meniu_Principal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Mesaj_Demo.xaml.cs">
+      <DependentUpon>Frm_Mesaj_Demo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Selectie_Firma.xaml.cs">
       <DependentUpon>Frm_Selectie_Firma.xaml</DependentUpon>
     </Compile>
@@ -120,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FRM_Meniu_Principal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frm_Mesaj_Demo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

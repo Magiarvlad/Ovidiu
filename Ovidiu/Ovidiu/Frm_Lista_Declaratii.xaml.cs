@@ -1,8 +1,10 @@
 ﻿using Ovidiu.EU;
+using Ovidiu.Modules;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -101,8 +103,42 @@ namespace Ovidiu
             string luna = declaratieSelectata.Luna1;
             string an = declaratieSelectata.Anul1;
 
-            Frm_Intrastat frmIntrastat = new Frm_Intrastat(tip, luna, an);
-            frmIntrastat.Show();
+            StreamReader stream = new StreamReader(FileLocation.System + "key\\chei.txt");
+            string line = "";
+            bool flag = false;
+            while (true)
+            {
+                line = stream.ReadLine();
+                if (line == null)
+                {
+                    break;
+                }
+                string[] keys = line.Split('\t');
+                string[] arrKeyTxt = new string[4];
+
+                if (keys[0].Length > 17)
+                {
+                    arrKeyTxt = Inregistrare.DecodeKey(keys[0]);
+                    if (arrKeyTxt[0] == keys[1] && an == keys[2])
+                    {
+                        flag = true;
+                    }
+                }
+            }
+
+            stream.Close();
+
+            if (flag == true)
+            {
+                Frm_Intrastat frmIntrastat = new Frm_Intrastat(tip, luna, an);
+                frmIntrastat.Show();
+
+            }
+            else
+            {
+                Frm_Mesaj_Demo frmIntrastat = new Frm_Mesaj_Demo("Inregistrare");
+                frmIntrastat.Show();
+            }
         }
 
         private void btnModifica_Click(object sender, RoutedEventArgs e)
@@ -117,9 +153,46 @@ namespace Ovidiu
             string luna = declaratieSelectata.Luna1;
             string an = declaratieSelectata.Anul1;
 
-            Frm_Intrastat frmIntrastat = new Frm_Intrastat(tip, luna, an);
-            frmIntrastat.Show();
+            StreamReader stream = new StreamReader(FileLocation.System + "key\\chei.txt");
+            string line = "";
+            bool flag = false;
+            while (true)
+            {
+                line = stream.ReadLine();
+                if (line == null)
+                {
+                    break;
+                }
+                string[] keys = line.Split('\t');
+                string[] arrKeyTxt = new string[4];
+
+                if (keys[0].Length > 17)
+                {
+                    arrKeyTxt = Inregistrare.DecodeKey(keys[0]);
+                    if (arrKeyTxt[0] == keys[1] && an == keys[2])
+                    {
+                        flag = true;
+                    }
+                }
+            }
+
+            stream.Close();
+
+            if (flag == true)
+            {
+                Frm_Intrastat frmIntrastat = new Frm_Intrastat(tip, luna, an);
+                frmIntrastat.Show();
+
+            }
+            else
+            {
+                Frm_Mesaj_Demo frmIntrastat = new Frm_Mesaj_Demo("Inregistrare");
+                frmIntrastat.Show();
+            }
+
+            
         }
+
 
         private void btnSterge_Click(object sender, RoutedEventArgs e)
         {
@@ -209,9 +282,44 @@ namespace Ovidiu
         {
             
             int dataIndexNo = gridIntrastat.SelectedIndex;
-    
+
+            StreamReader stream = new StreamReader(FileLocation.System + "key\\chei.txt");
+            string line = "";
+            bool flag = false;
+            while (true)
+            {
+                line = stream.ReadLine();
+                if (line == null)
+                {
+                    break;
+                }
+                string[] keys = line.Split('\t');
+                string[] arrKeyTxt = new string[4];
+
+                if (keys[0].Length > 17)
+                {
+                    arrKeyTxt = Inregistrare.DecodeKey(keys[0]);
+                    if (arrKeyTxt[0] == keys[1] && lista[dataIndexNo].Anul1 == keys[2])
+                    {
+                        flag = true;
+                    }
+                }
+            }
+
+            stream.Close();
+
+            if(flag==true)
+            { 
               Frm_Intrastat frmIntrastat = new Frm_Intrastat(lista[dataIndexNo].Sens1, lista[dataIndexNo].Luna1, lista[dataIndexNo].Anul1);
                   frmIntrastat.Show();
+            }
+            else
+            {
+                Frm_Mesaj_Demo frmIntrastat = new Frm_Mesaj_Demo("Inregistrare");
+                frmIntrastat.Show();
+            }
+                
+
           
         }
     }

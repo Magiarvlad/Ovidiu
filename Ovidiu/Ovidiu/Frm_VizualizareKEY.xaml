@@ -8,10 +8,12 @@
         Title="Frm_VizualizareKEY" Height="982" Width="884">
     <Grid>
         <TextBlock Margin="1,1,2,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="100" Background="#FF4D4DE4" Foreground="#FFECEC89" FontSize="26"><Run FontWeight="Bold" Text=""/><LineBreak/><Run FontWeight="Bold" Text="  Lista firmelor inregistrate si a cheilor aferente"/></TextBlock>
-        <ListView HorizontalAlignment="Left" Height="602" Margin="76,149,0,0" VerticalAlignment="Top" Width="676">
+        <ListView x:Name="Lv_Keys" HorizontalAlignment="Left" Height="602" Margin="76,149,0,0" VerticalAlignment="Top" Width="676">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="KEY" Width="320" DisplayMemberBinding="{Binding KEY}" />
+                    <GridViewColumn Header="Cod Fiscal" Width="150" DisplayMemberBinding="{Binding CodFiscal}" />
+                    <GridViewColumn Header="Anul" Width="150" DisplayMemberBinding="{Binding Anul}" />
                 </GridView>
             </ListView.View>
         </ListView>

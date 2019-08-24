@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Ovidiu.EU;
+using Ovidiu.Modules;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,18 +39,52 @@ namespace Ovidiu
 
         private void btnAdauga_Click(object sender, RoutedEventArgs e)
         {
-          
-            if(cmbTipDeclaratie.SelectionBoxItem.ToString()== "ACHIZITIE")
+
+            StreamReader stream = new StreamReader(FileLocation.System + "key\\chei.txt");
+            string line = "";
+            bool flag = false;
+            while (true)
             {
-                Frm_Intrastat frmIntrastat = new Frm_Intrastat("I", txtLuna.Text, txtAn.Text);
-                frmIntrastat.Show();
+                line = stream.ReadLine();
+                if (line == null)
+                {
+                    break;
+                }
+                string[] keys = line.Split('\t');
+                string[] arrKeyTxt = new string[4];
+
+                if (keys[0].Length > 17)
+                {
+                    arrKeyTxt = Inregistrare.DecodeKey(keys[0]);
+                    if (arrKeyTxt[0] == keys[1] && txtAn.Text== keys[2])
+                    {
+                        flag = true;
+                    }
+                }
+            }
+
+            stream.Close();
+
+            if (flag == true)
+            {
+                if (cmbTipDeclaratie.SelectionBoxItem.ToString() == "ACHIZITIE")
+                {
+                    Frm_Intrastat frmIntrastat = new Frm_Intrastat("I", txtLuna.Text, txtAn.Text);
+                    frmIntrastat.Show();
+                }
+                else
+                {
+                    Frm_Intrastat frmIntrastat = new Frm_Intrastat("O", txtLuna.Text, txtAn.Text);
+                    frmIntrastat.Show();
+                }
             }
             else
             {
-                Frm_Intrastat frmIntrastat = new Frm_Intrastat("O", txtLuna.Text, txtAn.Text);
+                Frm_Mesaj_Demo frmIntrastat = new Frm_Mesaj_Demo("Inregistrare");
                 frmIntrastat.Show();
             }
-            
+
+
             
         }
     }
