@@ -389,6 +389,7 @@ namespace Ovidiu
         }
 
         public static string s_codVamal="";
+        public static string s_moneda = "";
         private void HS_Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             if(opentab=="HS_8")
@@ -400,6 +401,23 @@ namespace Ovidiu
                 s_codVamal = declaratieSelectata.Cod_8;
             }
 
+            if (opentab == "Monezi")
+            {
+                int linieSelectataGrid = Grid_HS.SelectedIndex;
+                if (linieSelectataGrid == -1)
+                    Grid_HS.SelectedIndex = 0;
+                Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
+                s_moneda = declaratieSelectata.Cod;
+            }
+
+            if (opentab == "Tari")
+            {
+                int linieSelectataGrid = Grid_HS.SelectedIndex;
+                if (linieSelectataGrid == -1)
+                    Grid_HS.SelectedIndex = 0;
+                Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
+                s_moneda = declaratieSelectata.Cod;
+            }
             s_go = true;
             this.Close();
         }
