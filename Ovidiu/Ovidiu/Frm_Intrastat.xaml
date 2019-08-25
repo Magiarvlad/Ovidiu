@@ -208,7 +208,172 @@
             <Grid HorizontalAlignment="Left" Height="27" Grid.Row="2" VerticalAlignment="Top" Width="727" Background="#FF06ECF7" Margin="0,0,0,-26">
                 <Label x:Name="lblMesaj" Foreground="Blue" Content="---" FontSize="10" Margin="0,0,-1191,-48" />
             </Grid>
-            <DataGrid x:Name="gridIntrastat" HorizontalAlignment="Left" Height="653" Grid.Row="1" VerticalAlignment="Top" Width="1912"/>
+            <DataGrid x:Name="gridIntrastat" HorizontalAlignment="Left" Height="653" Grid.Row="1" VerticalAlignment="Top" Width="1912" CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Data livrarii" Width="SizeToCells" IsReadOnly="True" MinWidth="80">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker></DatePicker>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Descriere / Denumire - Produse / Marfuri" Width="SizeToCells" IsReadOnly="True" MinWidth="230">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Cod Vamal" Width="SizeToCells" IsReadOnly="True" MinWidth="80">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Name="codVamal" MouseDoubleClick="CodVamal_MouseDoubleClickAsync"></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Cantitate" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="UM" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="   Valoare &#x0a;    Valuta" Width="SizeToCells" IsReadOnly="True" MinWidth="80">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                    <DataGridTemplateColumn Header="   Moneda" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="    Curs &#x0a;   schimb" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header=" Valoare &#x0a;  Fiscala" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="  Valoarea &#x0a;   Statistica" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="    Tara &#x0a;  Origine" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="  Tara &#x0a;Export" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="  Tara &#x0a;  Dest" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="     Net [Kg]" Width="SizeToCells" IsReadOnly="True" MinWidth="90">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header=" UM &#x0a;Supl" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Cantitate &#x0a;Supl" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="  Nat &#x0a;Tranz" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="  Cond &#x0a;Livrare" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="  Mod &#x0a;Transp" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Factura &#x0a;Numar" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Document &#x0a;Data" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Exp tva &#x0a;Cod" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header=" Pozitia" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
 
     </Grid>

@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="Frm_HS" Height="968.5" Width="1439.5">
+        Title="Frm_HS" Height="968.5" Width="1439.5" Closed="Window_Closed">
     <Grid Margin="0,0,42,61">
-        <DataGrid AlternatingRowBackground="Gainsboro"  AlternationCount="2" Name="Grid_HS" HorizontalAlignment="Left" Height="712" Margin="50,77,0,0" VerticalAlignment="Top" Width="1296" Background="#FFC5BDD3">
-
-
+        <DataGrid AlternatingRowBackground="Gainsboro"  AlternationCount="2" Name="Grid_HS" HorizontalAlignment="Left" Height="712" Margin="50,77,0,0" VerticalAlignment="Top" Width="1296" Background="#FFC5BDD3" IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="HS_Row_DoubleClick"/>
+                </Style>
+            </DataGrid.Resources>
         </DataGrid>
         <Label x:Name="InfoCautareLabel" Content="Pentru cautare tastati inceputul de cuvand pe care doriti sa-l gasiti" HorizontalAlignment="Left" Margin="728,26,0,0" VerticalAlignment="Top" Height="36" Width="542" FontSize="18" Foreground="#FF243BA4"/>
         <Menu FontSize="18"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Width="190" Margin="1074,828,0,2">

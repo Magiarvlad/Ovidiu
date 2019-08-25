@@ -21,6 +21,7 @@ namespace Ovidiu
     /// </summary>
     public partial class Frm_Intrastat : Window
     {
+        List<Intrastat> lista = new List<Intrastat>();
         public Frm_Intrastat(string tip, string luna, string an)
         {
             InitializeComponent();
@@ -32,9 +33,21 @@ namespace Ovidiu
             txtLuna.Text = luna;
             txtAn.Text = an;
 
+            gridIntrastat.ItemsSource = lista;
+        }
+   
+        public class Intrastat
+        {
+            string data;
+            public Intrastat()
+            {
+               // data = Data;
+
+            }
+
         }
 
-        private void IncarcaDateFirma()
+    private void IncarcaDateFirma()
         {
             string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "Comun.mdb";
             OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
@@ -62,6 +75,24 @@ namespace Ovidiu
             }
 
             dbConn.Close();
+        }
+
+        private async void CodVamal_MouseDoubleClickAsync(object sender, MouseButtonEventArgs e)
+        {
+            TextBox obj = sender as TextBox;
+            obj.Text = "";
+
+            Frm_HS frm_HS = new Frm_HS("Selectie / Cautare", "HS_8");
+            frm_HS.InfoCautareLabel.Content = "DUBLU CLICK pentru a selecta inregistrarea curenta";
+            frm_HS.Show();
+            frm_HS.Topmost = true;
+            while (Frm_HS.s_go == false)
+            {                
+                await Task.Delay(25);
+            }
+            
+            Frm_HS.s_go = false;
+            obj.Text = Frm_HS.s_codVamal;
         }
     }
 }
