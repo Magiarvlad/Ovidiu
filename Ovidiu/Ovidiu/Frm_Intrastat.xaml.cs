@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using Excel = Microsoft.Office.Interop.Excel;
 namespace Ovidiu
 {
     /// <summary>
@@ -202,6 +202,156 @@ namespace Ovidiu
 
             Frm_HS.s_go = false;
             obj.Text = Frm_HS.s_moneda;
+        }
+
+        private void BtnExportaExcel_Click(object sender, RoutedEventArgs e)
+        {
+            Excel.Application excel = new Excel.Application();
+            excel.Visible = true;
+            Excel.Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
+            Excel.Worksheet sheet1 = (Excel.Worksheet)workbook.Sheets[1];
+
+            for (int j = 0; j < gridIntrastat.Columns.Count; j++)
+            {
+                Excel.Range myRange = (Excel.Range)sheet1.Cells[1, j + 1];
+                sheet1.Cells[1, j + 1].Font.Bold = true;
+                sheet1.Columns[j + 1].ColumnWidth = 15;
+                myRange.Value2 = gridIntrastat.Columns[j].Header;
+            }
+            for (int i = 0; i < gridIntrastat.Columns.Count; i++)
+            {
+                for (int j = 0; j < gridIntrastat.Items.Count; j++)
+                {
+                    TextBlock b = gridIntrastat.Columns[i].GetCellContent(gridIntrastat.Items[j]) as TextBlock;
+                    Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[j + 2, i + 1];
+                    try
+                    {
+                        myRange.Value2 = b.Text;
+                    }
+                    catch
+                    {
+                       
+                       // myRange.Value2 = gridIntrastat.Columns[i].GetCellContent(gridIntrastat.Items[j]).ToString();
+                    }
+                }
+            }
+        }
+        public static int coloaneIntrastat = 0;
+        private void BtnTipareste_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDG print = new PrintDG();
+
+            coloaneIntrastat = 23;
+            print.printDG(gridIntrastat, "Intrastat");
+        }
+
+        private class PrintDG
+        {
+            public void printDG(DataGrid dataGrid, string title)
+            {
+
+
+
+                PrintDialog printDialog = new PrintDialog();
+                if (printDialog.ShowDialog() == true)
+                {
+                    FlowDocument fd = new FlowDocument();
+
+                    Paragraph p = new Paragraph(new Run(title));
+                    p.FontStyle = dataGrid.FontStyle;
+                    p.FontFamily = dataGrid.FontFamily;
+                    p.FontSize = 18;
+                    fd.Blocks.Add(p);
+
+                    Table table = new Table();
+                    TableRowGroup tableRowGroup = new TableRowGroup();
+                    TableRow r = new TableRow();
+                    fd.PageWidth = printDialog.PrintableAreaWidth;
+                    fd.PageHeight = printDialog.PrintableAreaHeight;
+                    fd.BringIntoView();
+
+                    fd.TextAlignment = TextAlignment.Center;
+                    fd.ColumnWidth = 500;
+                    table.CellSpacing = 0;
+
+                    var headerList = dataGrid.Columns.Select(e => e.Header.ToString()).ToList();
+                    List<dynamic> bindList = new List<dynamic>();
+
+
+                    for (int j = 0; j < headerList.Count; j++)
+                    {
+
+                        r.Cells.Add(new TableCell(new Paragraph(new Run(headerList[j]))));
+                        r.Cells[j].ColumnSpan = 4;
+                        r.Cells[j].Padding = new Thickness(4);
+
+
+
+                        r.Cells[j].BorderBrush = Brushes.Black;
+                        r.Cells[j].FontWeight = FontWeights.Bold;
+                        r.Cells[j].Background = Brushes.DarkGray;
+                        r.Cells[j].Foreground = Brushes.White;
+                        r.Cells[j].BorderThickness = new Thickness(1, 1, 1, 1);
+                        var binding = (dataGrid.Columns[j] as DataGridBoundColumn).Binding as Binding;
+                        
+                        bindList.Add(binding.Path.Path);
+                    }
+                    tableRowGroup.Rows.Add(r);
+                    table.RowGroups.Add(tableRowGroup);
+                    for (int i = 0; i < dataGrid.Items.Count; i++)
+                    {
+
+                        dynamic row;
+                        if (dataGrid.ItemsSource.ToString().ToLower() == "system.data.linqdataview")
+                        { row = (System.Data.DataRowView)dataGrid.Items.GetItemAt(i); }
+                        else
+                        {
+                            row = dataGrid.Items.GetItemAt(i);
+
+                        }
+
+                        table.BorderBrush = Brushes.Gray;
+                        table.BorderThickness = new Thickness(1, 1, 0, 0);
+                        table.FontStyle = dataGrid.FontStyle;
+                        table.FontFamily = dataGrid.FontFamily;
+                        table.FontSize = 13;
+                        tableRowGroup = new TableRowGroup();
+                        r = new TableRow();
+                        for (int j = 0; j < coloaneIntrastat; j++)
+                        {
+
+                            if (dataGrid.ItemsSource.ToString().ToLower() == "system.data.linqdataview")
+                            {
+                                r.Cells.Add(new TableCell(new Paragraph(new Run(row.Item[j].ToString()))));
+
+                            }
+                            else
+                            {
+
+                                r.Cells.Add(new TableCell(new Paragraph(new Run(row.GetType().GetProperty(bindList[j]).GetValue(row, null)))));
+
+                            }
+
+
+
+                            r.Cells[j].ColumnSpan = 4;
+                            r.Cells[j].Padding = new Thickness(4);
+
+                            r.Cells[j].BorderBrush = Brushes.DarkGray;
+                            r.Cells[j].BorderThickness = new Thickness(0, 0, 1, 1);
+                        }
+
+                        tableRowGroup.Rows.Add(r);
+                        table.RowGroups.Add(tableRowGroup);
+
+                    }
+                    fd.Blocks.Add(table);
+
+                    printDialog.PrintDocument(((IDocumentPaginatorSource)fd).DocumentPaginator, "");
+
+                }
+            }
+
         }
     }
 }

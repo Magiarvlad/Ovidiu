@@ -39,13 +39,13 @@
                         <TextBlock FontWeight="Bold" Width="127" Height="39"><Run Text="Redistribuire &#10;Greutate Netă"/></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="btnExportaExcel" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="0,173,0,0" Height="40">
+                <Button x:Name="btnExportaExcel" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="0,173,0,0" Height="40" Click="BtnExportaExcel_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Imagini/Menu/excel_16.ico"  Stretch="Uniform" Width="57" Margin="0,0,0,8" Height="33" />
                         <TextBlock Width="130" Height="38"><Run Text="Exportă Excel"/></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="btnTipareste" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="0,218,0,0" Height="44">
+                <Button x:Name="btnTipareste" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="0,218,0,0" Height="44" Click="BtnTipareste_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Imagini/Other/print.ico"  Stretch="Uniform" Width="63" Margin="0,0,0,8" Height="32" />
                         <TextBlock Width="125" Height="39"><Run Text="     Tipărește"/></TextBlock>

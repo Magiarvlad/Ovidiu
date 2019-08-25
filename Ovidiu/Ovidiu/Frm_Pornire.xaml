@@ -11,7 +11,7 @@
             <RowDefinition Height="55*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
-        <Image HorizontalAlignment="Left" Width="346" Source="Imagini/Background_.jpg" Margin="22,0,0,14.808">
+        <Image HorizontalAlignment="Left" Width="364" Source="Imagini/Background_.jpg" Margin="4,0,0,15">
             <Image.ContextMenu>
                 <ContextMenu/>
             </Image.ContextMenu>
