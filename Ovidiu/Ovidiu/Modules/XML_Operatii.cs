@@ -12,7 +12,7 @@ namespace Ovidiu.Modules
     public static class XML_Operatii
     {
 
-        static int a;
+        
 
         public static XmlNode Citeste_XML( string XML_file, string Nodul, string Element)
         {
