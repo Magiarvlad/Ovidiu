@@ -7,10 +7,18 @@
         mc:Ignorable="d"
         Title="e_Intrastat" Icon="Imagini/e_intrastat.ico" BorderBrush="White" Closing="Window_Closing" ShowInTaskbar="True" WindowState="Normal" WindowStyle="ToolWindow" ResizeMode="CanResize" Height="643" Width="1130"   >
 
-   
+
 
     <Viewbox Stretch="Uniform">
-        <Grid Name="grdMain" Margin="0,0,2,-2">
+        <Grid Name="grdMain" Margin="0,0,2,-2" Height="611" Width="1174" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.092"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
             <Grid.RowDefinitions>
                 <RowDefinition Height="382"/>
             </Grid.RowDefinitions>
