@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="e_Intrastat" Icon="Imagini/e_intrastat.ico" BorderBrush="White" Closing="Window_Closing" ShowInTaskbar="True" WindowState="Normal" WindowStyle="ToolWindow" ResizeMode="CanResize" Height="643" Width="1130"   >
+        Title="e_Intrastat" Icon="Imagini/e_intrastat.ico" BorderBrush="White" Closing="Window_Closing" ShowInTaskbar="True" WindowState="Maximized" WindowStyle="ThreeDBorderWindow" ResizeMode="CanResizeWithGrip" Height="643" Width="1130" FontStretch="Condensed"   >
 
 
 
-    <Viewbox Stretch="Uniform">
-        <Grid Name="grdMain" Margin="0,0,2,-2" Height="611" Width="1174" RenderTransformOrigin="0.5,0.5">
+    <Viewbox Stretch="UniformToFill">
+        <Grid Name="grdMain" Margin="0,0,2,-2" Height="611" Width="1113" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -216,7 +216,7 @@
                 </StackPanel >
             </Grid>
 
-            <Grid Name="grdBottom" Background="#FFC9B6F1" Margin="0,543,0,-230">
+            <Grid Name="grdBottom" Background="#FFC9B6F1" Margin="0,543,-1,-225">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="300"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -226,10 +226,10 @@
                 <Grid Name="gridLblFirma" Grid.Column="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="10"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="10"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="9"/>
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="1" Name="LabelFirma" Content="Firma: " HorizontalContentAlignment="Left" FontFamily="Segoe UI Black" FontSize="10" Background="Yellow" Margin="0,0,0,27" />
+                    <Label Name="LabelFirma" Content="Firma: " HorizontalContentAlignment="Left" FontFamily="Segoe UI Black" FontSize="10" Background="Yellow" Margin="0,2,0,21" Grid.Row="1" />
                 </Grid>
                 <Label Grid.Column="2">
                     <TextBlock FontFamily="Arial" FontSize="9">
@@ -238,7 +238,7 @@
                         Email: office@soviaserv.ro
                     </TextBlock>
                 </Label>
-                <Image Grid.Column="3" Source="/Imagini/Menu/Logo.png" HorizontalAlignment="Center" Margin="39,0,0,0" />
+                <Image Grid.Column="3" Source="/Imagini/Menu/Logo.png" HorizontalAlignment="Center" Margin="37,-7,4,7" Width="39" />
             </Grid>
         </Grid>
     </Viewbox>
