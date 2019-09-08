@@ -32,10 +32,15 @@ namespace Ovidiu
             {
                 //this.lblDateFirma.Content = "   Pasul 1 " + this.lblDateFirma.Content.ToString().Trim();
             }
+            else
+            {
+
+            
             this.Title = "Modificare date firma";
             CreazaFirma.Content = "OK - Retine datele";
 
             IncarcareDateFirma();
+            }
         }
 
         private void IncarcareDateFirma()

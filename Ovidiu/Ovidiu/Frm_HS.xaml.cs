@@ -133,19 +133,33 @@ namespace Ovidiu
         {
             string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "Comun.mdb";
             OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbConnection dbConn1 = new OleDbConnection(_oleDBConnectionString);
             OleDbCommand dbCommand = null;
+            OleDbCommand dbCommand1 = null;
             OleDbDataReader dbReader = null;
+            OleDbDataReader dbReader1 = null;
             string dbQuery = string.Empty;
+            string dbQuery1 = string.Empty;
             dbConn.Open();
+           // dbConn1.Open();
             dbQuery = "SELECT COD_TARA, DATA_ADERARII FROM " + tableName;
             dbCommand = new OleDbCommand(dbQuery, dbConn);
             dbReader = dbCommand.ExecuteReader();
             if (dbReader.HasRows)
             {
+                
+
                 while (dbReader.Read())
                 {
-                    content_Tari_UE.Add(new TARI_UE(dbReader["COD_TARA"].ToString(), dbReader["DATA_ADERARII"].ToString()));
+                    dbConn1.Open();
+                    dbQuery1 = "SELECT [Tara_DESC] FROM " + "[Tari]" + " WHERE [Tara_COD]='" + dbReader["COD_TARA"].ToString()+"'";
+                    dbCommand1 = new OleDbCommand(dbQuery1, dbConn1);
+                    dbReader1 = dbCommand1.ExecuteReader();
+                    dbReader1.Read();
+                    content_Tari_UE.Add(new TARI_UE(dbReader["COD_TARA"].ToString(), dbReader1["Tara_DESC"].ToString(), dbReader["DATA_ADERARII"].ToString()));
 
+                    dbReader1.Close();
+                    dbConn1.Close();
                 }
             }
             Grid_HS.ItemsSource = content_Tari_UE;
@@ -424,16 +438,19 @@ namespace Ovidiu
 
         internal class TARI_UE
         {
-            string cod, data;
+            string cod, denumire, data;
 
-            public TARI_UE(string v1, string v2)
+            public TARI_UE(string v1,string v2, string v3)
             {
                 this.Cod = v1;
-                this.Data = v2.Substring(0, 10);
+                this.Denumire = v2;
+                this.Data = v3.Substring(0, 10);
             }
 
             public string Cod { get => cod; set => cod = value; }
+            public string Denumire { get => denumire; set => denumire = value; }
             public string Data { get => data; set => data = value; }
+
         }
 
         class Tari
