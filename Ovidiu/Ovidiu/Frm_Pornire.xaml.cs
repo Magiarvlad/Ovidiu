@@ -89,14 +89,15 @@ namespace Ovidiu
                 if (!Verifica_Exista_Fisier.Verifica_Fisier(comunpath))
                     foreach (var drive in DriveInfo.GetDrives())
                     {
-                        if (Verifica_Exista_Fisier.Verifica_Fisier(drive + "E_Intrastat\\System\\DataBase\\Comun.mdb"));
+                        if (Verifica_Exista_Fisier.Verifica_Fisier(drive + "E_Intrastat\\System\\DataBase\\Comun.mdb"))
                         // MessageBox.Show("FIșierul a fost gasit!");
                         {
                             XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "DataBase", drive + "E_Intrastat\\System\\DataBase\\", true);
-                            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "RaportDefinitionPath", drive + "E_Intrastat\\System\\RaportDefinition", true);
                             XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "System", drive + "E_Intrastat\\System\\", true);
                             XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "DirectorSalvare", drive + "E_Intrastat\\System\\DeclaratiiXML\\", true);
-                            flag = true;   
+                            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "ReportDefinitionPath", drive + "E_Intrastat\\System\\RaportDefinition", true);
+
+                             flag = true;   
                         }
                     }
                 else
@@ -105,7 +106,7 @@ namespace Ovidiu
                 }
                 if (flag == false)
                 {
-                    MessageBox.Show("Baza de date NU a fost gasita!");
+                    MessageBox.Show("Baza de date NU a fost gasita! Exemplu locatie : D:\\E-Intrastat\\System");
                     Application.Current.Shutdown();
                 }
                 else
@@ -118,6 +119,7 @@ namespace Ovidiu
             catch (Exception exp)
             {
                 MessageBox.Show("Frm_Pornire_Loaded Error: " + exp.Message);
+                Application.Current.Shutdown();
             }
             
         }

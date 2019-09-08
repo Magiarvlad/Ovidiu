@@ -24,7 +24,7 @@ namespace Ovidiu.Miscellaneous
         {
             Process proc = new Process();
             proc.StartInfo.FileName = fileName;
-            if (asAdministrator = true)
+            if (asAdministrator == true)
                 proc.StartInfo.Verb = "runas";
             proc.Start();
         }

@@ -49,20 +49,20 @@ namespace Ovidiu.Modules
             if (nodul.Substring(nodul.Length-1, 1) != "/")
                 nodul = nodul + "/";
             XmlDocument doc = new XmlDocument();
+            doc.Load(xML_file); 
             XmlNode node_p = doc.SelectSingleNode(nodul + elementul);
-            if (node_p.Value == null)
+            if (node_p == null)
             {
                 //MessageBox.Show("Se poate crea", "Info", MessageBoxButton.OK);
                 node_p = doc.SelectSingleNode(nodul);
                 Creaza_XML("C:\\ProgramData\\E_Intrastat\\Settings.xml", node_p.ToString(), elementul, valoare, v);
                 doc.Save("C:\\ProgramData\\E_Intrastat\\Settings.xml");
-               
             }
             else
                         
             {
 
-                node_p.Value = valoare.ToString();
+                node_p.InnerText = valoare.ToString();
                 doc.Save("C:\\ProgramData\\E_Intrastat\\Settings.xml");
             }
 
@@ -87,7 +87,7 @@ namespace Ovidiu.Modules
                     XmlNode node_p = doc.SelectSingleNode(Nodul + "/" + Elementul);
 
 
-                    if (node_p.Value == null)
+                    if (node_p == null)
                     {
                         //MessageBox.Show("Se poate crea", "Info", MessageBoxButton.OK);
                         node_p = doc.SelectSingleNode(Nodul);
@@ -116,9 +116,10 @@ namespace Ovidiu.Modules
         private static void CreateNode(XmlNode node_p, string elementul, string valoare, long nrTab)
         {
             XmlNode new_node = node_p.OwnerDocument.CreateElement(elementul);
-            new_node.Value = valoare.ToString();
+            new_node.InnerText = valoare.ToString();
             node_p.AppendChild(new_node);
 
+            /*
             XmlNode childBankNode1 = node_p.OwnerDocument.CreateTextNode("ChildBlank1");
             if ( nrTab == 0 || nrTab == null)
 
@@ -127,7 +128,7 @@ namespace Ovidiu.Modules
               else
              childBankNode1.Value = Environment.NewLine + " " + nrTab +'\t';
 
-            node_p.AppendChild(childBankNode1);
+            node_p.AppendChild(childBankNode1);*/
         }
 
 

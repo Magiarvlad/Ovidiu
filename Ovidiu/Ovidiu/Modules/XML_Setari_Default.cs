@@ -32,7 +32,8 @@ namespace Ovidiu.Modules
             }
             catch(Exception exp)
             {
-                MessageBox.Show("Frm_Pornire_Loaded Error: " + exp.Message);
+                //MessageBox.Show("Frm_Pornire_Loaded Error: " + exp.Message);
+                //Application.Current.Shutdown();
             }
 
 
