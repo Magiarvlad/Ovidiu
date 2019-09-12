@@ -491,5 +491,81 @@ namespace Ovidiu
         {
             s_go = true;
         }
+        string keypressed = "";
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+            if(e.Key==Key.Back || e.Key==Key.Delete)
+            {
+                if(keypressed.Length>0)
+                    keypressed = keypressed.Remove(keypressed.Length-1);
+            }
+            else
+            {
+                keypressed += e.Key.ToString();
+            }
+            InfoCautareLabel.Content = "Cautare dupa: " + keypressed;
+            InfoCautareLabel.Visibility = Visibility.Visible;
+
+            Searchfor(keypressed);
+        }
+
+        private void Searchfor(string keypressed)
+        {
+            if (opentab == "Tari")
+                FindIN(content_Tari, keypressed);
+            if (opentab == "TARI_UE")
+                FindIN(content_Tari_UE, keypressed);
+            if (opentab == "Monezi")
+                FindIN(content_Monezi, keypressed);
+            if (opentab == "Incoterms")
+                FindIN(content_Tari, keypressed);
+            if (opentab == "Tranzactii")
+                FindIN(content_Tari, keypressed);
+            if (opentab == "UM")
+                FindIN(content_Tari, keypressed);
+
+            if (opentab == "HS_1" || opentab == "HS_2" || opentab == "HS_4" || opentab == "HS_6")
+                FindIN(content_Tari, keypressed);
+
+            if (opentab == "HS_8")
+                FindIN(_cod_Vamal_list, keypressed);
+        }
+
+        private void FindIN(List<Cod_Vamal> cod_Vamal_list, string keypressed)
+        {
+            
+        }
+
+        private void FindIN(List<TARI_UE> content_Tari_UE, string keypressed)
+        {
+            
+        }
+
+        private void FindIN(List<Tari> content_Tari, string keypressed)
+        {
+            int i = 0;
+            foreach(Tari element in content_Tari)
+            {
+                
+                try
+                {
+                    if (element.Cod.Substring(0, keypressed.Length).ToUpper().Equals(keypressed))
+                    {
+                        Grid_HS.SelectedIndex = i;
+                        Grid_HS.SelectedItem = element.Cod;
+                        Grid_HS.UpdateLayout();
+                        Grid_HS.ScrollIntoView(Grid_HS.SelectedItem);
+                        break;
+                    }
+                }
+                catch(Exception)
+                {
+                    break;
+                }
+                i++;
+            }
+              
+        }
     }
 }
