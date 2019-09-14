@@ -191,7 +191,7 @@ namespace Ovidiu
             TextBox obj = sender as TextBox;
             obj.Text = "";
 
-            Frm_HS frm_HS = new Frm_HS("Selectie / Cautare", "Tari");
+            Frm_HS frm_HS = new Frm_HS("Selectie / Cautare", "TARI_UE");
             frm_HS.InfoCautareLabel.Content = "DUBLU CLICK pentru a selecta inregistrarea curenta";
             frm_HS.Show();
             frm_HS.Topmost = true;
@@ -371,6 +371,78 @@ namespace Ovidiu
                 tabKeyEvent.RoutedEvent = Keyboard.KeyDownEvent;
                 InputManager.Current.ProcessInput(tabKeyEvent);
             }
+        }
+
+        private async void TextBox_MouseDoubleClickAsync(object sender, MouseButtonEventArgs e)
+        {
+            TextBox obj = sender as TextBox;
+            obj.Text = "";
+
+            Frm_HS frm_HS = new Frm_HS("Selectie / Cautare", "UM");
+            frm_HS.InfoCautareLabel.Content = "DUBLU CLICK pentru a selecta inregistrarea curenta";
+            frm_HS.Show();
+            frm_HS.Topmost = true;
+            while (Frm_HS.s_go == false)
+            {
+                await Task.Delay(25);
+            }
+
+            Frm_HS.s_go = false;
+            obj.Text = Frm_HS.s_moneda;
+        }
+
+        private async void NatTranz_MouseDoubleClickAsync(object sender, MouseButtonEventArgs e)
+        {
+            TextBox obj = sender as TextBox;
+            obj.Text = "";
+
+            Frm_HS frm_HS = new Frm_HS("Selectie / Cautare", "Tranzactii");
+            frm_HS.InfoCautareLabel.Content = "DUBLU CLICK pentru a selecta inregistrarea curenta";
+            frm_HS.Show();
+            frm_HS.Topmost = true;
+            while (Frm_HS.s_go == false)
+            {
+                await Task.Delay(25);
+            }
+
+            Frm_HS.s_go = false;
+            obj.Text = Frm_HS.s_moneda;
+        }
+
+        private async void CondLiv_MouseDoubleClickAsync(object sender, MouseButtonEventArgs e)
+        {
+            TextBox obj = sender as TextBox;
+            obj.Text = "";
+
+            Frm_HS frm_HS = new Frm_HS("Selectie / Cautare", "Incoterms");
+            frm_HS.InfoCautareLabel.Content = "DUBLU CLICK pentru a selecta inregistrarea curenta";
+            frm_HS.Show();
+            frm_HS.Topmost = true;
+            while (Frm_HS.s_go == false)
+            {
+                await Task.Delay(25);
+            }
+
+            Frm_HS.s_go = false;
+            obj.Text = Frm_HS.s_moneda;
+        }
+
+        private async void ModTran_MouseDoubleClickAsync(object sender, MouseButtonEventArgs e)
+        {
+            TextBox obj = sender as TextBox;
+            obj.Text = "";
+
+            Frm_HS frm_HS = new Frm_HS("Selectie / Cautare", "ModTransp");
+            frm_HS.InfoCautareLabel.Content = "DUBLU CLICK pentru a selecta inregistrarea curenta";
+            frm_HS.Show();
+            frm_HS.Topmost = true;
+            while (Frm_HS.s_go == false)
+            {
+                await Task.Delay(25);
+            }
+
+            Frm_HS.s_go = false;
+            obj.Text = Frm_HS.s_moneda;
         }
     }
 }

@@ -273,10 +273,11 @@ namespace Ovidiu
             {
                 for (int j = 0; j < gridIntrastat.Items.Count; j++)
                 {
-                    TextBlock b = gridIntrastat.Columns[i].GetCellContent(gridIntrastat.Items[j]) as TextBlock;
-                    Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[j + 2, i + 1];
+                    
                     try
                     {
+                        TextBlock b = gridIntrastat.Columns[i].GetCellContent(gridIntrastat.Items[j]) as TextBlock;
+                        Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[j + 2, i + 1];
                         myRange.Value2 = b.Text;
                     }
                     catch
@@ -289,46 +290,50 @@ namespace Ovidiu
 
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
-            
-            int dataIndexNo = gridIntrastat.SelectedIndex;
-
-            StreamReader stream = new StreamReader(FileLocation.System + "key\\chei.txt");
-            string line = "";
-            bool flag = false;
-            while (true)
+            if (gridIntrastat.SelectedIndex < 0)
             {
-                line = stream.ReadLine();
-                if (line == null)
-                {
-                    break;
-                }
-                string[] keys = line.Split('\t');
-                string[] arrKeyTxt = new string[4];
-
-                if (keys[0].Length > 17)
-                {
-                    arrKeyTxt = Inregistrare.DecodeKey(keys[0]);
-                    if (arrKeyTxt[0] == keys[1] && lista[dataIndexNo].Anul1 == keys[2])
-                    {
-                        flag = true;
-                    }
-                }
-            }
-
-            stream.Close();
-
-            if(flag==true)
-            { 
-              Frm_Intrastat frmIntrastat = new Frm_Intrastat(lista[dataIndexNo].Sens1, lista[dataIndexNo].Luna1, lista[dataIndexNo].Anul1);
-                  frmIntrastat.Show();
+                MessageBox.Show("Nici o linie nu este selectata!");
             }
             else
             {
-                Frm_Mesaj_Demo frmIntrastat = new Frm_Mesaj_Demo("Inregistrare");
-                frmIntrastat.Show();
-            }
-                
+                int dataIndexNo = gridIntrastat.SelectedIndex;
 
+                StreamReader stream = new StreamReader(FileLocation.System + "key\\chei.txt");
+                string line = "";
+                bool flag = false;
+                while (true)
+                {
+                    line = stream.ReadLine();
+                    if (line == null)
+                    {
+                        break;
+                    }
+                    string[] keys = line.Split('\t');
+                    string[] arrKeyTxt = new string[4];
+
+                    if (keys[0].Length > 17)
+                    {
+                        arrKeyTxt = Inregistrare.DecodeKey(keys[0]);
+                        if (arrKeyTxt[0] == keys[1] && lista[dataIndexNo].Anul1 == keys[2])
+                        {
+                            flag = true;
+                        }
+                    }
+                }
+
+                stream.Close();
+
+                if (flag == true)
+                {
+                    Frm_Intrastat frmIntrastat = new Frm_Intrastat(lista[dataIndexNo].Sens1, lista[dataIndexNo].Luna1, lista[dataIndexNo].Anul1);
+                    frmIntrastat.Show();
+                }
+                else
+                {
+                    Frm_Mesaj_Demo frmIntrastat = new Frm_Mesaj_Demo("Inregistrare");
+                    frmIntrastat.Show();
+                }
+            } 
           
         }
     }

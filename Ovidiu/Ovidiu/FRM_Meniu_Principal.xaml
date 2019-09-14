@@ -41,7 +41,7 @@
                                 <MenuItem Header="_Modificare Macheta"/>
                                 <MenuItem Header="_Sterge Macheta"/>
                             </MenuItem>
-                            <MenuItem Header="_Preluare fisier excel"/>
+                            <MenuItem x:Name="_Preluare_Fisier_Excel" Header="_Preluare fisier excel" Click="_Preluare_Fisier_Excel_Click"/>
                         </MenuItem>
                         <MenuItem Header="_Curs valutar" FontSize="18" Height="31" Width="128">
                             <MenuItem.Icon>
@@ -141,8 +141,8 @@
                         <Button Name="CSTDO" Content="Cum se transmite declaratia online" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="209" Height="30" Background="White" Grid.Row="3" Click="CSTDO_Click"/>
                         <Button Name="CSTD" Content="Cum se tipareste declaratia" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="209" Height="30" Background="White" Grid.Row="4" Click="CSTD_Click"/>
                     </Grid>
-                    <TextBox HorizontalAlignment="Left" Height="26" Margin="22,19,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215"/>
-                    <Button Content="Cauta" HorizontalAlignment="Left" Margin="266,20,0,0" VerticalAlignment="Top" Width="74"/>
+                    <TextBox x:Name="TxtCautare" HorizontalAlignment="Left" Height="26" Margin="22,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="215"/>
+                    <Button x:Name="CautareAvansata"  Content="Cauta" HorizontalAlignment="Left" Margin="266,20,0,0" VerticalAlignment="Top" Width="74" Click="CautareAvansata_Click"/>
                     <Image HorizontalAlignment="Left" Height="133" Margin="340,117,0,0" VerticalAlignment="Top" Width="260" Source="Imagini/Background.jpg">
 
                     </Image>

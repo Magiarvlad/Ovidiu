@@ -1,0 +1,18 @@
+﻿<Window x:Class="e_Intrastat.Frm_Cautare_Avansata"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:e_Intrastat"
+        mc:Ignorable="d"
+        Title="Cautare Avansata" Height="1058" Width="1698">
+    <Grid>
+        <DataGrid x:Name="dgTarifVamal" HorizontalAlignment="Left" Height="401" Margin="22,170,0,0" VerticalAlignment="Top" Width="1638"/>
+        <DataGrid x:Name="dgDeclaratii" HorizontalAlignment="Left" Height="367" Margin="21,638,0,0" VerticalAlignment="Top" Width="1643"/>
+        <TextBox x:Name="Text" HorizontalAlignment="Left" Height="44" Margin="44,22,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="458" FontSize="24"/>
+        <Button Content="Cautare" HorizontalAlignment="Left" Margin="524,15,0,0" VerticalAlignment="Top" Width="250" Height="50" FontSize="24" Background="#FF8097FF" Click="Button_Click"/>
+        <Label x:Name="LabelTarif" Content=" inregistrari gasite in tariful vamal pentru expresia: " HorizontalAlignment="Left" Margin="25,97,0,0" VerticalAlignment="Top" Height="62" Width="1829" FontSize="36" Foreground="#FF022C9C" FontWeight="Bold"/>
+        <Label x:Name="LabelDeclaratii" Content=" inregistrari gasite in Declaratii intrastat pentru expresia: " HorizontalAlignment="Left" Margin="25,577,0,0" VerticalAlignment="Top" Height="62" Width="1829" FontSize="36" Foreground="#FF022C9C" FontWeight="Bold"/>
+
+    </Grid>
+</Window>
