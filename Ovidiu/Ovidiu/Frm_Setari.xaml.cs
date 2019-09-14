@@ -70,5 +70,52 @@ namespace Ovidiu
         }
 
         #endregion
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            #region Diverse => Settings/E_Intrastat/Setari/Diverse
+            // XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/FileLocation", "DataBase", drive + "E_Intrastat\\System\\DataBase\\", true);
+            if (chkActualizareAutomataCursValutar.IsChecked == true)
+            {
+                XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "UpdateCurs",  "1", true);
+            }
+            else XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "UpdateCurs", "0", true);
+
+
+            if (chkActualizareAutomataProgram.IsChecked == true)
+            {
+                XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "VerificaUpdate", "1", true);
+            }
+            else XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "VerificaUpdate", "0", true);
+
+            if (chkVerificareaGreutatiiNete.IsChecked == true)
+            {
+
+                XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "VerificaNet", "1", true);
+            }
+            else XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file, "/Settings/E_Intrastat/Setari/Diverse", "VerificaNet", "0", true);
+            #endregion
+
+            #region  Zecimale => Settings/E_Intrastat/Setari/Zecimale
+
+            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file,"/Settings/E_Intrastat/Setari/Zecimale","ZecRotCalcule", txtZecimaleRotunjireCalcule.Text,true);
+            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file,"/Settings/E_Intrastat/Setari/Zecimale","ZecRotValuta", txtZecimaleCalculValuta.Text,true);
+            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file,"/Settings/E_Intrastat/Setari/Zecimale","ZecRotLEI", txtZecimaleCalculLei.Text,true );
+            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file,"/Settings/E_Intrastat/Setari/Zecimale","NrZecTaxare", txtZecimaleCalculTaxare.Text,true);
+
+
+
+            #endregion
+
+
+            #region  FileLocation => Settings/E_Intrastat/Setari/FileLocation
+
+
+            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file,"/Settings/E_Intrastat/Setari/FileLocation","DataBase", txtLocatieDirectorBazaDate.Text, true);
+            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file,"/Settings/E_Intrastat/Setari/FileLocation","System", txtLocatieDirectorSistemExcel.Text,true);
+            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file,"/Settings/E_Intrastat/Setari/FileLocation","ReportDefinitionPath", txtLocatieDefinitieRapoarte.Text,true);
+            XML_Operatii.Actualizare_XML(CONSTANTE.Setting_XML_file,"/Settings/E_Intrastat/Setari/FileLocation","DirectorSalvare", txtLocatieSalvareDeclaratiiXML.Text,true);
+            #endregion
+        }
     }
 }

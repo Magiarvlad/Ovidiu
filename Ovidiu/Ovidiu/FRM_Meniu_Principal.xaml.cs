@@ -263,6 +263,7 @@ namespace Ovidiu
         {
             int _numarInregistrari = getCount_HS("HS_1");
             Frm_HS frm_HS = new Frm_HS("Sectiuni- Total Inregistrari: " + _numarInregistrari, "HS_1");
+            
         }
 
         private void _Capitole_Btn_Click(object sender, RoutedEventArgs e)
