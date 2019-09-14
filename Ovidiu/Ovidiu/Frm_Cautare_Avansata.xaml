@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:e_Intrastat"
         mc:Ignorable="d"
-        Title="Frm_Cautare_Avansata" Height="1058" Width="1698">
+        Title="Cautare Avansata" Height="1058" Width="1698">
     <Grid>
         <DataGrid x:Name="dgTarifVamal" HorizontalAlignment="Left" Height="401" Margin="22,170,0,0" VerticalAlignment="Top" Width="1638"/>
         <DataGrid x:Name="dgDeclaratii" HorizontalAlignment="Left" Height="367" Margin="21,638,0,0" VerticalAlignment="Top" Width="1643"/>

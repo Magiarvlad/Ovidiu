@@ -98,6 +98,9 @@
     <Compile Include="Frm_Mesaj_Demo.xaml.cs">
       <DependentUpon>Frm_Mesaj_Demo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Preluare_Date_Excel.xaml.cs">
+      <DependentUpon>Frm_Preluare_Date_Excel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Selectie_Firma.xaml.cs">
       <DependentUpon>Frm_Selectie_Firma.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,10 @@
       <DependentUpon>Frm_Pornire.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Frm_Preluare_Date_Excel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frm_Selectie_Firma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

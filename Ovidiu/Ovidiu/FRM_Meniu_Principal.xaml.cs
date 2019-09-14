@@ -334,6 +334,12 @@ namespace Ovidiu
 
         }
 
+        private void _Preluare_Fisier_Excel_Click(object sender, RoutedEventArgs e)
+        {
+            Frm_Preluare_Date_Excel frm_Preluare_Date_Excel = new Frm_Preluare_Date_Excel();
+            frm_Preluare_Date_Excel.Show();
+        }
+
 
 
         // private void Window_Activated(object sender, EventArgs e)
