@@ -1,4 +1,5 @@
-﻿using Ovidiu.EU;
+﻿using e_Intrastat;
+using Ovidiu.EU;
 using Ovidiu.Miscellaneous;
 using Ovidiu.Modules;
 using System;
@@ -323,6 +324,13 @@ namespace Ovidiu
         {
             Frm_IntroduceKEY frm_IntroduceKEY = new Frm_IntroduceKEY();
             frm_IntroduceKEY.Show();
+        }
+
+        private void CautareAvansata_Click(object sender, RoutedEventArgs e)
+        {
+            Frm_Cautare_Avansata frm_Cautare = new Frm_Cautare_Avansata(TxtCautare.Text);
+            frm_Cautare.Show();
+
         }
 
 

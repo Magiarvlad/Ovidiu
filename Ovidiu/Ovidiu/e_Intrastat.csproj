@@ -71,6 +71,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Clase\DateSetariImplicite.cs" />
+    <Compile Include="Frm_Cautare_Avansata.xaml.cs">
+      <DependentUpon>Frm_Cautare_Avansata.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Creare_Firma.xaml.cs">
       <DependentUpon>Frm_Creare_Firma.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
     <Compile Include="Frm_Selectie_Firma.xaml.cs">
       <DependentUpon>Frm_Selectie_Firma.xaml</DependentUpon>
     </Compile>
+    <Page Include="Frm_Cautare_Avansata.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frm_Creare_Firma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
