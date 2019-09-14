@@ -24,10 +24,10 @@
             </Label>
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="33" Margin="526,346,0,0" VerticalAlignment="Top" Width="521">
-            <CheckBox Content="Declarare Valoare Statica (consultati legislatia)" Margin="9,9,-9,-1" Foreground="#FFCD0C0C" FontSize="15" FontWeight="SemiBold"/>
+            <CheckBox x:Name="CheckBoxValStat" Content="Declarare Valoare Statica (consultati legislatia)" Margin="9,9,-9,-1" Foreground="#FFCD0C0C" FontSize="15" FontWeight="SemiBold"/>
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="33" Margin="526,379,0,0" VerticalAlignment="Top" Width="521">
-            <CheckBox Content="Declaratie XML  (intrastat) detaliata (fara cumulare)" Margin="9,9,-9,-1" Foreground="#FF0D30CB" FontWeight="SemiBold" FontSize="15"/>
+            <CheckBox x:Name="CheckBoxDeclXML" Content="Declaratie XML  (intrastat) detaliata (fara cumulare)" Margin="9,9,-9,-1" Foreground="#FF0D30CB" FontWeight="SemiBold" FontSize="15"/>
         </Border>
         <Label x:Name="Labelinfo" Content="Nume firma, va recomand fara SC" HorizontalAlignment="Left" Margin="10,470,0,0" VerticalAlignment="Top" Height="27" Width="1037" Foreground="#FFD40909" Background="White"/>
         <Label Content="Date Generale" HorizontalAlignment="Left" Margin="19,76,0,0" VerticalAlignment="Top" Height="28" Width="136" Foreground="#FF06026C" ClipToBounds="True" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" FontSize="15">

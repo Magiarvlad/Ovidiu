@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="Frm_Setari_Implicite" Height="588" Width="804.5">
+        Title="Frm_Setari_Implicite" Height="593.508" Width="808.675" ResizeMode="NoResize">
     <Grid Margin="0,0,2,0">
         <Button Content="OK - Retine datele" HorizontalAlignment="Left" Margin="337,491,0,0" VerticalAlignment="Top" Width="174" Height="39" Background="Black" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Click="btnRetineDatele_Click"/>
-        <Label Name="lblSetariImplicite" Content="   Setari Implicite" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Height="139" Width="794" FontSize="34" Background="#FF4258B9" Foreground="White" FontFamily="Nirmala UI"/>
+        <Label Name="lblSetariImplicite" Content="   Setari Implicite" HorizontalAlignment="Left" Margin="0,1,-1,0" VerticalAlignment="Top" Height="139" Width="800" FontSize="34" Background="#FF4258B9" Foreground="White" FontFamily="Nirmala UI"/>
         <Label Content="Valori implicite care vor fi folosite la creerea unui declaratii" HorizontalAlignment="Left" Margin="32,59,0,0" VerticalAlignment="Top" Height="27" Width="382" Foreground="White" FontSize="14"/>
         <Label Content="Aceste valori pot fi modificate la momentul introducerii datelor" HorizontalAlignment="Left" Margin="32,86,0,0" VerticalAlignment="Top" Height="27" Width="426" Foreground="White" FontSize="14"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="303" Margin="63,167,0,0" VerticalAlignment="Top" Width="686">
@@ -37,7 +37,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                <Grid x:Name="gd" TextElement.Foreground="Black" HorizontalAlignment="Left">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
@@ -80,7 +80,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                <Grid x:Name="gd" TextElement.Foreground="Black" HorizontalAlignment="Left">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
@@ -123,7 +123,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                <Grid x:Name="gd" TextElement.Foreground="Black" HorizontalAlignment="Left">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
@@ -166,7 +166,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                <Grid x:Name="gd" TextElement.Foreground="Black" HorizontalAlignment="Left">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
@@ -209,7 +209,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                <Grid x:Name="gd" TextElement.Foreground="Black" HorizontalAlignment="Left">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
@@ -252,7 +252,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                <Grid x:Name="gd" TextElement.Foreground="Black" HorizontalAlignment="Left">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
@@ -295,7 +295,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                <Grid x:Name="gd" TextElement.Foreground="Black" HorizontalAlignment="Left">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
@@ -338,7 +338,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                <Grid x:Name="gd" TextElement.Foreground="Black" HorizontalAlignment="Left">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>

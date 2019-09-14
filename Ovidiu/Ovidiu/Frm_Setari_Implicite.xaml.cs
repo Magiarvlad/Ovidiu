@@ -38,6 +38,7 @@ namespace Ovidiu
         private ObservableCollection<DateSetariImplicite> _cmbLivrariNatTranzactiei = new ObservableCollection<DateSetariImplicite>();
         private ObservableCollection<DateSetariImplicite> _cmbLivrariModTransport = new ObservableCollection<DateSetariImplicite>();
 
+
         public static int lastSelectedIndexAchizitiiTaraExpediere = 1;
         public static int lastSelectedIndexAchizitiiCondLivrare = 1;
         public static int lastSelectedIndexAchizitiiNatTranzactiei = 1;
@@ -56,6 +57,112 @@ namespace Ovidiu
             InitializeHeaders();
             InitializeLists();
             InitializeComboBoxValues();
+
+            if (isCalledFromMainToolbar)
+            {
+                ReadIntrastatDefault();
+                IncarcaDate();
+            }
+                
+        }
+
+        private void ReadIntrastatDefault()
+        { OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbCommand dbCommand = null;
+            OleDbDataReader dbReader = null;
+            string dbQuery = string.Empty;
+            try
+            {
+                dbConn.Open();
+                dbQuery = "SELECT * FROM Intrastat_Default WHERE Cod_Fiscal='" + Firma.CodFiscal + "'";
+                dbCommand = new OleDbCommand(dbQuery, dbConn);
+                dbReader = dbCommand.ExecuteReader();
+                if (dbReader.HasRows)
+                {
+                    while (dbReader.Read())
+                    {
+                        Val_Implicite.I_Incoterms = dbReader["I_Incoterms"].ToString();
+                        Val_Implicite.I_Mod_Transp = dbReader["I_Mod_Transp"].ToString();
+                        Val_Implicite.I_Nat_Transp = dbReader["I_Nat_Tranz"].ToString();
+                        Val_Implicite.I_Tara_Exp = dbReader["I_Tara_Exp"].ToString();
+                        Val_Implicite.O_Incoterms = dbReader["O_Incoterms"].ToString();
+                        Val_Implicite.O_Mod_Transp = dbReader["O_Mod_Transp"].ToString();
+                        Val_Implicite.O_Nat_Tranz = dbReader["O_Nat_Tranz"].ToString();
+                        Val_Implicite.O_Tara_Dest = dbReader["O_Tara_Dest"].ToString();
+
+                        //_cmbAchizitiiCondLivrare.Add(new DateSetariImplicite { Cod = dbReader["Incoterms_COD"].ToString(), Denumire = dbReader["Incoterms_DESC"].ToString() });
+                        //_cmbLivrariCondLivrare.Add(new DateSetariImplicite { Cod = dbReader["Incoterms_COD"].ToString(), Denumire = dbReader["Incoterms_DESC"].ToString() });
+                    }
+                }
+                dbConn.Close();
+                
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show("Eroare: " + exp.Message);
+            }
+        }
+
+        private void IncarcaDate()
+        {
+           
+            try
+            {
+                foreach (DateSetariImplicite element in _cmbAchizitiiCondLivrare)
+                {
+                    if (element.Cod == Val_Implicite.I_Incoterms)
+                        cmbAchizitiiCondLivrare.SelectedItem = element;
+                }
+                foreach (DateSetariImplicite element in _cmbAchizitiiModTransport)
+                {
+                    if (element.Cod == Val_Implicite.I_Mod_Transp)
+                        cmbAchizitiiModTransport.SelectedItem = element;
+                }
+                foreach (DateSetariImplicite element in _cmbAchizitiiTaraExpediere)
+                {
+                    if (element.Cod == Val_Implicite.I_Tara_Exp)
+                        cmbArchizitiiTaraExpediere.SelectedItem = element;
+                }
+                foreach (DateSetariImplicite element in _cmbAchizitiiNatTranzactiei)
+                {
+                    if (element.Cod == Val_Implicite.I_Nat_Transp)
+                        cmbAchizitiiNatTranzactiei.SelectedItem = element;
+                }
+                foreach (DateSetariImplicite element in _cmbLivrariCondLivrare)
+                {
+                    if (element.Cod == Val_Implicite.O_Incoterms)
+                        cmbLivrariCondLivrare.SelectedItem = element;
+                }
+                foreach (DateSetariImplicite element in _cmbLivrariModTransport)
+                {
+                    if (element.Cod == Val_Implicite.O_Mod_Transp)
+                        cmbLivrariModTransport.SelectedItem = element;
+                }
+
+                foreach (DateSetariImplicite element in _cmbLivrariNatTranzactiei)
+                {
+                    if (element.Cod == Val_Implicite.O_Nat_Tranz)
+                        cmbLivrariNatTranzactiei.SelectedItem = element;
+                }
+                foreach (DateSetariImplicite element in _cmbLivrariTaraDestinatie)
+                {
+                    if (element.Cod == Val_Implicite.O_Tara_Dest)
+                        cmbLivrariTaraDestinatie.SelectedItem = element;
+                }
+
+                /* Val_Implicite.I_Mod_Transp = .SelectedValue.ToString();
+                  = cmbAchizitiiNatTranzactiei.SelectedValue.ToString();
+                  = cmbArchizitiiTaraExpediere.SelectedValue.ToString();
+                   = cmbAchizitiiNatTranzactiei.SelectedValue.ToString();
+                  = cmbLivrariCondLivrare.SelectedValue.ToString();
+                  = .SelectedValue.ToString();
+                  = .SelectedValue.ToString();
+                  = .SelectedValue.ToString();*/
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show("Eroare: " + exp.Message);
+            }
         }
 
         #region Events
@@ -203,6 +310,7 @@ namespace Ovidiu
                     {
                         _cmbAchizitiiTaraExpediere.Add(new DateSetariImplicite { Cod = dbReader["COD_TARA"].ToString(), Denumire = dbReader["Tara_DESC"].ToString() });
                         _cmbLivrariTaraDestinatie.Add(new DateSetariImplicite { Cod = dbReader["COD_TARA"].ToString(), Denumire = dbReader["Tara_DESC"].ToString() });
+                       // bAchizitiiTaraExpediere.Add(new DateSetariImplicite { Cod = dbReader["COD_TARA"].ToString(), Denumire = dbReader["Tara_DESC"].ToString() });
                     }
                 }
 
@@ -216,6 +324,7 @@ namespace Ovidiu
                     {
                         _cmbAchizitiiCondLivrare.Add(new DateSetariImplicite { Cod = dbReader["Incoterms_COD"].ToString(), Denumire = dbReader["Incoterms_DESC"].ToString() });
                         _cmbLivrariCondLivrare.Add(new DateSetariImplicite { Cod = dbReader["Incoterms_COD"].ToString(), Denumire = dbReader["Incoterms_DESC"].ToString() });
+                       // bAchizitiiCondLivrare.Add(new DateSetariImplicite { Cod = dbReader["Incoterms_COD"].ToString(), Denumire = dbReader["Incoterms_DESC"].ToString() });
                     }
                 }
 
@@ -229,6 +338,7 @@ namespace Ovidiu
                     {
                         _cmbAchizitiiNatTranzactiei.Add(new DateSetariImplicite { Cod = dbReader["COD_Tranz"].ToString(), Denumire = dbReader["TR_DESC"].ToString() });
                         _cmbLivrariNatTranzactiei.Add(new DateSetariImplicite { Cod = dbReader["COD_Tranz"].ToString(), Denumire = dbReader["TR_DESC"].ToString() });
+                       // bAchizitiiNatTranzactiei.Add(new DateSetariImplicite { Cod = dbReader["COD_Tranz"].ToString(), Denumire = dbReader["TR_DESC"].ToString() });
                     }
                 }
 
@@ -242,8 +352,10 @@ namespace Ovidiu
                     {
                         _cmbAchizitiiModTransport.Add(new DateSetariImplicite { Cod = dbReader["COD_MOD_TRANS"].ToString(), Denumire = dbReader["DESC_MOD_TRANS"].ToString() });
                         _cmbLivrariModTransport.Add(new DateSetariImplicite { Cod = dbReader["COD_MOD_TRANS"].ToString(), Denumire = dbReader["DESC_MOD_TRANS"].ToString() });
+                        //bAchizitiiModTransport.Add(new DateSetariImplicite { Cod = dbReader["COD_MOD_TRANS"].ToString(), Denumire = dbReader["DESC_MOD_TRANS"].ToString() });
                     }
                 }
+                dbConn.Close();
             }
             catch (Exception exp)
             {
@@ -255,21 +367,122 @@ namespace Ovidiu
 
         private void btnRetineDatele_Click(object sender, RoutedEventArgs e)
         {
+            DateSetariImplicite element;
             try
-            { 
-                Val_Implicite.I_Incoterms = cmbAchizitiiCondLivrare.SelectedValue.ToString();
-                Val_Implicite.I_Mod_Transp = cmbAchizitiiModTransport.SelectedValue.ToString();
-                Val_Implicite.I_Nat_Transp = cmbAchizitiiNatTranzactiei.SelectedValue.ToString();
-                Val_Implicite.I_Tara_Exp = cmbArchizitiiTaraExpediere.SelectedValue.ToString();
-                Val_Implicite.O_Incoterms = cmbLivrariCondLivrare.SelectedValue.ToString();
-                Val_Implicite.O_Mod_Transp = cmbLivrariModTransport.SelectedValue.ToString();
-                Val_Implicite.O_Nat_Tranz = cmbLivrariNatTranzactiei.SelectedValue.ToString();
-                Val_Implicite.O_Tara_Dest = cmbLivrariTaraDestinatie.SelectedValue.ToString();
+            {
+                if (cmbAchizitiiCondLivrare.SelectedValue!=null)
+                {
+                    element = (DateSetariImplicite)cmbAchizitiiCondLivrare.SelectedItem;
+                    Val_Implicite.I_Incoterms = element.Cod;
+                }
+                else
+                    Val_Implicite.I_Incoterms = "";
+
+                if (cmbAchizitiiModTransport.SelectedValue != null)
+                {
+                    element = (DateSetariImplicite)cmbAchizitiiModTransport.SelectedItem;
+                    Val_Implicite.I_Mod_Transp = element.Cod;
+                }
+                else
+                    Val_Implicite.I_Mod_Transp = "";
+
+                if (cmbAchizitiiNatTranzactiei.SelectedValue != null)
+                {
+                    element = (DateSetariImplicite)cmbAchizitiiNatTranzactiei.SelectedItem;
+                    Val_Implicite.I_Nat_Transp = element.Cod;
+                }     
+                else
+                    Val_Implicite.I_Nat_Transp = "";
+
+                if (cmbArchizitiiTaraExpediere.SelectedValue != null)
+                {
+                    element = (DateSetariImplicite)cmbArchizitiiTaraExpediere.SelectedItem;
+                    Val_Implicite.I_Tara_Exp = element.Cod;
+                }
+                else
+                    Val_Implicite.I_Tara_Exp = "";
+
+                if (cmbLivrariCondLivrare.SelectedValue != null)
+                {
+                    element = (DateSetariImplicite)cmbLivrariCondLivrare.SelectedItem;
+                    Val_Implicite.O_Incoterms = element.Cod;
+                }
+                else
+                    Val_Implicite.O_Incoterms = "";
+     
+                if (cmbLivrariModTransport.SelectedValue != null)
+                {
+                    element = (DateSetariImplicite)cmbLivrariModTransport.SelectedItem;
+                    Val_Implicite.O_Mod_Transp = element.Cod;
+                }   
+                else
+                    Val_Implicite.O_Mod_Transp = "";
+
+                if (cmbLivrariNatTranzactiei.SelectedValue != null)
+                {
+                    element = (DateSetariImplicite)cmbLivrariNatTranzactiei.SelectedItem;
+                    Val_Implicite.O_Nat_Tranz = element.Cod;
+                }  
+                else
+                    Val_Implicite.O_Nat_Tranz = "";
+
+                if (cmbLivrariTaraDestinatie.SelectedValue != null)
+                {
+                    element = (DateSetariImplicite)cmbLivrariTaraDestinatie.SelectedItem;
+                    Val_Implicite.O_Tara_Dest = element.Cod;
+                }
+                else
+                    Val_Implicite.O_Tara_Dest = "";
+
+                Update_Intrastat_Default();
+                this.Close();
             }
             catch (Exception exp)
             {
                 MessageBox.Show("Eroare: " + exp.Message);
             }
         }
-    }
+
+        private void Update_Intrastat_Default()
+        {
+            OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbCommand dbCommand = null;
+            string dbQuery = string.Empty;
+            try
+            {
+                dbConn.Open();
+                //dbQuery = "UPDATE [Intrastat_Default] SET [I_Tara_Exp]='" + Val_Implicite.I_Tara_Exp + "', [I_Incoterm]='" + Val_Implicite.I_Incoterms + "', [I_Nat_Tranz]='" + Val_Implicite.I_Nat_Transp + "', [I_Mod_Transp]='" + Val_Implicite.I_Mod_Transp + "', [O_Tara_Dest]='" + Val_Implicite.O_Tara_Dest + "', [O_Incoterm]='" + Val_Implicite.O_Incoterms + "', [O_Nat_Tranz]='" + Val_Implicite.O_Nat_Tranz + "', [O_Mod_Transp]='" + Val_Implicite.O_Mod_Transp + "' WHERE [Cod_Fiscal]='" + Firma.CodFiscal + "';";
+                dbQuery = @"UPDATE Intrastat_Default SET I_Tara_Exp = ?, I_Incoterms = ?, I_Nat_Tranz = ?, I_Mod_Transp = ?, O_Tara_Dest=?, O_Incoterms = ?, O_Nat_Tranz = ?, O_Mod_Transp = ? WHERE Cod_Fiscal = ?;";
+                dbCommand = new OleDbCommand(dbQuery, dbConn);
+                dbCommand.Parameters.AddWithValue("@I_Tara_Exp", Val_Implicite.I_Tara_Exp);
+                dbCommand.Parameters.AddWithValue("@I_Incoterms", Val_Implicite.I_Incoterms);
+                dbCommand.Parameters.AddWithValue("@I_Nat_Tranz", Val_Implicite.I_Nat_Transp);
+                dbCommand.Parameters.AddWithValue("@I_Mod_Transp", Val_Implicite.I_Mod_Transp);
+
+                dbCommand.Parameters.AddWithValue("@O_Tara_Dest", Val_Implicite.O_Tara_Dest);
+                dbCommand.Parameters.AddWithValue("@O_Incoterms", Val_Implicite.O_Incoterms);
+                dbCommand.Parameters.AddWithValue("@O_Nat_Tranz", Val_Implicite.O_Nat_Tranz);
+                dbCommand.Parameters.AddWithValue("@O_Mod_Transp", Val_Implicite.O_Mod_Transp);
+
+                dbCommand.Parameters.AddWithValue("@Cod_Fiscal", Firma.CodFiscal);
+                /*
+                 * @"UPDATE emp SET ename = ?, job = ?, sal = ?, dept = ? WHERE eno = ?";
+                     OleDbCommand cmd = new OleDbCommand(query, con)
+                     cmd.Parameters.AddWithValue("@ename", TextBox2.Text);
+                     cmd.Parameters.AddWithValue("@job", TextBox3.Text);
+                     cmd.Parameters.AddWithValue("@sal", TextBox4.Text);
+                     cmd.Parameters.AddWithValue("@dept", TextBox5.Text);
+                     cmd.ParametersAddWithValue("@eno", TextBox1.Text);
+                 */
+
+
+                dbCommand.ExecuteNonQuery();
+                dbConn.Close();
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show("Eroare: " + exp.Message);
+            }
+        }
+}
 }

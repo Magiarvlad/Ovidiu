@@ -21,6 +21,9 @@ namespace Ovidiu
     /// </summary>
     public partial class Frm_Creare_Firma : Window
     {
+        string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "Comun.mdb";
+
+        bool flag = false;
         public Frm_Creare_Firma(bool isCalledFromMainToolbar)
         {
             InitializeComponent();
@@ -30,16 +33,15 @@ namespace Ovidiu
         {
             if (!isCalledFromMainToolbar)
             {
-                //this.lblDateFirma.Content = "   Pasul 1 " + this.lblDateFirma.Content.ToString().Trim();
+                this.lblDateFirma.Content = "   Pasul 1 " + this.lblDateFirma.Content.ToString().Trim();
+           
             }
             else
             {
-
-            
-            this.Title = "Modificare date firma";
-            CreazaFirma.Content = "OK - Retine datele";
-
-            IncarcareDateFirma();
+                flag = true;
+                this.Title = "Modificare date firma";
+                CreazaFirma.Content = "OK - Retine datele";
+                IncarcareDateFirma();
             }
         }
 
@@ -72,6 +74,10 @@ namespace Ovidiu
                     Telefon.Text = dbReader[10].ToString();
                     Fax.Text = dbReader[11].ToString();
                     Email.Text = dbReader[12].ToString();
+                    if (dbReader["ValoareStatistica"].ToString() == "True")
+                        CheckBoxValStat.IsChecked = true;
+                    if (dbReader["XML_Detaliat"].ToString() == "True")
+                        CheckBoxDeclXML.IsChecked = true;
                 }
             }
            
@@ -115,9 +121,73 @@ namespace Ovidiu
 
         private void CreazaFirma_Click(object sender, RoutedEventArgs e)
         {
-            Frm_Setari_Implicite frm_Setari_Implicite = new Frm_Setari_Implicite(false);
-            frm_Setari_Implicite.Show();
-            this.Hide();
+            if(flag==true)
+            {
+                UpdateDateFirma();
+                this.Close();
+            }
+            else
+            {
+                Firma.CodFiscal = Cif.Text;
+                Firma.NumeFirma = NumeFirma.Text;
+                Frm_Setari_Implicite frm_Setari_Implicite = new Frm_Setari_Implicite(false);
+                frm_Setari_Implicite.Show();
+                this.Hide();
+            }       
+        }
+
+        private void UpdateDateFirma()
+        {
+            OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbCommand dbCommand = null;
+            string dbQuery = string.Empty;
+            try
+            {
+                dbConn.Open();
+                //dbQuery = "UPDATE [Intrastat_Default] SET [I_Tara_Exp]='" + Val_Implicite.I_Tara_Exp + "', [I_Incoterm]='" + Val_Implicite.I_Incoterms + "', [I_Nat_Tranz]='" + Val_Implicite.I_Nat_Transp + "', [I_Mod_Transp]='" + Val_Implicite.I_Mod_Transp + "', [O_Tara_Dest]='" + Val_Implicite.O_Tara_Dest + "', [O_Incoterm]='" + Val_Implicite.O_Incoterms + "', [O_Nat_Tranz]='" + Val_Implicite.O_Nat_Tranz + "', [O_Mod_Transp]='" + Val_Implicite.O_Mod_Transp + "' WHERE [Cod_Fiscal]='" + Firma.CodFiscal + "';";
+                dbQuery = @"UPDATE Firme SET Nume_Firma = ?, Adresa_Firma = ?, Judet_Firma = ?, Oras_Firma = ?, CodPostal_Firma=?, Tara_Firma = ?, Reg_No_Firma = ?, Persoana_Intrastat = ?, Persoana_Functie=?, Tel_Firma=?, Fax_Firma=?, Email_Firma=?, ValoareStatistica=?, XML_Detaliat=? WHERE Cod_Fiscal = ?;";
+                dbCommand = new OleDbCommand(dbQuery, dbConn);
+                dbCommand.Parameters.AddWithValue("@Nume_Firma", NumeFirma.Text);
+                dbCommand.Parameters.AddWithValue("@Adresa_Firma", AdresaFirma.Text);
+                dbCommand.Parameters.AddWithValue("@Oras_Firma", Oras.Text);
+                dbCommand.Parameters.AddWithValue("@Judet_Firma", Judet.Text);
+                dbCommand.Parameters.AddWithValue("@CodPostal_Firma", CodPostal.Text);
+                dbCommand.Parameters.AddWithValue("@Tara_Firma", Tara.Text);
+                dbCommand.Parameters.AddWithValue("@Reg_No_Firma", RegComert.Text);
+                dbCommand.Parameters.AddWithValue("@Persoana_Intrastat", Nume.Text);
+                dbCommand.Parameters.AddWithValue("@Persoana_Functie", Functie.Text);
+                dbCommand.Parameters.AddWithValue("@Tel_Firma",Telefon.Text);
+                dbCommand.Parameters.AddWithValue("@Fax_Firma", Fax.Text);
+                dbCommand.Parameters.AddWithValue("@Email_Firma", Email.Text);
+                /*
+                dbCommand.Parameters.AddWithValue("@DataBaseFile", Firma. );
+                dbCommand.Parameters.AddWithValue("@Nr_Inregistrare", Val_Implicite.I_Mod_Transp);
+                dbCommand.Parameters.AddWithValue("@Key_Inregistrare", Val_Implicite.O_Tara_Dest);
+                dbCommand.Parameters.AddWithValue("@CreataLaData", Val_Implicite.O_Incoterms);
+                */
+                dbCommand.Parameters.AddWithValue("@ValoareStatistica", CheckBoxValStat.IsChecked);
+                dbCommand.Parameters.AddWithValue("@XML_Detaliat", CheckBoxDeclXML.IsChecked);
+
+
+                dbCommand.Parameters.AddWithValue("@Cod_Fiscal", Firma.CodFiscal);
+                /*
+                 * @"UPDATE emp SET ename = ?, job = ?, sal = ?, dept = ? WHERE eno = ?";
+                     OleDbCommand cmd = new OleDbCommand(query, con)
+                     cmd.Parameters.AddWithValue("@ename", TextBox2.Text);
+                     cmd.Parameters.AddWithValue("@job", TextBox3.Text);
+                     cmd.Parameters.AddWithValue("@sal", TextBox4.Text);
+                     cmd.Parameters.AddWithValue("@dept", TextBox5.Text);
+                     cmd.ParametersAddWithValue("@eno", TextBox1.Text);
+                 */
+
+
+                dbCommand.ExecuteNonQuery();
+                dbConn.Close();
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show("Eroare: " + exp.Message);
+            }
         }
     }
 }
