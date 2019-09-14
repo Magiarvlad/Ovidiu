@@ -62,9 +62,7 @@ namespace Ovidiu
                     //lista.Add(new Declaratii(dbReader[0].ToString()));
 
                    
-                    double answer = 1.234567;
                   
-                    string s = string.Format(spec, answer);
 
                 }
             }
