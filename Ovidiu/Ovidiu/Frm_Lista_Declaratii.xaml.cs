@@ -38,7 +38,10 @@ namespace Ovidiu
 
         private void IncarcaGrid(string tableName)
         {
-    
+
+            int decimals = Convert.ToInt32(XML_Operatii.CitesteValoareNodXML(CONSTANTE.Setting_XML_file, @"Settings/E_Intrastat/Setari/Zecimale/ZecRotCalcule")) ;
+            string spec = "{0:N" + decimals + "}";
+
             string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + Firma.CodFiscal+ ".mdb";
             OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
             OleDbCommand dbCommand = null;
@@ -54,12 +57,20 @@ namespace Ovidiu
                 {
                     //dbReader.Read();
                     if(dbReader[0].ToString()!= string.Empty)
-                    lista.Add(new Declaratii(dbReader[0].ToString(),dbReader[1].ToString(),dbReader[2].ToString(),dbReader[3].ToString(),dbReader[4].ToString(),dbReader[5].ToString(),dbReader[6].ToString(),dbReader[7].ToString()));
+                    lista.Add(new Declaratii( dbReader[0].ToString(),dbReader[1].ToString(),dbReader[2].ToString(),dbReader[3].ToString(),
+                                              string.Format(spec, Convert.ToDouble(dbReader[4])), string.Format(spec,Convert.ToDouble(dbReader[5])), string.Format(spec, Convert.ToDouble(dbReader[6])), dbReader[7].ToString()));
                     //lista.Add(new Declaratii(dbReader[0].ToString()));
+
+                   
+                    double answer = 1.234567;
+                  
+                    string s = string.Format(spec, answer);
 
                 }
             }
             gridIntrastat.ItemsSource = lista;
+            
+
             //gridInsta.ItemsSource = lista;
             dbConn.Close();
         }

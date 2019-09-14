@@ -12,7 +12,11 @@
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
                 </Style>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="HorizontalAlignment" Value="Right" />
+                </Style>
             </DataGrid.Resources>
+
         </DataGrid>
         <Button x:Name="btnTipareste" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="1689,266,0,0" Height="44">
             <StackPanel Orientation="Horizontal">
