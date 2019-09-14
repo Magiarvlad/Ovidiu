@@ -128,11 +128,18 @@ namespace Ovidiu
             }
             else
             {
-                Firma.CodFiscal = Cif.Text;
-                Firma.NumeFirma = NumeFirma.Text;
-                Frm_Setari_Implicite frm_Setari_Implicite = new Frm_Setari_Implicite(false);
-                frm_Setari_Implicite.Show();
-                this.Hide();
+                if (NumeFirma.Text != "" && AdresaFirma.Text != "" && Oras.Text != "" && Judet.Text != "" && CodPostal.Text != "" && Tara.Text != "" && RegComert.Text != "" && Nume.Text != "" && Functie.Text != "" && Telefon.Text != "" && Fax.Text != "" && Email.Text != "")
+                {
+                    Firma.CodFiscal = Cif.Text;
+                    Firma.NumeFirma = NumeFirma.Text;
+                    Frm_Setari_Implicite frm_Setari_Implicite = new Frm_Setari_Implicite(false);
+                    frm_Setari_Implicite.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Completati toate campurile pentru a crea o firma noua");
+                }
             }       
         }
 
