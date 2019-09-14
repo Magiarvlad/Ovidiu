@@ -501,8 +501,13 @@ namespace Ovidiu
                     keypressed = keypressed.Remove(keypressed.Length-1);
             }
             else
-            {
-                keypressed += e.Key.ToString();
+            {   if(e.Key!=Key.Enter && e.Key!=Key.Down && e.Key != Key.Up && e.Key != Key.Left && e.Key != Key.Right && e.Key != Key.Space)
+                    keypressed += e.Key.ToString();
+                else
+                    if(e.Key == Key.Space)
+                    {
+                        keypressed += " ";
+                    }
             }
             InfoCautareLabel.Content = "Cautare dupa: " + keypressed;
             InfoCautareLabel.Visibility = Visibility.Visible;
@@ -517,7 +522,7 @@ namespace Ovidiu
             if (opentab == "TARI_UE")
                 FindIN(content_Tari_UE, keypressed);
             if (opentab == "Monezi")
-                FindIN(content_Monezi, keypressed);
+                FindIN(content_Tari, keypressed);
             if (opentab == "Incoterms")
                 FindIN(content_Tari, keypressed);
             if (opentab == "Tranzactii")
@@ -534,20 +539,38 @@ namespace Ovidiu
 
         private void FindIN(List<Cod_Vamal> cod_Vamal_list, string keypressed)
         {
-            
+            int i = 0;
+            foreach (Cod_Vamal element in cod_Vamal_list)
+            {
+                try
+                {
+                    
+                        if (keypressed.Length <= element.Descriere.Length)
+                        {
+                            if (element.Descriere.Substring(0, keypressed.Length).ToUpper().Equals(keypressed))
+                            {
+                                Grid_HS.SelectedIndex = i;
+                                Grid_HS.SelectedItem = element.Descriere;
+                                Grid_HS.UpdateLayout();
+                                Grid_HS.ScrollIntoView(Grid_HS.SelectedItem);
+                                break;
+                            }
+                        }
+                }
+                catch (Exception)
+                {
+                    break;
+                }
+                i++;
+            }
         }
 
         private void FindIN(List<TARI_UE> content_Tari_UE, string keypressed)
         {
-            
-        }
-
-        private void FindIN(List<Tari> content_Tari, string keypressed)
-        {
             int i = 0;
-            foreach(Tari element in content_Tari)
+            foreach (TARI_UE element in content_Tari_UE)
             {
-                
+
                 try
                 {
                     if (element.Cod.Substring(0, keypressed.Length).ToUpper().Equals(keypressed))
@@ -559,6 +582,48 @@ namespace Ovidiu
                         break;
                     }
                 }
+                catch (Exception)
+                {
+                    break;
+                }
+                i++;
+            }
+        }
+
+        private void FindIN(List<Tari> content_Tari, string keypressed)
+        {
+            int i = 0;
+            foreach(Tari element in content_Tari)
+            {
+                
+                try
+                {   if (opentab == "HS_1" || opentab == "HS_2" || opentab == "HS_4" || opentab == "HS_6" || opentab == "HS_8" || opentab == "Tranzactii")
+                    {
+                        if (keypressed.Length <= element.Descriere.Length)
+                        {
+                            if (element.Descriere.Substring(0, keypressed.Length).ToUpper().Equals(keypressed))
+                            {
+                                Grid_HS.SelectedIndex = i;
+                                Grid_HS.SelectedItem = element.Descriere;
+                                Grid_HS.UpdateLayout();
+                                Grid_HS.ScrollIntoView(Grid_HS.SelectedItem);
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (keypressed.Length <= element.Cod.Length)
+                            if (element.Cod.Substring(0, keypressed.Length).ToUpper().Equals(keypressed))
+                            {
+                                Grid_HS.SelectedIndex = i;
+                                Grid_HS.SelectedItem = element.Cod;
+                                Grid_HS.UpdateLayout();
+                                Grid_HS.ScrollIntoView(Grid_HS.SelectedItem);
+                                break;
+                            }
+                    }
+                }
                 catch(Exception)
                 {
                     break;
@@ -566,6 +631,42 @@ namespace Ovidiu
                 i++;
             }
               
+        }
+
+        private void Grid_HS_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (opentab == "HS_8" && this.Title == "Selectie / Cautare")
+                {
+                    int linieSelectataGrid = Grid_HS.SelectedIndex;
+                    if (linieSelectataGrid == -1)
+                        Grid_HS.SelectedIndex = 0;
+                    Cod_Vamal declaratieSelectata = Grid_HS.SelectedItem as Cod_Vamal;
+                    s_codVamal = declaratieSelectata.Cod_8;
+                }
+
+                if (opentab == "Monezi" && this.Title == "Selectie / Cautare")
+                {
+                    int linieSelectataGrid = Grid_HS.SelectedIndex;
+                    if (linieSelectataGrid == -1)
+                        Grid_HS.SelectedIndex = 0;
+                    Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
+                    s_moneda = declaratieSelectata.Cod;
+                }
+
+                if (opentab == "Tari" && this.Title == "Selectie / Cautare")
+                {
+                    int linieSelectataGrid = Grid_HS.SelectedIndex;
+                    if (linieSelectataGrid == -1)
+                        Grid_HS.SelectedIndex = 0;
+                    Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
+                    s_moneda = declaratieSelectata.Cod;
+                }
+                s_go = true;
+                this.Close();
+            }
+            
         }
     }
 }

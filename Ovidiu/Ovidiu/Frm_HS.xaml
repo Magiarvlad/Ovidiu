@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Frm_HS" Height="968.5" Width="1439.5" Closed="Window_Closed" KeyDown="Window_KeyDown">
     <Grid Margin="0,0,42,61">
-        <DataGrid AlternatingRowBackground="Gainsboro"  AlternationCount="2" Name="Grid_HS" HorizontalAlignment="Left" Height="712" Margin="50,77,0,0" VerticalAlignment="Top" Width="1296" Background="#FFC5BDD3" IsReadOnly="True" SelectionMode="Single">
+        <DataGrid AlternatingRowBackground="Gainsboro"  AlternationCount="2" Name="Grid_HS" HorizontalAlignment="Left" Height="712" Margin="50,77,0,0" VerticalAlignment="Top" Width="1296" Background="#FFC5BDD3" IsReadOnly="True" SelectionMode="Single" PreviewKeyDown="Grid_HS_PreviewKeyDown">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="HS_Row_DoubleClick"/>

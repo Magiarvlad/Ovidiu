@@ -208,7 +208,7 @@
             <Grid HorizontalAlignment="Left" Height="27" Grid.Row="2" VerticalAlignment="Top" Width="727" Background="#FF06ECF7" Margin="0,0,0,-26">
                 <Label x:Name="lblMesaj" Foreground="Blue" Content="---" FontSize="10" Margin="0,0,-1191,-48" />
             </Grid>
-            <DataGrid x:Name="gridIntrastat"  HorizontalAlignment="Left" Height="611" Grid.Row="1" VerticalAlignment="Top" Width="1752" CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False">
+            <DataGrid x:Name="gridIntrastat"  HorizontalAlignment="Left" Height="611" Grid.Row="1" VerticalAlignment="Top" Width="1752" CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False" KeyDown="GridIntrastat_KeyDown" PreviewKeyDown="GridIntrastat_PreviewKeyDown">
                 <DataGrid.Columns >
                     <DataGridTemplateColumn Header="Data livrarii"  Width="SizeToCells" IsReadOnly="True" MinWidth="80" >
                         <DataGridTemplateColumn.CellTemplate>
