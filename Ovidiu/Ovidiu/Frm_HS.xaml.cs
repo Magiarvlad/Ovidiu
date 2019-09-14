@@ -53,6 +53,8 @@ namespace Ovidiu
             InfoCautareLabel.Visibility = Visibility.Hidden;
             if (tableName == "Tari")
                 IncarcaTabela_Tari(tableName);
+            if (tableName == "ModTransp")
+                IncarcaTabela_ModTransp(tableName);
             if (tableName == "TARI_UE")
                 IncarcaTabela_Tari_UE(tableName);
             if (tableName == "Monezi")
@@ -70,6 +72,29 @@ namespace Ovidiu
             if (tableName == "HS_8")
                 IncarcaTabela_HS8(tableName);
             opentab = tableName;
+        }
+
+        private void IncarcaTabela_ModTransp(string tableName)
+        {
+            string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "Comun.mdb";
+            OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbCommand dbCommand = null;
+            OleDbDataReader dbReader = null;
+            string dbQuery = string.Empty;
+            dbConn.Open();
+            dbQuery = "SELECT COD_MOD_TRANS, DESC_MOD_TRANS FROM MOD_TRANS ORDER BY COD_MOD_TRANS";
+            dbCommand = new OleDbCommand(dbQuery, dbConn);
+            dbReader = dbCommand.ExecuteReader();
+            if (dbReader.HasRows)
+            {
+                while (dbReader.Read())
+                {
+                    content_Tari.Add(new Tari(dbReader[0].ToString(), dbReader[1].ToString()));
+
+                }
+            }
+            Grid_HS.ItemsSource = content_Tari;
+            dbConn.Close();
         }
 
         private void IncarcaTabela_HS8(string tableName)
@@ -404,37 +429,7 @@ namespace Ovidiu
 
         public static string s_codVamal="";
         public static string s_moneda = "";
-        private void HS_Row_DoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if(opentab=="HS_8")
-            {
-                int linieSelectataGrid = Grid_HS.SelectedIndex;
-                if (linieSelectataGrid == -1)
-                    Grid_HS.SelectedIndex = 0;
-                Cod_Vamal declaratieSelectata = Grid_HS.SelectedItem as Cod_Vamal;
-                s_codVamal = declaratieSelectata.Cod_8;
-            }
-
-            if (opentab == "Monezi")
-            {
-                int linieSelectataGrid = Grid_HS.SelectedIndex;
-                if (linieSelectataGrid == -1)
-                    Grid_HS.SelectedIndex = 0;
-                Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
-                s_moneda = declaratieSelectata.Cod;
-            }
-
-            if (opentab == "Tari")
-            {
-                int linieSelectataGrid = Grid_HS.SelectedIndex;
-                if (linieSelectataGrid == -1)
-                    Grid_HS.SelectedIndex = 0;
-                Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
-                s_moneda = declaratieSelectata.Cod;
-            }
-            s_go = true;
-            this.Close();
-        }
+        
 
         internal class TARI_UE
         {
@@ -632,7 +627,69 @@ namespace Ovidiu
             }
               
         }
+        private void HS_Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (opentab == "HS_8" && this.Title == "Selectie / Cautare")
+            {
+                int linieSelectataGrid = Grid_HS.SelectedIndex;
+                if (linieSelectataGrid == -1)
+                    Grid_HS.SelectedIndex = 0;
+                Cod_Vamal declaratieSelectata = Grid_HS.SelectedItem as Cod_Vamal;
+                s_codVamal = declaratieSelectata.Cod_8;
+            }
 
+            if (opentab == "Monezi" && this.Title == "Selectie / Cautare")
+            {
+                int linieSelectataGrid = Grid_HS.SelectedIndex;
+                if (linieSelectataGrid == -1)
+                    Grid_HS.SelectedIndex = 0;
+                Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
+                s_moneda = declaratieSelectata.Cod;
+            }
+            if (opentab == "UM" && this.Title == "Selectie / Cautare")
+            {
+                int linieSelectataGrid = Grid_HS.SelectedIndex;
+                if (linieSelectataGrid == -1)
+                    Grid_HS.SelectedIndex = 0;
+                Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
+                s_moneda = declaratieSelectata.Cod;
+            }
+            if (opentab == "Tranzactii" && this.Title == "Selectie / Cautare")
+            {
+                int linieSelectataGrid = Grid_HS.SelectedIndex;
+                if (linieSelectataGrid == -1)
+                    Grid_HS.SelectedIndex = 0;
+                Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
+                s_moneda = declaratieSelectata.Cod;
+            }
+            if (opentab == "Incoterms" && this.Title == "Selectie / Cautare")
+            {
+                int linieSelectataGrid = Grid_HS.SelectedIndex;
+                if (linieSelectataGrid == -1)
+                    Grid_HS.SelectedIndex = 0;
+                Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
+                s_moneda = declaratieSelectata.Cod;
+            }
+            
+            if (opentab == "ModTransp" && this.Title == "Selectie / Cautare")
+            {
+                int linieSelectataGrid = Grid_HS.SelectedIndex;
+                if (linieSelectataGrid == -1)
+                    Grid_HS.SelectedIndex = 0;
+                Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
+                s_moneda = declaratieSelectata.Cod;
+            }
+            if (opentab == "TARI_UE" && this.Title == "Selectie / Cautare")
+            {
+                int linieSelectataGrid = Grid_HS.SelectedIndex;
+                if (linieSelectataGrid == -1)
+                    Grid_HS.SelectedIndex = 0;
+                TARI_UE declaratieSelectata = Grid_HS.SelectedItem as TARI_UE;
+                s_moneda = declaratieSelectata.Cod;
+            }
+            s_go = true;
+            this.Close();
+        }
         private void Grid_HS_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -654,13 +711,45 @@ namespace Ovidiu
                     Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
                     s_moneda = declaratieSelectata.Cod;
                 }
-
-                if (opentab == "Tari" && this.Title == "Selectie / Cautare")
+                if (opentab == "Tranzactii" && this.Title == "Selectie / Cautare")
                 {
                     int linieSelectataGrid = Grid_HS.SelectedIndex;
                     if (linieSelectataGrid == -1)
                         Grid_HS.SelectedIndex = 0;
                     Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
+                    s_moneda = declaratieSelectata.Cod;
+                }
+                
+                if (opentab == "UM" && this.Title == "Selectie / Cautare")
+                {
+                    int linieSelectataGrid = Grid_HS.SelectedIndex;
+                    if (linieSelectataGrid == -1)
+                        Grid_HS.SelectedIndex = 0;
+                    Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
+                    s_moneda = declaratieSelectata.Cod;
+                }
+                if (opentab == "ModTransp" && this.Title == "Selectie / Cautare")
+                {
+                    int linieSelectataGrid = Grid_HS.SelectedIndex;
+                    if (linieSelectataGrid == -1)
+                        Grid_HS.SelectedIndex = 0;
+                    Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
+                    s_moneda = declaratieSelectata.Cod;
+                }
+                if (opentab == "Incoterms" && this.Title == "Selectie / Cautare")
+                {
+                    int linieSelectataGrid = Grid_HS.SelectedIndex;
+                    if (linieSelectataGrid == -1)
+                        Grid_HS.SelectedIndex = 0;
+                    Tari declaratieSelectata = Grid_HS.SelectedItem as Tari;
+                    s_moneda = declaratieSelectata.Cod;
+                }
+                if (opentab == "TARI_UE" && this.Title == "Selectie / Cautare")
+                {
+                    int linieSelectataGrid = Grid_HS.SelectedIndex;
+                    if (linieSelectataGrid == -1)
+                        Grid_HS.SelectedIndex = 0;
+                    TARI_UE declaratieSelectata = Grid_HS.SelectedItem as TARI_UE;
                     s_moneda = declaratieSelectata.Cod;
                 }
                 s_go = true;

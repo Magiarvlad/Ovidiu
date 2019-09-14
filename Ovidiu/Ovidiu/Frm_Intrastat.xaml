@@ -311,7 +311,7 @@
                     <DataGridTemplateColumn Header=" UM &#x0a;Supl" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding UmSupl}"></TextBox>
+                                <TextBox Text="{Binding UmSupl}" MouseDoubleClick="TextBox_MouseDoubleClickAsync"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -325,21 +325,21 @@
                     <DataGridTemplateColumn Header="  Nat &#x0a;Tranz" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding NatTranz}"></TextBox>
+                                <TextBox Text="{Binding NatTranz}" MouseDoubleClick="NatTranz_MouseDoubleClickAsync"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Cond &#x0a;Livrare" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding CondLivrare}"></TextBox>
+                                <TextBox x:Name="CondLiv" Text="{Binding CondLivrare}" MouseDoubleClick="CondLiv_MouseDoubleClickAsync"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Mod &#x0a;Transp" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding ModTransp}"></TextBox>
+                                <TextBox  x:Name="ModTran" Text="{Binding ModTransp}" MouseDoubleClick="ModTran_MouseDoubleClickAsync"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
