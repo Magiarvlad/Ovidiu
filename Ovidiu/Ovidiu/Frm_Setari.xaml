@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Frm_Setari"  Height="588" Width="804.5">
     <Grid>
-        <Button Content="OK - Retine datele" HorizontalAlignment="Left" Margin="343,508,0,0" VerticalAlignment="Top" Width="174" Height="39" Background="Black" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        <Button Content="OK - Retine datele" HorizontalAlignment="Left" Margin="343,508,0,0" VerticalAlignment="Top" Width="174" Height="39" Background="Black" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Click="Button_Click"/>
         <Label Name="lblSetariImplicite" Content="   Setari Diverse" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Height="113" Width="794" FontSize="34" Background="#FF4258B9" Foreground="White" FontFamily="Nirmala UI"/>
         <Label Content="In mod normal aceste date nu trebuie modificate" HorizontalAlignment="Left" Margin="32,59,0,0" VerticalAlignment="Top" Height="27" Width="382" Foreground="White" FontSize="14"/>
         <TabControl HorizontalAlignment="Left" Height="341" Margin="10,138,0,0" VerticalAlignment="Top" Width="776">
