@@ -209,6 +209,21 @@
                 <Label x:Name="lblMesaj" Foreground="Blue" Content="---" FontSize="10" Margin="0,0,-1191,-48" />
             </Grid>
             <DataGrid x:Name="gridIntrastat"  HorizontalAlignment="Left" Height="611" Grid.Row="1" VerticalAlignment="Top" Width="1752" CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False" KeyDown="GridIntrastat_KeyDown" PreviewKeyDown="GridIntrastat_PreviewKeyDown">
+                <DataGrid.CellStyle>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Yellow"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="BorderBrush" Value="Orange"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                <Setter Property="BorderBrush" Value="Blue"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
+
                 <DataGrid.Columns >
                     <DataGridTemplateColumn Header="Data livrarii"  Width="SizeToCells" IsReadOnly="True" MinWidth="80" >
                         <DataGridTemplateColumn.CellTemplate>
@@ -227,14 +242,14 @@
                     <DataGridTemplateColumn Header="Cod Vamal" Width="SizeToCells" IsReadOnly="True" MinWidth="80">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding CodVamal}"  Name="codVamal" MouseDoubleClick="CodVamal_MouseDoubleClickAsync"></TextBox>
+                                <TextBox Text="{Binding CodVamal}"  Name="codVamal" MouseDoubleClick="CodVamal_MouseDoubleClickAsync" PreviewTextInput="CodVamal_PreviewTextInput"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Cantitate" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding Cantitate}"></TextBox>
+                                <TextBox Text="{Binding Cantitate}" PreviewTextInput="TextBox_PreviewTextInput"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -248,7 +263,7 @@
                     <DataGridTemplateColumn Header="   Valoare &#x0a;    Valuta" Width="SizeToCells" IsReadOnly="True" MinWidth="80">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding ValoareValuta}"></TextBox>
+                                <TextBox Text="{Binding ValoareValuta}" PreviewTextInput="TextBox_PreviewTextInput_1"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -262,7 +277,7 @@
                     <DataGridTemplateColumn Header="    Curs &#x0a;   schimb" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding CursSchimb}"></TextBox>
+                                <TextBox Text="{Binding CursSchimb}" PreviewTextInput="TextBox_PreviewTextInput_2"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -276,7 +291,7 @@
                     <DataGridTemplateColumn Header="  Valoarea &#x0a;   Statistica" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding ValoareStatistica}"></TextBox>
+                                <TextBox Text="{Binding ValoareStatistica}" PreviewTextInput="TextBox_PreviewTextInput_3"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -304,7 +319,7 @@
                     <DataGridTemplateColumn Header="     Net [Kg]" Width="SizeToCells" IsReadOnly="True" MinWidth="90">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding Net}"></TextBox>
+                                <TextBox Text="{Binding Net}" PreviewTextInput="TextBox_PreviewTextInput_4"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -325,7 +340,7 @@
                     <DataGridTemplateColumn Header="  Nat &#x0a;Tranz" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding NatTranz}" MouseDoubleClick="NatTranz_MouseDoubleClickAsync"></TextBox>
+                                <TextBox Text="{Binding NatTranz}" MouseDoubleClick="NatTranz_MouseDoubleClickAsync" PreviewTextInput="TextBox_PreviewTextInput_5"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -339,7 +354,7 @@
                     <DataGridTemplateColumn Header="  Mod &#x0a;Transp" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox  x:Name="ModTran" Text="{Binding ModTransp}" MouseDoubleClick="ModTran_MouseDoubleClickAsync"></TextBox>
+                                <TextBox  x:Name="ModTran" Text="{Binding ModTransp}" MouseDoubleClick="ModTran_MouseDoubleClickAsync" PreviewTextInput="ModTran_PreviewTextInput"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

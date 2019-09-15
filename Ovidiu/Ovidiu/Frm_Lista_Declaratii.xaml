@@ -16,7 +16,20 @@
                     <Setter Property="HorizontalAlignment" Value="Right" />
                 </Style>
             </DataGrid.Resources>
-
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="Yellow"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="BorderBrush" Value="Orange"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                            <Setter Property="BorderBrush" Value="Blue"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
         </DataGrid>
         <Button x:Name="btnTipareste" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="1689,266,0,0" Height="44">
             <StackPanel Orientation="Horizontal">

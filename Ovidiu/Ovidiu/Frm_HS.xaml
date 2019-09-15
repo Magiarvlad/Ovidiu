@@ -13,12 +13,26 @@
                     <EventSetter Event="MouseDoubleClick" Handler="HS_Row_DoubleClick"/>
                     <Style.Triggers>
                         <Trigger Property="DataGridRow.IsSelected" Value="True">
-                        <Setter Property="Background" Value="#FF95FF75" />
+                            <Setter Property="Background" Value="Blue" />
                     </Trigger>
                     </Style.Triggers>
                 </Style>
                 
             </DataGrid.Resources>
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="Yellow"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="BorderBrush" Value="Orange"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                            <Setter Property="BorderBrush" Value="Blue"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
         </DataGrid>
         <Label x:Name="InfoCautareLabel" Content="Pentru cautare tastati inceputul de cuvand pe care doriti sa-l gasiti" HorizontalAlignment="Left" Margin="728,26,0,0" VerticalAlignment="Top" Height="36" Width="542" FontSize="18" Foreground="#FF243BA4"/>
         <Menu FontSize="18"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Width="190" Margin="1074,828,0,2">
