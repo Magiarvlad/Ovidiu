@@ -117,7 +117,14 @@ namespace Ovidiu
         {
             CursSchimb_Actualizare.Actualiza_curs();
 
-        } 
+        }
+
+        private void ActualizareManualaCurs_Click(object sender, RoutedEventArgs e)
+        {
+            Frm_DateCurs frm_dateCurst = new Frm_DateCurs();
+            frm_dateCurst.Show();
+
+        }
 
         private void _Ajutor_Btn_Click(object sender, RoutedEventArgs e)
         {

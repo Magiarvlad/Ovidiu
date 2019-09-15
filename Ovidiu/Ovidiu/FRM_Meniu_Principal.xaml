@@ -52,7 +52,7 @@
                                     <Image Source="/Imagini/Menu/internet_32.ico"/>
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Header="_Introducere manuala"/>
+                            <MenuItem Header="_Introducere manuala" Click="ActualizareManualaCurs_Click"/>
                         </MenuItem>
                         <MenuItem Header="_Tarif Vamal" FontSize="18" Width="122" Height="27">
                             <MenuItem.Icon>

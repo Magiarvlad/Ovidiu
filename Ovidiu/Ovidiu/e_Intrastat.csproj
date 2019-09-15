@@ -77,6 +77,9 @@
     <Compile Include="Frm_Creare_Firma.xaml.cs">
       <DependentUpon>Frm_Creare_Firma.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frm_DateCurs.xaml.cs">
+      <DependentUpon>Frm_DateCurs.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frm_HS.xaml.cs">
       <DependentUpon>Frm_HS.xaml</DependentUpon>
     </Compile>
@@ -109,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frm_Creare_Firma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frm_DateCurs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
