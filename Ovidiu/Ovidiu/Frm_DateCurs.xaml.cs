@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ovidiu.EU;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace e_Intrastat
         List<DateCurs> lista = new List<DateCurs>();
         List<DateCurs>  lista_scrie = new List<DateCurs>();
         List<String> lines =  new List<String > ();
-        string path = @"D:\E_Intrastat\System\CursBNR\curs.txt";
+        string path = FileLocation.System + "CursBNR\\curs.txt";
 
 
         public Frm_DateCurs()
@@ -62,13 +63,23 @@ namespace e_Intrastat
             }
             // File.Delete(@"\E_Intrastat\System\CursBNR\curstest.txt");
 
-            System.IO.File.WriteAllText(path, String.Empty);
+            File.WriteAllText(path, String.Empty);
 
-            System.IO.File.WriteAllLines(path, lines);
+            File.WriteAllLines(path, lines);
 
             this.Close();
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            // adauga linie noua
+            GridDateCurst.ItemsSource = null;
+            DateCurs data = new DateCurs("", "", "", "");
+            lista.Add(data);
+            GridDateCurst.ItemsSource = lista;
+            GridDateCurst.SelectedItem = data;
+            GridDateCurst.ScrollIntoView(GridDateCurst.SelectedItem);
+        }
     }
 
     class DateCurs
