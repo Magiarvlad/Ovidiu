@@ -21,6 +21,11 @@ namespace e_Intrastat
     public partial class Frm_DateCurs : Window
     {
         List<DateCurs> lista = new List<DateCurs>();
+        List<DateCurs>  lista_scrie = new List<DateCurs>();
+        List<String> lines =  new List<String > ();
+        string path = @"D:\E_Intrastat\System\CursBNR\curs.txt";
+
+
         public Frm_DateCurs()
         {
             InitializeComponent();
@@ -30,7 +35,8 @@ namespace e_Intrastat
 
         private void IncarcaDateGrid()
         {
-            string[] lines = File.ReadAllLines(@"D:\E_Intrastat\System\CursBNR\curs.txt");
+            
+            string[] lines = File.ReadAllLines(path);
 
             foreach (string line in lines)
             {
@@ -40,6 +46,29 @@ namespace e_Intrastat
 
             GridDateCurst.ItemsSource = lista;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            lines.Clear();
+            foreach (var item in GridDateCurst.Items.OfType<DateCurs>())
+            {
+                var data = item.Data;
+                var moneda = item.Moneda;
+                var numar = item.Numar;
+                var valoare = item.Valoare;
+                // lista_scrie.Add(new DateCurs(data, moneda, numar, valoare));
+                lines.Add( "" + data + " " + moneda + " " + numar + " " + valoare );
+            }
+            // File.Delete(@"\E_Intrastat\System\CursBNR\curstest.txt");
+
+            System.IO.File.WriteAllText(path, String.Empty);
+
+            System.IO.File.WriteAllLines(path, lines);
+
+            this.Close();
+        }
+
     }
 
     class DateCurs
