@@ -87,6 +87,7 @@ namespace Ovidiu
                 string comunpath = "C:\\E_Intrastat\\System\\DataBase\\Comun.mdb";
                 bool flag = false;
                 if (!Verifica_Exista_Fisier.Verifica_Fisier(comunpath))
+                { 
                     foreach (var drive in DriveInfo.GetDrives())
                     {
                         if (Verifica_Exista_Fisier.Verifica_Fisier(drive + "E_Intrastat\\System\\DataBase\\Comun.mdb"))
@@ -100,6 +101,8 @@ namespace Ovidiu
                              flag = true;   
                         }
                     }
+                    
+                }
                 else
                 {
                     flag = true;

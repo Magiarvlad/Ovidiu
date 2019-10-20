@@ -1,6 +1,8 @@
 ﻿using Ovidiu.EU;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Data.OleDb;
 using System.Linq;
 using System.Text;
@@ -14,6 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static Ovidiu.Modules.CONSTANTE;
 using Excel = Microsoft.Office.Interop.Excel;
 namespace Ovidiu
 {
@@ -22,7 +25,10 @@ namespace Ovidiu
     /// </summary>
     public partial class Frm_Intrastat : Window
     {
-        List<Intrastat> lista = new List<Intrastat>();
+        ObservableCollection<Intrastat> lista = new ObservableCollection<Intrastat>();
+        List<String> listaDescrieri = new List<String>();
+        bool isLoaded = false;
+
         public Frm_Intrastat(string tip, string luna, string an)
         {
             InitializeComponent();
@@ -34,19 +40,47 @@ namespace Ovidiu
             txtLuna.Text = luna;
             txtAn.Text = an;
 
-            IncarcaGrid(tip,luna,an);
-            
+            IncarcaGrid(tip, luna, an);
+            IncarcaDescrieri();
+
+            isLoaded = true;
         }
 
-        private void IncarcaGrid(string tip, string luna, string an)
+        private void cbDescriere_Initialized(object sender, EventArgs e)
         {
-            string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + Firma.CodFiscal+ ".mdb";
+            ComboBox obj = sender as ComboBox;
+            obj.ItemsSource = listaDescrieri;
+        }
+        private void IncarcaDescrieri()
+        {
+            string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + Firma.CodFiscal + ".mdb";
             OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
             OleDbCommand dbCommand = null;
             OleDbDataReader dbReader = null;
             string dbQuery = string.Empty;
             dbConn.Open();
-            dbQuery = "SELECT * FROM Intrastat where Anul=" + an + " AND Luna="+ luna+" AND TIP='"+tip +"'";
+            dbQuery = "SELECT DISTINCT Descriere FROM Intrastat";
+            dbCommand = new OleDbCommand(dbQuery, dbConn);
+            dbReader = dbCommand.ExecuteReader();
+            if (dbReader.HasRows)
+            {
+                while (dbReader.Read())
+                {
+                    listaDescrieri.Add(dbReader[0].ToString());
+                }
+            }
+            dbConn.Close();
+        }
+
+        private void IncarcaGrid(string tip, string luna, string an)
+        {
+            string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + Firma.CodFiscal + ".mdb";
+            OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbCommand dbCommand = null;
+            OleDbDataReader dbReader = null;
+            string dbQuery = string.Empty;
+            dbConn.Open();
+            dbQuery = "SELECT * FROM Intrastat where Anul=" + an + " AND Luna=" + luna + " AND TIP='" + tip + "'";
             dbCommand = new OleDbCommand(dbQuery, dbConn);
             dbReader = dbCommand.ExecuteReader();
             if (dbReader.HasRows)
@@ -56,17 +90,231 @@ namespace Ovidiu
                     lista.Add(new Intrastat(dbReader[5].ToString(), dbReader[6].ToString(), dbReader[7].ToString(), dbReader[9].ToString(), dbReader[10].ToString(), dbReader[11].ToString(), dbReader[12].ToString(), dbReader[13].ToString(), dbReader[14].ToString(), dbReader[15].ToString(), dbReader[16].ToString(), dbReader[17].ToString(), dbReader[18].ToString(), dbReader[19].ToString(), dbReader[21].ToString(), dbReader[22].ToString(), dbReader[23].ToString(), dbReader[24].ToString(), dbReader[25].ToString(), dbReader[26].ToString(), dbReader[27].ToString(), dbReader[28].ToString(), dbReader[29].ToString()));
                 }
             }
-            dbConn.Close();        
+            dbConn.Close();
+            AddNewLine();
+            
+            
             gridIntrastat.ItemsSource = lista;
         }
 
-        public class Intrastat
+        private void AddNewLine()
         {
-            string dataReceptiei,descriere,codVamal,cantitate,uM,valoareValuta,moneda,cursSchimb,valoareFiscala,valoareStatistica,taraOrigine,taraExport,taraDestinatie,net,umSupl,cantitateSupl,natTranz,condLivrare,modTransp,facturaNumar,documentData,destTVA,pozitia;
+            bool canBeSaved = false;
+
+            if (gridIntrastat.SelectedIndex == lista.Count - 1)
+            {
+                if(gridIntrastat.SelectedIndex > 0)
+                {
+                    if (lista[gridIntrastat.SelectedIndex - 1].Cantitate != "")
+                    {
+                        if (lista[gridIntrastat.SelectedIndex - 1].DataReceptiei != "")
+                        {
+                            if (lista[gridIntrastat.SelectedIndex - 1].CodVamal != "")
+                            {
+                                if (lista[gridIntrastat.SelectedIndex - 1].ValoareValuta != "")
+                                {
+                                    if (lista[gridIntrastat.SelectedIndex - 1].TaraOrigine != "")
+                                    {
+                                        if (lista[gridIntrastat.SelectedIndex - 1].TaraExport != "")
+                                        {
+                                            if (lista[gridIntrastat.SelectedIndex - 1].TaraDestinatie != "")
+                                            {
+                                                if (lista[gridIntrastat.SelectedIndex - 1].NatTranz != "")
+                                                {
+                                                    if (lista[gridIntrastat.SelectedIndex - 1].CondLivrare != "")
+                                                    {
+                                                        if (lista[gridIntrastat.SelectedIndex - 1].ModTransp != "")
+                                                        {
+                                                            if (lista[gridIntrastat.SelectedIndex - 1].Moneda != "")
+                                                            {
+                                                                canBeSaved = true;
+                                                            }
+                                                            else
+                                                            {
+                                                                MessageBox.Show("Coloana Moneda nu poate fi goala");
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            MessageBox.Show("Coloana Mod Transport nu poate fi goala");
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("Coloana Conditii Livrare nu poate fi goala");
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Coloana Natura Tranactie nu poate fi goala");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Coloana Tara Destinatie nu poate fi goala");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Coloana Tara Export nu poate fi goala");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Coloana Tara Origine nu poate fi goala");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Coloana Valoare Valuta nu poate fi goala");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Coloana Cod Vamal nu poate fi goala");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Coloana Data Receptiei nu poate fi goala");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Coloana Cantitate nu poate fi goala");
+                    }
+                }
+               if(canBeSaved==true)
+                {
+                    SaveLine();
+
+                    if (txtTip.Text == "I")
+                    {
+                        Intrastat a = new Intrastat("", "", "", "", "", "", "", "", "", "", "", Val_Implicite.I_Tara_Exp, "RO", "", "", "", Val_Implicite.I_Nat_Transp, Val_Implicite.I_Incoterms, Val_Implicite.I_Mod_Transp, "", "", "", "");
+                        lista.Add(a);
+                    }
+                    else
+                    {
+                        Intrastat a = new Intrastat("", "", "", "", "", "", "", "", "", "", "", "RO", Val_Implicite.O_Tara_Dest, "", "", "", Val_Implicite.O_Nat_Tranz, Val_Implicite.O_Incoterms, Val_Implicite.O_Mod_Transp, "", "", "", "");
+                        lista.Add(a);
+                    }
+                }
+               
+            }
+        }
+
+        private void SaveLine()
+        {
+            int numarInregistrari = ReturneazaNumarInregistrari();
+            
+            if(numarInregistrari<lista.Count)
+            {
+                string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + Firma.CodFiscal + ".mdb";
+                OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+                OleDbCommand dbCommand = null;
+                string dbQuery = string.Empty;
+                string data = DateTime.Now.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                try
+                {
+                    dbConn.Open();
+                    //dbQuery = "UPDATE [Intrastat_Default] SET [I_Tara_Exp]='" + Val_Implicite.I_Tara_Exp + "', [I_Incoterm]='" + Val_Implicite.I_Incoterms + "', [I_Nat_Tranz]='" + Val_Implicite.I_Nat_Transp + "', [I_Mod_Transp]='" + Val_Implicite.I_Mod_Transp + "', [O_Tara_Dest]='" + Val_Implicite.O_Tara_Dest + "', [O_Incoterm]='" + Val_Implicite.O_Incoterms + "', [O_Nat_Tranz]='" + Val_Implicite.O_Nat_Tranz + "', [O_Mod_Transp]='" + Val_Implicite.O_Mod_Transp + "' WHERE [Cod_Fiscal]='" + Firma.CodFiscal + "';";
+                    dbQuery = @"Insert into Intrastat (TIP,Cod_Fiscal,Anul,Luna,DataReceptiei,Descriere,Cod_NC,Descriere_NC,Cantitate,UM,Valoare_Valuta,Moneda,Curs_Schimb,Val_Fiscala,Val_Stat,Tara_Orig,Tara_Exp,Tara_Dest,Net,Exista_UMS,Cod_UMS,Val_UMS,Nat_Tranz,Incoterms,Mod_transp,Factura_Numar,Factura_Data,VAT_ID,PU,Net_Unitar,Raport_Stat,SourceFile,SourceFile_FullPath,Data_Preluare,UserName,Probleme,Transp_Document,Transport_Suma,Transport_Moneda,Transport_Curs) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                    dbCommand = new OleDbCommand(dbQuery, dbConn);
+                    dbCommand.Parameters.AddWithValue("@TIP", txtTip.Text);
+                    dbCommand.Parameters.AddWithValue("@Cod_Fiscal", txtCUI.Text);
+                    dbCommand.Parameters.AddWithValue("@Anul", txtAn.Text);
+                    dbCommand.Parameters.AddWithValue("@Luna", txtLuna.Text);
+                    dbCommand.Parameters.AddWithValue("@DataReceptiei", lista[lista.Count - 1].DataReceptiei);
+                    dbCommand.Parameters.AddWithValue("@Descriere", lista[lista.Count - 1].Descriere);
+                    dbCommand.Parameters.AddWithValue("@Cod_NC", lista[lista.Count - 1].CodVamal);
+                    dbCommand.Parameters.AddWithValue("@Descriere_NC", lista[lista.Count - 1].Descriere);
+                    dbCommand.Parameters.AddWithValue("@Cantitate", lista[lista.Count - 1].Cantitate);
+                    dbCommand.Parameters.AddWithValue("@UM", lista[lista.Count - 1].UM);
+                    dbCommand.Parameters.AddWithValue("@Valoare_Valuta", lista[lista.Count - 1].ValoareValuta);
+                    dbCommand.Parameters.AddWithValue("@Moneda", lista[lista.Count - 1].Moneda);
+                    dbCommand.Parameters.AddWithValue("@Curs_Schimb", lista[lista.Count - 1].CursSchimb);
+                    dbCommand.Parameters.AddWithValue("@Val_Fiscala", lista[lista.Count - 1].ValoareFiscala);
+                    dbCommand.Parameters.AddWithValue("@Val_Stat", lista[lista.Count - 1].ValoareStatistica);
+                    dbCommand.Parameters.AddWithValue("@Tara_Orig", lista[lista.Count - 1].TaraOrigine);
+                    dbCommand.Parameters.AddWithValue("@Tara_Exp", lista[lista.Count - 1].TaraExport);
+                    dbCommand.Parameters.AddWithValue("@Tara_Dest", lista[lista.Count - 1].TaraDestinatie);
+                    dbCommand.Parameters.AddWithValue("@Net", lista[lista.Count - 1].Net);
+                    if (lista[lista.Count - 1].UmSupl == "")
+                        dbCommand.Parameters.AddWithValue("@Exista_UMS", false);
+                    else
+                        dbCommand.Parameters.AddWithValue("@Exista_UMS", true);
+                    dbCommand.Parameters.AddWithValue("@Cod_UMS", lista[lista.Count - 1].UmSupl);
+                    dbCommand.Parameters.AddWithValue("@Val_UMS", lista[lista.Count - 1].CantitateSupl);
+                    dbCommand.Parameters.AddWithValue("@Nat_Tranz", lista[lista.Count - 1].NatTranz);
+                    dbCommand.Parameters.AddWithValue("@Incoterms", lista[lista.Count - 1].CondLivrare);
+                    dbCommand.Parameters.AddWithValue("@Mod_transp", lista[lista.Count - 1].ModTransp);
+                    dbCommand.Parameters.AddWithValue("@Factura_Numar", lista[lista.Count - 1].FacturaNumar);
+                    dbCommand.Parameters.AddWithValue("@Factura_Data", lista[lista.Count - 1].DocumentData);
+                    dbCommand.Parameters.AddWithValue("@VAT_ID", lista[lista.Count - 1].DestTVA);
+                    dbCommand.Parameters.AddWithValue("@PU", "0");
+                    dbCommand.Parameters.AddWithValue("@Net_Unitar", "0");
+                    dbCommand.Parameters.AddWithValue("@Raport_Stat", "1");
+                    dbCommand.Parameters.AddWithValue("@SourceFile", "");
+                    dbCommand.Parameters.AddWithValue("@SourceFile_FullPath", "");
+                    dbCommand.Parameters.AddWithValue("@Data_Preluare", lista[lista.Count - 1].DocumentData);
+                    dbCommand.Parameters.AddWithValue("@UserName", txtPrenume.Text);
+                    dbCommand.Parameters.AddWithValue("@Probleme", "0");
+                    dbCommand.Parameters.AddWithValue("@Transp_Document", "");
+                    dbCommand.Parameters.AddWithValue("@Transport_Suma", "0");
+                    dbCommand.Parameters.AddWithValue("@Transport_Moneda", "");
+                    dbCommand.Parameters.AddWithValue("@Transport_Curs", "0");
+                    /*
+                     * @"UPDATE emp SET ename = ?, job = ?, sal = ?, dept = ? WHERE eno = ?";
+                         OleDbCommand cmd = new OleDbCommand(query, con)
+                         cmd.Parameters.AddWithValue("@ename", TextBox2.Text);
+                         cmd.Parameters.AddWithValue("@job", TextBox3.Text);
+                         cmd.Parameters.AddWithValue("@sal", TextBox4.Text);
+                         cmd.Parameters.AddWithValue("@dept", TextBox5.Text);
+                         cmd.ParametersAddWithValue("@eno", TextBox1.Text);
+                     */
+
+
+                    dbCommand.ExecuteNonQuery();
+                    dbConn.Close();
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+           
+        }
+
+        private int ReturneazaNumarInregistrari()
+        {
+            int count = 0;
+            string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + Firma.CodFiscal + ".mdb";
+            OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbCommand dbCommand = null;
+            string dbQuery = string.Empty;
+            dbConn.Open();
+            dbQuery = "SELECT COUNT(*) FROM Intrastat where Anul=" + txtAn.Text + " AND Luna=" + txtLuna.Text + " AND TIP='" + txtTip.Text + "'";
+            dbCommand = new OleDbCommand(dbQuery, dbConn);
+            count = (int)dbCommand.ExecuteScalar();
+            dbConn.Close();
+
+            return count;
+        }
+
+        public class Intrastat : INotifyPropertyChanged
+        {
+            string dataReceptiei, descriere, codVamal, cantitate, uM, valoareValuta, moneda, cursSchimb, valoareFiscala, valoareStatistica, taraOrigine, taraExport, taraDestinatie, net, umSupl, cantitateSupl, natTranz, condLivrare, modTransp, facturaNumar, documentData, destTVA, pozitia;
             public Intrastat()
             {
-               // data = Data;
+                // data = Data;
 
+            }
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            public void NotifyPropertyChanged(string propName)
+            {
+                if (this.PropertyChanged != null)
+                    this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
 
             public Intrastat(string DataReceptiei, string Descriere, string CodVamal, string Cantitate, string UM, string valoareValuta, string moneda, string cursSchimb, string valoareFiscala, string valoareStatistica, string taraOrigine, string taraExport, string taraDestinatie, string net, string umSupl, string cantitateSupl, string natTranz, string condLivrare, string modTransp, string facturaNumar, string documentData, string destTVA, string pozitia)
@@ -97,8 +345,8 @@ namespace Ovidiu
             }
 
             public string DataReceptiei { get => dataReceptiei; set => dataReceptiei = value; }
-            public string Descriere { get => descriere; set => descriere = value; }
-            public string CodVamal { get => codVamal; set => codVamal = value; }
+            public string Descriere { get => descriere; set { descriere = value; this.NotifyPropertyChanged("Descriere"); } }
+            public string CodVamal { get => codVamal; set { codVamal = value; this.NotifyPropertyChanged("CodVamal"); } }
             public string Cantitate { get => cantitate; set => cantitate = value; }
             public string UM { get => uM; set => uM = value; }
             public string ValoareValuta { get => valoareValuta; set => valoareValuta = value; }
@@ -110,7 +358,7 @@ namespace Ovidiu
             public string TaraExport { get => taraExport; set => taraExport = value; }
             public string TaraDestinatie { get => taraDestinatie; set => taraDestinatie = value; }
             public string Net { get => net; set => net = value; }
-            public string UmSupl { get => umSupl; set => umSupl = value; }
+            public string UmSupl { get => umSupl; set { umSupl = value; this.NotifyPropertyChanged("UmSupl"); } }
             public string CantitateSupl { get => cantitateSupl; set => cantitateSupl = value; }
             public string NatTranz { get => natTranz; set => natTranz = value; }
             public string CondLivrare { get => condLivrare; set => condLivrare = value; }
@@ -121,7 +369,7 @@ namespace Ovidiu
             public string Pozitia { get => pozitia; set => pozitia = value; }
         }
 
-    private void IncarcaDateFirma()
+        private void IncarcaDateFirma()
         {
             string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "Comun.mdb";
             OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
@@ -153,7 +401,7 @@ namespace Ovidiu
 
         private async void CodVamal_MouseDoubleClickAsync(object sender, MouseButtonEventArgs e)
         {
-            TextBox obj = sender as TextBox;
+            TextBox obj = sender as TextBox;   
             obj.Text = "";
 
             Frm_HS frm_HS = new Frm_HS("Selectie / Cautare", "HS_8");
@@ -161,12 +409,14 @@ namespace Ovidiu
             frm_HS.Show();
             frm_HS.Topmost = true;
             while (Frm_HS.s_go == false)
-            {                
+            {
                 await Task.Delay(25);
             }
-            
+
             Frm_HS.s_go = false;
             obj.Text = Frm_HS.s_codVamal;
+            lista[gridIntrastat.SelectedIndex].Descriere= Frm_HS.s_Descriere;
+            lista[gridIntrastat.SelectedIndex].UmSupl = Frm_HS.s_UM_Supl;
         }
 
         private async void Moneda_MouseDoubleClickAsync(object sender, MouseButtonEventArgs e)
@@ -231,8 +481,8 @@ namespace Ovidiu
                     }
                     catch
                     {
-                       
-                       // myRange.Value2 = gridIntrastat.Columns[i].GetCellContent(gridIntrastat.Items[j]).ToString();
+
+                        // myRange.Value2 = gridIntrastat.Columns[i].GetCellContent(gridIntrastat.Items[j]).ToString();
                     }
                 }
             }
@@ -294,7 +544,7 @@ namespace Ovidiu
                         r.Cells[j].Foreground = Brushes.White;
                         r.Cells[j].BorderThickness = new Thickness(1, 1, 1, 1);
                         var binding = (dataGrid.Columns[j] as DataGridBoundColumn).Binding as Binding;
-                        
+
                         bindList.Add(binding.Path.Path);
                     }
                     tableRowGroup.Rows.Add(r);
@@ -357,7 +607,7 @@ namespace Ovidiu
 
         private void GridIntrastat_KeyDown(object sender, KeyEventArgs e)
         {
-           
+
         }
 
         private void GridIntrastat_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -446,6 +696,25 @@ namespace Ovidiu
             obj.Text = Frm_HS.s_moneda;
         }
 
+        private async void cbDescriere_MouseDoubleClickAsync(object sender, MouseButtonEventArgs e)
+        {
+            Frm_HS frm_HS = new Frm_HS("Selectie / Cautare", "HS_8");
+            frm_HS.InfoCautareLabel.Content = "DUBLU CLICK pentru a selecta inregistrarea curenta";
+            frm_HS.Show();
+            frm_HS.Topmost = true;
+            while (Frm_HS.s_go == false)
+            {
+                await Task.Delay(25);
+            }
+
+            Frm_HS.s_go = false;
+            lista[gridIntrastat.SelectedIndex].CodVamal = Frm_HS.s_codVamal;
+            lista[gridIntrastat.SelectedIndex].Descriere = Frm_HS.s_Descriere;
+            lista[gridIntrastat.SelectedIndex].UmSupl = Frm_HS.s_UM_Supl;
+
+            AddNewLine();
+        }
+
         private void CodVamal_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9.-]+");
@@ -492,6 +761,52 @@ namespace Ovidiu
         {
             Regex regex = new Regex("[^0-9.-]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+
+        private void ComboBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var a = sender as ComboBox;
+            a.IsDropDownOpen = true;
+        }
+
+        private void ComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            List<Intrastat> gridView = gridIntrastat.ItemsSource as List<Intrastat>;
+            //gridView.SelectedIndex = gridIntrastat.SelectedIndex;
+
+            if (cb.Text != null)
+            {
+                AddNewLine();
+                string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + Firma.CodFiscal + ".mdb";
+                OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+                OleDbCommand dbCommand = null;
+                OleDbDataReader dbReader = null;
+                string dbQuery = string.Empty;
+                dbConn.Open();
+                dbQuery = "SELECT Cod_NC,Descriere FROM Intrastat Where Descriere='" + cb.Text.ToString() + "'";
+                dbCommand = new OleDbCommand(dbQuery, dbConn);
+                dbReader = dbCommand.ExecuteReader();
+                if (dbReader.HasRows)
+                {
+                    dbReader.Read();
+                    try
+                    {
+                        //gridIntrastat.ItemsSource = null;
+                        lista[gridIntrastat.SelectedIndex].CodVamal = dbReader[0].ToString();
+                        lista[gridIntrastat.SelectedIndex].Descriere = dbReader[1].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                    //listaDescrieri.Add(dbReader[0].ToString());
+
+                }
+                dbConn.Close();
+
+            }
         }
     }
 }

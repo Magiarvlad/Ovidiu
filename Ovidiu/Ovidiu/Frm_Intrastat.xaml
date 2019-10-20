@@ -208,7 +208,7 @@
             <Grid HorizontalAlignment="Left" Height="27" Grid.Row="2" VerticalAlignment="Top" Width="727" Background="#FF06ECF7" Margin="0,0,0,-26">
                 <Label x:Name="lblMesaj" Foreground="Blue" Content="---" FontSize="10" Margin="0,0,-1191,-48" />
             </Grid>
-            <DataGrid x:Name="gridIntrastat"  HorizontalAlignment="Left" Height="611" Grid.Row="1" VerticalAlignment="Top" Width="1752" CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False" KeyDown="GridIntrastat_KeyDown" PreviewKeyDown="GridIntrastat_PreviewKeyDown">
+            <DataGrid SelectionMode="Single" SelectionUnit="FullRow" x:Name="gridIntrastat"  HorizontalAlignment="Left" Height="611" Grid.Row="1" VerticalAlignment="Top" Width="1752" CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False" KeyDown="GridIntrastat_KeyDown" PreviewKeyDown="GridIntrastat_PreviewKeyDown">
                 <DataGrid.CellStyle>
                     <Style TargetType="{x:Type DataGridCell}">
                         <Style.Triggers>
@@ -219,11 +219,26 @@
                             </Trigger>
                             <Trigger Property="IsKeyboardFocusWithin" Value="True">
                                 <Setter Property="BorderBrush" Value="Blue"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="BorderBrush" Value="Orange"/>
+                            </Trigger>
+                            <Trigger Property="IsEditing" Value="True">
+                                <Setter Property="Background" Value="Yellow"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="BorderBrush" Value="Orange"/>
                             </Trigger>
                         </Style.Triggers>
                     </Style>
                 </DataGrid.CellStyle>
-
+                <DataGrid.RowStyle>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Yellow"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
                 <DataGrid.Columns >
                     <DataGridTemplateColumn Header="Data livrarii"  Width="SizeToCells" IsReadOnly="True" MinWidth="80" >
                         <DataGridTemplateColumn.CellTemplate>
@@ -235,7 +250,7 @@
                     <DataGridTemplateColumn Header="Descriere / Denumire - Produse / Marfuri" Width="SizeToCells" IsReadOnly="True" MinWidth="230">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding Descriere}" ></TextBox>
+                                <ComboBox Text="{Binding Descriere}" IsEditable="True"  Initialized="cbDescriere_Initialized"  MouseDoubleClick="cbDescriere_MouseDoubleClickAsync" PreviewTextInput="ComboBox_PreviewTextInput" DropDownClosed="ComboBox_DropDownClosed"></ComboBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

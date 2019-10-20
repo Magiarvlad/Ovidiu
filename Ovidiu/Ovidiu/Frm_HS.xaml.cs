@@ -428,6 +428,9 @@ namespace Ovidiu
         }
 
         public static string s_codVamal="";
+        public static string s_Descriere = "";
+        public static string s_UM_Supl = "";
+
         public static string s_moneda = "";
         
 
@@ -535,6 +538,8 @@ namespace Ovidiu
         private void FindIN(List<Cod_Vamal> cod_Vamal_list, string keypressed)
         {
             int i = 0;
+            Grid_HS.ItemsSource = null;
+            Grid_HS.ItemsSource = _cod_Vamal_list;
             foreach (Cod_Vamal element in cod_Vamal_list)
             {
                 try
@@ -544,11 +549,12 @@ namespace Ovidiu
                         {
                             if (element.Descriere.Substring(0, keypressed.Length).ToUpper().Equals(keypressed))
                             {
-                                Grid_HS.SelectedIndex = i;
+                                Grid_HS.SelectedIndex = i;                         
                                 Grid_HS.SelectedItem = element.Descriere;
-                                Grid_HS.UpdateLayout();
+                                //Grid_HS.UpdateLayout();
                                 Grid_HS.ScrollIntoView(Grid_HS.SelectedItem);
-                                break;
+                                Grid_HS.ScrollIntoView(Grid_HS.SelectedIndex);
+                            break;
                             }
                         }
                 }
@@ -636,6 +642,8 @@ namespace Ovidiu
                     Grid_HS.SelectedIndex = 0;
                 Cod_Vamal declaratieSelectata = Grid_HS.SelectedItem as Cod_Vamal;
                 s_codVamal = declaratieSelectata.Cod_8;
+                s_Descriere = declaratieSelectata.Descriere;
+                s_UM_Supl = declaratieSelectata.UM_SUPL;
             }
 
             if (opentab == "Monezi" && this.Title == "Selectie / Cautare")
@@ -701,6 +709,8 @@ namespace Ovidiu
                         Grid_HS.SelectedIndex = 0;
                     Cod_Vamal declaratieSelectata = Grid_HS.SelectedItem as Cod_Vamal;
                     s_codVamal = declaratieSelectata.Cod_8;
+                    s_Descriere = declaratieSelectata.Descriere;
+                    s_UM_Supl = declaratieSelectata.UM_SUPL;
                 }
 
                 if (opentab == "Monezi" && this.Title == "Selectie / Cautare")

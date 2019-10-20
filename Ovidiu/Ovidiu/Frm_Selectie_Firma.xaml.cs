@@ -52,6 +52,7 @@ namespace Ovidiu
             CONSTANTE.Meniu.LabelFirma.Content = "Firma: "+ Firma.NumeFirma;
             CONSTANTE.Meniu.LabelFirma.Width += Firma.NumeFirma.Length*6;
             CONSTANTE.Meniu.Show();
+            Frm_Setari_Implicite frm_Setari_Implicite = new Frm_Setari_Implicite(true);
             this.Hide();
             }
         }
