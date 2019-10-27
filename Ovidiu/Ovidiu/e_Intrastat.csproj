@@ -25,8 +25,9 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>7.1.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -47,6 +48,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>FAEA52099112D75B611D081F049936266FEC0118</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>e_Intrastat_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -79,6 +92,9 @@
     </Compile>
     <Compile Include="Frm_DateCurs.xaml.cs">
       <DependentUpon>Frm_DateCurs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Fisier_Optiuni.xaml.cs">
+      <DependentUpon>Frm_Fisier_Optiuni.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frm_HS.xaml.cs">
       <DependentUpon>Frm_HS.xaml</DependentUpon>
@@ -116,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frm_DateCurs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frm_Fisier_Optiuni.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -211,6 +231,7 @@
       <DependentUpon>Frm_WEB.xaml</DependentUpon>
     </Compile>
     <Compile Include="Miscellaneous\ClasaSuport.cs" />
+    <Compile Include="Miscellaneous\SendEmail.cs" />
     <Compile Include="Modules\CONSTANTE.cs" />
     <Compile Include="Modules\CursSchimb_Actualizare.cs" />
     <Compile Include="Modules\EU_Registrii_Operatii.cs" />

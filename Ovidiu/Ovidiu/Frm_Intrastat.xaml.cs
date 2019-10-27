@@ -1,4 +1,5 @@
-﻿using Ovidiu.EU;
+﻿using e_Intrastat;
+using Ovidiu.EU;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -1049,8 +1050,25 @@ namespace Ovidiu
 
         private void GenereazaDeclaratie()
         {
-            XmlDocument doc = new XmlDocument();
-            using (FileStream fs = new FileStream(FileLocation.DirectorSalvare+ "\\test.xml", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+            //XmlDocument doc = new XmlDocument();
+            string numeXML = Firma.CodFiscal.Replace("RO", "00")+"";
+            if(txtTip.Text ==  "I")
+            {
+                numeXML += "_A" ;
+            }
+            else
+            {
+                numeXML += "_D";
+            }
+            if(cmbTipDeclaratie.Text != "N-Noua")
+             {
+                numeXML += "R_" + txtAn.Text + txtLuna.Text+".xml";
+            }
+            else
+            {
+                numeXML += "_" + txtAn.Text + txtLuna.Text + ".xml";
+            }
+            using (FileStream fs = new FileStream(FileLocation.DirectorSalvare+ numeXML, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
             {
                 string datastring = "<?xml version="+"\""+"1.0" + "\"" + " encoding="+"\"" + "UTF-8" + "\"" +" ?>" + Environment.NewLine; 
                 byte[] byteData = new UTF8Encoding(true).GetBytes(datastring);
@@ -1297,15 +1315,30 @@ namespace Ovidiu
                     byteData = new UTF8Encoding(true).GetBytes(datastring);
                     fs.Write(byteData, 0, byteData.Length);
 
-                    //TODO
-                    datastring = "      <LocalityCode> </LocalityCode>" + Environment.NewLine;
-                    byteData = new UTF8Encoding(true).GetBytes(datastring);
-                    fs.Write(byteData, 0, byteData.Length);
+                    try
+                    {
+                        //TODO
+                        datastring = "      <LocalityCode>" + lista_orase[cmbOras.SelectedIndex].City_code + "</LocalityCode>" + Environment.NewLine;
+                        byteData = new UTF8Encoding(true).GetBytes(datastring);
+                        fs.Write(byteData, 0, byteData.Length);
 
-                    //TODO
-                    datastring = "      <CountyCode> </CountyCode>" + Environment.NewLine;
-                    byteData = new UTF8Encoding(true).GetBytes(datastring);
-                    fs.Write(byteData, 0, byteData.Length);
+                        //TODO
+                        datastring = "      <CountyCode>" + lista_judete[cmbJudet.SelectedIndex].Jud_cod + "</CountyCode>" + Environment.NewLine;
+                        byteData = new UTF8Encoding(true).GetBytes(datastring);
+                        fs.Write(byteData, 0, byteData.Length);
+                    }
+                    catch
+                    {
+                        //TODO
+                        datastring = "      <LocalityCode></LocalityCode>" + Environment.NewLine;
+                        byteData = new UTF8Encoding(true).GetBytes(datastring);
+                        fs.Write(byteData, 0, byteData.Length);
+
+                        //TODO
+                        datastring = "      <CountyCode></CountyCode>" + Environment.NewLine;
+                        byteData = new UTF8Encoding(true).GetBytes(datastring);
+                        fs.Write(byteData, 0, byteData.Length);
+                    }                    
 
                     datastring = "      <PostalCode>" + txtCodPostal.Text + "</PostalCode>" + Environment.NewLine;
                     byteData = new UTF8Encoding(true).GetBytes(datastring);
@@ -1457,16 +1490,16 @@ namespace Ovidiu
 
                 fs.Close();
 
-                /*
-                XmlNode node_p = doc.SelectSingleNode(Nodul + "/" + Elementul);
+                MessageBoxResult result = MessageBox.Show("Fisier intrastat generat cu succes", "Nu s-a gasit nici-o problema", MessageBoxButton.OK);
 
-                if (node_p == null)
+                string path = FileLocation.System + "DeclaratiiXML\\"; 
+                switch (result)
                 {
-                    //MessageBox.Show("Se poate crea", "Info", MessageBoxButton.OK);
-                    node_p = doc.SelectSingleNode(Nodul);
-                    CreateNode(node_p, Elementul, Valoare, NrTab);
-                    doc.Save("C:\\ProgramData\\E_Intrastat\\Settings.xml");
-                }*/
+                    case MessageBoxResult.OK:
+                        Frm_Fisier_Optiuni frm_Fisier_Optiuni = new Frm_Fisier_Optiuni(path, numeXML);
+                        frm_Fisier_Optiuni.Show();
+                        break;  
+                }
             }
         }
 
