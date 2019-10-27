@@ -21,7 +21,7 @@
                     <ColumnDefinition Width="1145*"/>
                     <ColumnDefinition Width="757*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="btnGenereazaFisierIntrastat" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="0,10,0,0" Height="44" Background="Yellow">
+                <Button x:Name="btnGenereazaFisierIntrastat" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="0,10,0,0" Height="44" Background="Yellow" Click="BtnGenereazaFisierIntrastat_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Imagini/Menu/Intrastat_32.ico"  Stretch="Uniform" Width="65" Margin="0,0,0,8" Height="42" />
                         <TextBlock FontWeight="Bold" Width="126" Height="42"><Run Text="Genereaza fisier &#10;   INTRASTAT"/></TextBlock>
@@ -206,9 +206,9 @@
                 </TabControl>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="27" Grid.Row="2" VerticalAlignment="Top" Width="727" Background="#FF06ECF7" Margin="0,0,0,-26">
-                <Label x:Name="lblMesaj" Foreground="Blue" Content="---" FontSize="10" Margin="0,0,-1191,-48" />
+                <TextBlock x:Name="lblMesaj" Foreground="Blue" Text="---" FontSize="10" Margin="0,0,-1191,-48" />
             </Grid>
-            <DataGrid SelectionMode="Single" SelectionUnit="FullRow" x:Name="gridIntrastat"  HorizontalAlignment="Left" Height="611" Grid.Row="1" VerticalAlignment="Top" Width="1752" CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False" KeyDown="GridIntrastat_KeyDown" PreviewKeyDown="GridIntrastat_PreviewKeyDown">
+            <DataGrid SelectionMode="Single" ItemsSource="{Binding ElementName=lista, Path=lista, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectionUnit="FullRow" x:Name="gridIntrastat"  HorizontalAlignment="Left" Height="611" Grid.Row="1" VerticalAlignment="Top" Width="1752" CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False" KeyDown="GridIntrastat_KeyDown" PreviewKeyDown="GridIntrastat_PreviewKeyDown" SelectionChanged="GridIntrastat_SelectionChanged">
                 <DataGrid.CellStyle>
                     <Style TargetType="{x:Type DataGridCell}">
                         <Style.Triggers>
@@ -239,166 +239,166 @@
                         </Style.Triggers>
                     </Style>
                 </DataGrid.RowStyle>
-                <DataGrid.Columns >
+                <DataGrid.Columns>
                     <DataGridTemplateColumn Header="Data livrarii"  Width="SizeToCells" IsReadOnly="True" MinWidth="80" >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate >
-                                <DatePicker FirstDayOfWeek="Monday" Text="{Binding DataReceptiei}"  ></DatePicker>
+                                <DatePicker x:Name="DataReceptiei" FirstDayOfWeek="Monday" Text="{Binding DataReceptiei,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"  ></DatePicker>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Descriere / Denumire - Produse / Marfuri" Width="SizeToCells" IsReadOnly="True" MinWidth="230">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox Text="{Binding Descriere}" IsEditable="True"  Initialized="cbDescriere_Initialized"  MouseDoubleClick="cbDescriere_MouseDoubleClickAsync" PreviewTextInput="ComboBox_PreviewTextInput" DropDownClosed="ComboBox_DropDownClosed"></ComboBox>
+                                <ComboBox Text="{Binding Descriere,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" IsEditable="True"  Initialized="cbDescriere_Initialized"  MouseDoubleClick="cbDescriere_MouseDoubleClickAsync" PreviewTextInput="ComboBox_PreviewTextInput" DropDownClosed="ComboBox_DropDownClosed"></ComboBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Cod Vamal" Width="SizeToCells" IsReadOnly="True" MinWidth="80">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding CodVamal}"  Name="codVamal" MouseDoubleClick="CodVamal_MouseDoubleClickAsync" PreviewTextInput="CodVamal_PreviewTextInput"></TextBox>
+                                <TextBox Text="{Binding CodVamal,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"  Name="codVamal" MouseDoubleClick="CodVamal_MouseDoubleClickAsync" PreviewTextInput="CodVamal_PreviewTextInput"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Cantitate" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding Cantitate}" PreviewTextInput="TextBox_PreviewTextInput"></TextBox>
+                                <TextBox Text="{Binding Cantitate,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"  PreviewTextInput="TextBox_PreviewTextInput"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="UM" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding UM}" ></TextBox>
+                                <TextBox Text="{Binding UM,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" ></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="   Valoare &#x0a;    Valuta" Width="SizeToCells" IsReadOnly="True" MinWidth="80">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding ValoareValuta}" PreviewTextInput="TextBox_PreviewTextInput_1"></TextBox>
+                                <TextBox Text="{Binding ValoareValuta,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" PreviewTextInput="TextBox_PreviewTextInput_1"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="   Moneda" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding Moneda}" MouseDoubleClick="Moneda_MouseDoubleClickAsync" ></TextBox>
+                                <TextBox Text="{Binding Moneda,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" MouseDoubleClick="Moneda_MouseDoubleClickAsync" ></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="    Curs &#x0a;   schimb" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding CursSchimb}" PreviewTextInput="TextBox_PreviewTextInput_2"></TextBox>
+                                <TextBox Text="{Binding CursSchimb,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" PreviewTextInput="TextBox_PreviewTextInput_2"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header=" Valoare &#x0a;  Fiscala" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding ValoareFiscala}"></TextBox>
+                                <TextBox Text="{Binding ValoareFiscala,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Valoarea &#x0a;   Statistica" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding ValoareStatistica}" PreviewTextInput="TextBox_PreviewTextInput_3"></TextBox>
+                                <TextBox Text="{Binding ValoareStatistica,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" PreviewTextInput="TextBox_PreviewTextInput_3"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="    Tara &#x0a;  Origine" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding TaraOrigine}" MouseDoubleClick="Tari_MouseDoubleClickAsync" ></TextBox>
+                                <TextBox Text="{Binding TaraOrigine,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" MouseDoubleClick="Tari_MouseDoubleClickAsync" ></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Tara &#x0a;Export" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding TaraExport}" MouseDoubleClick="Tari_MouseDoubleClickAsync"></TextBox>
+                                <TextBox Text="{Binding TaraExport,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" MouseDoubleClick="Tari_MouseDoubleClickAsync"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Tara &#x0a;  Dest" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding TaraDestinatie}"></TextBox>
+                                <TextBox Text="{Binding TaraDestinatie,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="     Net [Kg]" Width="SizeToCells" IsReadOnly="True" MinWidth="90">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding Net}" PreviewTextInput="TextBox_PreviewTextInput_4"></TextBox>
+                                <TextBox Text="{Binding Net,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" PreviewTextInput="TextBox_PreviewTextInput_4"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header=" UM &#x0a;Supl" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding UmSupl}" MouseDoubleClick="TextBox_MouseDoubleClickAsync"></TextBox>
+                                <TextBox Text="{Binding UmSupl,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" MouseDoubleClick="TextBox_MouseDoubleClickAsync"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Cantitate &#x0a;Supl" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding CantitateSupl}"></TextBox>
+                                <TextBox Text="{Binding CantitateSupl,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Nat &#x0a;Tranz" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding NatTranz}" MouseDoubleClick="NatTranz_MouseDoubleClickAsync" PreviewTextInput="TextBox_PreviewTextInput_5"></TextBox>
+                                <TextBox Text="{Binding NatTranz,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" MouseDoubleClick="NatTranz_MouseDoubleClickAsync" PreviewTextInput="TextBox_PreviewTextInput_5"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Cond &#x0a;Livrare" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox x:Name="CondLiv" Text="{Binding CondLivrare}" MouseDoubleClick="CondLiv_MouseDoubleClickAsync"></TextBox>
+                                <TextBox x:Name="CondLiv" Text="{Binding CondLivrare,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" MouseDoubleClick="CondLiv_MouseDoubleClickAsync"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Mod &#x0a;Transp" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox  x:Name="ModTran" Text="{Binding ModTransp}" MouseDoubleClick="ModTran_MouseDoubleClickAsync" PreviewTextInput="ModTran_PreviewTextInput"></TextBox>
+                                <TextBox  x:Name="ModTran" Text="{Binding ModTransp,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" MouseDoubleClick="ModTran_MouseDoubleClickAsync" PreviewTextInput="ModTran_PreviewTextInput"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Factura &#x0a;Numar" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding FacturaNumar}"></TextBox>
+                                <TextBox Text="{Binding FacturaNumar,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Document &#x0a;Data" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                
-                                <DatePicker FirstDayOfWeek="Monday" Text="{Binding DocumentData}"  ></DatePicker>
+
+                                <DatePicker FirstDayOfWeek="Monday" Text="{Binding DocumentData,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"  ></DatePicker>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Exp TVA &#x0a;Cod" Width="SizeToCells"  MinWidth="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding DestTVA}"></TextBox>
+                                <TextBox Text="{Binding DestTVA,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header=" Pozitia" Width="SizeToCells" IsReadOnly="True" MinWidth="50" >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding Pozitia}" ></TextBox>
+                                <TextBox Text="{Binding Pozitia,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" ></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
