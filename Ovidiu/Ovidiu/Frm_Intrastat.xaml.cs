@@ -1183,7 +1183,7 @@ namespace Ovidiu
                 byteData = new UTF8Encoding(true).GetBytes(datastring);
                 fs.Write(byteData, 0, byteData.Length);
 
-                if(chkFolosireDeclTert.IsEnabled)
+                if(chkFolosireDeclTert.IsChecked == true)
                 {
                     datastring = "      <DTPDetails>" + Environment.NewLine;
                     byteData = new UTF8Encoding(true).GetBytes(datastring);
@@ -1248,18 +1248,136 @@ namespace Ovidiu
                 byteData = new UTF8Encoding(true).GetBytes(datastring);
                 fs.Write(byteData, 0, byteData.Length);
 
-                if(chkGenXML.IsChecked == true)
+                for(int i = 0; i< lista.Count; i++)
                 {
+                    if(lista[i].CodVamal!="")
+                    {
+                        if(txtTip.Text=="O")
+                        {
+                            datastring = "      <InsDispatchItem OrderNr=" + "\"" + (i+1)+ Environment.NewLine;
+                            byteData = new UTF8Encoding(true).GetBytes(datastring);
+                            fs.Write(byteData, 0, byteData.Length);
+                        }
+                        else
+                        {
+                            datastring = "      <InsArrivalItem OrderNr=" + "\"" + (i + 1) + "\">" + Environment.NewLine;
+                            byteData = new UTF8Encoding(true).GetBytes(datastring);
+                            fs.Write(byteData, 0, byteData.Length);
+                        }
 
-                }
+                        datastring = "          <Cn8Code>" + lista[i].CodVamal.Trim() + "</Cn8Code>" + Environment.NewLine;
+                        byteData = new UTF8Encoding(true).GetBytes(datastring);
+                        fs.Write(byteData, 0, byteData.Length);
+
+                        datastring = "          <InvoiceValue>" + lista[i].ValoareFiscala+ "</InvoiceValue>" + Environment.NewLine;
+                        byteData = new UTF8Encoding(true).GetBytes(datastring);
+                        fs.Write(byteData, 0, byteData.Length);
+
+                       
+
+                        if(chkDeclValStatica.IsChecked == true)
+                        {
+                            datastring = "          <StatisticalValue>" + lista[i].ValoareStatistica + "</StatisticalValue>" + Environment.NewLine;
+                            byteData = new UTF8Encoding(true).GetBytes(datastring);
+                            fs.Write(byteData, 0, byteData.Length);
+                        }
+
+                        datastring = "          <NetMass>" + lista[i].CodVamal + "</NetMass>" + Environment.NewLine;
+                        byteData = new UTF8Encoding(true).GetBytes(datastring);
+                        fs.Write(byteData, 0, byteData.Length);
+
+                        datastring = "          <NatureOfTransactionACode>" + lista[i].NatTranz.Substring(0,1) + "</NatureOfTransactionACode>" + Environment.NewLine;
+                        byteData = new UTF8Encoding(true).GetBytes(datastring);
+                        fs.Write(byteData, 0, byteData.Length);
+
+                        if(Convert.ToInt32(lista[i].NatTranz.Substring(lista[i].NatTranz.Length-1, 1)) > 0)
+                        {
+                            datastring = "          <NatureOfTransactionBCode>" + lista[i].NatTranz + "</NatureOfTransactionBCode>" + Environment.NewLine;
+                            byteData = new UTF8Encoding(true).GetBytes(datastring);
+                            fs.Write(byteData, 0, byteData.Length);
+                        }                        
+
+                        datastring = "          <DeliveryTermsCode>" + lista[i].CondLivrare + "</DeliveryTermsCode>" + Environment.NewLine;
+                        byteData = new UTF8Encoding(true).GetBytes(datastring);
+                        fs.Write(byteData, 0, byteData.Length);
+
+                        datastring = "          <ModeOfTransportCode>" + lista[i].ModTransp + "</ModeOfTransportCode>" + Environment.NewLine;
+                        byteData = new UTF8Encoding(true).GetBytes(datastring);
+                        fs.Write(byteData, 0, byteData.Length);
+
+                        datastring = "          <ModeOfTransportCode>" + lista[i].ModTransp + "</ModeOfTransportCode>" + Environment.NewLine;
+                        byteData = new UTF8Encoding(true).GetBytes(datastring);
+                        fs.Write(byteData, 0, byteData.Length);
+
+                        if ((txtTip.Text == "O" && Convert.ToInt32(txtAn.Text) >= 2015) || txtTip.Text == "I")
+                        {
+                            datastring = "          <CountryOfOrigin>" + lista[i].TaraOrigine + "</CountryOfOrigin>" + Environment.NewLine;
+                            byteData = new UTF8Encoding(true).GetBytes(datastring);
+                            fs.Write(byteData, 0, byteData.Length);
+                        }
+
+                        if(lista[i].UM != "")
+                        {
+                            datastring = "          <InsSupplUnitsInfo>" + Environment.NewLine;
+                            byteData = new UTF8Encoding(true).GetBytes(datastring);
+                            fs.Write(byteData, 0, byteData.Length);
 
 
+                            datastring = "              <SupplUnitCode>" + lista[i].UM + "</SupplUnitCode>" + Environment.NewLine;
+                            byteData = new UTF8Encoding(true).GetBytes(datastring);
+                            fs.Write(byteData, 0, byteData.Length);
+
+                            datastring = "              <QtyInSupplUnits>" + lista[i].UmSupl + "</QtyInSupplUnits>" + Environment.NewLine;
+                            byteData = new UTF8Encoding(true).GetBytes(datastring);
+                            fs.Write(byteData, 0, byteData.Length);
 
 
+                            datastring = "          </InsSupplUnitsInfo>" + Environment.NewLine;
+                            byteData = new UTF8Encoding(true).GetBytes(datastring);
+                            fs.Write(byteData, 0, byteData.Length);
+                        }
 
+                        if(txtTip.Text == "I")
+                        {
+                            datastring = "          <CountryOfConsignment>" + lista[i].TaraExport + "</CountryOfConsignment>" + Environment.NewLine;
+                            byteData = new UTF8Encoding(true).GetBytes(datastring);
+                            fs.Write(byteData, 0, byteData.Length);
+                        }
+                        else
+                        {
+                            datastring = "          <CountryOfDestination>" + lista[i].TaraDestinatie + "</CountryOfDestination>" + Environment.NewLine;
+                            byteData = new UTF8Encoding(true).GetBytes(datastring);
+                            fs.Write(byteData, 0, byteData.Length);
+                        }
 
+                        if (chkGenXML.IsChecked == true || (txtTip.Text == "O" && Convert.ToInt32(txtAn.Text) >= 2015))
+                        {
+                            string Country_Vat_Id = "";
+                            string Vat_ID1 = "";
+                            if (lista[i].DestTVA.Length >3)
+                            {
+                                Country_Vat_Id = lista[i].DestTVA.Substring(0, 2);
+                                Vat_ID1 = lista[i].DestTVA.Substring(2);
+                            }
+                            datastring = "          <PartnerCountryCode>" + Country_Vat_Id + "</PartnerCountryCode>" + Environment.NewLine;
+                            byteData = new UTF8Encoding(true).GetBytes(datastring);
+                            fs.Write(byteData, 0, byteData.Length);
 
+                            datastring = "          <PartnerVatNr>" + Vat_ID1 + "</PartnerVatNr>" + Environment.NewLine;
+                            byteData = new UTF8Encoding(true).GetBytes(datastring);
+                            fs.Write(byteData, 0, byteData.Length);
 
+                        }
+
+                        datastring = "      </InsDispatchItem>" + Environment.NewLine;
+                        byteData = new UTF8Encoding(true).GetBytes(datastring);
+                        fs.Write(byteData, 0, byteData.Length);
+                    }
+                }               
+
+                datastring = "</InsRevisedDispatch>" + Environment.NewLine;
+                byteData = new UTF8Encoding(true).GetBytes(datastring);
+                fs.Write(byteData, 0, byteData.Length);                
 
                 fs.Close();
 
