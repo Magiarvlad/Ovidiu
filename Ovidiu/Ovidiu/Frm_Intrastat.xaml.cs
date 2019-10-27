@@ -30,6 +30,9 @@ namespace Ovidiu
         ObservableCollection<Intrastat> lista = new ObservableCollection<Intrastat>();
         List<String> listaDescrieri = new List<String>();
         List<String> listaDescrieriNC = new List<String>();
+        List<Orase> lista_orase = new List<Orase>();
+        List<Judete> lista_judete = new List<Judete>();
+
         bool isLoaded = false;
 
         public Frm_Intrastat(string tip, string luna, string an)
@@ -46,10 +49,83 @@ namespace Ovidiu
             IncarcaGrid(tip, luna, an);
             IncarcaDescrieri();
             AddLineToGrid();
+           
 
             isLoaded = true;
         }
 
+        private void IncarcaOrase()
+        {
+           
+            string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "Comun.mdb";
+            OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbCommand dbCommand = null;
+            OleDbDataReader dbReader = null;
+            string dbQuery = string.Empty;
+            dbConn.Open();
+            dbQuery = "SELECT * FROM Orase ";
+            dbCommand = new OleDbCommand(dbQuery, dbConn);
+            dbReader = dbCommand.ExecuteReader();
+            if (dbReader.HasRows)
+            {
+                while (dbReader.Read())
+                {
+                   
+                    Orase o = new Orase(dbReader[0].ToString(), dbReader[1].ToString(), dbReader[2].ToString());
+                    lista_orase.Add(o);
+                }
+            }
+            dbConn.Close();
+
+
+            dbConn.Open();
+            dbQuery = "SELECT * FROM Judete ";
+            dbCommand = new OleDbCommand(dbQuery, dbConn);
+            dbReader = dbCommand.ExecuteReader();
+            if (dbReader.HasRows)
+            {
+                while (dbReader.Read())
+                {
+                   
+                    Judete j = new Judete(dbReader[0].ToString(), dbReader[1].ToString());
+                    lista_judete.Add(j);
+                }
+            }
+            dbConn.Close();
+        }
+
+        public class Orase
+        {
+            string city_code;
+            string city_name;
+            string city_refcod;
+
+            public Orase(string city_code, string city_name, string city_refcod)
+            {
+                this.city_code = city_code;
+                this.city_name = city_name;
+                this.city_refcod = city_refcod;
+            }
+
+            public string City_code { get => city_code; set => city_code = value; }
+            public string City_name { get => city_name; set => city_name = value; }
+            public string City_refcod { get => city_refcod; set => city_refcod = value; }
+        }
+
+        public class Judete
+        {
+            string jud_cod;
+            string jud_name;
+
+            public Judete(string jud_cod, string jud_name)
+            {
+                this.jud_cod = jud_cod;
+                this.jud_name = jud_name;
+            }
+
+            public string Jud_cod { get => jud_cod; set => jud_cod = value; }
+            public string Jud_name { get => jud_name; set => jud_name = value; }
+        }
         private void cbDescriere_Initialized(object sender, EventArgs e)
         {
             ComboBox obj = sender as ComboBox;
@@ -1282,5 +1358,48 @@ namespace Ovidiu
             new_node.InnerText = valoare.ToString();
             node_p.AppendChild(new_node);
         }
+
+        private void CmbJudet_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+          //  IncarcaOrase();
+        }
+
+        private void CmbJudet_Initialized(object sender, EventArgs e)
+        {
+            IncarcaOrase();
+            List<String> lsita_judete = new List<String>();
+            foreach (Judete j in lista_judete)
+            {
+                lsita_judete.Add(j.Jud_name.ToString());
+            }
+            ComboBox obj = sender as ComboBox;
+            obj.ItemsSource = lsita_judete;
+        }
+
+      
+
+        private void CmbOras_Initialized_1(object sender, EventArgs e)
+        {
+               // IncarcaOrase();
+                List<String> lsita_orase = new List<String>();
+                foreach (Orase o in lista_orase)
+                {
+                    lsita_orase.Add(o.City_name.ToString());
+                }
+                ComboBox obj = sender as ComboBox;
+                obj.ItemsSource = lsita_orase;
+            
+        }
+
+        private void CmbOras_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+  
     }
 }
