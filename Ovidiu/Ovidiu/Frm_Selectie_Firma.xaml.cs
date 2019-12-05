@@ -1,18 +1,7 @@
 ﻿using Ovidiu.EU;
 using Ovidiu.Modules;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Ovidiu
 {
@@ -22,8 +11,10 @@ namespace Ovidiu
     public partial class Frm_Selectie_Firma : Window
     {
         string[,] v;
-        public Frm_Selectie_Firma(string[,] vs)
+        Boolean _deschisLaPornire = false;
+        public Frm_Selectie_Firma(string[,] vs, Boolean deschisLaPornire)
         {
+            _deschisLaPornire = deschisLaPornire;
             v = vs;
             InitializeComponent();
             int i = 0;
@@ -32,7 +23,6 @@ namespace Ovidiu
                 ComboBoxSelectFirma.Items.Add(vs[i,1] + " " + v[i,0]);
                 i++;
             }
-
         }
 
         private void Ok_Btn_Click(object sender, RoutedEventArgs e)
@@ -60,7 +50,10 @@ namespace Ovidiu
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if(FRM_Meniu_Principal.IsActiveProperty.ToString()=="false")
-            Application.Current.Shutdown();
+                Application.Current.Shutdown();
+
+            if(_deschisLaPornire == true)
+                Application.Current.Shutdown();
         }
     }
 }

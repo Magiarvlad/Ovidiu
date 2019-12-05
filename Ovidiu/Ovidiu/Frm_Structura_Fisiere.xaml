@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="Definire machete fisiere excel" Height="1080" Width="1920" WindowState="Maximized">
+        Title="Definire machete fisiere excel" Icon="Imagini/e_intrastat.ico" Height="1080" Width="1920" WindowState="Maximized">
     <Grid Background="#FFD7DAEE">
         <Label Content="Nume Macheta:" HorizontalAlignment="Left" Margin="26,50,0,0" VerticalAlignment="Top" Foreground="#FF2217F5" FontWeight="SemiBold" FontSize="16"/>
         <Label Content="Se va folosi la:" HorizontalAlignment="Left" Margin="28,95,0,0" VerticalAlignment="Top" Foreground="#FF2A1FF1" FontWeight="SemiBold" FontSize="16"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="Frm_Setari_Implicite" Height="593.508" Width="808.675" ResizeMode="NoResize">
+        Title="Frm_Setari_Implicite" Icon="Imagini/e_intrastat.ico" Height="593.508" Width="808.675" ResizeMode="NoResize">
     <Grid Margin="0,0,2,0">
         <Button Content="OK - Retine datele" HorizontalAlignment="Left" Margin="337,491,0,0" VerticalAlignment="Top" Width="174" Height="39" Background="Black" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Click="btnRetineDatele_Click"/>
         <Label Name="lblSetariImplicite" Content="   Setari Implicite" HorizontalAlignment="Left" Margin="0,1,-1,0" VerticalAlignment="Top" Height="139" Width="800" FontSize="34" Background="#FF4258B9" Foreground="White" FontFamily="Nirmala UI"/>

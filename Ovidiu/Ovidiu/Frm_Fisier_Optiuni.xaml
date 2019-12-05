@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:e_Intrastat"
         mc:Ignorable="d"
-        Title="Fisier Intrastat - XML" Height="718.5" Width="1124">
+        Title="Fisier Intrastat - XML" Icon="Imagini/e_intrastat.ico" Height="718.5" Width="1124">
     <Grid>
         <Label Name="lblSetariImplicite" Content="   Fisierul XML (Intrastat) A fost generat cu succes." HorizontalAlignment="Left" Margin="0,-1,-2,0" VerticalAlignment="Top" Height="84" Width="1118" FontSize="34" Background="#FF4258B9" Foreground="White" FontFamily="Nirmala UI"/>
         <Label Content="Locatia (calea) unde este salvat fisierul XML (Intrastat)" HorizontalAlignment="Left" Margin="71,114,0,0" VerticalAlignment="Top" FontSize="20"/>

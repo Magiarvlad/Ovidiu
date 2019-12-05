@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="Frm_IntroduceKEY" Height="937.988" Width="912.5">
+        Title="Frm_IntroduceKEY" Icon="Imagini/e_intrastat.ico" Height="937.988" Width="912.5">
     <Grid Margin="0,0,3,0">
         <TextBlock Margin="1,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="100" HorizontalAlignment="Left" Width="899" Background="#FF4D4DE4" Foreground="#FFECEC89" FontSize="22"><Run FontWeight="Bold" Text=""/><LineBreak/><Run FontWeight="Bold" Text=" Introducere chei de inregistrare program &quot;e-Intrastat&quot;."/></TextBlock>
         <Label Content="Cod Fiscal (ROXXXXXXXX)" HorizontalAlignment="Left" Margin="48,126,0,0" VerticalAlignment="Top" Height="40" Width="288" FontSize="22" Foreground="#FF2969D8" FontWeight="Bold"/>

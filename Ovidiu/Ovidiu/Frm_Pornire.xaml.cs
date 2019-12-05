@@ -1,20 +1,7 @@
 ﻿using Ovidiu.Miscellaneous;
 using Ovidiu.Modules;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Deployment.Application;
 using System.Reflection;
 using Ovidiu.EU;
 using System.IO;
@@ -59,8 +46,7 @@ namespace Ovidiu
                 //    MessageBox.Show("EROARE identificare fisier setari: " + Settings_XML_File + " nu exista");
                 //    return;
               //  }
-                XML_Setari_Default.Setari_Default_XML();
-               
+                XML_Setari_Default.Setari_Default_XML();               
 
                 EU_Registrii_Operatii.EU_Registrii();
                 XML_Public_Citeste.Citeste_CUlori();
@@ -123,8 +109,7 @@ namespace Ovidiu
             {
                 MessageBox.Show("Frm_Pornire_Loaded Error: " + exp.Message);
                 Application.Current.Shutdown();
-            }
-            
+            }            
         }
          
         public static void Open_Conection_Common()
@@ -163,7 +148,7 @@ namespace Ovidiu
                     if(flag==true)
                     {
                         
-                        Frm_Selectie_Firma frm_Selectie_Firma = new Frm_Selectie_Firma(CONSTANTE.vs);
+                        Frm_Selectie_Firma frm_Selectie_Firma = new Frm_Selectie_Firma(CONSTANTE.vs, true);
                         frm_Selectie_Firma.Show();
                     }
                     // textbox1.Text = DB_Reader.GetString("your_column_name");

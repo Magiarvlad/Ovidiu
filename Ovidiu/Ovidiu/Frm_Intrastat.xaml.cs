@@ -16,8 +16,6 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Xml;
 using static Ovidiu.Modules.CONSTANTE;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -33,6 +31,8 @@ namespace Ovidiu
         List<String> listaDescrieriNC = new List<String>();
         List<Orase> lista_orase = new List<Orase>();
         List<Judete> lista_judete = new List<Judete>();
+
+        ObservableCollection<Judete> lista_Monede = new ObservableCollection<Judete>();
 
         bool isLoaded = false;
 
@@ -50,14 +50,36 @@ namespace Ovidiu
             IncarcaGrid(tip, luna, an);
             IncarcaDescrieri();
             AddLineToGrid();
-           
+            IncarcaMonede();
 
             isLoaded = true;
         }
 
-        private void IncarcaOrase()
+        private void IncarcaMonede()
         {
-           
+            string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "Comun.mdb";
+            OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbCommand dbCommand = null;
+            OleDbDataReader dbReader = null;
+            string dbQuery = string.Empty;
+            dbConn.Open();
+            dbQuery = "SELECT * FROM Monezi ";
+            dbCommand = new OleDbCommand(dbQuery, dbConn);
+            dbReader = dbCommand.ExecuteReader();
+            if (dbReader.HasRows)
+            {
+                while (dbReader.Read())
+                {
+
+                    Judete o = new Judete(dbReader[0].ToString(), dbReader[1].ToString());
+                    lista_Monede.Add(o);
+                }
+            }
+            dbConn.Close();            
+        }
+
+        private void IncarcaOrase()
+        {           
             string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "Comun.mdb";
             OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
             OleDbCommand dbCommand = null;
@@ -77,8 +99,7 @@ namespace Ovidiu
                 }
             }
             dbConn.Close();
-
-
+            
             dbConn.Open();
             dbQuery = "SELECT * FROM Judete ";
             dbCommand = new OleDbCommand(dbQuery, dbConn);
@@ -127,11 +148,13 @@ namespace Ovidiu
             public string Jud_cod { get => jud_cod; set => jud_cod = value; }
             public string Jud_name { get => jud_name; set => jud_name = value; }
         }
+
         private void cbDescriere_Initialized(object sender, EventArgs e)
         {
             ComboBox obj = sender as ComboBox;
             obj.ItemsSource = listaDescrieri;
         }
+
         private void IncarcaDescrieri()
         {
             string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + Firma.CodFiscal + ".mdb";
@@ -166,9 +189,10 @@ namespace Ovidiu
             dbReader = dbCommand.ExecuteReader();
             if (dbReader.HasRows)
             {
+                int poz = 0;
                 while (dbReader.Read())
                 {
-                    lista.Add(new Intrastat(dbReader[5].ToString(), dbReader[6].ToString(), dbReader[7].ToString(), dbReader[9].ToString(), dbReader[10].ToString(), dbReader[11].ToString(), dbReader[12].ToString(), dbReader[13].ToString(), dbReader[14].ToString(), dbReader[15].ToString(), dbReader[16].ToString(), dbReader[17].ToString(), dbReader[18].ToString(), dbReader[19].ToString(), dbReader[21].ToString(), dbReader[22].ToString(), dbReader[23].ToString(), dbReader[24].ToString(), dbReader[25].ToString(), dbReader[26].ToString(), dbReader[27].ToString(), dbReader[28].ToString(), dbReader[29].ToString()));
+                    lista.Add(new Intrastat(dbReader[5].ToString(), dbReader[6].ToString(), dbReader[7].ToString(), dbReader[9].ToString(), dbReader[10].ToString(), dbReader[11].ToString(), dbReader[12].ToString(), dbReader[13].ToString(), dbReader[14].ToString(), dbReader[15].ToString(), dbReader[16].ToString(), dbReader[17].ToString(), dbReader[18].ToString(), dbReader[19].ToString(), dbReader[21].ToString(), dbReader[22].ToString(), dbReader[23].ToString(), dbReader[24].ToString(), dbReader[25].ToString(), dbReader[26].ToString(), dbReader[27].ToString(), dbReader[28].ToString(), dbReader[0].ToString()));
                     listaDescrieriNC.Add(dbReader[8].ToString());
                 }
             }
@@ -285,13 +309,13 @@ namespace Ovidiu
 
             if (txtTip.Text == "I")
             {
-                Intrastat a = new Intrastat(todaydate, "", "", "", "", "", "", "", "", "", "", Val_Implicite.I_Tara_Exp, "RO", "", "", "", Val_Implicite.I_Nat_Transp, Val_Implicite.I_Incoterms, Val_Implicite.I_Mod_Transp, "", todaydate, "", "");
+                Intrastat a = new Intrastat(todaydate, "", "", "", "BUC", "", "EUR", "", "", "", "", Val_Implicite.I_Tara_Exp, "RO", "", "", "", Val_Implicite.I_Nat_Transp, Val_Implicite.I_Incoterms, Val_Implicite.I_Mod_Transp, "", todaydate, "", "");
                 lista.Add(a);
                 listaDescrieriNC.Add(string.Empty);
             }
             else
             {
-                Intrastat a = new Intrastat(todaydate, "", "", "", "", "", "", "", "", "", "", "RO", Val_Implicite.O_Tara_Dest, "", "", "", Val_Implicite.O_Nat_Tranz, Val_Implicite.O_Incoterms, Val_Implicite.O_Mod_Transp, "", todaydate, "", "");
+                Intrastat a = new Intrastat(todaydate, "", "", "", "BUC", "", "EUR", "", "", "", "", "RO", Val_Implicite.O_Tara_Dest, "", "", "", Val_Implicite.O_Nat_Tranz, Val_Implicite.O_Incoterms, Val_Implicite.O_Mod_Transp, "", todaydate, "", "");
                 lista.Add(a);
                 listaDescrieriNC.Add(string.Empty);
             }
@@ -737,7 +761,7 @@ namespace Ovidiu
         {
 
         }
-
+        KeyEventArgs edit;
         private void GridIntrastat_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -748,6 +772,7 @@ namespace Ovidiu
                 var tabKeyEvent = new KeyEventArgs(
                   e.KeyboardDevice, e.InputSource, e.Timestamp, Key.Tab);
                 tabKeyEvent.RoutedEvent = Keyboard.KeyDownEvent;
+                edit = tabKeyEvent;
                 InputManager.Current.ProcessInput(tabKeyEvent);
             }
         }
@@ -1551,6 +1576,24 @@ namespace Ovidiu
 
         }
 
-  
+        private void CodVamal_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TextBox textBox = e.OriginalSource as TextBox;
+            if (textBox != null)
+                textBox.SelectAll();
+        }
+
+        private void CodVamal_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            TextBox textBox = e.OriginalSource as TextBox;
+            if (textBox != null)
+                textBox.SelectAll();
+        }
+
+        private void ComboBox_Initialized(object sender, EventArgs e)
+        {
+            ComboBox obj = sender as ComboBox;
+            obj.DataContext = lista_Monede;
+        }
     }
 }

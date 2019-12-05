@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-       Title="Lista Declaratiilor Intrastat" Height="1080" Width="1920">
+       Title="Lista Declaratiilor Intrastat" WindowState="Maximized" Icon="Imagini/e_intrastat.ico" Height="1080" Width="1920">
     <Grid>
-        <DataGrid x:Name="gridIntrastat" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Left" Height="847" VerticalAlignment="Top" Width="1618" Margin="24,59,0,0" >
+        <DataGrid x:Name="gridIntrastat" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Left" Height="847" VerticalAlignment="Top" Width="1618" Margin="24,59,0,0" AutoGenerateColumns="True" AutoGeneratingColumn="GridIntrastat_AutoGeneratingColumn" >
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>

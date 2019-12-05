@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="Frm_VizualizareKEY" Height="982" Width="884">
+        Title="Frm_VizualizareKEY" Icon="Imagini/e_intrastat.ico" Height="982" Width="884">
     <Grid>
         <TextBlock Margin="1,1,2,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="100" Background="#FF4D4DE4" Foreground="#FFECEC89" FontSize="26"><Run FontWeight="Bold" Text=""/><LineBreak/><Run FontWeight="Bold" Text="  Lista firmelor inregistrate si a cheilor aferente"/></TextBlock>
         <ListView x:Name="Lv_Keys" HorizontalAlignment="Left" Height="602" Margin="76,149,0,0" VerticalAlignment="Top" Width="676">

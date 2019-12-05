@@ -3,22 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Excel = Microsoft.Office.Interop.Excel;
 
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Media;
+//using System.Windows.Controls;
+//using System.Windows.Data;
+//using System.Windows.Documents;
+//using System.Windows.Media;
 
 namespace Ovidiu
 {
@@ -118,6 +114,7 @@ namespace Ovidiu
             {
                 while (dbReader.Read())
                 {
+                    if(dbReader[1].ToString() != string.Empty)
                     _cod_Vamal_list.Add(new Cod_Vamal(dbReader[1].ToString(), dbReader[2].ToString(), dbReader[8].ToString(), dbReader[9].ToString()));
 
                 }

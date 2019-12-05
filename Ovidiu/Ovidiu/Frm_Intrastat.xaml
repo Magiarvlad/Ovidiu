@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="Frm_Intrastat" Height="1080" Width="1920" Initialized="Window_Initialized">
+        Title="Frm_Intrastat" Icon="Imagini/e_intrastat.ico" WindowState="Maximized" Height="1080" Width="1920" Initialized="Window_Initialized">
     <Grid>
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
@@ -211,6 +211,7 @@
             <DataGrid SelectionMode="Single" ItemsSource="{Binding ElementName=lista, Path=lista, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectionUnit="FullRow" x:Name="gridIntrastat"  HorizontalAlignment="Left" Height="611" Grid.Row="1" VerticalAlignment="Top" Width="1752" CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False" KeyDown="GridIntrastat_KeyDown" PreviewKeyDown="GridIntrastat_PreviewKeyDown" SelectionChanged="GridIntrastat_SelectionChanged">
                 <DataGrid.CellStyle>
                     <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="IsTabStop" Value="False"/>
                         <Style.Triggers>
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter Property="Background" Value="Yellow"/>
@@ -218,14 +219,12 @@
                                 <Setter Property="BorderBrush" Value="Orange"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                                <Setter Property="BorderBrush" Value="Blue"/>
                                 <Setter Property="Foreground" Value="Black"/>
-                                <Setter Property="BorderBrush" Value="Orange"/>
+                                <Setter Property="BorderBrush" Value="Red" />
                             </Trigger>
                             <Trigger Property="IsEditing" Value="True">
                                 <Setter Property="Background" Value="Yellow"/>
                                 <Setter Property="Foreground" Value="Black"/>
-                                <Setter Property="BorderBrush" Value="Orange"/>
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -243,7 +242,7 @@
                     <DataGridTemplateColumn Header="Data livrarii"  Width="SizeToCells" IsReadOnly="True" MinWidth="80" >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate >
-                                <DatePicker x:Name="DataReceptiei" FirstDayOfWeek="Monday" Text="{Binding DataReceptiei,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"  ></DatePicker>
+                                <DatePicker x:Name="DataReceptiei" FirstDayOfWeek="Monday" Text="{Binding DataReceptiei,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" Background="#FFFFE859" OpacityMask="#FFF8FF65"  ></DatePicker>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -257,7 +256,7 @@
                     <DataGridTemplateColumn Header="Cod Vamal" Width="SizeToCells" IsReadOnly="True" MinWidth="80">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding CodVamal,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"  Name="codVamal" MouseDoubleClick="CodVamal_MouseDoubleClickAsync" PreviewTextInput="CodVamal_PreviewTextInput"></TextBox>
+                                <TextBox Text="{Binding CodVamal,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"  Name="codVamal" MouseDoubleClick="CodVamal_MouseDoubleClickAsync" PreviewTextInput="CodVamal_PreviewTextInput" GotKeyboardFocus="CodVamal_GotKeyboardFocus" MouseUp="CodVamal_MouseUp"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -285,7 +284,43 @@
                     <DataGridTemplateColumn Header="   Moneda" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding Moneda,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" MouseDoubleClick="Moneda_MouseDoubleClickAsync" ></TextBox>
+                                <ComboBox Text="{Binding Moneda,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" IsEditable="True"  Initialized="ComboBox_Initialized" MouseDoubleClick="Moneda_MouseDoubleClickAsync" >
+                                    <ComboBox.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ComboBoxItem}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate>
+                                                        <Grid x:Name="gd" TextElement.Foreground="Black" HorizontalAlignment="Left">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition/>
+                                                                <ColumnDefinition/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <TextBlock Grid.Column="0" Text="{Binding lista_Monede.jud_cod}"/>
+                                                            <TextBlock Grid.Column="1" Text="{Binding lista_Monede.jud_name}"/>
+                                                        </Grid>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                                                                <Setter TargetName="gd"  Property="Background" Value="Gray"/>
+                                                                <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                                            </Trigger>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="gd"  Property="Background" Value="Blue"/>
+                                                                <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
+                                                            </Trigger>
+
+                                                            <!--IsHighlighted and IsMouseOver is showing same effect but IsHighlighted is used for showing logical focus( for understanding check using tab key)-->
+
+                                                            <Trigger Property="ComboBoxItem.IsHighlighted" Value="True">
+                                                                <Setter TargetName="gd"  Property="Background" Value="DodgerBlue"/>
+                                                                <Setter TargetName="gd"  Property="TextElement.Foreground" Value="Black"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ComboBox.ItemContainerStyle>
+                                </ComboBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
