@@ -284,43 +284,7 @@
                     <DataGridTemplateColumn Header="   Moneda" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox Text="{Binding Moneda,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" IsEditable="True"  Initialized="ComboBox_Initialized" MouseDoubleClick="Moneda_MouseDoubleClickAsync" >
-                                    <ComboBox.ItemContainerStyle>
-                                        <Style TargetType="{x:Type ComboBoxItem}">
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate>
-                                                        <Grid x:Name="gd" TextElement.Foreground="Black" HorizontalAlignment="Left">
-                                                            <Grid.ColumnDefinitions>
-                                                                <ColumnDefinition/>
-                                                                <ColumnDefinition/>
-                                                            </Grid.ColumnDefinitions>
-                                                            <TextBlock Grid.Column="0" Text="{Binding lista_Monede.jud_cod}"/>
-                                                            <TextBlock Grid.Column="1" Text="{Binding lista_Monede.jud_name}"/>
-                                                        </Grid>
-                                                        <ControlTemplate.Triggers>
-                                                            <Trigger Property="ListBoxItem.IsSelected" Value="True">
-                                                                <Setter TargetName="gd"  Property="Background" Value="Gray"/>
-                                                                <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
-                                                            </Trigger>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter TargetName="gd"  Property="Background" Value="Blue"/>
-                                                                <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"/>
-                                                            </Trigger>
-
-                                                            <!--IsHighlighted and IsMouseOver is showing same effect but IsHighlighted is used for showing logical focus( for understanding check using tab key)-->
-
-                                                            <Trigger Property="ComboBoxItem.IsHighlighted" Value="True">
-                                                                <Setter TargetName="gd"  Property="Background" Value="DodgerBlue"/>
-                                                                <Setter TargetName="gd"  Property="TextElement.Foreground" Value="Black"/>
-                                                            </Trigger>
-                                                        </ControlTemplate.Triggers>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </ComboBox.ItemContainerStyle>
-                                </ComboBox>
+                                <TextBox Text="{Binding Moneda,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"  Initialized="ComboBox_Initialized" MouseDoubleClick="Moneda_MouseDoubleClickAsync"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

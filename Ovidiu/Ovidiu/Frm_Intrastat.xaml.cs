@@ -343,9 +343,9 @@ namespace Ovidiu
                     dbCommand.Parameters.AddWithValue("@Anul", Convert.ToInt32(txtAn.Text));
                     dbCommand.Parameters.AddWithValue("@Luna", Convert.ToInt32(txtLuna.Text));
                     dbCommand.Parameters.AddWithValue("@DataReceptiei", Convert.ToDateTime(lista[lista.Count - 2].DataReceptiei.ToString()));
-                    dbCommand.Parameters.AddWithValue("@Descriere", lista[lista.Count - 2].Descriere);
+                    dbCommand.Parameters.AddWithValue("@Descriere", lista[lista.Count - 2].Descriere.Truncate(254));
                     dbCommand.Parameters.AddWithValue("@Cod_NC", listaDescrieriNC[lista.Count - 2]);
-                    dbCommand.Parameters.AddWithValue("@Descriere_NC", lista[lista.Count - 2].Descriere);
+                    dbCommand.Parameters.AddWithValue("@Descriere_NC", lista[lista.Count - 2].Descriere.Truncate(254));
                     dbCommand.Parameters.AddWithValue("@Cantitate", Convert.ToDecimal(lista[lista.Count - 2].Cantitate));
                     dbCommand.Parameters.AddWithValue("@UM", lista[lista.Count - 2].UM);
                     dbCommand.Parameters.AddWithValue("@Valoare_Valuta", Convert.ToDouble(lista[lista.Count - 2].ValoareValuta));
@@ -404,8 +404,7 @@ namespace Ovidiu
                 {
 
                 }
-            }
-           
+            }           
         }
 
         private int ReturneazaNumarInregistrari()
@@ -1592,8 +1591,17 @@ namespace Ovidiu
 
         private void ComboBox_Initialized(object sender, EventArgs e)
         {
-            ComboBox obj = sender as ComboBox;
-            obj.DataContext = lista_Monede;
+            //ComboBox obj = sender as ComboBox;
+            //obj.DataContext = lista_Monede;
+        }
+    }
+
+    public static class StringExt
+    {
+        public static string Truncate(this string value, int maxLength)
+        {
+            if (string.IsNullOrEmpty(value)) return value;
+            return value.Length <= maxLength ? value : value.Substring(0, maxLength);
         }
     }
 }

@@ -93,6 +93,7 @@ namespace Ovidiu
             dbConn.Close();
         }
 
+        //to do : crashes if the is no DB found for that year
         private void IncarcaTabela_HS8(string tableName)
         {
 
