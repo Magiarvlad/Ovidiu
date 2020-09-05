@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ovidiu"
         mc:Ignorable="d"
-        Title="Frm_HS" Icon="Imagini/e_intrastat.ico" Height="968.5" Width="1439.5" Closed="Window_Closed" KeyDown="Window_KeyDown">
+        Title="Frm_HS" Icon="Imagini/e_intrastat.ico" Height="968.5" Width="1439.5" Closed="Window_Closed" KeyDown="Window_KeyDown" InputMethod.IsInputMethodEnabled="False">
     <Grid Margin="0,0,42,61">
         <DataGrid AlternatingRowBackground="Gainsboro"  AlternationCount="2" Name="Grid_HS" HorizontalAlignment="Left" Height="712" Margin="50,77,0,0" VerticalAlignment="Top" Width="1296" Background="#FFC5BDD3" IsReadOnly="True" SelectionMode="Single" PreviewKeyDown="Grid_HS_PreviewKeyDown">
             <DataGrid.Resources>

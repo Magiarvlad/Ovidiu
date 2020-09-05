@@ -489,21 +489,24 @@ namespace Ovidiu
         }
         string keypressed = "";
         private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-            
+        {            
             if(e.Key==Key.Back || e.Key==Key.Delete)
             {
                 if(keypressed.Length>0)
                     keypressed = keypressed.Remove(keypressed.Length-1);
             }
             else
-            {   if(e.Key!=Key.Enter && e.Key!=Key.Down && e.Key != Key.Up && e.Key != Key.Left && e.Key != Key.Right && e.Key != Key.Space)
-                    keypressed += e.Key.ToString();
+            {   if (e.Key != Key.Enter && e.Key != Key.Down && e.Key != Key.Up && e.Key != Key.Left && e.Key != Key.Right && e.Key != Key.Space)
+                {
+                    if (e.Key >= Key.D0 && e.Key <= Key.D9)   keypressed += new KeyConverter().ConvertToString(e.Key).Replace("D", ""); // it`s number
+                    else if (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) keypressed += new KeyConverter().ConvertToString(e.Key).Replace("NumPad", ""); // it`s number
+                    else keypressed += e.Key.ToString();
+                }
                 else
-                    if(e.Key == Key.Space)
-                    {
-                        keypressed += " ";
-                    }
+                    if (e.Key == Key.Space)
+                {
+                    keypressed += " ";
+                }
             }
             InfoCautareLabel.Content = "Cautare dupa: " + keypressed;
             InfoCautareLabel.Visibility = Visibility.Visible;

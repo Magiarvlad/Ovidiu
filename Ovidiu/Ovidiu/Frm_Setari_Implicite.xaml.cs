@@ -451,8 +451,7 @@ namespace Ovidiu
             try
             {
                 dbConn.Open();
-                //dbQuery = "UPDATE [Intrastat_Default] SET [I_Tara_Exp]='" + Val_Implicite.I_Tara_Exp + "', [I_Incoterm]='" + Val_Implicite.I_Incoterms + "', [I_Nat_Tranz]='" + Val_Implicite.I_Nat_Transp + "', [I_Mod_Transp]='" + Val_Implicite.I_Mod_Transp + "', [O_Tara_Dest]='" + Val_Implicite.O_Tara_Dest + "', [O_Incoterm]='" + Val_Implicite.O_Incoterms + "', [O_Nat_Tranz]='" + Val_Implicite.O_Nat_Tranz + "', [O_Mod_Transp]='" + Val_Implicite.O_Mod_Transp + "' WHERE [Cod_Fiscal]='" + Firma.CodFiscal + "';";
-                dbQuery = @"UPDATE Intrastat_Default SET I_Tara_Exp = ?, I_Incoterms = ?, I_Nat_Tranz = ?, I_Mod_Transp = ?, O_Tara_Dest=?, O_Incoterms = ?, O_Nat_Tranz = ?, O_Mod_Transp = ? WHERE Cod_Fiscal = ?;";
+                 dbQuery = @"UPDATE Intrastat_Default SET I_Tara_Exp = ?, I_Incoterms = ?, I_Nat_Tranz = ?, I_Mod_Transp = ?, O_Tara_Dest=?, O_Incoterms = ?, O_Nat_Tranz = ?, O_Mod_Transp = ? WHERE Cod_Fiscal = ?;";
                 dbCommand = new OleDbCommand(dbQuery, dbConn);
                 dbCommand.Parameters.AddWithValue("@I_Tara_Exp", Val_Implicite.I_Tara_Exp);
                 dbCommand.Parameters.AddWithValue("@I_Incoterms", Val_Implicite.I_Incoterms);
@@ -465,16 +464,6 @@ namespace Ovidiu
                 dbCommand.Parameters.AddWithValue("@O_Mod_Transp", Val_Implicite.O_Mod_Transp);
 
                 dbCommand.Parameters.AddWithValue("@Cod_Fiscal", Firma.CodFiscal);
-                /*
-                 * @"UPDATE emp SET ename = ?, job = ?, sal = ?, dept = ? WHERE eno = ?";
-                     OleDbCommand cmd = new OleDbCommand(query, con)
-                     cmd.Parameters.AddWithValue("@ename", TextBox2.Text);
-                     cmd.Parameters.AddWithValue("@job", TextBox3.Text);
-                     cmd.Parameters.AddWithValue("@sal", TextBox4.Text);
-                     cmd.Parameters.AddWithValue("@dept", TextBox5.Text);
-                     cmd.ParametersAddWithValue("@eno", TextBox1.Text);
-                 */
-
 
                 dbCommand.ExecuteNonQuery();
                 dbConn.Close();

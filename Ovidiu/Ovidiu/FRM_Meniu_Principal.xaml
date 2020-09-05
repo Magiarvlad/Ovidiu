@@ -1,4 +1,4 @@
-﻿<Window x:Class="Ovidiu.FRM_Meniu_Principal"
+﻿<Window x:Name="e_Intrastat" x:Class="Ovidiu.FRM_Meniu_Principal"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,9 +7,7 @@
         mc:Ignorable="d"
         Title="e_Intrastat" Icon="Imagini/e_intrastat.ico" BorderBrush="White" Closing="Window_Closing" ShowInTaskbar="True" WindowState="Maximized" WindowStyle="ThreeDBorderWindow" ResizeMode="CanResizeWithGrip" Height="643" Width="1130" FontStretch="Condensed"   >
 
-
-
-    <Viewbox Stretch="UniformToFill">
+    <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill">
         <Grid Name="grdMain" Margin="0,0,2,-2" Height="611" Width="1113" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <TransformGroup>
@@ -23,8 +21,8 @@
                 <RowDefinition Height="382"/>
             </Grid.RowDefinitions>
             <DockPanel Grid.Row="0" Margin="0,0,0,326">
-                <StackPanel HorizontalAlignment="Left" Height="46" Margin="0,0,0,0" VerticalAlignment="Top" Width="1125" Grid.Column="0">
-                    <Menu DockPanel.Dock="Top" Background="#FFB0C1EE" Height="61" Margin="0,0,-375,0">
+                <StackPanel HorizontalAlignment="Left" Height="46" Margin="0,0,0,0" VerticalAlignment="Top" Width="1113" Grid.Column="0">
+                    <Menu DockPanel.Dock="Top" Background="#FFB0C1EE" Margin="0,0,-1,0">
 
                         <MenuItem Header="Declaratii Intrastat" Background="#FFB0C1EE" FontSize="18" Height="28" Width="184" Click="MenuItem_Click_1" >
                             <MenuItem.Icon>

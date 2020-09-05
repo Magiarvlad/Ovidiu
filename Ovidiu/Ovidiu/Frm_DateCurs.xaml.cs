@@ -16,15 +16,13 @@ namespace e_Intrastat
         List<DateCurs>  lista_scrie = new List<DateCurs>();
         List<String> lines =  new List<String > ();
         string path = FileLocation.System + "CursBNR\\curs.txt";
-
-
+        
         public Frm_DateCurs()
         {
             InitializeComponent();
             IncarcaDateGrid();
         }
-
-
+        
         private void IncarcaDateGrid()
         {
             
@@ -73,7 +71,7 @@ namespace e_Intrastat
         }
     }
 
-    class DateCurs
+    public class DateCurs
     {
         string data, moneda, numar,valoare;
 

@@ -13,8 +13,6 @@ namespace e_Intrastat
         List<Cod_Vamal> _cod_Vamal_list = new List<Cod_Vamal>();
         List<Intrastat> lista = new List<Intrastat>();
 
-        int countVamalList=0;
-        int countLista = 0;
         public Frm_Cautare_Avansata(string text)
         {
             InitializeComponent();
@@ -63,7 +61,6 @@ namespace e_Intrastat
                 while (dbReader.Read())
                 {
                     _cod_Vamal_list.Add(new Cod_Vamal(dbReader[1].ToString(), dbReader[2].ToString(), dbReader[3].ToString().Substring(0,10), dbReader[9].ToString(), dbReader[8].ToString()));
-
                 }
             }
             dgTarifVamal.ItemsSource = _cod_Vamal_list;
@@ -76,13 +73,9 @@ namespace e_Intrastat
              _cod_Vamal_list = new List<Cod_Vamal>();
              lista = new List<Intrastat>();
             IncarcaTabela_HS8("HS_8", Text.Text);
-            IncarcaTabela_Declaratii("Intrastat", Text.Text);
-
-            
-           
+            IncarcaTabela_Declaratii("Intrastat", Text.Text);           
         }
-
-
+        
         public class Intrastat
         {
             string anul, luna, cod_NC, cantitate, uM, valoarea_Fiscala, descriere;
@@ -106,9 +99,7 @@ namespace e_Intrastat
             public string Valoarea_Fiscala { get => valoarea_Fiscala; set => valoarea_Fiscala = value; }
             public string Descriere { get => descriere; set => descriere = value; }
         }
-
-
-
+                
         class Cod_Vamal
         {
             string cod_NC, cod_Vamal, data, um, denumire;
