@@ -772,6 +772,32 @@ namespace Ovidiu
                 MessageBox.Show("Eroare la actualizare baza de date");
             }
         }
+        
+        private void DeleteRowFromDB(string pozitia)
+        {
+            try
+            {
+                if (pozitia != "")
+                {
+                    string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + Firma.CodFiscal + ".mdb";
+                    OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+                    OleDbCommand dbCommand = new OleDbCommand();
+                    dbCommand.CommandTimeout = 2000;
+                    string dbQuery = string.Empty;
+                    dbConn.Open(); 
+                    dbQuery = @"Delete * FROM Intrastat WHERE Record_ID = ?";
+                    dbCommand = new OleDbCommand(dbQuery, dbConn);
+                    dbCommand.Parameters.AddWithValue("@Record_ID", pozitia);
+                    dbCommand.ExecuteNonQuery();
+                    dbConn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Inregistrarea nu a fost gasita");
+            }
+        }
+
         //------------------------------------------------------------------------------
         #endregion
 
@@ -848,6 +874,7 @@ namespace Ovidiu
 
             Frm_HS.s_go = false;
             obj.Text = Frm_HS.s_moneda;
+            obj.Background = Brushes.White;
         }
 
         private void BtnExportaExcel_Click(object sender, RoutedEventArgs e)
@@ -864,15 +891,43 @@ namespace Ovidiu
                 sheet1.Columns[j + 1].ColumnWidth = 15;
                 myRange.Value2 = gridIntrastat.Columns[j].Header;
             }
+
             for (int i = 0; i < gridIntrastat.Columns.Count; i++)
             {
-                for (int j = 0; j < gridIntrastat.Items.Count; j++)
+                for (int j = 0; j < lista.Count -1; j++)
                 {
-                    TextBlock b = gridIntrastat.Columns[i].GetCellContent(gridIntrastat.Items[j]) as TextBlock;
-                    Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[j + 2, i + 1];
+                    string specs = "";
+                    switch (i)
+                    {
+                        case 0: specs = lista[j].DataReceptiei; break;
+                        case 1: specs = lista[j].Descriere; break;
+                        case 2: specs = lista[j].CodVamal; break;
+                        case 3: specs = lista[j].Cantitate; break;
+                        case 4: specs = lista[j].UM; break;
+                        case 5: specs = lista[j].ValoareValuta; break;
+                        case 6: specs = lista[j].Moneda; break;
+                        case 7: specs = lista[j].CursSchimb; break;
+                        case 8: specs = lista[j].ValoareFiscala; break;
+                        case 9: specs = lista[j].ValoareStatistica; break;
+                        case 10: specs = lista[j].TaraOrigine; break;
+                        case 11: specs = lista[j].TaraExport; break;
+                        case 12: specs = lista[j].TaraDestinatie; break;
+                        case 13: specs = lista[j].Net; break;
+                        case 14: specs = lista[j].UmSupl; break;
+                        case 15: specs = lista[j].CantitateSupl; break;
+                        case 16: specs = lista[j].NatTranz; break;
+                        case 17: specs = lista[j].CondLivrare; break;
+                        case 18: specs = lista[j].ModTransp; break;
+                        case 19: specs = lista[j].FacturaNumar; break;
+                        case 20: specs = lista[j].DocumentData; break;
+                        case 21: specs = lista[j].DestTVA; break;
+                        case 22: specs = lista[j].Pozitia; break;
+                    }
+                    //DatePicker b = gridIntrastat.Columns[i].GetCellContent(gridIntrastat.Columns[i].Header) as DatePicker;
+                    Excel.Range myRange = (Excel.Range)sheet1.Cells[j + 2, i + 1];
                     try
                     {
-                        myRange.Value2 = b.Text;
+                        myRange.Value2 = specs;
                     }
                     catch
                     {
@@ -909,7 +964,17 @@ namespace Ovidiu
                 edit = tabKeyEvent;
                 InputManager.Current.ProcessInput(tabKeyEvent);
             }
+
+            if (e.Key == Key.Delete)
+            {
+                MessageBoxResult result = MessageBox.Show("Doresti sa stergi inregistrarea selectata?", "Sterge linie", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if(result == MessageBoxResult.Yes)
+                {
+                    DeleteRowFromDB(lista[gridIntrastat.SelectedIndex].Pozitia);
+                }
+            }
         }
+
 
         private async void TextBox_MouseDoubleClickAsync(object sender, MouseButtonEventArgs e)
         {
@@ -1892,6 +1957,37 @@ namespace Ovidiu
         private void TaraDest_TextChanged(object sender, TextChangedEventArgs e)
         {
             CompletareCodTara(sender, e);
+        }
+
+        private void TaraOrig_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            CheckCountryExists(ref sender, lista[gridIntrastat.SelectedIndex].TaraOrigine);
+        }
+
+        private void CheckCountryExists(ref object sender, string text)
+        {
+            TextBox selectedCell = sender as TextBox;
+
+            bool existaCod = false;
+            foreach (TARI_UE tara in listaTari)
+            {
+                if (tara.Cod == text )
+                {
+                    existaCod = true;
+                    selectedCell.Background = Brushes.White;
+                    break;
+                }
+            }
+
+            if (!existaCod)
+            {
+                selectedCell.Background = Brushes.Red;
+            }
+        }
+
+        private void TaraExport_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            CheckCountryExists(ref sender, lista[gridIntrastat.SelectedIndex].TaraExport);
         }
     }
 

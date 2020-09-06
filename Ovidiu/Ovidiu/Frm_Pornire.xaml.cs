@@ -54,9 +54,11 @@ namespace Ovidiu
                 XML_Public_Citeste.Citeste_FileLocation();
                 XML_Public_Citeste.Citeste_Diverse();
 
-                if (Diverse.VerificaUpdate == true) 
+                if (Diverse.VerificaUpdate == true)
                 {
-                    numeFisierVers = UpdatesHelper.Verifica_Update_Versiune(Assembly.GetExecutingAssembly().GetName().Version.ToString());
+                    string versionFilePath = FileLocation.System + "vers.txt";
+                    string[] versionFileLines = File.ReadAllLines(versionFilePath);
+                    numeFisierVers = UpdatesHelper.Verifica_Update_Versiune(versionFileLines[0]);
                     if (numeFisierVers != "0")
                     {
                         if ( MessageBoxResult.Yes ==

@@ -82,8 +82,7 @@
                                     <Image Source="/Imagini/Menu/close_32.ico" HorizontalAlignment="Left" Height="67" VerticalAlignment="Top" Width="79"/>
                                     <TextBlock TextWrapping="WrapWithOverflow" Margin="69,0,73,28" Background="White" Foreground="Red" Grid.ColumnSpan="2">
                                         <TextBlock.Inlines>
-                                            <Run Text="- Pentru ștergerea înregistrării curente [cea în curs de editare] se apasă tasta ESC [escape] &#10;"></Run>
-                                            <Run Text="- Ștergerea unei înregistrări deja introduse se face prin selectarea din partea stângă a înregistrării și apăsarea tastei DELETE &#10;"/>
+                                            <Run Text="- Ștergerea unei înregistrări deja introduse se face prin apăsarea tastei DELETE &#10;"/>
                                             <Run Text="- Coloanele cu fundal alb sunt obligatoriu de completat" />
                                         </TextBlock.Inlines>
                                     </TextBlock>
@@ -205,10 +204,10 @@
                     </TabItem>
                 </TabControl>
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="27" Grid.Row="2" VerticalAlignment="Top" Width="727" Background="#FF06ECF7">
-                <TextBlock x:Name="lblMesaj" Foreground="Blue" Text="---" FontSize="10" Margin="0" />
+            <Grid HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Background="#FF06ECF7" Height="85" Margin="0,1,0,-7" Width="585">
+                <TextBlock x:Name="lblMesaj" Foreground="Blue" Text="---" FontSize="10" />
             </Grid>
-            <DataGrid SelectionMode="Single" ItemsSource="{Binding Source=lista, Path=lista, Mode=TwoWay}" SelectionUnit="FullRow" x:Name="gridIntrastat"  HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False" KeyDown="GridIntrastat_KeyDown" PreviewKeyDown="GridIntrastat_PreviewKeyDown" SelectionChanged="GridIntrastat_SelectionChanged" Height="630" Width="1635">
+            <DataGrid SelectionMode="Single" ItemsSource="{Binding Source=lista, Path=lista, Mode=TwoWay}" SelectionUnit="FullRow" x:Name="gridIntrastat"  HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False" KeyDown="GridIntrastat_KeyDown" PreviewKeyDown="GridIntrastat_PreviewKeyDown" SelectionChanged="GridIntrastat_SelectionChanged" Height="630" Width="1905">
                 <DataGrid.CellStyle>
                     <Style TargetType="{x:Type DataGridCell}">
                         <Setter Property="IsTabStop" Value="False"/>
@@ -312,14 +311,14 @@
                     <DataGridTemplateColumn Header="    Tara &#x0a;  Origine" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox x:Name="taraOrig" Text="{Binding TaraOrigine,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="Tari_MouseDoubleClickAsync" PreviewKeyDown="TaraOrig_PreviewKeyDown" TextChanged="TaraOrig_TextChanged" ></TextBox>
+                                <TextBox x:Name="taraOrig" Text="{Binding TaraOrigine,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="Tari_MouseDoubleClickAsync" PreviewKeyDown="TaraOrig_PreviewKeyDown" TextChanged="TaraOrig_TextChanged" PreviewLostKeyboardFocus="TaraOrig_PreviewLostKeyboardFocus" ></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Tara &#x0a;Export" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox x:Name="taraExport" Text="{Binding TaraExport,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="Tari_MouseDoubleClickAsync" TextChanged="TaraExport_TextChanged" PreviewKeyDown="TaraExport_PreviewKeyDown"></TextBox>
+                                <TextBox x:Name="taraExport" Text="{Binding TaraExport,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="Tari_MouseDoubleClickAsync" TextChanged="TaraExport_TextChanged" PreviewKeyDown="TaraExport_PreviewKeyDown" PreviewLostKeyboardFocus="TaraExport_PreviewLostKeyboardFocus"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

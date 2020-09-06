@@ -37,11 +37,9 @@ namespace e_Intrastat
             {
                 while (dbReader.Read())
                 {
-                    cbMachetaFolosita.Items.Add(dbReader[0].ToString());
-                   
+                    cbMachetaFolosita.Items.Add(dbReader[0].ToString());                   
                 }
-            }
-            
+            }            
             dbConn.Close();
         }
 

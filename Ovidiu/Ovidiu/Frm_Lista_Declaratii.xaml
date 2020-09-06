@@ -37,13 +37,13 @@
                 <TextBlock Width="125" Height="39"><Run Text="     Tipărește"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="DeclaratieNula" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="1688,326,0,0" Height="44" Click="DeclaratieNula_Click">
+        <Button x:Name="DeclaratieNula" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="1689,326,0,0" Height="44" Click="DeclaratieNula_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Imagini/Menu/close_32.ico"  Stretch="Uniform" Width="63" Margin="0,0,0,8" Height="32" />
                 <TextBlock Width="101" Height="40"><Run Text="     Declaratie  &#10;            Nula"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnGenereazaFisierIntrastat" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="1686,409,0,0" Height="44" Background="Yellow" Click="btnGenereazaFisierIntrastat_Click">
+        <Button x:Name="btnGenereazaFisierIntrastat" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="1689,410,0,0" Height="44" Background="Yellow" Click="btnGenereazaFisierIntrastat_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Imagini/Menu/Intrastat_32.ico"  Stretch="Uniform" Width="65" Margin="0,0,0,8" Height="42" />
                 <TextBlock FontWeight="Bold" Width="99" Height="42"><Run Text="         Fisier &#10;   INTRASTAT"/></TextBlock>
@@ -61,19 +61,19 @@
                 <TextBlock Width="109" Height="40"><Run Text="&#xA;         Modifica" FontSize="14"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnVizualizare" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="1690,196,0,0" Height="44" Click="btnVizualizare_Click"  >
+        <Button x:Name="btnVizualizare" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="1689,196,0,0" Height="44" Click="btnVizualizare_Click"  >
             <StackPanel Orientation="Horizontal">
                 <Image Source="Imagini/Other/find1.png"  Stretch="Uniform" Width="48" Margin="0,0,0,8" Height="33" />
                 <TextBlock Width="109" Height="40"><Run Text="&#xA;         Vizualizare" FontSize="14"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnSterge" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="1694,518,0,0" Height="44" Click="btnSterge_Click" >
+        <Button x:Name="btnSterge" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="1690,503,0,0" Height="44" Click="btnSterge_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="Imagini/Menu/exit_32.ico"  Stretch="Uniform" Width="48" Margin="0,0,0,8" Height="33" />
                 <TextBlock Width="109" Height="40"><Run Text="&#xA;         Sterge" FontSize="14"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnSterge_Copy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="1697,590,0,0" Height="44" Click="btnSterge_Copy_Click" >
+        <Button x:Name="btnSterge_Copy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="1690,581,0,0" Height="44" Click="btnSterge_Copy_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="Imagini/Menu/Excel_32.ico"  Stretch="Uniform" Width="48" Margin="0,0,0,8" Height="33" />
                 <TextBlock Width="109" Height="40"><Run Text="&#xA;  Exporta Excel" FontSize="14"/></TextBlock>
