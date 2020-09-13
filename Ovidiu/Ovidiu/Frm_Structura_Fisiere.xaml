@@ -12,20 +12,20 @@
         <Label Content="Work sheet name:" HorizontalAlignment="Left" Margin="31,147,0,0" VerticalAlignment="Top" Foreground="#FF39267C" FontWeight="SemiBold" FontSize="16"/>
         <Label Content="Locatie implicita:" HorizontalAlignment="Left" Margin="32,190,0,0" VerticalAlignment="Top" Foreground="#FF39267C" FontWeight="SemiBold" FontSize="16"/>
         <Label Content="Un nume ales de d-voastra pentru aceasta macheta" HorizontalAlignment="Left" Margin="480,50,0,0" VerticalAlignment="Top" Foreground="#FF2217F5" FontSize="14"/>
-        <ComboBox HorizontalAlignment="Left" Margin="221,95,0,0" VerticalAlignment="Top" Width="228" Height="25" FontSize="16">
+        <ComboBox x:Name="tipMacheta" HorizontalAlignment="Left" Margin="221,95,0,0" VerticalAlignment="Top" Width="228" Height="25" FontSize="16">
             <ComboBoxItem Content="ACHIZITIE" HorizontalAlignment="Left" Width="221"/>
             <ComboBoxItem Content="LIVRARE" HorizontalAlignment="Left" Width="221"/>
         </ComboBox>
         <Label Content="Achizitie(Import) sau Livrare(Export)" HorizontalAlignment="Left" Margin="478,90,0,0" VerticalAlignment="Top" Foreground="#FF2217F5" FontSize="14"/>
         <Label Content="OPTIONAL - Numele sheet-ului din fisierul excel" HorizontalAlignment="Left" Margin="478,146,0,0" VerticalAlignment="Top" Foreground="#FF2217F5" FontSize="14"/>
         <TextBlock HorizontalAlignment="Left" Margin="854,189,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Height="41" Width="249" FontSize="14" Text="OPTIONAL - Unde este salvat in mod curent fisierul pe calculatorul d-voastra" Foreground="#FF453CF7"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="222,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="219,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" FontSize="16" Text="Sheet1"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="219,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="627" FontSize="16"/>
+        <TextBox Name="numeMachetaTxt" HorizontalAlignment="Left" Height="23" Margin="222,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" FontSize="16"/>
+        <TextBox x:Name="worksheetName" HorizontalAlignment="Left" Height="23" Margin="219,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" FontSize="16" Text="Sheet1"/>
+        <TextBox Name="locatieImplicitaTxt" HorizontalAlignment="Left" Height="23" Margin="219,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="627" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="29,229,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Height="41" Width="492" FontSize="14" Text="Dupa completarea datelor de mai sus apasati butonul &quot;Retine modificari&quot; si apoi completati coloanele de mai jos (doar cele cu fundal alb)" Foreground="#FFFF210B"/>
         <Button x:Name="retineModificari" Content="Retine Modificari" HorizontalAlignment="Left" Margin="530,251,0,0" VerticalAlignment="Top" Width="154" RenderTransformOrigin="-0.453,0" Height="25" Background="#FFA9FDFD" FontSize="16" FontWeight="SemiBold" Click="RetineModificari_Click"/>
         <DataGrid x:Name="gridIntrastat" HorizontalAlignment="Left" Height="576" Margin="28,354,0,0" VerticalAlignment="Top" Width="913"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="25,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="686" FontSize="16" Background="#FFFFFA99"/>
+        <TextBox x:Name="sampleExcelFile" HorizontalAlignment="Left" Height="23" Margin="25,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="686" FontSize="16" Background="#FFFFFA99"/>
         <Button HorizontalAlignment="Left" Margin="916,288,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="-0.453,0" Height="34" Background="#FFA9FDFD" FontSize="16" FontWeight="SemiBold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center">
             <TextBlock Height="38" Width="119" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" >  Citeste coloane<LineBreak/>din fisierul excel</TextBlock>
         </Button>
@@ -43,6 +43,7 @@
             </TextBlock.RenderTransform>
         </TextBlock>
         <DataGrid HorizontalAlignment="Left" Height="575" Margin="963,353,0,0" VerticalAlignment="Top" Width="396"/>
+        <Button x:Name="salveazaContinutMacheta" Content="Salveaza structura" HorizontalAlignment="Left" Margin="786,939,0,0" VerticalAlignment="Top" Width="154" RenderTransformOrigin="-0.453,0" Height="25" Background="#FFA9FDFD" FontSize="16" FontWeight="SemiBold" Click="SalveazaContinutMacheta_Click"/>
 
     </Grid>
 </Window>

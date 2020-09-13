@@ -49,9 +49,11 @@ namespace Ovidiu
 
         #region initializare fereastra..
         //------------------------------------------------------------------------------
-        public Frm_Intrastat(string tip, string luna, string an)
+        public Frm_Intrastat(string tip, string luna, string an, ObservableCollection<Intrastat> listaS = null)
         {
             InProg = true;
+            if(listaS != null)
+                lista = listaS;
             InitializeComponent();
             cmbTipDeclaratie.SelectedItem = cmbTipDeclaratie.Items[0];
             txtCUI.Text = Firma.CodFiscal;
@@ -619,8 +621,6 @@ namespace Ovidiu
                 try
                 {
                     dbConn.Open();
-                    //dbQuery = "UPDATE [Intrastat_Default] SET [I_Tara_Exp]='" + Val_Implici .I_Tara_Exp + "', [I_Incoterm]='" + Val_Implicite.I_Incoterms + "', [I_Nat_Tranz]='" + Val_Implicite.I_Nat_Transp + "', [I_Mod_Transp]='" + Val_Implicite.I_Mod_Transp + "', [O_Tara_Dest]='" + Val_Implicite.O_Tara_Dest + "',     [O_Incoterm]='" + Val_Implicite.O_Incoterms + "', [O_Nat_Tranz]='" + Val_Implicite.O_Nat_Tranz + "', [O_Mod_Transp]='" + Val_Implicite.O_Mod_Transp + "' WHERE [Cod_Fiscal]='" + Firma.CodFiscal + "';";
-                    //dbQuery = @"Insert into Intrastat () VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
                     dbQuery = @"Insert into Intrastat (TIP,Cod_Fiscal,Anul,Luna,DataReceptiei,Descriere,Cod_NC,Descriere_NC,Cantitate,UM,Valoare_Valuta,Moneda,Curs_Schimb,Val_Fiscala,Val_Stat,Tara_Orig,Tara_Exp,Tara_Dest,Net,Exista_UMS,Cod_UMS,Val_UMS,Nat_Tranz,Incoterms,Mod_transp,Factura_Numar,Factura_Data,VAT_ID,PU,Net_Unitar,Raport_Stat,SourceFile,SourceFile_FullPath,Data_Preluare,UserName,Probleme,Transp_Document,Transport_Suma,Transport_Moneda,Transport_Curs) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
                     dbCommand = new OleDbCommand(dbQuery, dbConn);
                     dbCommand.Parameters.AddWithValue("@TIP", txtTip.Text);
@@ -681,15 +681,6 @@ namespace Ovidiu
                     dbCommand.Parameters.AddWithValue("@Transport_Suma", 0);
                     dbCommand.Parameters.AddWithValue("@Transport_Moneda", "");
                     dbCommand.Parameters.AddWithValue("@Transport_Curs", 0);
-                    /*
-                     * @"UPDATE emp SET ename = ?, job = ?, sal = ?, dept = ? WHERE eno = ?";
-                         OleDbCommand cmd = new OleDbCommand(query, con)
-                         cmd.Parameters.AddWithValue("@ename", TextBox2.Text);
-                         cmd.Parameters.AddWithValue("@job", TextBox3.Text);
-                         cmd.Parameters.AddWithValue("@sal", TextBox4.Text);
-                         cmd.Parameters.AddWithValue("@dept", TextBox5.Text);
-                         cmd.ParametersAddWithValue("@eno", TextBox1.Text);
-                     */
 
 
                     dbCommand.ExecuteNonQuery();
@@ -974,7 +965,6 @@ namespace Ovidiu
                 }
             }
         }
-
 
         private async void TextBox_MouseDoubleClickAsync(object sender, MouseButtonEventArgs e)
         {
