@@ -1,0 +1,75 @@
+﻿<Window x:Class="Ovidiu.Frm_Modificare_Macheta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ovidiu"
+        mc:Ignorable="d"
+        Title="Modificare machete fisiere excel" Icon="Imagini/e_intrastat.ico" Height="1080" Width="1920" WindowState="Maximized">
+    <Grid Background="#FFD7DAEE">
+        <Label Content="Nume Macheta:" HorizontalAlignment="Left" Margin="26,50,0,0" VerticalAlignment="Top" Foreground="#FF2217F5" FontWeight="SemiBold" FontSize="16"/>
+        <Label Content="Se va folosi la:" HorizontalAlignment="Left" Margin="28,95,0,0" VerticalAlignment="Top" Foreground="#FF2A1FF1" FontWeight="SemiBold" FontSize="16"/>
+        <Label Content="Work sheet name:" HorizontalAlignment="Left" Margin="31,147,0,0" VerticalAlignment="Top" Foreground="#FF39267C" FontWeight="SemiBold" FontSize="16"/>
+        <Label Content="Locatie implicita:" HorizontalAlignment="Left" Margin="32,190,0,0" VerticalAlignment="Top" Foreground="#FF39267C" FontWeight="SemiBold" FontSize="16"/>
+        <Label Content="Un nume ales de d-voastra pentru aceasta macheta" HorizontalAlignment="Left" Margin="480,50,0,0" VerticalAlignment="Top" Foreground="#FF2217F5" FontSize="14"/>
+        <ComboBox x:Name="tipMacheta" HorizontalAlignment="Left" Margin="221,95,0,0" VerticalAlignment="Top" Width="228" Height="25" FontSize="16">
+            <ComboBoxItem Content="ACHIZITIE" HorizontalAlignment="Left" Width="221"/>
+            <ComboBoxItem Content="LIVRARE" HorizontalAlignment="Left" Width="221"/>
+        </ComboBox>
+        <Label Content="Achizitie(Import) sau Livrare(Export)" HorizontalAlignment="Left" Margin="478,90,0,0" VerticalAlignment="Top" Foreground="#FF2217F5" FontSize="14"/>
+        <Label Content="OPTIONAL - Numele sheet-ului din fisierul excel" HorizontalAlignment="Left" Margin="478,146,0,0" VerticalAlignment="Top" Foreground="#FF2217F5" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="854,189,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Height="41" Width="249" FontSize="14" Text="OPTIONAL - Unde este salvat in mod curent fisierul pe calculatorul d-voastra" Foreground="#FF453CF7"/>
+        <TextBox x:Name="worksheetName" HorizontalAlignment="Left" Height="23" Margin="219,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" FontSize="16" Text="Sheet1"/>
+        <TextBox Name="locatieImplicitaTxt" HorizontalAlignment="Left" Height="23" Margin="219,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="627" FontSize="16"/>
+        <DataGrid x:Name="gridIntrastat" ItemsSource="{Binding Source=lista, Path=lista, Mode=TwoWay}" HorizontalAlignment="Left" Height="576" Margin="21,238,0,0" VerticalAlignment="Top" Width="913" AutoGenerateColumns="False" CanUserAddRows="false">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Informatie_Necesara" IsReadOnly="True" MinWidth="230">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Informatie_Necesara,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Exista_In_Fisierul_Excel" IsReadOnly="True" MinWidth="130">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Exista_In_Fisierul_Excel,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"></CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Numar_Coloana_Fisier_Excel" IsReadOnly="True" MinWidth="130">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Numar_Coloana_Fisier_Excel,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Valoare_Implicita" IsReadOnly="True" MinWidth="130">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Valoare_Implicita,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Caractere_Maxime" IsReadOnly="True" MinWidth="130">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Caractere_Maxime,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Formatul_Datelor" IsReadOnly="True" MinWidth="130">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Formatul_Datelor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock HorizontalAlignment="Left" Margin="33,980,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Height="41" Width="738" FontSize="14" Text="Daca bifati coloana &quot;Exista in fisierul Excel&quot; atunci trebuie sa specificati numarul coloanei din fisierul excel.                 Daca NU Este bifata coloana &quot;Exista in fisierul Excel&quot; atunci se va folosi valoarea din coloana &quot;Valoare Implicita&quot;" Foreground="#FF453CF7"/>
+        <Button x:Name="salveazaContinutMacheta" Content="Salveaza modificarile" HorizontalAlignment="Left" Margin="355,872,0,0" VerticalAlignment="Top" Width="174" RenderTransformOrigin="-0.453,0" Height="55" Background="#FFA9FDFD" FontSize="16" FontWeight="SemiBold" Click="SalveazaContinutMacheta_Click"/>
+        <ComboBox Name="numeMachetaTxt" HorizontalAlignment="Left" Margin="221,57,0,0" VerticalAlignment="Top" Width="228" SelectionChanged="NumeMachetaTxt_SelectionChanged"/>
+
+    </Grid>
+</Window>

@@ -155,6 +155,11 @@ namespace Ovidiu
                     }
                     // textbox1.Text = DB_Reader.GetString("your_column_name");
                 }
+                else
+                {
+                    Frm_Creare_Firma frm_Creare_Firma = new Frm_Creare_Firma(false);
+                    frm_Creare_Firma.Show();
+                }
             }
             catch (Exception ex)
             {

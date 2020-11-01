@@ -83,7 +83,7 @@
                                     <TextBlock TextWrapping="WrapWithOverflow" Margin="69,0,73,28" Background="White" Foreground="Red" Grid.ColumnSpan="2">
                                         <TextBlock.Inlines>
                                             <Run Text="- Ștergerea unei înregistrări deja introduse se face prin apăsarea tastei DELETE &#10;"/>
-                                            <Run Text="- Coloanele cu fundal alb sunt obligatoriu de completat" />
+                                            <Run Text="- Coloanele cu fundal colorat sunt obligatoriu de completat" />
                                         </TextBlock.Inlines>
                                     </TextBlock>
 
@@ -255,7 +255,7 @@
                     <DataGridTemplateColumn Header="Cod Vamal" Width="SizeToCells" IsReadOnly="True" MinWidth="80">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding CodVamal,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"  Name="codVamal" MouseDoubleClick="CodVamal_MouseDoubleClickAsync" PreviewTextInput="CodVamal_PreviewTextInput" GotKeyboardFocus="CodVamal_GotKeyboardFocus" MouseUp="CodVamal_MouseUp" Background="#FFFFEB6C"/>
+                                <TextBox Text="{Binding CodVamal,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"  Name="codVamal" MouseDoubleClick="CodVamal_MouseDoubleClickAsync" PreviewTextInput="CodVamal_PreviewTextInput" GotKeyboardFocus="CodVamal_GotKeyboardFocus" MouseUp="CodVamal_MouseUp" Background="#FFFFEB6C" PreviewLostKeyboardFocus="CodVamal_PreviewLostKeyboardFocus"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -297,42 +297,42 @@
                     <DataGridTemplateColumn Header=" Valoare &#x0a;  Fiscala" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding ValoareFiscala,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus"></TextBox>
+                                <TextBox Text="{Binding ValoareFiscala,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" Background="#FFFFEB6C"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Valoarea &#x0a;   Statistica" Width="SizeToCells" IsReadOnly="True" MinWidth="70">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding ValoareStatistica,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" PreviewTextInput="TextBox_PreviewTextInput_3"></TextBox>
+                                <TextBox Text="{Binding ValoareStatistica,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" PreviewTextInput="TextBox_PreviewTextInput_3"  Background="#FFFFEB6C"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="    Tara &#x0a;  Origine" Width="SizeToCells" IsReadOnly="True" MinWidth="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox x:Name="taraOrig" Text="{Binding TaraOrigine,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="Tari_MouseDoubleClickAsync" PreviewKeyDown="TaraOrig_PreviewKeyDown" TextChanged="TaraOrig_TextChanged" PreviewLostKeyboardFocus="TaraOrig_PreviewLostKeyboardFocus" ></TextBox>
+                                <TextBox x:Name="taraOrig" Text="{Binding TaraOrigine,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="Tari_MouseDoubleClickAsync" PreviewKeyDown="TaraOrig_PreviewKeyDown" TextChanged="TaraOrig_TextChanged" PreviewLostKeyboardFocus="TaraOrig_PreviewLostKeyboardFocus"  Background="#FFFFEB6C"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Tara &#x0a;Export" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox x:Name="taraExport" Text="{Binding TaraExport,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="Tari_MouseDoubleClickAsync" TextChanged="TaraExport_TextChanged" PreviewKeyDown="TaraExport_PreviewKeyDown" PreviewLostKeyboardFocus="TaraExport_PreviewLostKeyboardFocus"></TextBox>
+                                <TextBox x:Name="taraExport" Text="{Binding TaraExport,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="Tari_MouseDoubleClickAsync" TextChanged="TaraExport_TextChanged" PreviewKeyDown="TaraExport_PreviewKeyDown" PreviewLostKeyboardFocus="TaraExport_PreviewLostKeyboardFocus" Background="#FFFFEB6C"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Tara &#x0a;  Dest" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox x:Name="TaraDest" Text="{Binding TaraDestinatie,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" PreviewKeyDown="TaraDest_PreviewKeyDown" TextChanged="TaraDest_TextChanged"></TextBox>
+                                <TextBox x:Name="TaraDest" Text="{Binding TaraDestinatie,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" PreviewKeyDown="TaraDest_PreviewKeyDown" TextChanged="TaraDest_TextChanged" Background="#FFFFEB6C"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="     Net [Kg]" Width="SizeToCells" IsReadOnly="True" MinWidth="90">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding Net,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" PreviewTextInput="TextBox_PreviewTextInput_4"></TextBox>
+                                <TextBox Text="{Binding Net,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" PreviewTextInput="TextBox_PreviewTextInput_4" Background="#FFFFEB6C"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -353,21 +353,21 @@
                     <DataGridTemplateColumn Header="  Nat &#x0a;Tranz" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding NatTranz,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="NatTranz_MouseDoubleClickAsync" PreviewTextInput="TextBox_PreviewTextInput_5"></TextBox>
+                                <TextBox Text="{Binding NatTranz,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="NatTranz_MouseDoubleClickAsync" PreviewTextInput="TextBox_PreviewTextInput_5" Background="#FFFFEB6C"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Cond &#x0a;Livrare" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox x:Name="CondLiv" Text="{Binding CondLivrare,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="CondLiv_MouseDoubleClickAsync"></TextBox>
+                                <TextBox x:Name="CondLiv" Text="{Binding CondLivrare,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="CondLiv_MouseDoubleClickAsync" Background="#FFFFEB6C"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="  Mod &#x0a;Transp" Width="SizeToCells" IsReadOnly="True" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox  x:Name="ModTran" Text="{Binding ModTransp,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="ModTran_MouseDoubleClickAsync" PreviewTextInput="ModTran_PreviewTextInput"></TextBox>
+                                <TextBox  x:Name="ModTran" Text="{Binding ModTransp,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GotKeyboardFocus="Cantitate_GotKeyboardFocus" MouseDoubleClick="ModTran_MouseDoubleClickAsync" PreviewTextInput="ModTran_PreviewTextInput" Background="#FFFFEB6C"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

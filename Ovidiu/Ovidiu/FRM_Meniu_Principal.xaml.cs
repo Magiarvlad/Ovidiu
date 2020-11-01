@@ -334,8 +334,18 @@ namespace Ovidiu
             frm_Preluare_Date_Excel.Show();
         }
 
+        private void _Sterge_Macheta_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Frm_Sterge_Macheta frm_Sterge_Macheta = new Frm_Sterge_Macheta();
+            frm_Sterge_Macheta.Show();
+        }
 
+        private void _Modificare_Macheta_Btn_Click(object sender, RoutedEventArgs e)
+        {
 
+            Frm_Modificare_Macheta frm_Modifcare_Macheta = new Frm_Modificare_Macheta();
+            frm_Modifcare_Macheta.Show();
+        }
         // private void Window_Activated(object sender, EventArgs e)
 
     }

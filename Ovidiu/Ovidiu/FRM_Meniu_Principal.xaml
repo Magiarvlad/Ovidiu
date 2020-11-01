@@ -36,8 +36,8 @@
                             </MenuItem.Icon>
                             <MenuItem Header="_Machete Preluare">
                                 <MenuItem x:Name="_Adauga_Macheta_Btn" Header="_Adauga Macheta" Click="_Adauga_Macheta_Btn_Click"/>
-                                <MenuItem Header="_Modificare Macheta"/>
-                                <MenuItem Header="_Sterge Macheta"/>
+                                <MenuItem x:Name="_Modificare_Macheta_Btn" Header="_Modificare Macheta" Click="_Modificare_Macheta_Btn_Click"/>
+                                <MenuItem x:Name="_Sterge_Macheta_Btn" Header="_Sterge Macheta" Click="_Sterge_Macheta_Btn_Click"/>
                             </MenuItem>
                             <MenuItem x:Name="_Preluare_Fisier_Excel" Header="_Preluare fisier excel" Click="_Preluare_Fisier_Excel_Click"/>
                         </MenuItem>

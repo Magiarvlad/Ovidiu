@@ -463,7 +463,7 @@ namespace Ovidiu
             public string Descriere { get => denumire; set => denumire = value; }
         }
 
-        class Cod_Vamal
+        public class Cod_Vamal
         {
             string cod_8, cod_12, denumire, um;
 

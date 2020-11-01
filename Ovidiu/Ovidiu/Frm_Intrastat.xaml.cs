@@ -40,6 +40,7 @@ namespace Ovidiu
         List<DateCurs> listaCursValutar = new List<DateCurs>();
         string pathCursBNR = FileLocation.System + "CursBNR\\curs.txt";
         List<TARI_UE> listaTari = new List<TARI_UE>();
+        List<Cod_Vamal> _cod_Vamal_list = new List<Cod_Vamal>();
         //ObservableCollection<Judete> lista_Monede = new ObservableCollection<Judete>();
 
         private bool InProg;
@@ -52,8 +53,10 @@ namespace Ovidiu
         public Frm_Intrastat(string tip, string luna, string an, ObservableCollection<Intrastat> listaS = null)
         {
             InProg = true;
-            if(listaS != null)
+            if (listaS != null)
+            {
                 lista = listaS;
+            }
             InitializeComponent();
             cmbTipDeclaratie.SelectedItem = cmbTipDeclaratie.Items[0];
             txtCUI.Text = Firma.CodFiscal;
@@ -69,8 +72,31 @@ namespace Ovidiu
             IncarcaMonede();
             IncarcaCursBNR();
             IncarcaTariUE();
+            IncarcaCoduriVamal("HS_8");
 
             InProg = false;
+        }
+
+        private void IncarcaCoduriVamal(string tableName)
+        {
+            string _oleDBConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data source=" + FileLocation.DataBase + "CN\\" + "CN_" + System.DateTime.Today.Year + ".mdb";
+            OleDbConnection dbConn = new OleDbConnection(_oleDBConnectionString);
+            OleDbCommand dbCommand = null;
+            OleDbDataReader dbReader = null;
+            string dbQuery = string.Empty;
+            dbConn.Open();
+            dbQuery = "SELECT * FROM " + tableName;
+            dbCommand = new OleDbCommand(dbQuery, dbConn);
+            dbReader = dbCommand.ExecuteReader();
+            if (dbReader.HasRows)
+            {
+                while (dbReader.Read())
+                {
+                    if (dbReader[1].ToString() != string.Empty)
+                        _cod_Vamal_list.Add(new Cod_Vamal(dbReader[1].ToString(), "", "", ""));
+                }
+            }
+            dbConn.Close();
         }
 
         private void IncarcaMonede()
@@ -1964,7 +1990,7 @@ namespace Ovidiu
                 if (tara.Cod == text )
                 {
                     existaCod = true;
-                    selectedCell.Background = Brushes.White;
+                    selectedCell.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0xEB, 0x6C));
                     break;
                 }
             }
@@ -1978,6 +2004,30 @@ namespace Ovidiu
         private void TaraExport_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             CheckCountryExists(ref sender, lista[gridIntrastat.SelectedIndex].TaraExport);
+        }
+
+        private void CodVamal_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TextBox selectedCell = sender as TextBox;
+
+            bool existaCod = false;
+            foreach (var cod in _cod_Vamal_list)
+            {
+                if (cod.Cod_8 == lista[gridIntrastat.SelectedIndex].CodVamal)
+                {
+                    existaCod = true;
+                    break;
+                }
+            }
+
+            if (!existaCod)
+            {
+                selectedCell.Background = Brushes.Red;
+            }
+            else
+            {
+                selectedCell.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0xEB, 0x6C));
+            }
         }
     }
 
